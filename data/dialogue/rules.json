@@ -1,0 +1,789 @@
+{
+  "$schema": "../schemas/dialogue_rules.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "tones": [
+    {
+      "surface": "negotiation",
+      "tone": "Hostile",
+      "when": {
+        "all": [
+          {
+            "decision": "reject"
+          },
+          {
+            "hint": "insulted"
+          }
+        ]
+      },
+      "note": "an insulting offer"
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Hostile",
+      "when": {
+        "all": [
+          {
+            "decision": [
+              "reject",
+              "counter_A",
+              "counter_B"
+            ]
+          },
+          {
+            "relation": [
+              "hostile"
+            ]
+          }
+        ]
+      },
+      "note": "they can't stand us"
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Warm",
+      "when": {
+        "all": [
+          {
+            "decision": "reject"
+          },
+          {
+            "relation": [
+              "warm",
+              "grateful"
+            ]
+          }
+        ]
+      },
+      "note": "a friend says no gently"
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Neutral",
+      "when": {
+        "all": [
+          {
+            "decision": "reject"
+          },
+          {
+            "trait": {
+              "name": "pragmatism",
+              "op": ">=",
+              "value": 70
+            }
+          },
+          {
+            "trait": {
+              "name": "pride",
+              "op": "<",
+              "value": 60
+            }
+          }
+        ]
+      },
+      "note": "a pragmatist says no plainly"
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Cold",
+      "when": {
+        "decision": "reject"
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Warm",
+      "when": {
+        "all": [
+          {
+            "decision": "accept"
+          },
+          {
+            "hint": "warm"
+          }
+        ]
+      },
+      "note": "a deal they like"
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Cold",
+      "when": {
+        "all": [
+          {
+            "decision": "accept"
+          },
+          {
+            "relation": [
+              "wary",
+              "resentful"
+            ]
+          }
+        ]
+      },
+      "note": "a grudging yes"
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Neutral",
+      "when": {
+        "decision": "accept"
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Warm",
+      "when": {
+        "all": [
+          {
+            "decision": [
+              "counter_A",
+              "counter_B"
+            ]
+          },
+          {
+            "relation": [
+              "warm",
+              "grateful"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Cold",
+      "when": {
+        "all": [
+          {
+            "decision": [
+              "counter_A",
+              "counter_B"
+            ]
+          },
+          {
+            "any": [
+              {
+                "relation": [
+                  "wary",
+                  "resentful"
+                ]
+              },
+              {
+                "trait": {
+                  "name": "pride",
+                  "op": ">=",
+                  "value": 70
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "note": "proud or wary: a hard counter"
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Neutral",
+      "when": {
+        "decision": [
+          "counter_A",
+          "counter_B"
+        ]
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Neutral",
+      "when": {
+        "all": [
+          {
+            "decision": "stall"
+          },
+          {
+            "relation": [
+              "warm",
+              "grateful"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Evasive",
+      "when": {
+        "decision": "stall"
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Hostile",
+      "when": {
+        "all": [
+          {
+            "decision": "retaliate"
+          },
+          {
+            "relation": [
+              "hostile",
+              "resentful"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Cold",
+      "when": {
+        "decision": "retaliate"
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Warm",
+      "when": {
+        "all": [
+          {
+            "decision": "negotiate"
+          },
+          {
+            "relation": [
+              "warm",
+              "grateful"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Neutral",
+      "when": {
+        "decision": "negotiate"
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Cold",
+      "when": {
+        "all": [
+          {
+            "decision": "absorb"
+          },
+          {
+            "relation": [
+              "hostile",
+              "resentful",
+              "wary"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Neutral",
+      "when": {
+        "decision": "absorb"
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Hostile",
+      "when": {
+        "hint": "offended"
+      },
+      "note": "a warning to a proud leader"
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Cold",
+      "when": {
+        "hint": "fell_flat"
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Warm",
+      "when": {
+        "all": [
+          {
+            "hint": "landed"
+          },
+          {
+            "relation": [
+              "warm",
+              "grateful"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Neutral",
+      "when": {
+        "hint": "landed"
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Hostile",
+      "when": {
+        "hint": "face"
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Cold",
+      "when": {
+        "hint": "patience"
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Cold",
+      "when": {
+        "kind": "demand"
+      },
+      "note": "a demand is never warm"
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Cold",
+      "when": {
+        "relation": [
+          "hostile",
+          "resentful"
+        ]
+      }
+    },
+    {
+      "surface": "negotiation",
+      "tone": "Warm",
+      "when": {
+        "relation": [
+          "warm",
+          "grateful"
+        ]
+      }
+    },
+    {
+      "surface": "message",
+      "tone": "Warm",
+      "when": {
+        "decision": [
+          "reassure",
+          "flatter",
+          "praise"
+        ]
+      }
+    },
+    {
+      "surface": "message",
+      "tone": "Neutral",
+      "when": {
+        "decision": "appeal"
+      }
+    },
+    {
+      "surface": "message",
+      "tone": "Hostile",
+      "when": {
+        "all": [
+          {
+            "decision": [
+              "warn",
+              "demand"
+            ]
+          },
+          {
+            "strength": [
+              "major",
+              "total"
+            ]
+          }
+        ]
+      },
+      "note": "a big warning sounds like a threat"
+    },
+    {
+      "surface": "message",
+      "tone": "Cold",
+      "when": {
+        "decision": [
+          "warn",
+          "demand"
+        ]
+      }
+    },
+    {
+      "surface": "message",
+      "tone": "Hostile",
+      "when": {
+        "decision": "condemn"
+      }
+    },
+    {
+      "surface": "legislature",
+      "tone": "Hostile",
+      "when": {
+        "all": [
+          {
+            "decision": [
+              "oppose",
+              "no",
+              "refuse"
+            ]
+          },
+          {
+            "relation": "hostile"
+          }
+        ]
+      }
+    },
+    {
+      "surface": "legislature",
+      "tone": "Warm",
+      "when": {
+        "all": [
+          {
+            "decision": [
+              "support",
+              "yes",
+              "schedule_now"
+            ]
+          },
+          {
+            "party": "own"
+          }
+        ]
+      },
+      "note": "allies are warm"
+    },
+    {
+      "surface": "legislature",
+      "tone": "Cold",
+      "when": {
+        "decision": [
+          "oppose",
+          "no",
+          "refuse"
+        ]
+      }
+    },
+    {
+      "surface": "legislature",
+      "tone": "Evasive",
+      "when": {
+        "decision": [
+          "abstain",
+          "split",
+          "delay"
+        ]
+      }
+    },
+    {
+      "surface": "legislature",
+      "tone": "Evasive",
+      "when": {
+        "all": [
+          {
+            "decision": "hold_out_for"
+          },
+          {
+            "trait": {
+              "name": "honesty",
+              "op": "<",
+              "value": 50
+            }
+          }
+        ]
+      },
+      "note": "a coy hold-out"
+    },
+    {
+      "surface": "favour",
+      "tone": "Cold",
+      "when": {
+        "decision": "reject"
+      }
+    },
+    {
+      "surface": "favour",
+      "tone": "Warm",
+      "when": {
+        "all": [
+          {
+            "decision": "accept"
+          },
+          {
+            "relation": [
+              "neutral",
+              "warm",
+              "grateful"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "surface": "statement",
+      "tone": "Warm",
+      "when": {
+        "decision": [
+          "praise",
+          "defend_publicly",
+          "support_publicly",
+          "close_ranks",
+          "rally_votes",
+          "frame_favourably",
+          "statement_of_support",
+          "statement_of_confidence",
+          "offer_assistance",
+          "bipartisan_outreach"
+        ]
+      }
+    },
+    {
+      "surface": "statement",
+      "tone": "Hostile",
+      "when": {
+        "decision": [
+          "condemn",
+          "condemn_internationally",
+          "recall_ambassador",
+          "retaliate_in_kind",
+          "call_for_resignation",
+          "push_impeachment",
+          "censure",
+          "criminal_referral",
+          "back_a_challenger",
+          "publish_expose",
+          "call_for_investigation",
+          "blow_the_whistle",
+          "resign_in_protest",
+          "anonymous_op_ed",
+          "organize_protests",
+          "call_strike"
+        ]
+      }
+    },
+    {
+      "surface": "statement",
+      "tone": "Neutral",
+      "when": {
+        "kind": [
+          "court",
+          "rate",
+          "public"
+        ]
+      },
+      "note": "courts, the central bank and the military speak evenly"
+    },
+    {
+      "surface": "statement",
+      "tone": "Hostile",
+      "when": {
+        "all": [
+          {
+            "kind": "leverage"
+          },
+          {
+            "decision": "strike"
+          }
+        ]
+      }
+    },
+    {
+      "surface": "statement",
+      "tone": "Cold"
+    },
+    {
+      "surface": "order",
+      "tone": "Evasive",
+      "when": {
+        "decision": "comply_slowly"
+      }
+    },
+    {
+      "surface": "order",
+      "tone": "Cold",
+      "when": {
+        "decision": [
+          "refuse",
+          "resign"
+        ]
+      }
+    },
+    {
+      "surface": "order",
+      "tone": "Neutral"
+    },
+    {
+      "surface": "staff",
+      "tone": "Warm",
+      "when": {
+        "kind": "hired"
+      }
+    },
+    {
+      "surface": "staff",
+      "tone": "Cold"
+    },
+    {
+      "surface": "briefing",
+      "tone": "Cold",
+      "when": {
+        "alarm": "alarmed"
+      },
+      "note": "alarm makes advice grave"
+    },
+    {
+      "surface": "briefing",
+      "tone": "Neutral"
+    },
+    {
+      "surface": "intel",
+      "tone": "Cold",
+      "when": {
+        "alarm": "alarmed"
+      }
+    },
+    {
+      "surface": "intel",
+      "tone": "Neutral"
+    }
+  ],
+  "buckets": [
+    {
+      "variable": "econ.inflation",
+      "thresholds": [
+        1.5,
+        3.0,
+        5.0
+      ],
+      "keys": [
+        "dialogue.bucket.low",
+        "dialogue.bucket.moderate",
+        "dialogue.bucket.high",
+        "dialogue.bucket.very_high"
+      ]
+    },
+    {
+      "variable": "econ.core_inflation",
+      "thresholds": [
+        1.5,
+        3.0,
+        5.0
+      ],
+      "keys": [
+        "dialogue.bucket.low",
+        "dialogue.bucket.moderate",
+        "dialogue.bucket.high",
+        "dialogue.bucket.very_high"
+      ]
+    },
+    {
+      "variable": "econ.unemployment",
+      "thresholds": [
+        4.0,
+        5.5,
+        7.5
+      ],
+      "keys": [
+        "dialogue.bucket.low",
+        "dialogue.bucket.normal",
+        "dialogue.bucket.high",
+        "dialogue.bucket.very_high"
+      ]
+    },
+    {
+      "variable": "econ.real_growth",
+      "thresholds": [
+        0.0,
+        1.5,
+        3.0
+      ],
+      "keys": [
+        "dialogue.bucket.contracting",
+        "dialogue.bucket.weak",
+        "dialogue.bucket.solid",
+        "dialogue.bucket.strong"
+      ]
+    },
+    {
+      "variable": "econ.gas_price",
+      "thresholds": [
+        3.0,
+        4.0,
+        5.0
+      ],
+      "keys": [
+        "dialogue.bucket.cheap",
+        "dialogue.bucket.normal",
+        "dialogue.bucket.expensive",
+        "dialogue.bucket.very_high"
+      ]
+    },
+    {
+      "variable": "econ.market_stress",
+      "thresholds": [
+        30.0,
+        55.0,
+        75.0
+      ],
+      "keys": [
+        "dialogue.bucket.calm",
+        "dialogue.bucket.tense",
+        "dialogue.bucket.high",
+        "dialogue.bucket.panicked"
+      ]
+    },
+    {
+      "variable": "econ.xdate_days",
+      "thresholds": [
+        21.0,
+        60.0
+      ],
+      "keys": [
+        "dialogue.bucket.imminent",
+        "dialogue.bucket.near",
+        "dialogue.bucket.far"
+      ]
+    },
+    {
+      "variable": "politics.approval",
+      "thresholds": [
+        38.0,
+        45.0,
+        52.0
+      ],
+      "keys": [
+        "dialogue.bucket.unpopular",
+        "dialogue.bucket.divided",
+        "dialogue.bucket.solid",
+        "dialogue.bucket.popular"
+      ]
+    },
+    {
+      "variable": "world.oil_price",
+      "thresholds": [
+        60.0,
+        85.0,
+        110.0
+      ],
+      "keys": [
+        "dialogue.bucket.cheap",
+        "dialogue.bucket.normal",
+        "dialogue.bucket.expensive",
+        "dialogue.bucket.very_high"
+      ]
+    }
+  ]
+}

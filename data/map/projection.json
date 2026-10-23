@@ -1,0 +1,46 @@
+{
+  "name": "miller",
+  "width": 16384,
+  "height": 6912,
+  "north": 72.0,
+  "south": -56.408953,
+  "notes": "Miller cylindrical: x = (lon + 180) / 360 * width; y = (millerY(north) - millerY(lat)) * width / 2\u03c0 with millerY(\u03c6) = 1.25 ln tan(\u03c0/4 + 0.4 \u03c6). Pixel (i, j) covers [i, i+1) \u00d7 [j, j+1). Wraps east-west. Written by tools/pipeline/map/projection.py.",
+  "samples": [
+    {
+      "lon": -180,
+      "lat": 72.0,
+      "x": 0.0,
+      "y": 0.0
+    },
+    {
+      "lon": 0,
+      "lat": 0,
+      "x": 8192.0,
+      "y": 4028.926785
+    },
+    {
+      "lon": -74.006,
+      "lat": 40.7128,
+      "x": 4823.904711,
+      "y": 2067.345557
+    },
+    {
+      "lon": 139.6917,
+      "lat": 35.6895,
+      "x": 14549.52448,
+      "y": 2332.9343
+    },
+    {
+      "lon": 151.2093,
+      "lat": -33.8688,
+      "x": 15073.703253,
+      "y": 5631.221408
+    },
+    {
+      "lon": 179.99,
+      "lat": -56.39895286007694,
+      "x": 16383.544889,
+      "y": 6911.354988
+    }
+  ]
+}

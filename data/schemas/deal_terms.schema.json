@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "deal_terms.schema.json",
+  "title": "DealTermsFile",
+  "type": "object",
+  "properties": {
+    "terms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^term\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "trade",
+              "finance",
+              "energy",
+              "security",
+              "political",
+              "aid"
+            ]
+          },
+          "pledge": {
+            "type": "boolean",
+            "default": false
+          },
+          "symbolic": {
+            "type": "boolean",
+            "default": false
+          },
+          "requires": {
+            "default": null
+          },
+          "violatedIf": {
+            "default": null
+          },
+          "costlyIf": {
+            "default": null
+          },
+          "durationDays": {
+            "type": "integer",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 3650
+          },
+          "cooldownDays": {
+            "type": "integer",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 3650
+          },
+          "valueToGiver": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "input": {
+                  "type": "string"
+                },
+                "weight": {
+                  "type": "number",
+                  "minimum": -200,
+                  "maximum": 200
+                }
+              },
+              "required": [
+                "input",
+                "weight"
+              ],
+              "additionalProperties": false
+            },
+            "default": null
+          },
+          "valueToReceiver": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "$ref": "#/properties/terms/items/properties/valueToGiver/items"
+            },
+            "default": null
+          },
+          "giverStakes": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "number"
+            },
+            "default": null,
+            "propertyNames": {
+              "pattern": "^stake\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+            }
+          },
+          "receiverStakes": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "number"
+            },
+            "default": null,
+            "propertyNames": {
+              "pattern": "^stake\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+            }
+          },
+          "effects": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "nameKey",
+          "category"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "terms"
+  ],
+  "additionalProperties": false
+}

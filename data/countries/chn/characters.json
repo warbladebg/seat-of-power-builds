@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schemas/characters.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Fictional leader (D-009)."
+  },
+  "characters": [
+    {
+      "id": "char.chn.leader",
+      "name": "Gao Weiming",
+      "role": "head_of_state",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 80,
+        "pragmatism": 60,
+        "patience": 85,
+        "hawkishness": 60,
+        "honesty": 40,
+        "loyalty": 60,
+        "ideologicalRigidity": 70,
+        "grudgeHolding": 75,
+        "publicOrientation": 30,
+        "lawfulness": 35
+      },
+      "voice": [
+        "Formal",
+        "Nationalist"
+      ],
+      "titleKey": "title.head_of_state",
+      "competence": 70,
+      "goals": [
+        {
+          "goal": "goal.keep_power",
+          "weight": 1.0
+        },
+        {
+          "goal": "goal.contain_rival:country.usa",
+          "weight": 0.7
+        },
+        {
+          "goal": "goal.grow_economy",
+          "weight": 0.8
+        },
+        {
+          "goal": "goal.national_pride",
+          "weight": 0.6
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "$schema": "../schemas/events.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "The X-Date campaign's events (package 12, tools/pipeline/author_xdate.py)."
+  },
+  "events": [
+    {
+      "id": "event.usa.tax_receipts_surprise",
+      "titleKey": "event.usa.tax_receipts_surprise.title",
+      "textKey": "event.usa.tax_receipts_surprise.text",
+      "scope": "country.usa",
+      "category": "economy",
+      "severity": "Minor",
+      "effects": [
+        {
+          "type": "if",
+          "condition": {
+            "flag": "econ.{country}.april_receipts_strong"
+          },
+          "then": [
+            {
+              "type": "set_flag",
+              "flag": "scenario.xdate.receipts_strong"
+            },
+            {
+              "type": "trigger_event",
+              "event": "event.usa.tax_receipts_strong"
+            }
+          ],
+          "else": [
+            {
+              "type": "if",
+              "condition": {
+                "flag": "econ.{country}.april_receipts_weak"
+              },
+              "then": [
+                {
+                  "type": "set_flag",
+                  "flag": "scenario.xdate.receipts_weak"
+                },
+                {
+                  "type": "trigger_event",
+                  "event": "event.usa.tax_receipts_weak"
+                }
+              ],
+              "else": [
+                {
+                  "type": "set_flag",
+                  "flag": "scenario.xdate.receipts_normal"
+                },
+                {
+                  "type": "trigger_event",
+                  "event": "event.usa.tax_receipts_normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event.usa.tax_receipts_strong",
+      "titleKey": "event.usa.tax_receipts_strong.title",
+      "textKey": "event.usa.tax_receipts_strong.text",
+      "scope": "country.usa",
+      "category": "economy",
+      "severity": "Minor",
+      "autoPause": false,
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": -4,
+          "curve": {
+            "ramp": 1,
+            "hold": 7,
+            "decay": 14
+          }
+        }
+      ]
+    },
+    {
+      "id": "event.usa.tax_receipts_weak",
+      "titleKey": "event.usa.tax_receipts_weak.title",
+      "textKey": "event.usa.tax_receipts_weak.text",
+      "scope": "country.usa",
+      "category": "economy",
+      "severity": "Major",
+      "autoPause": true,
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 6,
+          "curve": {
+            "ramp": 1,
+            "hold": 7,
+            "decay": 14
+          }
+        }
+      ]
+    },
+    {
+      "id": "event.usa.tax_receipts_normal",
+      "titleKey": "event.usa.tax_receipts_normal.title",
+      "textKey": "event.usa.tax_receipts_normal.text",
+      "scope": "country.usa",
+      "category": "economy",
+      "severity": "Minor",
+      "autoPause": false
+    }
+  ]
+}

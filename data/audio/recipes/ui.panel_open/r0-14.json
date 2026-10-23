@@ -1,0 +1,30 @@
+{
+  "cue": "ui.panel_open",
+  "round": "r0",
+  "option": 14,
+  "family": "G. Glass / digital",
+  "label": "clean digital double tick",
+  "seed": 14,
+  "loudness": -24,
+  "tail": 0.03,
+  "layers": [
+    {
+      "type": "tone",
+      "at": 0.0,
+      "freq": 2800,
+      "env": {
+        "a": 0.0005,
+        "d": 0.022
+      }
+    },
+    {
+      "type": "tone",
+      "at": 0.038,
+      "freq": 3700,
+      "env": {
+        "a": 0.0005,
+        "d": 0.03
+      }
+    }
+  ]
+}

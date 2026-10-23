@@ -1,0 +1,4 @@
+SeatOfPower.exe filter=lfs diff=lfs merge=lfs -text
+data/map/heightmap.png filter=lfs diff=lfs merge=lfs -text
+* -text
+

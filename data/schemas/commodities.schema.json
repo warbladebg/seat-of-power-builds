@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "commodities.schema.json",
+  "title": "CommoditiesFile",
+  "type": "object",
+  "properties": {
+    "commodities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^commodity\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "unit": {
+            "type": "string"
+          },
+          "startPrice": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "id",
+          "nameKey",
+          "unit",
+          "startPrice"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "commodities"
+  ],
+  "additionalProperties": false
+}

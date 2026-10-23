@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "analysts.schema.json",
+  "title": "AnalystsFile",
+  "type": "object",
+  "properties": {
+    "analysts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^analyst\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "country": {
+            "type": "string",
+            "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "everyDays": {
+            "type": "integer",
+            "default": 21,
+            "minimum": 1,
+            "maximum": 120
+          },
+          "offsetDays": {
+            "type": "integer",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 120
+          },
+          "skill": {
+            "type": "number",
+            "default": 50,
+            "minimum": 0,
+            "maximum": 100
+          },
+          "alarmism": {
+            "type": "number",
+            "default": 0,
+            "minimum": -50,
+            "maximum": 50
+          },
+          "marketWeight": {
+            "type": "number",
+            "default": 0.5,
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "required": [
+          "id",
+          "nameKey",
+          "country"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "analysts"
+  ],
+  "additionalProperties": false
+}

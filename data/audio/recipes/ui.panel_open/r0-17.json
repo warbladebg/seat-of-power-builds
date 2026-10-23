@@ -1,0 +1,70 @@
+{
+  "cue": "ui.panel_open",
+  "round": "r0",
+  "option": 17,
+  "family": "Mix C + B",
+  "label": "whoosh that lands on a tiny switch click",
+  "seed": 17,
+  "loudness": -23,
+  "tail": 0.03,
+  "layers": [
+    {
+      "type": "noise",
+      "color": "pink",
+      "env": {
+        "a": 0.12,
+        "ac": 2.0,
+        "d": 0.12
+      },
+      "gain": -4,
+      "filter": {
+        "type": "bandpass",
+        "freq": 350,
+        "freqEnd": 2400,
+        "sweep": 0.15,
+        "q": 1.4
+      }
+    },
+    {
+      "type": "noise",
+      "at": 0.14,
+      "env": {
+        "a": 0.0003,
+        "d": 0.01
+      },
+      "filter": {
+        "type": "bandpass",
+        "freq": 3400,
+        "q": 1.4
+      },
+      "gain": -2
+    },
+    {
+      "type": "tone",
+      "at": 0.14,
+      "freq": 2150,
+      "partials": [
+        [
+          1,
+          1,
+          0.025
+        ],
+        [
+          1.71,
+          0.6,
+          0.015
+        ]
+      ],
+      "env": {
+        "a": 0.0003,
+        "d": 0.03
+      },
+      "gain": -12
+    }
+  ],
+  "room": {
+    "size": 0.25,
+    "mix": 0.12,
+    "damp": 5000
+  }
+}

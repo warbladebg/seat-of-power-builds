@@ -1,0 +1,3 @@
+Godot Engine is used under the MIT licence.
+Copyright (c) 2014-present Godot Engine contributors. Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+Full text and third-party notices: https://godotengine.org/license

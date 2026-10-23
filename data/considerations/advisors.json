@@ -1,0 +1,77 @@
+{
+  "$schema": "../schemas/considerations.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "considerations": [
+    {
+      "id": "consideration.advice.value",
+      "input": "advice.value",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.5,
+        "steepness": 8,
+        "min": 0.05
+      },
+      "weight": 3,
+      "scaleByTrait": "pragmatism"
+    },
+    {
+      "id": "consideration.advice.faction",
+      "input": "advice.faction",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 0.8,
+      "scaleByTrait": "ideologicalRigidity"
+    },
+    {
+      "id": "consideration.advice.safety",
+      "input": "advice.safety",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.2
+    },
+    {
+      "id": "consideration.advice.caution",
+      "input": "advice.safety",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.6,
+        "steepness": 6,
+        "min": 0.3
+      },
+      "weight": 0.6,
+      "scaleByTrait": "patience"
+    },
+    {
+      "id": "consideration.advice.popular",
+      "input": "advice.popular",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.6,
+      "scaleByTrait": "publicOrientation"
+    },
+    {
+      "id": "consideration.advice.pleasing",
+      "input": "advice.popular",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.6,
+        "max": 1
+      },
+      "weight": 0.4,
+      "scaleByTrait": "loyalty"
+    }
+  ]
+}

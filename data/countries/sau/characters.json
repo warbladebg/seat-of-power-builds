@@ -1,0 +1,49 @@
+{
+  "$schema": "../../schemas/characters.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Fictional leader (D-009)."
+  },
+  "characters": [
+    {
+      "id": "char.sau.leader",
+      "name": "Hamad Al-Zahrani",
+      "role": "head_of_government",
+      "personality": {
+        "riskTolerance": 50,
+        "pride": 75,
+        "pragmatism": 70,
+        "patience": 60,
+        "hawkishness": 55,
+        "honesty": 45,
+        "loyalty": 55,
+        "ideologicalRigidity": 55,
+        "grudgeHolding": 65,
+        "publicOrientation": 25,
+        "lawfulness": 40
+      },
+      "voice": [
+        "Formal",
+        "Evasive"
+      ],
+      "titleKey": "title.prime_minister",
+      "competence": 70,
+      "goals": [
+        {
+          "goal": "goal.keep_power",
+          "weight": 1.0
+        },
+        {
+          "goal": "goal.oil_revenue",
+          "weight": 0.8
+        },
+        {
+          "goal": "goal.security",
+          "weight": 0.6
+        }
+      ]
+    }
+  ]
+}

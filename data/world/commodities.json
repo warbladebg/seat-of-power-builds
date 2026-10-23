@@ -1,0 +1,19 @@
+{
+  "$schema": "../schemas/commodities.schema.json",
+  "meta": {
+    "sources": [
+      "src.worldbank_pinksheet"
+    ],
+    "notes": "Brent monthly average from the latest Pink Sheet before the snapshot."
+  },
+  "commodities": [
+    {
+      "id": "commodity.oil",
+      "nameKey": "commodity.oil.name",
+      "unit": "usd_per_bbl",
+      "startPrice": {
+        "$ref": "generated:wb.commodity.brent_usd_per_bbl"
+      }
+    }
+  ]
+}

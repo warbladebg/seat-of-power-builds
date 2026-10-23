@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/country.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "id": "country.can",
+  "depth": "Light",
+  "nameKey": "country.can.name",
+  "iso3": "CAN",
+  "entityType": "Country",
+  "regimeType": "LiberalDemocracy",
+  "currency": "CAD",
+  "capitalKey": "country.can.capital",
+  "mapColor": "#C2272D",
+  "leaderCharacterId": "char.can.leader"
+}

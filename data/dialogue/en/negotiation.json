@@ -1,0 +1,2742 @@
+{
+  "$schema": "../../schemas/dialogue.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "templates": [
+    {
+      "id": "dlg.negotiation.reply",
+      "surface": "negotiation",
+      "point": "dp.respond_to_offer",
+      "variables": [
+        "terms",
+        "rounds_left"
+      ],
+      "optional": [
+        "red_line",
+        "top_demand",
+        "term_they_dislike",
+        "pressure"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Warm",
+            "Neutral",
+            "Cold"
+          ],
+          "decisions": [
+            "accept"
+          ]
+        },
+        {
+          "tones": [
+            "Hostile",
+            "Warm",
+            "Cold",
+            "Neutral"
+          ],
+          "decisions": [
+            "reject",
+            "counter_A",
+            "counter_B"
+          ]
+        },
+        {
+          "tones": [
+            "Evasive",
+            "Neutral"
+          ],
+          "decisions": [
+            "stall"
+          ]
+        }
+      ],
+      "notes": "A counterpart's answer to an offer. {terms} is the offer on the table; {top_demand} what they ask instead; {term_they_dislike} the term that costs them most; {red_line} their in-character refusal.",
+      "lines": [
+        {
+          "id": "accept.warm.1",
+          "text": "We have a deal, {counterpart_title}. My people will be glad of it, and so am I.",
+          "when": {
+            "decision": "accept"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "accept.warm.2",
+          "text": "Agreed. I hope this is the first of many.",
+          "when": {
+            "decision": "accept"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "accept.warm.3",
+          "text": "This is a good day for both our countries. We accept.",
+          "when": {
+            "decision": "accept"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "accept.warm.diplomatic.1",
+          "text": "I am pleased to say we accept. Let our ministers draw up the text tonight.",
+          "when": {
+            "decision": "accept"
+          },
+          "voice": [
+            "Diplomatic"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "accept.warm.folksy.1",
+          "text": "Well, that's a handshake, then. Good doing business with you, {counterpart_title}.",
+          "when": {
+            "decision": "accept"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "accept.warm.formal.1",
+          "text": "On behalf of my government, I accept your proposal with pleasure.",
+          "when": {
+            "decision": "accept"
+          },
+          "voice": [
+            "Formal"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "accept.warm.technocrat.1",
+          "text": "The numbers work for both of us. We accept, and our officials can start tomorrow.",
+          "when": {
+            "decision": "accept"
+          },
+          "voice": [
+            "Technocrat"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "accept.warm.4",
+          "text": "A good start between us, {counterpart_title}. We accept.",
+          "when": {
+            "all": [
+              {
+                "decision": "accept"
+              },
+              {
+                "first_meeting": true
+              }
+            ]
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "accept.neutral.1",
+          "text": "We accept. Our officials will be in touch about the details.",
+          "when": {
+            "decision": "accept"
+          }
+        },
+        {
+          "id": "accept.neutral.2",
+          "text": "Very well. We can live with {terms}.",
+          "when": {
+            "decision": "accept"
+          }
+        },
+        {
+          "id": "accept.neutral.3",
+          "text": "Agreed. Let's put it in writing before anyone changes their mind.",
+          "when": {
+            "decision": "accept"
+          }
+        },
+        {
+          "id": "accept.neutral.market.1",
+          "text": "It's a reasonable trade. We'll take it.",
+          "when": {
+            "decision": "accept"
+          },
+          "voice": [
+            "Market",
+            "Technocrat"
+          ]
+        },
+        {
+          "id": "accept.neutral.evasive.1",
+          "text": "We can accept this, in the form you've put it. Let us leave it there for now.",
+          "when": {
+            "decision": "accept"
+          },
+          "voice": [
+            "Evasive"
+          ]
+        },
+        {
+          "id": "accept.neutral.formal.1",
+          "text": "My government accepts the terms as proposed.",
+          "when": {
+            "decision": "accept"
+          },
+          "voice": [
+            "Formal"
+          ]
+        },
+        {
+          "id": "accept.neutral.4",
+          "text": "With {pressure}, this agreement helps me at home. We accept.",
+          "when": {
+            "all": [
+              {
+                "decision": "accept"
+              },
+              {
+                "has": "pressure"
+              }
+            ]
+          }
+        },
+        {
+          "id": "accept.cold.1",
+          "text": "We accept. Do not mistake that for gratitude.",
+          "when": {
+            "decision": "accept"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "accept.cold.2",
+          "text": "Fine. We will hold you to every word of it.",
+          "when": {
+            "decision": "accept"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "accept.cold.formal.1",
+          "text": "We accept, {counterpart_title}. Our wider differences remain, and we will raise them in due course.",
+          "when": {
+            "decision": "accept"
+          },
+          "voice": [
+            "Formal",
+            "Diplomatic"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "accept.cold.nationalist.1",
+          "text": "We accept because it serves {speaker_country}, not because you asked.",
+          "when": {
+            "decision": "accept"
+          },
+          "voice": [
+            "Nationalist"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "accept.cold.blunt.1",
+          "text": "Deal. But my patience with Washington is thinner than it looks.",
+          "when": {
+            "decision": "accept"
+          },
+          "voice": [
+            "Blunt",
+            "Folksy"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "reject.warm.1",
+          "text": "I wish I could say yes, {counterpart_title}. Not to this, not yet. Let's keep talking.",
+          "when": {
+            "decision": "reject"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "reject.warm.2",
+          "text": "You know I value our friendship. That's why I won't pretend this works for us.",
+          "when": {
+            "decision": "reject"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "reject.warm.technocrat.1",
+          "text": "My friend, our analysis says this costs us more than it gains. Not this time.",
+          "when": {
+            "decision": "reject"
+          },
+          "voice": [
+            "Technocrat"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "reject.warm.diplomatic.1",
+          "text": "With the greatest respect, we must decline. The door stays open.",
+          "when": {
+            "decision": "reject"
+          },
+          "voice": [
+            "Diplomatic"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "reject.warm.folksy.1",
+          "text": "I'd love to help you out here, I really would. But my people would run me out of town.",
+          "when": {
+            "decision": "reject"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "reject.warm.3",
+          "text": "{red_line} I hope you understand. Everything else, we can discuss.",
+          "when": {
+            "all": [
+              {
+                "decision": "reject"
+              },
+              {
+                "has": "red_line"
+              }
+            ]
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "reject.neutral.1",
+          "text": "We can't accept this as it stands.",
+          "when": {
+            "decision": "reject"
+          }
+        },
+        {
+          "id": "reject.neutral.2",
+          "text": "No. It doesn't work for us, and I'd rather say so plainly.",
+          "when": {
+            "decision": "reject"
+          }
+        },
+        {
+          "id": "reject.neutral.nationalist.1",
+          "text": "{speaker_country} looks after its own interests first. This doesn't serve them. No.",
+          "when": {
+            "decision": "reject"
+          },
+          "voice": [
+            "Nationalist"
+          ]
+        },
+        {
+          "id": "reject.neutral.technocrat.1",
+          "text": "We ran the numbers. Our costs outweigh what we would get. We decline.",
+          "when": {
+            "decision": "reject"
+          },
+          "voice": [
+            "Technocrat"
+          ]
+        },
+        {
+          "id": "reject.neutral.market.1",
+          "text": "The price isn't right. We'll pass.",
+          "when": {
+            "decision": "reject"
+          },
+          "voice": [
+            "Market",
+            "Folksy"
+          ]
+        },
+        {
+          "id": "reject.neutral.formal.1",
+          "text": "My government has considered your proposal and must decline it.",
+          "when": {
+            "decision": "reject"
+          },
+          "voice": [
+            "Formal"
+          ]
+        },
+        {
+          "id": "reject.neutral.3",
+          "text": "{red_line} Take that out and we can talk about the rest.",
+          "when": {
+            "all": [
+              {
+                "decision": "reject"
+              },
+              {
+                "has": "red_line"
+              }
+            ]
+          }
+        },
+        {
+          "id": "reject.neutral.4",
+          "text": "With {pressure}, I can't be seen to give this away.",
+          "when": {
+            "all": [
+              {
+                "decision": "reject"
+              },
+              {
+                "has": "pressure"
+              }
+            ]
+          }
+        },
+        {
+          "id": "reject.neutral.5",
+          "text": "Our first conversation, and already a disagreement. No, but let's keep talking.",
+          "when": {
+            "all": [
+              {
+                "decision": "reject"
+              },
+              {
+                "first_meeting": true
+              }
+            ]
+          }
+        },
+        {
+          "id": "reject.neutral.6",
+          "text": "{term_they_dislike}? My cabinet would never agree to it. No.",
+          "when": {
+            "all": [
+              {
+                "decision": "reject"
+              },
+              {
+                "has": "term_they_dislike"
+              }
+            ]
+          }
+        },
+        {
+          "id": "reject.cold.1",
+          "text": "No. And I'm surprised you thought we might agree.",
+          "when": {
+            "decision": "reject"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "reject.cold.2",
+          "text": "That isn't an offer, {counterpart_title}. It's a list of what you want.",
+          "when": {
+            "decision": "reject"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "reject.cold.formal.1",
+          "text": "We must decline. When there is a serious offer, we will be ready to consider it.",
+          "when": {
+            "decision": "reject"
+          },
+          "voice": [
+            "Formal",
+            "Diplomatic"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "reject.cold.nationalist.1",
+          "text": "{speaker_country} will not sign this. Our interests are not for sale at that price.",
+          "when": {
+            "decision": "reject"
+          },
+          "voice": [
+            "Nationalist"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "reject.cold.blunt.1",
+          "text": "No. Next.",
+          "when": {
+            "decision": "reject"
+          },
+          "voice": [
+            "Blunt",
+            "Nationalist"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "reject.cold.evasive.1",
+          "text": "We don't think this is the moment for an agreement of this kind.",
+          "when": {
+            "decision": "reject"
+          },
+          "voice": [
+            "Evasive"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "reject.cold.3",
+          "text": "{red_line} That part of your offer is not up for discussion.",
+          "when": {
+            "all": [
+              {
+                "decision": "reject"
+              },
+              {
+                "has": "red_line"
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "reject.cold.4",
+          "text": "We've gone round in circles for too long. The answer is still no.",
+          "when": {
+            "all": [
+              {
+                "decision": "reject"
+              },
+              {
+                "round": {
+                  "op": ">=",
+                  "value": 3
+                }
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "reject.hostile.1",
+          "text": "This is an insult to {speaker_country}, and you know it.",
+          "when": {
+            "decision": "reject"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "reject.hostile.2",
+          "text": "You bring us this and call it a negotiation? We are done for today.",
+          "when": {
+            "decision": "reject"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "reject.hostile.formal.1",
+          "text": "My government regards this proposal as an affront. It is rejected.",
+          "when": {
+            "decision": "reject"
+          },
+          "voice": [
+            "Formal"
+          ],
+          "tone": "Hostile"
+        },
+        {
+          "id": "reject.hostile.nationalist.1",
+          "text": "We were not born yesterday, {counterpart_title}. Take this offer home with you.",
+          "when": {
+            "decision": "reject"
+          },
+          "voice": [
+            "Nationalist"
+          ],
+          "tone": "Hostile"
+        },
+        {
+          "id": "reject.hostile.combative.1",
+          "text": "Is this a joke? Because nobody in my government is laughing.",
+          "when": {
+            "decision": "reject"
+          },
+          "voice": [
+            "Combative",
+            "Folksy"
+          ],
+          "tone": "Hostile"
+        },
+        {
+          "id": "reject.hostile.3",
+          "text": "{red_line} You knew that before you came.",
+          "when": {
+            "all": [
+              {
+                "decision": "reject"
+              },
+              {
+                "has": "red_line"
+              }
+            ]
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "counter_A.warm.1",
+          "text": "I like where this is going. Give me a little more and I can sell it at home.",
+          "when": {
+            "decision": "counter_A"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "counter_A.warm.2",
+          "text": "Nearly there. Find something more for us and we'll meet you.",
+          "when": {
+            "decision": "counter_A"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "counter_A.warm.folksy.1",
+          "text": "We're almost there, friend. Throw in a little more and we'll shake on it.",
+          "when": {
+            "decision": "counter_A"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "counter_A.warm.3",
+          "text": "We're close, {counterpart_title}. Add {top_demand} and I think we can shake on it.",
+          "when": {
+            "all": [
+              {
+                "decision": "counter_A"
+              },
+              {
+                "has": "top_demand"
+              }
+            ]
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "counter_A.warm.diplomatic.1",
+          "text": "This is a good basis. With one more gesture from your side, we can conclude.",
+          "when": {
+            "decision": "counter_A"
+          },
+          "voice": [
+            "Diplomatic"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "counter_A.neutral.1",
+          "text": "We need more than this.",
+          "when": {
+            "decision": "counter_A"
+          }
+        },
+        {
+          "id": "counter_A.neutral.2",
+          "text": "It's a start. It isn't enough yet.",
+          "when": {
+            "decision": "counter_A"
+          }
+        },
+        {
+          "id": "counter_A.neutral.formal.1",
+          "text": "We see merit in your proposal. It would benefit from a further contribution on your side.",
+          "when": {
+            "decision": "counter_A"
+          },
+          "voice": [
+            "Formal",
+            "Diplomatic"
+          ]
+        },
+        {
+          "id": "counter_A.neutral.3",
+          "text": "We need more than this. {top_demand} would make the difference.",
+          "when": {
+            "all": [
+              {
+                "decision": "counter_A"
+              },
+              {
+                "has": "top_demand"
+              }
+            ]
+          }
+        },
+        {
+          "id": "counter_A.neutral.4",
+          "text": "We can work with most of this. But {term_they_dislike} is a problem at home.",
+          "when": {
+            "all": [
+              {
+                "decision": "counter_A"
+              },
+              {
+                "has": "term_they_dislike"
+              }
+            ]
+          }
+        },
+        {
+          "id": "counter_A.neutral.technocrat.1",
+          "text": "On our numbers the package falls short. Close the gap and we can agree.",
+          "when": {
+            "decision": "counter_A"
+          },
+          "voice": [
+            "Technocrat"
+          ]
+        },
+        {
+          "id": "counter_A.neutral.market.1",
+          "text": "Good opening. Now let's talk about the real price.",
+          "when": {
+            "decision": "counter_A"
+          },
+          "voice": [
+            "Market",
+            "Technocrat"
+          ]
+        },
+        {
+          "id": "counter_A.neutral.5",
+          "text": "You know about {pressure}. I need something I can show at home.",
+          "when": {
+            "all": [
+              {
+                "decision": "counter_A"
+              },
+              {
+                "has": "pressure"
+              }
+            ]
+          }
+        },
+        {
+          "id": "counter_A.cold.1",
+          "text": "You want a lot and offer little. Sweeten it.",
+          "when": {
+            "decision": "counter_A"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "counter_A.cold.2",
+          "text": "Not enough. You know what we need.",
+          "when": {
+            "decision": "counter_A"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "counter_A.cold.evasive.1",
+          "text": "When the offer reflects our interests, we will consider it. Not before.",
+          "when": {
+            "decision": "counter_A"
+          },
+          "voice": [
+            "Evasive",
+            "Formal"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "counter_A.cold.3",
+          "text": "Add {top_demand}, then we'll talk.",
+          "when": {
+            "all": [
+              {
+                "decision": "counter_A"
+              },
+              {
+                "has": "top_demand"
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "counter_A.cold.nationalist.1",
+          "text": "{speaker_country} gives nothing for free. Show us you mean it.",
+          "when": {
+            "decision": "counter_A"
+          },
+          "voice": [
+            "Nationalist"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "counter_A.cold.4",
+          "text": "We've gone back and forth long enough. One more move from you, or we're done.",
+          "when": {
+            "all": [
+              {
+                "decision": "counter_A"
+              },
+              {
+                "round": {
+                  "op": ">=",
+                  "value": 3
+                }
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "counter_A.hostile.1",
+          "text": "After everything, you come with this? Double it, or don't come back.",
+          "when": {
+            "decision": "counter_A"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "counter_A.hostile.2",
+          "text": "You'll have to do far better than this, {counterpart_title}. Far better.",
+          "when": {
+            "decision": "counter_A"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "counter_A.hostile.nationalist.1",
+          "text": "Our people remember how Washington has treated us. This doesn't begin to make up for it.",
+          "when": {
+            "decision": "counter_A"
+          },
+          "voice": [
+            "Nationalist"
+          ],
+          "tone": "Hostile"
+        },
+        {
+          "id": "counter_B.warm.1",
+          "text": "Let's find the middle. Here is what we can do.",
+          "when": {
+            "decision": "counter_B"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "counter_B.warm.2",
+          "text": "I think there's a deal here. Look at our version and tell me it isn't fair.",
+          "when": {
+            "decision": "counter_B"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "counter_B.warm.diplomatic.1",
+          "text": "We have taken a step toward you. We trust you will take one toward us.",
+          "when": {
+            "decision": "counter_B"
+          },
+          "voice": [
+            "Diplomatic",
+            "Formal"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "counter_B.warm.folksy.1",
+          "text": "Meet me halfway on this and we'll both go home happy.",
+          "when": {
+            "decision": "counter_B"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "counter_B.neutral.1",
+          "text": "We have a counter-proposal. It keeps most of what you asked for.",
+          "when": {
+            "decision": "counter_B"
+          }
+        },
+        {
+          "id": "counter_B.neutral.2",
+          "text": "Here's what works for us. Take it back to your people.",
+          "when": {
+            "decision": "counter_B"
+          }
+        },
+        {
+          "id": "counter_B.neutral.3",
+          "text": "We can't do it your way. We can do it this way.",
+          "when": {
+            "decision": "counter_B"
+          }
+        },
+        {
+          "id": "counter_B.neutral.4",
+          "text": "Remove {term_they_dislike}, add {top_demand}, and I can sell it.",
+          "when": {
+            "all": [
+              {
+                "decision": "counter_B"
+              },
+              {
+                "has": "term_they_dislike"
+              },
+              {
+                "has": "top_demand"
+              }
+            ]
+          }
+        },
+        {
+          "id": "counter_B.neutral.5",
+          "text": "{red_line} So here are our terms, without it.",
+          "when": {
+            "all": [
+              {
+                "decision": "counter_B"
+              },
+              {
+                "has": "red_line"
+              }
+            ]
+          }
+        },
+        {
+          "id": "counter_B.neutral.technocrat.1",
+          "text": "We've reworked the terms so both sides' numbers balance. Have a look.",
+          "when": {
+            "decision": "counter_B"
+          },
+          "voice": [
+            "Technocrat"
+          ]
+        },
+        {
+          "id": "counter_B.neutral.diplomatic.1",
+          "text": "We propose a different balance. I believe you'll find it reasonable.",
+          "when": {
+            "decision": "counter_B"
+          },
+          "voice": [
+            "Diplomatic"
+          ]
+        },
+        {
+          "id": "counter_B.cold.1",
+          "text": "Our terms are on the table. They're better than you deserve.",
+          "when": {
+            "decision": "counter_B"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "counter_B.cold.2",
+          "text": "This is our offer. Take it or leave it.",
+          "when": {
+            "decision": "counter_B"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "counter_B.cold.blunt.1",
+          "text": "We've made our counter-proposal. I won't negotiate against myself.",
+          "when": {
+            "decision": "counter_B"
+          },
+          "voice": [
+            "Blunt",
+            "Nationalist"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "counter_B.cold.formal.1",
+          "text": "Our position is set out in the attached terms. We await your reply.",
+          "when": {
+            "decision": "counter_B"
+          },
+          "voice": [
+            "Formal"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "counter_B.cold.3",
+          "text": "{red_line} Our terms leave it out. Take them or leave them.",
+          "when": {
+            "all": [
+              {
+                "decision": "counter_B"
+              },
+              {
+                "has": "red_line"
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "counter_B.hostile.1",
+          "text": "Here are our terms. Don't bother coming back with less.",
+          "when": {
+            "decision": "counter_B"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "counter_B.hostile.2",
+          "text": "You've wasted enough of our time. These are the terms.",
+          "when": {
+            "decision": "counter_B"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "counter_B.hostile.nationalist.1",
+          "text": "{speaker_country} has moved once. It will not move again.",
+          "when": {
+            "decision": "counter_B"
+          },
+          "voice": [
+            "Nationalist",
+            "Combative"
+          ],
+          "tone": "Hostile"
+        },
+        {
+          "id": "stall.evasive.1",
+          "text": "We need more time to study this.",
+          "when": {
+            "decision": "stall"
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "stall.evasive.2",
+          "text": "There are many views in my government. Let me consult.",
+          "when": {
+            "decision": "stall"
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "stall.evasive.technocrat.1",
+          "text": "Our experts need to model this before we can answer.",
+          "when": {
+            "decision": "stall"
+          },
+          "voice": [
+            "Technocrat"
+          ],
+          "tone": "Evasive"
+        },
+        {
+          "id": "stall.evasive.evasive.1",
+          "text": "These are complex matters, {counterpart_title}. Patience serves us both.",
+          "when": {
+            "decision": "stall"
+          },
+          "voice": [
+            "Evasive"
+          ],
+          "tone": "Evasive"
+        },
+        {
+          "id": "stall.evasive.diplomatic.1",
+          "text": "Allow us some time. Hasty answers make poor agreements.",
+          "when": {
+            "decision": "stall"
+          },
+          "voice": [
+            "Diplomatic"
+          ],
+          "tone": "Evasive"
+        },
+        {
+          "id": "stall.evasive.3",
+          "text": "Again you ask, and again I need time. Do not read too much into it.",
+          "when": {
+            "all": [
+              {
+                "decision": "stall"
+              },
+              {
+                "round": {
+                  "op": ">=",
+                  "value": 3
+                }
+              }
+            ]
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "stall.neutral.1",
+          "text": "Give us a few days. I want to get this right.",
+          "when": {
+            "decision": "stall"
+          }
+        },
+        {
+          "id": "stall.neutral.2",
+          "text": "My ministers need to look at this properly. We'll come back to you.",
+          "when": {
+            "decision": "stall"
+          }
+        },
+        {
+          "id": "stall.neutral.folksy.1",
+          "text": "Let me sleep on it. A good deal can wait a day or two.",
+          "when": {
+            "decision": "stall"
+          },
+          "voice": [
+            "Folksy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg.negotiation.opening",
+      "surface": "negotiation",
+      "optional": [
+        "pressure"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Warm",
+            "Neutral",
+            "Cold"
+          ]
+        }
+      ],
+      "notes": "A counterpart opening a session of talks.",
+      "lines": [
+        {
+          "id": "any.warm.1",
+          "text": "Good to see you again, {counterpart_title}. Let's get something done.",
+          "tone": "Warm"
+        },
+        {
+          "id": "any.warm.2",
+          "text": "Welcome. Whatever we decide today, I'm glad we're talking.",
+          "tone": "Warm"
+        },
+        {
+          "id": "any.warm.folksy.1",
+          "text": "My friend. Sit down, let's see what we can build.",
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "any.warm.formal.1",
+          "text": "It is always a pleasure. Shall we begin?",
+          "voice": [
+            "Formal"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "any.neutral.1",
+          "text": "Let's begin. I've read your note, and I have questions."
+        },
+        {
+          "id": "any.neutral.2",
+          "text": "Thank you for coming. Shall we start with what you need?"
+        },
+        {
+          "id": "any.neutral.formal.1",
+          "text": "Welcome, {counterpart_title}. My delegation is ready to begin.",
+          "voice": [
+            "Formal",
+            "Diplomatic"
+          ]
+        },
+        {
+          "id": "any.neutral.3",
+          "text": "We have not dealt with each other before. I hope we start well.",
+          "when": {
+            "first_meeting": true
+          }
+        },
+        {
+          "id": "any.neutral.4",
+          "text": "I'll be honest: with {pressure}, I have little room. Let's see what's possible.",
+          "when": {
+            "has": "pressure"
+          }
+        },
+        {
+          "id": "any.neutral.technocrat.1",
+          "text": "I have brought my experts. I hope you brought numbers.",
+          "voice": [
+            "Technocrat"
+          ]
+        },
+        {
+          "id": "any.cold.1",
+          "text": "Let's not pretend this is a friendly visit. What do you want?",
+          "tone": "Cold"
+        },
+        {
+          "id": "any.cold.2",
+          "text": "I agreed to talk. That is all I have agreed to.",
+          "tone": "Cold"
+        },
+        {
+          "id": "any.cold.evasive.1",
+          "text": "We are here to listen. We have made no commitments, and we make none today.",
+          "voice": [
+            "Evasive",
+            "Formal"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "any.cold.nationalist.1",
+          "text": "{speaker_country} is here because it chooses to be. Remember that.",
+          "voice": [
+            "Nationalist"
+          ],
+          "tone": "Cold"
+        }
+      ]
+    },
+    {
+      "id": "dlg.negotiation.walk_out",
+      "surface": "negotiation",
+      "expects": [
+        {
+          "tones": [
+            "Cold",
+            "Hostile"
+          ]
+        }
+      ],
+      "notes": "A counterpart leaving talks: lost face (hostile) or lost patience (cold).",
+      "lines": [
+        {
+          "id": "any.cold.1",
+          "text": "We've talked enough. Call me when you have something new.",
+          "tone": "Cold"
+        },
+        {
+          "id": "any.cold.2",
+          "text": "I'm going home. There's nothing more to discuss today.",
+          "tone": "Cold"
+        },
+        {
+          "id": "any.cold.formal.1",
+          "text": "We see no purpose in continuing today. My delegation will withdraw.",
+          "voice": [
+            "Formal",
+            "Diplomatic"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "any.hostile.1",
+          "text": "I won't be humiliated at this table. We're leaving.",
+          "tone": "Hostile"
+        },
+        {
+          "id": "any.hostile.2",
+          "text": "You have made it impossible for me to stay.",
+          "tone": "Hostile"
+        },
+        {
+          "id": "any.hostile.nationalist.1",
+          "text": "Tell Washington that {speaker_country} does not negotiate on its knees.",
+          "voice": [
+            "Nationalist"
+          ],
+          "tone": "Hostile"
+        }
+      ]
+    },
+    {
+      "id": "dlg.negotiation.proposal",
+      "surface": "negotiation",
+      "variables": [
+        "terms"
+      ],
+      "optional": [
+        "top_demand",
+        "pressure"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Warm",
+            "Neutral",
+            "Cold"
+          ],
+          "kinds": [
+            "proposal",
+            "trade_talks",
+            "renegotiation"
+          ]
+        },
+        {
+          "tones": [
+            "Cold"
+          ],
+          "kinds": [
+            "demand"
+          ]
+        }
+      ],
+      "notes": "A counterpart's own proposal, demand, offer of trade talks or request to renegotiate. Kinds: proposal, demand, trade_talks, renegotiation.",
+      "lines": [
+        {
+          "id": "proposal.warm.1",
+          "text": "I have an idea that helps us both: {terms}. What do you think?",
+          "when": {
+            "kind": "proposal"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "proposal.warm.2",
+          "text": "Let's build on what's working. I propose {terms}.",
+          "when": {
+            "kind": "proposal"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "proposal.warm.diplomatic.1",
+          "text": "We'd like to offer you a deal, {counterpart_title}: {terms}.",
+          "when": {
+            "kind": "proposal"
+          },
+          "voice": [
+            "Diplomatic",
+            "Formal"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "proposal.neutral.1",
+          "text": "We have a proposal: {terms}.",
+          "when": {
+            "kind": "proposal"
+          }
+        },
+        {
+          "id": "proposal.neutral.2",
+          "text": "Here's what we suggest: {terms}. It's a fair trade.",
+          "when": {
+            "kind": "proposal"
+          }
+        },
+        {
+          "id": "proposal.neutral.technocrat.1",
+          "text": "Our analysis points to a package that works for both sides: {terms}.",
+          "when": {
+            "kind": "proposal"
+          },
+          "voice": [
+            "Technocrat"
+          ]
+        },
+        {
+          "id": "proposal.neutral.3",
+          "text": "With {pressure} at home, I need a win, and so do you. I propose {terms}.",
+          "when": {
+            "all": [
+              {
+                "kind": "proposal"
+              },
+              {
+                "has": "pressure"
+              }
+            ]
+          }
+        },
+        {
+          "id": "proposal.cold.1",
+          "text": "We have a proposal, and we'd like a quick answer: {terms}.",
+          "when": {
+            "kind": "proposal"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "proposal.cold.2",
+          "text": "Our offer: {terms}. Think about it, but not for long.",
+          "when": {
+            "kind": "proposal"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "proposal.cold.nationalist.1",
+          "text": "Here are our terms: {terms}. It's more than you've offered us.",
+          "when": {
+            "kind": "proposal"
+          },
+          "voice": [
+            "Nationalist"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "demand.cold.1",
+          "text": "We have a request, and we expect it to be taken seriously: {terms}.",
+          "when": {
+            "kind": "demand"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "demand.cold.2",
+          "text": "Let me be direct. We want {terms}.",
+          "when": {
+            "kind": "demand"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "demand.cold.3",
+          "text": "We need this from you: {terms}. We would rather not ask twice.",
+          "when": {
+            "kind": "demand"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "demand.cold.4",
+          "text": "{speaker_country} needs {top_demand}. We would rather not ask twice.",
+          "when": {
+            "all": [
+              {
+                "kind": "demand"
+              },
+              {
+                "has": "top_demand"
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "trade_talks.warm.1",
+          "text": "Friends shouldn't fight over tariffs. Here's a way out: {terms}.",
+          "when": {
+            "kind": "trade_talks"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "trade_talks.warm.2",
+          "text": "Let's end this tariff business between us: {terms}.",
+          "when": {
+            "kind": "trade_talks"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "trade_talks.warm.folksy.1",
+          "text": "I'd rather settle this with you than fight. I propose {terms}.",
+          "when": {
+            "kind": "trade_talks"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "trade_talks.neutral.1",
+          "text": "Your tariffs hurt both of us. Let's talk: {terms}.",
+          "when": {
+            "kind": "trade_talks"
+          }
+        },
+        {
+          "id": "trade_talks.neutral.2",
+          "text": "We'd rather negotiate than retaliate. Here's an offer: {terms}.",
+          "when": {
+            "kind": "trade_talks"
+          }
+        },
+        {
+          "id": "trade_talks.neutral.technocrat.1",
+          "text": "Lift the tariffs and we can make it worth your while: {terms}.",
+          "when": {
+            "kind": "trade_talks"
+          },
+          "voice": [
+            "Technocrat",
+            "Market"
+          ]
+        },
+        {
+          "id": "trade_talks.cold.1",
+          "text": "Your tariffs were an act of hostility. Here are our terms to end them: {terms}.",
+          "when": {
+            "kind": "trade_talks"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "trade_talks.cold.2",
+          "text": "This is the price of peace on trade: {terms}.",
+          "when": {
+            "kind": "trade_talks"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "trade_talks.cold.nationalist.1",
+          "text": "We are offering talks once. {terms}. After that, we retaliate.",
+          "when": {
+            "kind": "trade_talks"
+          },
+          "voice": [
+            "Nationalist"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "renegotiation.warm.1",
+          "text": "Our agreement has served us well. Let's update it together.",
+          "when": {
+            "kind": "renegotiation"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "renegotiation.warm.2",
+          "text": "Times have changed, my friend. Let's refresh our deal.",
+          "when": {
+            "kind": "renegotiation"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "renegotiation.warm.diplomatic.1",
+          "text": "I want this agreement to last, so let's improve it.",
+          "when": {
+            "kind": "renegotiation"
+          },
+          "voice": [
+            "Diplomatic"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "renegotiation.neutral.1",
+          "text": "Circumstances have changed. We'd like to revisit our agreement.",
+          "when": {
+            "kind": "renegotiation"
+          }
+        },
+        {
+          "id": "renegotiation.neutral.2",
+          "text": "Our agreement no longer works for us as written. Let's talk.",
+          "when": {
+            "kind": "renegotiation"
+          }
+        },
+        {
+          "id": "renegotiation.neutral.formal.1",
+          "text": "My government wishes to preserve the agreement, on revised terms.",
+          "when": {
+            "kind": "renegotiation"
+          },
+          "voice": [
+            "Formal"
+          ]
+        },
+        {
+          "id": "renegotiation.cold.1",
+          "text": "The agreement is costing us too much. Change it, or we will.",
+          "when": {
+            "kind": "renegotiation"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "renegotiation.cold.2",
+          "text": "We've carried this agreement long enough. It needs to change.",
+          "when": {
+            "kind": "renegotiation"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "renegotiation.cold.blunt.1",
+          "text": "Either we fix this agreement or it ends.",
+          "when": {
+            "kind": "renegotiation"
+          },
+          "voice": [
+            "Blunt",
+            "Nationalist"
+          ],
+          "tone": "Cold"
+        }
+      ]
+    },
+    {
+      "id": "dlg.negotiation.tariff_answer",
+      "surface": "negotiation",
+      "point": "dp.trade_retaliation",
+      "optional": [
+        "pressure"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Cold",
+            "Hostile"
+          ],
+          "decisions": [
+            "retaliate"
+          ]
+        },
+        {
+          "tones": [
+            "Warm",
+            "Neutral"
+          ],
+          "decisions": [
+            "negotiate"
+          ]
+        },
+        {
+          "tones": [
+            "Cold",
+            "Neutral"
+          ],
+          "decisions": [
+            "absorb"
+          ]
+        }
+      ],
+      "notes": "A leader's answer to US tariffs on their goods.",
+      "lines": [
+        {
+          "id": "retaliate.cold.1",
+          "text": "We will answer your tariffs in kind. You chose this.",
+          "when": {
+            "decision": "retaliate"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "retaliate.cold.2",
+          "text": "{speaker_country} will match your tariffs, dollar for dollar.",
+          "when": {
+            "decision": "retaliate"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "retaliate.cold.diplomatic.1",
+          "text": "We take no pleasure in this. But tariffs will be met with tariffs.",
+          "when": {
+            "decision": "retaliate"
+          },
+          "voice": [
+            "Diplomatic",
+            "Formal"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "retaliate.cold.3",
+          "text": "With {pressure}, my government cannot let this pass. We retaliate.",
+          "when": {
+            "all": [
+              {
+                "decision": "retaliate"
+              },
+              {
+                "has": "pressure"
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "retaliate.hostile.1",
+          "text": "You want a trade war? You'll have one.",
+          "when": {
+            "decision": "retaliate"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "retaliate.hostile.2",
+          "text": "Our counter-tariffs take effect in two weeks. Remember who started this.",
+          "when": {
+            "decision": "retaliate"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "retaliate.hostile.folksy.1",
+          "text": "Washington picked this fight. Fine. We'll finish it.",
+          "when": {
+            "decision": "retaliate"
+          },
+          "voice": [
+            "Folksy",
+            "Combative"
+          ],
+          "tone": "Hostile"
+        },
+        {
+          "id": "retaliate.hostile.nationalist.1",
+          "text": "No one bullies {speaker_country}. We retaliate.",
+          "when": {
+            "decision": "retaliate"
+          },
+          "voice": [
+            "Nationalist"
+          ],
+          "tone": "Hostile"
+        },
+        {
+          "id": "negotiate.warm.1",
+          "text": "Friends shouldn't fight over tariffs. Let's sit down and settle this.",
+          "when": {
+            "decision": "negotiate"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "negotiate.warm.2",
+          "text": "I'm sure we can resolve this between us, {counterpart_title}.",
+          "when": {
+            "decision": "negotiate"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "negotiate.warm.folksy.1",
+          "text": "Come on, we're friends. Let's sort this out before it gets silly.",
+          "when": {
+            "decision": "negotiate"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "negotiate.neutral.1",
+          "text": "We'd rather talk than fight. Let's find a way to lift these tariffs.",
+          "when": {
+            "decision": "negotiate"
+          }
+        },
+        {
+          "id": "negotiate.neutral.2",
+          "text": "Our door is open. A tariff war helps no one.",
+          "when": {
+            "decision": "negotiate"
+          }
+        },
+        {
+          "id": "negotiate.neutral.technocrat.1",
+          "text": "Our models say a tariff war costs both sides. We propose talks instead.",
+          "when": {
+            "decision": "negotiate"
+          },
+          "voice": [
+            "Technocrat"
+          ]
+        },
+        {
+          "id": "absorb.cold.1",
+          "text": "We will not retaliate, for now. We will not forget, either.",
+          "when": {
+            "decision": "absorb"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "absorb.cold.2",
+          "text": "We'll absorb this. Our patience is not unlimited.",
+          "when": {
+            "decision": "absorb"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "absorb.cold.formal.1",
+          "text": "For the sake of our wider relationship, we'll hold back. This time.",
+          "when": {
+            "decision": "absorb"
+          },
+          "voice": [
+            "Formal",
+            "Diplomatic"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "absorb.neutral.1",
+          "text": "We've decided not to respond with tariffs of our own. Let's not make this worse.",
+          "when": {
+            "decision": "absorb"
+          }
+        },
+        {
+          "id": "absorb.neutral.2",
+          "text": "We'll take the hit and keep talking.",
+          "when": {
+            "decision": "absorb"
+          }
+        },
+        {
+          "id": "absorb.neutral.evasive.1",
+          "text": "We have no plans to respond at this time.",
+          "when": {
+            "decision": "absorb"
+          },
+          "voice": [
+            "Evasive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg.negotiation.signed",
+      "surface": "negotiation",
+      "variables": [
+        "terms"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Warm",
+            "Neutral",
+            "Cold"
+          ]
+        }
+      ],
+      "notes": "The other leader when an agreement is signed.",
+      "lines": [
+        {
+          "id": "any.warm.1",
+          "text": "A good agreement, and a good day. Thank you, {counterpart_title}.",
+          "tone": "Warm"
+        },
+        {
+          "id": "any.warm.2",
+          "text": "This is what partnership looks like.",
+          "tone": "Warm"
+        },
+        {
+          "id": "any.warm.folksy.1",
+          "text": "We've signed. Now let's make it work.",
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "any.neutral.1",
+          "text": "The agreement is signed. We'll do our part."
+        },
+        {
+          "id": "any.neutral.2",
+          "text": "Signed: {terms}. Our officials will follow through."
+        },
+        {
+          "id": "any.neutral.formal.1",
+          "text": "The agreement is concluded. My government will implement it in full.",
+          "voice": [
+            "Formal"
+          ]
+        },
+        {
+          "id": "any.cold.1",
+          "text": "Signed. We'll be watching to see that you keep it.",
+          "tone": "Cold"
+        },
+        {
+          "id": "any.cold.2",
+          "text": "We've signed. Trust will come from delivery, not paper.",
+          "tone": "Cold"
+        },
+        {
+          "id": "any.cold.nationalist.1",
+          "text": "The deal is done. Our differences are not.",
+          "voice": [
+            "Nationalist"
+          ],
+          "tone": "Cold"
+        }
+      ]
+    },
+    {
+      "id": "dlg.negotiation.message_reply",
+      "surface": "negotiation",
+      "expects": [
+        {
+          "tones": [
+            "Warm",
+            "Neutral",
+            "Cold"
+          ],
+          "decisions": [
+            "reassure",
+            "flatter",
+            "appeal"
+          ]
+        },
+        {
+          "tones": [
+            "Warm",
+            "Neutral",
+            "Cold",
+            "Hostile"
+          ],
+          "decisions": [
+            "warn"
+          ]
+        }
+      ],
+      "notes": "How a counterpart takes the player's message in talks. Decision: reassure, flatter, warn, appeal. Hint: landed, fell_flat, offended.",
+      "lines": [
+        {
+          "id": "reassure.warm.1",
+          "text": "That helps. Thank you for saying it.",
+          "when": {
+            "decision": "reassure"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "reassure.warm.2",
+          "text": "Good. I needed to hear that.",
+          "when": {
+            "decision": "reassure"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "reassure.warm.diplomatic.1",
+          "text": "I believe you, {counterpart_title}. Let's continue.",
+          "when": {
+            "decision": "reassure"
+          },
+          "voice": [
+            "Diplomatic",
+            "Formal"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "reassure.neutral.1",
+          "text": "Noted. Words are welcome; actions more so.",
+          "when": {
+            "decision": "reassure"
+          }
+        },
+        {
+          "id": "reassure.neutral.2",
+          "text": "I appreciate the reassurance.",
+          "when": {
+            "decision": "reassure"
+          }
+        },
+        {
+          "id": "reassure.neutral.3",
+          "text": "Fine. Let's get back to the terms.",
+          "when": {
+            "decision": "reassure"
+          }
+        },
+        {
+          "id": "reassure.cold.1",
+          "text": "You've said that before.",
+          "when": {
+            "decision": "reassure"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "reassure.cold.2",
+          "text": "Reassurances are cheap. Show me.",
+          "when": {
+            "decision": "reassure"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "reassure.cold.folksy.1",
+          "text": "I've heard enough promises for one day.",
+          "when": {
+            "decision": "reassure"
+          },
+          "voice": [
+            "Folksy",
+            "Blunt"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "flatter.warm.1",
+          "text": "You're too kind. But I won't forget it.",
+          "when": {
+            "decision": "flatter"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "flatter.warm.2",
+          "text": "Kind words, {counterpart_title}. They're appreciated.",
+          "when": {
+            "decision": "flatter"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "flatter.warm.3",
+          "text": "Well. Perhaps we understand each other better than I thought.",
+          "when": {
+            "decision": "flatter"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "flatter.neutral.1",
+          "text": "Thank you. Now, the terms.",
+          "when": {
+            "decision": "flatter"
+          }
+        },
+        {
+          "id": "flatter.neutral.2",
+          "text": "Flattery is pleasant. It doesn't change the numbers.",
+          "when": {
+            "decision": "flatter"
+          }
+        },
+        {
+          "id": "flatter.neutral.technocrat.1",
+          "text": "Thank you. The numbers still need work.",
+          "when": {
+            "decision": "flatter"
+          },
+          "voice": [
+            "Technocrat"
+          ]
+        },
+        {
+          "id": "flatter.cold.1",
+          "text": "Spare me the compliments.",
+          "when": {
+            "decision": "flatter"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "flatter.cold.2",
+          "text": "I'm not here to be charmed.",
+          "when": {
+            "decision": "flatter"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "flatter.cold.nationalist.1",
+          "text": "That might work on others. Not on me.",
+          "when": {
+            "decision": "flatter"
+          },
+          "voice": [
+            "Nationalist"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "warn.warm.1",
+          "text": "Point taken, my friend. Friends can speak plainly.",
+          "when": {
+            "decision": "warn"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "warn.warm.2",
+          "text": "Fair enough. We'll make sure it doesn't come to that.",
+          "when": {
+            "decision": "warn"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "warn.warm.3",
+          "text": "I understand your worry, {counterpart_title}. Let's solve it together.",
+          "when": {
+            "decision": "warn"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "warn.neutral.1",
+          "text": "I hear you. I'd ask you to hear us as well.",
+          "when": {
+            "decision": "warn"
+          }
+        },
+        {
+          "id": "warn.neutral.2",
+          "text": "Understood. Let's not let it come to that.",
+          "when": {
+            "decision": "warn"
+          }
+        },
+        {
+          "id": "warn.neutral.3",
+          "text": "We take that seriously. I hope you take our position as seriously.",
+          "when": {
+            "decision": "warn"
+          }
+        },
+        {
+          "id": "warn.cold.1",
+          "text": "Threats won't move us.",
+          "when": {
+            "decision": "warn"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "warn.cold.2",
+          "text": "Is that a warning? Noted.",
+          "when": {
+            "decision": "warn"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "warn.cold.3",
+          "text": "We don't respond well to pressure, {counterpart_title}.",
+          "when": {
+            "decision": "warn"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "warn.hostile.1",
+          "text": "You dare threaten {speaker_country} at this table?",
+          "when": {
+            "decision": "warn"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "warn.hostile.2",
+          "text": "Say that again and these talks are over.",
+          "when": {
+            "decision": "warn"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "warn.hostile.nationalist.1",
+          "text": "My people would never forgive me if I bowed to that.",
+          "when": {
+            "decision": "warn"
+          },
+          "voice": [
+            "Nationalist"
+          ],
+          "tone": "Hostile"
+        },
+        {
+          "id": "appeal.warm.1",
+          "text": "You're right. We want the same things, in the end.",
+          "when": {
+            "decision": "appeal"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "appeal.warm.2",
+          "text": "Yes. Let's remember what we have in common.",
+          "when": {
+            "decision": "appeal"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "appeal.warm.3",
+          "text": "That's the spirit we need. Let's use it.",
+          "when": {
+            "decision": "appeal"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "appeal.neutral.1",
+          "text": "Shared interests, yes. Shared costs, too.",
+          "when": {
+            "decision": "appeal"
+          }
+        },
+        {
+          "id": "appeal.neutral.2",
+          "text": "Fine words. Let's see if the terms match them.",
+          "when": {
+            "decision": "appeal"
+          }
+        },
+        {
+          "id": "appeal.neutral.technocrat.1",
+          "text": "We agree in principle. The details are the problem.",
+          "when": {
+            "decision": "appeal"
+          },
+          "voice": [
+            "Technocrat"
+          ]
+        },
+        {
+          "id": "appeal.cold.1",
+          "text": "Our interests aren't as shared as you think.",
+          "when": {
+            "decision": "appeal"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "appeal.cold.2",
+          "text": "Don't lecture us about common ground.",
+          "when": {
+            "decision": "appeal"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "appeal.cold.folksy.1",
+          "text": "That might have worked a year ago.",
+          "when": {
+            "decision": "appeal"
+          },
+          "voice": [
+            "Folksy",
+            "Blunt"
+          ],
+          "tone": "Cold"
+        }
+      ]
+    },
+    {
+      "id": "dlg.message.session",
+      "surface": "message",
+      "variables": [
+        "target_country"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Warm"
+          ],
+          "decisions": [
+            "reassure",
+            "flatter"
+          ]
+        },
+        {
+          "tones": [
+            "Cold"
+          ],
+          "decisions": [
+            "warn"
+          ]
+        },
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "appeal"
+          ]
+        }
+      ],
+      "notes": "The player's message in a negotiation session, rendered in the player's voice.",
+      "lines": [
+        {
+          "id": "reassure.warm.1",
+          "text": "Let me be clear: {player_country} keeps its word.",
+          "when": {
+            "decision": "reassure"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "reassure.warm.2",
+          "text": "Nothing we discuss here changes our commitment to you.",
+          "when": {
+            "decision": "reassure"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "reassure.warm.formal.1",
+          "text": "Whatever happens at home, our friendship with {target_country} is not in question.",
+          "when": {
+            "decision": "reassure"
+          },
+          "voice": [
+            "Formal"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "reassure.warm.folksy.1",
+          "text": "Look, we've been friends a long time. That's not changing.",
+          "when": {
+            "decision": "reassure"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "flatter.warm.1",
+          "text": "No one has done more for this partnership than you have.",
+          "when": {
+            "decision": "flatter"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "flatter.warm.2",
+          "text": "Your leadership has made {target_country} a partner we count on.",
+          "when": {
+            "decision": "flatter"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "flatter.warm.formal.1",
+          "text": "Your stewardship of {target_country} has earned the respect of the world.",
+          "when": {
+            "decision": "flatter"
+          },
+          "voice": [
+            "Formal"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "flatter.warm.folksy.1",
+          "text": "You drive a hard bargain, and I respect that more than you know.",
+          "when": {
+            "decision": "flatter"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "warn.cold.1",
+          "text": "I want to be frank: if this fails, there will be consequences.",
+          "when": {
+            "decision": "warn"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "warn.cold.2",
+          "text": "Our patience is real, and it is limited.",
+          "when": {
+            "decision": "warn"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "warn.cold.formal.1",
+          "text": "Please understand what is at stake if we walk away.",
+          "when": {
+            "decision": "warn"
+          },
+          "voice": [
+            "Formal"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "warn.cold.folksy.1",
+          "text": "I'd hate for this to end badly. I'd hate it more for you.",
+          "when": {
+            "decision": "warn"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "appeal.neutral.1",
+          "text": "We both lose if this falls apart. Let's remember that.",
+          "when": {
+            "decision": "appeal"
+          }
+        },
+        {
+          "id": "appeal.neutral.2",
+          "text": "Our countries want the same things: growth, stability, security.",
+          "when": {
+            "decision": "appeal"
+          }
+        },
+        {
+          "id": "appeal.neutral.folksy.1",
+          "text": "We're in the same boat here. Let's row together.",
+          "when": {
+            "decision": "appeal"
+          },
+          "voice": [
+            "Folksy"
+          ]
+        },
+        {
+          "id": "appeal.neutral.formal.1",
+          "text": "History will judge us both on whether we found a way through.",
+          "when": {
+            "decision": "appeal"
+          },
+          "voice": [
+            "Formal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg.message.statement",
+      "surface": "message",
+      "variables": [
+        "target_country",
+        "topic"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Warm"
+          ],
+          "decisions": [
+            "praise",
+            "reassure"
+          ]
+        },
+        {
+          "tones": [
+            "Cold",
+            "Hostile"
+          ],
+          "decisions": [
+            "warn",
+            "demand"
+          ]
+        },
+        {
+          "tones": [
+            "Hostile"
+          ],
+          "decisions": [
+            "condemn"
+          ]
+        }
+      ],
+      "notes": "The player's statement or call through a message verb. Kind is the topic (general, debt, trade, energy, security); hint is public or private; strength the scale.",
+      "lines": [
+        {
+          "id": "praise.warm.1",
+          "text": "{target_country} has been a steadfast partner on {topic}, and we're grateful.",
+          "when": {
+            "decision": "praise"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "praise.warm.2",
+          "text": "Today I want to thank {target_country} for its leadership on {topic}.",
+          "when": {
+            "decision": "praise"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "praise.warm.formal.1",
+          "text": "Our partnership with {target_country} on {topic} has never been stronger.",
+          "when": {
+            "decision": "praise"
+          },
+          "voice": [
+            "Formal"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "praise.warm.3",
+          "text": "I wanted to say this to you directly: thank you, on {topic} and more.",
+          "when": {
+            "all": [
+              {
+                "decision": "praise"
+              },
+              {
+                "hint": "private"
+              }
+            ]
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "reassure.warm.1",
+          "text": "Our commitment to {target_country} on {topic} is unshaken.",
+          "when": {
+            "decision": "reassure"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "reassure.warm.2",
+          "text": "I want {target_country} to know: on {topic}, we will keep our word.",
+          "when": {
+            "decision": "reassure"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "reassure.warm.folksy.1",
+          "text": "Let me say it plain: on {topic}, {player_country} has your back.",
+          "when": {
+            "decision": "reassure"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "reassure.warm.3",
+          "text": "Between us: nothing will change on {topic}. You have my word.",
+          "when": {
+            "all": [
+              {
+                "decision": "reassure"
+              },
+              {
+                "hint": "private"
+              }
+            ]
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "warn.cold.1",
+          "text": "We have concerns about {topic}, and we expect them to be addressed.",
+          "when": {
+            "decision": "warn"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "warn.cold.2",
+          "text": "{target_country} should think carefully about its course on {topic}.",
+          "when": {
+            "decision": "warn"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "warn.cold.formal.1",
+          "text": "We are watching developments on {topic} closely.",
+          "when": {
+            "decision": "warn"
+          },
+          "voice": [
+            "Formal"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "warn.cold.3",
+          "text": "I'm telling you privately before I say it publicly: on {topic}, this has to change.",
+          "when": {
+            "all": [
+              {
+                "decision": "warn"
+              },
+              {
+                "hint": "private"
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "warn.hostile.1",
+          "text": "If {target_country} keeps this up on {topic}, it will pay a price.",
+          "when": {
+            "decision": "warn"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "warn.hostile.2",
+          "text": "Make no mistake: on {topic}, we will act if we must.",
+          "when": {
+            "decision": "warn"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "warn.hostile.3",
+          "text": "Our patience with {target_country} on {topic} has run out.",
+          "when": {
+            "decision": "warn"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "demand.cold.1",
+          "text": "We expect {target_country} to act on {topic}, and soon.",
+          "when": {
+            "decision": "demand"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "demand.cold.2",
+          "text": "On {topic}, we need action from {target_country}, not words.",
+          "when": {
+            "decision": "demand"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "demand.cold.folksy.1",
+          "text": "Look, we need {target_country} to fix this on {topic}. Soon.",
+          "when": {
+            "decision": "demand"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "demand.cold.3",
+          "text": "I'll be direct, as one leader to another: we need movement on {topic}.",
+          "when": {
+            "all": [
+              {
+                "decision": "demand"
+              },
+              {
+                "hint": "private"
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "demand.hostile.1",
+          "text": "{target_country} will act on {topic}, or we will act for it.",
+          "when": {
+            "decision": "demand"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "demand.hostile.2",
+          "text": "This is not a request. On {topic}, {target_country} must change course.",
+          "when": {
+            "decision": "demand"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "demand.hostile.3",
+          "text": "We demand that {target_country} stop, now.",
+          "when": {
+            "decision": "demand"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "condemn.hostile.1",
+          "text": "What {target_country} has done on {topic} is unacceptable, and we condemn it.",
+          "when": {
+            "decision": "condemn"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "condemn.hostile.2",
+          "text": "We condemn {target_country}'s conduct on {topic} in the strongest terms.",
+          "when": {
+            "decision": "condemn"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "condemn.hostile.folksy.1",
+          "text": "What {target_country} did on {topic} is just plain wrong.",
+          "when": {
+            "decision": "condemn"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Hostile"
+        },
+        {
+          "id": "condemn.hostile.3",
+          "text": "I called to tell you myself: what happened on {topic} is unacceptable.",
+          "when": {
+            "all": [
+              {
+                "decision": "condemn"
+              },
+              {
+                "hint": "private"
+              }
+            ]
+          },
+          "tone": "Hostile"
+        }
+      ]
+    }
+  ]
+}

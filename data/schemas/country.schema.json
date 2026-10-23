@@ -1,0 +1,280 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "country.schema.json",
+  "title": "CountryDef",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+    },
+    "depth": {
+      "enum": [
+        "Full",
+        "Light"
+      ]
+    },
+    "dormant": {
+      "type": "boolean",
+      "default": false
+    },
+    "nameKey": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null,
+      "description": "Localisation key (data/localization/en)."
+    },
+    "iso3": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "entityType": {
+      "enum": [
+        "Country",
+        "Bloc"
+      ],
+      "default": "Country"
+    },
+    "regimeType": {
+      "enum": [
+        "LiberalDemocracy",
+        "ElectoralDemocracy",
+        "ElectoralAutocracy",
+        "ClosedAutocracy"
+      ],
+      "default": "LiberalDemocracy"
+    },
+    "currency": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "capitalKey": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null,
+      "description": "Localisation key (data/localization/en)."
+    },
+    "flagAsset": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "mapColor": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "leaderCharacterId": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null,
+      "pattern": "^char\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+    },
+    "regimeIndicators": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "judicialIndependence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "mediaFreedom": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "electoralIntegrity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "civilLiberties": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "legislativeConstraint": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "civilianControlOfMilitary": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "judicialIndependence",
+        "mediaFreedom",
+        "electoralIntegrity",
+        "civilLiberties",
+        "legislativeConstraint",
+        "civilianControlOfMilitary"
+      ],
+      "additionalProperties": false,
+      "default": null
+    },
+    "government": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "system": {
+          "enum": [
+            "Presidential",
+            "Parliamentary"
+          ],
+          "default": "Presidential"
+        },
+        "chamber": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null,
+          "pattern": "^chamber\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+        },
+        "headOfState": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null,
+          "pattern": "^char\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+        },
+        "noConfidence": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "procedure": {
+              "type": "string",
+              "pattern": "^procedure\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+            },
+            "signatures": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000
+            },
+            "cooldownDays": {
+              "type": "integer",
+              "default": 180,
+              "minimum": 0,
+              "maximum": 3650
+            }
+          },
+          "required": [
+            "procedure",
+            "signatures"
+          ],
+          "additionalProperties": false,
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    },
+    "blocMemberships": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string",
+        "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+      },
+      "default": null
+    },
+    "parties": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^party\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "color": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "nameKey",
+          "color"
+        ],
+        "additionalProperties": false
+      },
+      "default": null
+    }
+  },
+  "required": [
+    "id",
+    "depth"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "../../schemas/characters.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Fictional leader (D-009)."
+  },
+  "characters": [
+    {
+      "id": "char.gbr.leader",
+      "name": "Rosalind Fairweather",
+      "role": "head_of_government",
+      "personality": {
+        "riskTolerance": 35,
+        "pride": 55,
+        "pragmatism": 70,
+        "patience": 60,
+        "hawkishness": 45,
+        "honesty": 65,
+        "loyalty": 70,
+        "ideologicalRigidity": 40,
+        "grudgeHolding": 45,
+        "publicOrientation": 60,
+        "lawfulness": 70
+      },
+      "voice": [
+        "Formal",
+        "Diplomatic"
+      ],
+      "titleKey": "title.prime_minister",
+      "competence": 70,
+      "goals": [
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        },
+        {
+          "goal": "goal.alliance_with:country.usa",
+          "weight": 0.7
+        },
+        {
+          "goal": "goal.grow_economy",
+          "weight": 0.6
+        }
+      ]
+    }
+  ]
+}

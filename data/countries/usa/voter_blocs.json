@@ -1,0 +1,252 @@
+{
+  "$schema": "../../schemas/voter_blocs.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Shares, turnout and party leans are rounded design estimates informed by public survey aggregates; no third-party data copied."
+  },
+  "voterBlocs": [
+    {
+      "id": "bloc.usa.urban_progressives",
+      "nameKey": "bloc.usa.urban_progressives.name",
+      "populationShare": 0.13,
+      "turnout": 0.62,
+      "partyLean": {
+        "party.usa.democratic": 0.82,
+        "party.usa.republican": 0.14
+      },
+      "issueWeights": {
+        "inflation": 0.5,
+        "healthcare": 0.7,
+        "environment": 0.8,
+        "norms": 0.7,
+        "wages": 0.5
+      },
+      "mediaDiet": {
+        "pc.usa.media_progressive": 0.55,
+        "pc.usa.media_mainstream": 0.4,
+        "pc.usa.media_financial": 0.05
+      },
+      "preferences": {
+        "economic": -60,
+        "fiscal": -40,
+        "social": -70,
+        "security": -30,
+        "globalism": -30,
+        "norms": -50,
+        "environment": -70
+      }
+    },
+    {
+      "id": "bloc.usa.suburban_moderates",
+      "nameKey": "bloc.usa.suburban_moderates.name",
+      "populationShare": 0.17,
+      "turnout": 0.7,
+      "partyLean": {
+        "party.usa.democratic": 0.52,
+        "party.usa.republican": 0.45
+      },
+      "issueWeights": {
+        "inflation": 0.7,
+        "taxes": 0.5,
+        "norms": 0.5,
+        "stocks": 0.4,
+        "healthcare": 0.5
+      },
+      "mediaDiet": {
+        "pc.usa.media_progressive": 0.15,
+        "pc.usa.media_mainstream": 0.6,
+        "pc.usa.media_conservative": 0.15,
+        "pc.usa.media_financial": 0.1
+      },
+      "preferences": {
+        "economic": 0,
+        "fiscal": 10,
+        "social": -15,
+        "security": 10,
+        "globalism": -20,
+        "norms": -40,
+        "environment": -10
+      }
+    },
+    {
+      "id": "bloc.usa.working_swing",
+      "nameKey": "bloc.usa.working_swing.name",
+      "populationShare": 0.15,
+      "turnout": 0.55,
+      "partyLean": {
+        "party.usa.democratic": 0.45,
+        "party.usa.republican": 0.52
+      },
+      "issueWeights": {
+        "inflation": 0.9,
+        "energy_prices": 0.9,
+        "jobs": 0.9,
+        "wages": 0.8
+      },
+      "mediaDiet": {
+        "pc.usa.media_progressive": 0.1,
+        "pc.usa.media_mainstream": 0.5,
+        "pc.usa.media_conservative": 0.4
+      },
+      "preferences": {
+        "economic": -10,
+        "fiscal": 0,
+        "social": 20,
+        "security": 20,
+        "globalism": 40,
+        "norms": -10,
+        "environment": 10
+      }
+    },
+    {
+      "id": "bloc.usa.rural_conservatives",
+      "nameKey": "bloc.usa.rural_conservatives.name",
+      "populationShare": 0.12,
+      "turnout": 0.65,
+      "partyLean": {
+        "party.usa.democratic": 0.22,
+        "party.usa.republican": 0.76
+      },
+      "issueWeights": {
+        "energy_prices": 0.8,
+        "taxes": 0.6,
+        "immigration": 0.8,
+        "spending": 0.6
+      },
+      "mediaDiet": {
+        "pc.usa.media_mainstream": 0.25,
+        "pc.usa.media_conservative": 0.75
+      },
+      "preferences": {
+        "economic": 50,
+        "fiscal": 50,
+        "social": 55,
+        "security": 50,
+        "globalism": 60,
+        "norms": 10,
+        "environment": 60
+      }
+    },
+    {
+      "id": "bloc.usa.religious_conservatives",
+      "nameKey": "bloc.usa.religious_conservatives.name",
+      "populationShare": 0.1,
+      "turnout": 0.7,
+      "partyLean": {
+        "party.usa.democratic": 0.18,
+        "party.usa.republican": 0.8
+      },
+      "issueWeights": {
+        "immigration": 0.5,
+        "norms": 0.4,
+        "taxes": 0.5,
+        "security": 0.6
+      },
+      "mediaDiet": {
+        "pc.usa.media_mainstream": 0.2,
+        "pc.usa.media_conservative": 0.8
+      },
+      "preferences": {
+        "economic": 40,
+        "fiscal": 40,
+        "social": 80,
+        "security": 50,
+        "globalism": 40,
+        "norms": 0,
+        "environment": 40
+      }
+    },
+    {
+      "id": "bloc.usa.seniors",
+      "nameKey": "bloc.usa.seniors.name",
+      "populationShare": 0.14,
+      "turnout": 0.75,
+      "partyLean": {
+        "party.usa.democratic": 0.45,
+        "party.usa.republican": 0.53
+      },
+      "issueWeights": {
+        "social_security": 1.0,
+        "healthcare": 0.9,
+        "inflation": 0.8,
+        "stocks": 0.5
+      },
+      "mediaDiet": {
+        "pc.usa.media_progressive": 0.1,
+        "pc.usa.media_mainstream": 0.55,
+        "pc.usa.media_conservative": 0.35
+      },
+      "preferences": {
+        "economic": 0,
+        "fiscal": 20,
+        "social": 20,
+        "security": 30,
+        "globalism": 10,
+        "norms": -30,
+        "environment": 0
+      }
+    },
+    {
+      "id": "bloc.usa.young_adults",
+      "nameKey": "bloc.usa.young_adults.name",
+      "populationShare": 0.11,
+      "turnout": 0.45,
+      "partyLean": {
+        "party.usa.democratic": 0.6,
+        "party.usa.republican": 0.35
+      },
+      "issueWeights": {
+        "jobs": 0.7,
+        "wages": 0.8,
+        "environment": 0.7,
+        "inflation": 0.6
+      },
+      "mediaDiet": {
+        "pc.usa.media_progressive": 0.45,
+        "pc.usa.media_mainstream": 0.4,
+        "pc.usa.media_conservative": 0.15
+      },
+      "preferences": {
+        "economic": -40,
+        "fiscal": -30,
+        "social": -50,
+        "security": -20,
+        "globalism": -20,
+        "norms": -20,
+        "environment": -60
+      }
+    },
+    {
+      "id": "bloc.usa.business_professionals",
+      "nameKey": "bloc.usa.business_professionals.name",
+      "populationShare": 0.08,
+      "turnout": 0.75,
+      "partyLean": {
+        "party.usa.democratic": 0.45,
+        "party.usa.republican": 0.53
+      },
+      "issueWeights": {
+        "taxes": 0.8,
+        "stocks": 0.9,
+        "debt": 0.7,
+        "inflation": 0.5
+      },
+      "mediaDiet": {
+        "pc.usa.media_mainstream": 0.4,
+        "pc.usa.media_conservative": 0.2,
+        "pc.usa.media_financial": 0.4
+      },
+      "preferences": {
+        "economic": 40,
+        "fiscal": 40,
+        "social": -10,
+        "security": 20,
+        "globalism": -30,
+        "norms": -40,
+        "environment": 20
+      }
+    }
+  ]
+}

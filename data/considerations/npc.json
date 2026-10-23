@@ -1,0 +1,282 @@
+{
+  "$schema": "../schemas/considerations.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "considerations": [
+    {
+      "id": "consideration.order.legal_enough",
+      "input": "order.lawfulness",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.4,
+        "steepness": 10
+      },
+      "weight": 3,
+      "scaleByTrait": "lawfulness"
+    },
+    {
+      "id": "consideration.order.warranted",
+      "input": "order.warrant",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.4,
+        "steepness": 10
+      },
+      "weight": 2,
+      "scaleByTrait": "lawfulness"
+    },
+    {
+      "id": "consideration.order.illegal",
+      "input": "order.lawfulness",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.45,
+        "steepness": 10
+      },
+      "weight": 3,
+      "scaleByTrait": "lawfulness"
+    },
+    {
+      "id": "consideration.order.unwarranted",
+      "input": "order.warrant",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.4,
+        "steepness": 10
+      },
+      "weight": 2,
+      "scaleByTrait": "lawfulness"
+    },
+    {
+      "id": "consideration.order.loyal",
+      "input": "trait.loyalty",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.order.disloyal",
+      "input": "trait.loyalty",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.order.afraid",
+      "input": "actor.fear",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.6,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0.1
+    },
+    {
+      "id": "consideration.order.unafraid",
+      "input": "actor.fear",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0.1
+    },
+    {
+      "id": "consideration.order.peers_complied",
+      "input": "peers.complied",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 1
+    },
+    {
+      "id": "consideration.order.lukewarm",
+      "input": "trait.loyalty",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.order.grave",
+      "input": "order.severity",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.order.very_grave",
+      "input": "order.severity",
+      "curve": {
+        "kind": "Quadratic",
+        "min": 0.1,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.order.doubtful",
+      "input": "order.lawfulness",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.05,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.order.not_insisted",
+      "input": "order.insisted",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.05,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.order.covert",
+      "input": "order.covert",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.order.honest",
+      "input": "trait.honesty",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.order.principled",
+      "input": "trait.lawfulness",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.incident.grave",
+      "input": "incident.gravity",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.55,
+        "steepness": 10
+      },
+      "weight": 3,
+      "scaleByTrait": "lawfulness"
+    },
+    {
+      "id": "consideration.incident.not_grave",
+      "input": "incident.gravity",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.55,
+        "steepness": 10
+      },
+      "weight": 3,
+      "scaleByTrait": "lawfulness"
+    },
+    {
+      "id": "consideration.incident.public",
+      "input": "incident.public",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.6,
+        "max": 1
+      },
+      "weight": 0.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.vote.peers_yes",
+      "input": "peers.yes",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.vote.peers_no",
+      "input": "peers.yes",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.vote.loyal",
+      "input": "trait.loyalty",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.vote.disloyal",
+      "input": "trait.loyalty",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.vote.other_party",
+      "input": "actor.same_party",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.25,
+        "max": 1
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.vote.same_party",
+      "input": "actor.same_party",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.25,
+        "max": 1
+      },
+      "weight": 2
+    }
+  ]
+}

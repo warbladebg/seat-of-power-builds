@@ -1,0 +1,28 @@
+{
+  "cue": "ui.panel_open",
+  "round": "r0",
+  "option": 5,
+  "family": "C. Air",
+  "label": "whoosh, the panel sliding in",
+  "seed": 5,
+  "loudness": -23,
+  "tail": 0.03,
+  "layers": [
+    {
+      "type": "noise",
+      "color": "pink",
+      "env": {
+        "a": 0.12,
+        "ac": 2.0,
+        "d": 0.2
+      },
+      "filter": {
+        "type": "bandpass",
+        "freq": 350,
+        "freqEnd": 2400,
+        "sweep": 0.2,
+        "q": 1.4
+      }
+    }
+  ]
+}

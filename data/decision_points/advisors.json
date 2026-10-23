@@ -1,0 +1,53 @@
+{
+  "$schema": "../schemas/decision_points.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "decisionPoints": [
+    {
+      "id": "dp.advisor_recommendation",
+      "actor": "character",
+      "kind": "Choice",
+      "deliberationDays": 1,
+      "temperature": 0.35,
+      "options": [
+        {
+          "id": "option_a",
+          "description": "Placeholder for the subject's first option."
+        },
+        {
+          "id": "option_b",
+          "description": "Placeholder for the subject's other options."
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.advice.value",
+          "option": "*"
+        },
+        {
+          "use": "consideration.advice.faction",
+          "option": "*"
+        },
+        {
+          "use": "consideration.advice.safety",
+          "option": "*"
+        },
+        {
+          "use": "consideration.advice.caution",
+          "option": "*"
+        },
+        {
+          "use": "consideration.advice.popular",
+          "option": "*"
+        },
+        {
+          "use": "consideration.advice.pleasing",
+          "option": "*"
+        }
+      ]
+    }
+  ]
+}

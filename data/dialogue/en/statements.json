@@ -1,0 +1,1630 @@
+{
+  "$schema": "../../schemas/dialogue.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "templates": [
+    {
+      "id": "dlg.statement.reaction",
+      "surface": "statement",
+      "point": "dp.react_to_action",
+      "variables": [
+        "act"
+      ],
+      "optional": [
+        "target"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Warm"
+          ],
+          "decisions": [
+            "praise",
+            "defend_publicly",
+            "support_publicly",
+            "close_ranks",
+            "rally_votes",
+            "frame_favourably",
+            "statement_of_support",
+            "statement_of_confidence",
+            "offer_assistance",
+            "bipartisan_outreach"
+          ]
+        },
+        {
+          "tones": [
+            "Cold"
+          ],
+          "decisions": [
+            "express_concern",
+            "criticize",
+            "demand_concession",
+            "rebuke_publicly",
+            "summon_ambassador",
+            "downgrade_cooperation",
+            "exploit_opening",
+            "reaffirm_oath",
+            "withhold_votes",
+            "hold_nominees",
+            "demand_hearings",
+            "issue_subpoenas",
+            "introduce_blocking_bill",
+            "cut_funding",
+            "break_with_party",
+            "joint_letter",
+            "demand_special_counsel",
+            "sue_over_dismissal",
+            "file_lawsuit",
+            "seek_injunction",
+            "file_amicus_brief",
+            "judicial_rebuke",
+            "state_lawsuit",
+            "investigate_story",
+            "editorial_against",
+            "warn_markets",
+            "threaten_relocation",
+            "defend_independence",
+            "mobilize_voters",
+            "distance_from_leader",
+            "fundraise_on_it"
+          ]
+        },
+        {
+          "tones": [
+            "Hostile"
+          ],
+          "decisions": [
+            "condemn",
+            "condemn_internationally",
+            "recall_ambassador",
+            "retaliate_in_kind",
+            "call_for_resignation",
+            "push_impeachment",
+            "censure",
+            "criminal_referral",
+            "back_a_challenger",
+            "publish_expose",
+            "call_for_investigation",
+            "blow_the_whistle",
+            "resign_in_protest",
+            "anonymous_op_ed",
+            "organize_protests",
+            "call_strike"
+          ]
+        }
+      ],
+      "silent": [
+        "ignore",
+        "private_demarche",
+        "raise_concerns_privately",
+        "leak_to_press",
+        "comply_quietly",
+        "slow_walk",
+        "request_legal_opinion",
+        "memo_for_the_record",
+        "resign_quietly",
+        "cooperate_with_investigators",
+        "warn_privately",
+        "lobby_against",
+        "lobby_for",
+        "withhold_donations",
+        "move_money"
+      ],
+      "notes": "What an actor says when they react to an act in public. {act} names the act ('the arrest order').",
+      "lines": [
+        {
+          "id": "support.warm.1",
+          "text": "{act} was the right call, and I'll say so to anyone.",
+          "when": {
+            "decision": [
+              "praise",
+              "defend_publicly",
+              "support_publicly",
+              "close_ranks",
+              "rally_votes",
+              "frame_favourably"
+            ]
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "support.warm.2",
+          "text": "On {act}, this administration has my full support.",
+          "when": {
+            "decision": [
+              "praise",
+              "defend_publicly",
+              "support_publicly",
+              "close_ranks",
+              "rally_votes",
+              "frame_favourably"
+            ]
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "support.warm.3",
+          "text": "Say what you like. {act} was the right thing to do.",
+          "when": {
+            "decision": [
+              "praise",
+              "defend_publicly",
+              "support_publicly",
+              "close_ranks",
+              "rally_votes",
+              "frame_favourably"
+            ]
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "support.warm.folksy.1",
+          "text": "I back the President on {act}. It's that simple.",
+          "when": {
+            "decision": [
+              "praise",
+              "defend_publicly",
+              "support_publicly",
+              "close_ranks",
+              "rally_votes",
+              "frame_favourably"
+            ]
+          },
+          "voice": [
+            "Folksy",
+            "Blunt"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "support.warm.formal.1",
+          "text": "I commend the President for {act}. It was a responsible decision.",
+          "when": {
+            "decision": [
+              "praise",
+              "defend_publicly",
+              "support_publicly",
+              "close_ranks",
+              "rally_votes",
+              "frame_favourably"
+            ]
+          },
+          "voice": [
+            "Formal",
+            "Diplomatic"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "frame_favourably.warm.1",
+          "text": "Tonight's verdict: {act} was the right call.",
+          "when": {
+            "decision": "frame_favourably"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "foreign_support.warm.1",
+          "text": "{speaker_country} stands with our friends in {player_country}.",
+          "when": {
+            "decision": [
+              "statement_of_support",
+              "statement_of_confidence",
+              "offer_assistance"
+            ]
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "foreign_support.warm.2",
+          "text": "We have full confidence in {player_country} and its institutions.",
+          "when": {
+            "decision": [
+              "statement_of_support",
+              "statement_of_confidence",
+              "offer_assistance"
+            ]
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "foreign_support.warm.3",
+          "text": "We are ready to help {player_country} in any way we can.",
+          "when": {
+            "decision": [
+              "statement_of_support",
+              "statement_of_confidence",
+              "offer_assistance"
+            ]
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "foreign_support.warm.nationalist.1",
+          "text": "{speaker_country} honours its friendships, and {player_country} is a friend.",
+          "when": {
+            "decision": [
+              "statement_of_support",
+              "statement_of_confidence",
+              "offer_assistance"
+            ]
+          },
+          "voice": [
+            "Nationalist"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "foreign_support.warm.folksy.1",
+          "text": "When a friend's in trouble, you show up. We're showing up for {player_country}.",
+          "when": {
+            "decision": [
+              "statement_of_support",
+              "statement_of_confidence",
+              "offer_assistance"
+            ]
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "foreign_support.warm.folksy.2",
+          "text": "We've got {player_country}'s back. Always have.",
+          "when": {
+            "decision": [
+              "statement_of_support",
+              "statement_of_confidence",
+              "offer_assistance"
+            ]
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "foreign_support.warm.formal.1",
+          "text": "On behalf of my government, I reaffirm our commitment to {player_country}.",
+          "when": {
+            "decision": [
+              "statement_of_support",
+              "statement_of_confidence",
+              "offer_assistance"
+            ]
+          },
+          "voice": [
+            "Formal",
+            "Diplomatic"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "foreign_support.warm.formal.2",
+          "text": "My government has every confidence that {player_country} will meet this moment.",
+          "when": {
+            "decision": [
+              "statement_of_support",
+              "statement_of_confidence",
+              "offer_assistance"
+            ]
+          },
+          "voice": [
+            "Formal",
+            "Diplomatic"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "bipartisan_outreach.warm.1",
+          "text": "This is bigger than party. I'm ready to work with the White House.",
+          "when": {
+            "decision": "bipartisan_outreach"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "bipartisan_outreach.warm.2",
+          "text": "Let's find common ground. My door is open to both sides.",
+          "when": {
+            "decision": "bipartisan_outreach"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "bipartisan_outreach.warm.folksy.1",
+          "text": "Americans want us to work together, and on this we can.",
+          "when": {
+            "decision": "bipartisan_outreach"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "express_concern.cold.1",
+          "text": "I have serious concerns about {act}.",
+          "when": {
+            "decision": "express_concern"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "express_concern.cold.2",
+          "text": "{act} raises questions that deserve answers.",
+          "when": {
+            "decision": "express_concern"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "express_concern.cold.formal.1",
+          "text": "We note {act} with concern and will follow developments closely.",
+          "when": {
+            "decision": "express_concern"
+          },
+          "voice": [
+            "Formal",
+            "Diplomatic"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "demand_concession.cold.1",
+          "text": "We'll go along, but we expect something in return.",
+          "when": {
+            "decision": "demand_concession"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "demand_concession.cold.2",
+          "text": "Our support has a price, and the White House knows what it is.",
+          "when": {
+            "decision": "demand_concession"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "demand_concession.cold.3",
+          "text": "Before we say more about {act}, we want to talk terms.",
+          "when": {
+            "decision": "demand_concession"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "criticize.cold.1",
+          "text": "{act} was a mistake, and the White House should own it.",
+          "when": {
+            "decision": [
+              "criticize",
+              "distance_from_leader"
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "criticize.cold.2",
+          "text": "I can't defend {act}, and I won't try.",
+          "when": {
+            "decision": [
+              "criticize",
+              "distance_from_leader"
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "criticize.cold.blunt.1",
+          "text": "Wrong call. {act} will cost the country.",
+          "when": {
+            "decision": [
+              "criticize",
+              "distance_from_leader"
+            ]
+          },
+          "voice": [
+            "Blunt",
+            "Folksy",
+            "Combative"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "rebuke_publicly.cold.1",
+          "text": "We expected better from {player_country}.",
+          "when": {
+            "decision": "rebuke_publicly"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "rebuke_publicly.cold.2",
+          "text": "{speaker_country} regrets {act} and urges Washington to reconsider.",
+          "when": {
+            "all": [
+              {
+                "decision": "rebuke_publicly"
+              },
+              {
+                "not": {
+                  "kind": "economy"
+                }
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "rebuke_publicly.cold.3",
+          "text": "{act} is not the act of a reliable partner.",
+          "when": {
+            "all": [
+              {
+                "decision": "rebuke_publicly"
+              },
+              {
+                "not": {
+                  "kind": "economy"
+                }
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "economy.rebuke_publicly.cold.1",
+          "text": "{player_country} has let its own crisis get out of hand.",
+          "when": {
+            "all": [
+              {
+                "decision": "rebuke_publicly"
+              },
+              {
+                "kind": "economy"
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "economy.rebuke_publicly.cold.2",
+          "text": "A great power should be able to pay its bills.",
+          "when": {
+            "all": [
+              {
+                "decision": "rebuke_publicly"
+              },
+              {
+                "kind": "economy"
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "summon_ambassador.cold.1",
+          "text": "We have summoned the ambassador of {player_country} to explain {act}.",
+          "when": {
+            "decision": "summon_ambassador"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "summon_ambassador.cold.2",
+          "text": "Washington owes us an explanation, and we have asked for one formally.",
+          "when": {
+            "decision": "summon_ambassador"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "downgrade_cooperation.cold.1",
+          "text": "Until Washington explains {act}, our cooperation is on hold.",
+          "when": {
+            "decision": "downgrade_cooperation"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "downgrade_cooperation.cold.2",
+          "text": "We are reviewing every area where we work with {player_country}.",
+          "when": {
+            "decision": "downgrade_cooperation"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "exploit_opening.cold.1",
+          "text": "While Washington argues with itself, others will step up.",
+          "when": {
+            "decision": "exploit_opening"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "exploit_opening.cold.2",
+          "text": "The world is watching {player_country} stumble, and so are we.",
+          "when": {
+            "decision": "exploit_opening"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "reaffirm_oath.cold.1",
+          "text": "We serve the Constitution, not any one person.",
+          "when": {
+            "decision": "reaffirm_oath"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "reaffirm_oath.cold.2",
+          "text": "Our oath is to the Constitution. Every officer knows what that means.",
+          "when": {
+            "decision": "reaffirm_oath"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "obstruct.cold.1",
+          "text": "Until we get answers on {act}, the White House shouldn't count on my vote.",
+          "when": {
+            "decision": [
+              "withhold_votes",
+              "hold_nominees",
+              "introduce_blocking_bill",
+              "cut_funding"
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "obstruct.cold.2",
+          "text": "I'm placing a hold on the administration's nominees.",
+          "when": {
+            "decision": [
+              "withhold_votes",
+              "hold_nominees",
+              "introduce_blocking_bill",
+              "cut_funding"
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "obstruct.cold.3",
+          "text": "We're introducing a bill to stop {act} in its tracks.",
+          "when": {
+            "decision": [
+              "withhold_votes",
+              "hold_nominees",
+              "introduce_blocking_bill",
+              "cut_funding"
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "obstruct.cold.4",
+          "text": "Not one dollar for this.",
+          "when": {
+            "decision": [
+              "withhold_votes",
+              "hold_nominees",
+              "introduce_blocking_bill",
+              "cut_funding"
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "oversight.cold.1",
+          "text": "The American people deserve answers on {act}. We want hearings.",
+          "when": {
+            "decision": [
+              "demand_hearings",
+              "issue_subpoenas",
+              "demand_special_counsel"
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "oversight.cold.2",
+          "text": "We will issue subpoenas. Nobody is above the law.",
+          "when": {
+            "decision": [
+              "demand_hearings",
+              "issue_subpoenas",
+              "demand_special_counsel"
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "oversight.cold.3",
+          "text": "This needs an independent investigation. We are calling for a special counsel.",
+          "when": {
+            "decision": [
+              "demand_hearings",
+              "issue_subpoenas",
+              "demand_special_counsel"
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "break_with_party.cold.1",
+          "text": "I can't follow my party's leader on this. I'm breaking ranks.",
+          "when": {
+            "decision": "break_with_party"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "break_with_party.cold.2",
+          "text": "On {act}, my conscience comes before my party.",
+          "when": {
+            "decision": "break_with_party"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "joint_letter.cold.1",
+          "text": "Along with my colleagues, I've written to the President about {act}.",
+          "when": {
+            "decision": "joint_letter"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "sue_over_dismissal.cold.1",
+          "text": "My dismissal was unlawful, and I'll prove it in court.",
+          "when": {
+            "decision": "sue_over_dismissal"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "sue_over_dismissal.cold.2",
+          "text": "I was fired for doing my job. A judge will hear about it.",
+          "when": {
+            "decision": "sue_over_dismissal"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "lawsuit.cold.1",
+          "text": "We are taking {act} to court.",
+          "when": {
+            "decision": [
+              "file_lawsuit",
+              "seek_injunction",
+              "state_lawsuit"
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "lawsuit.cold.2",
+          "text": "We have asked the court to halt {act} at once.",
+          "when": {
+            "decision": [
+              "file_lawsuit",
+              "seek_injunction",
+              "state_lawsuit"
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "lawsuit.cold.3",
+          "text": "Our state will not stand by. We are suing.",
+          "when": {
+            "decision": [
+              "file_lawsuit",
+              "seek_injunction",
+              "state_lawsuit"
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "file_amicus_brief.cold.1",
+          "text": "We've filed a brief supporting the challenge to {act}.",
+          "when": {
+            "decision": "file_amicus_brief"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "judicial_rebuke.cold.1",
+          "text": "No official, however senior, may ignore the law. This court will not look away.",
+          "when": {
+            "decision": "judicial_rebuke"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "judicial_rebuke.cold.academic.1",
+          "text": "The law binds the government as it binds everyone else.",
+          "when": {
+            "decision": "judicial_rebuke"
+          },
+          "voice": [
+            "Academic",
+            "Formal"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "investigate_story.cold.1",
+          "text": "Our reporters are looking into {act}.",
+          "when": {
+            "decision": "investigate_story"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "investigate_story.cold.2",
+          "text": "We are asking questions about {act}, and we will publish what we find.",
+          "when": {
+            "decision": "investigate_story"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "editorial_against.cold.1",
+          "text": "Our view: {act} was wrong, and the President must answer for it.",
+          "when": {
+            "decision": "editorial_against"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "editorial_against.cold.2",
+          "text": "Editorial: the country deserves better than {act}.",
+          "when": {
+            "decision": "editorial_against"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "warn_markets.cold.1",
+          "text": "Markets do not like uncertainty, and {act} creates plenty.",
+          "when": {
+            "decision": "warn_markets"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "warn_markets.cold.2",
+          "text": "Investors are watching {act} closely. So should Washington.",
+          "when": {
+            "decision": "warn_markets"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "threaten_relocation.cold.1",
+          "text": "If this continues, companies will invest elsewhere.",
+          "when": {
+            "decision": "threaten_relocation"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "defend_independence.cold.1",
+          "text": "Our decisions are made on the evidence, not under political pressure.",
+          "when": {
+            "decision": "defend_independence"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "defend_independence.cold.2",
+          "text": "The central bank's independence is not up for negotiation.",
+          "when": {
+            "decision": "defend_independence"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "campaign.cold.1",
+          "text": "Make your voices heard at the ballot box.",
+          "when": {
+            "decision": [
+              "mobilize_voters",
+              "fundraise_on_it"
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "campaign.cold.2",
+          "text": "Stand with us against {act}. Every dollar helps.",
+          "when": {
+            "decision": [
+              "mobilize_voters",
+              "fundraise_on_it"
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "condemn.hostile.1",
+          "text": "{act} is indefensible. I condemn it without reservation.",
+          "when": {
+            "decision": "condemn"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "condemn.hostile.2",
+          "text": "There is no excuse for {act}.",
+          "when": {
+            "decision": "condemn"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "condemn.hostile.formal.1",
+          "text": "History will remember {act}, and not kindly.",
+          "when": {
+            "decision": "condemn"
+          },
+          "voice": [
+            "Formal",
+            "Academic"
+          ],
+          "tone": "Hostile"
+        },
+        {
+          "id": "condemn_internationally.hostile.1",
+          "text": "{speaker_country} condemns {act} in the strongest terms.",
+          "when": {
+            "decision": "condemn_internationally"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "condemn_internationally.hostile.2",
+          "text": "What Washington has done is a danger to us all.",
+          "when": {
+            "decision": "condemn_internationally"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "recall_ambassador.hostile.1",
+          "text": "We are recalling our ambassador from Washington for consultations.",
+          "when": {
+            "decision": "recall_ambassador"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "recall_ambassador.hostile.2",
+          "text": "Our ambassador is coming home until Washington explains itself.",
+          "when": {
+            "decision": "recall_ambassador"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "retaliate_in_kind.hostile.1",
+          "text": "{speaker_country} will respond in kind.",
+          "when": {
+            "decision": "retaliate_in_kind"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "retaliate_in_kind.hostile.2",
+          "text": "Washington has chosen escalation. We will answer it.",
+          "when": {
+            "decision": "retaliate_in_kind"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "call_for_resignation.hostile.1",
+          "text": "After {act}, the President should resign.",
+          "when": {
+            "decision": "call_for_resignation"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "call_for_resignation.hostile.2",
+          "text": "The country deserves better. It is time for the President to go.",
+          "when": {
+            "decision": "call_for_resignation"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "accountability.hostile.1",
+          "text": "{act} is an impeachable offence, and the House must act.",
+          "when": {
+            "decision": [
+              "push_impeachment",
+              "censure",
+              "criminal_referral"
+            ]
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "accountability.hostile.2",
+          "text": "Congress should censure the President for {act}.",
+          "when": {
+            "decision": [
+              "push_impeachment",
+              "censure",
+              "criminal_referral"
+            ]
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "accountability.hostile.3",
+          "text": "We are referring {act} to the Justice Department.",
+          "when": {
+            "decision": [
+              "push_impeachment",
+              "censure",
+              "criminal_referral"
+            ]
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "back_a_challenger.hostile.1",
+          "text": "Our party needs new leadership, and I'll help find it.",
+          "when": {
+            "decision": "back_a_challenger"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "back_a_challenger.hostile.2",
+          "text": "It's time for a challenger. I'm backing one.",
+          "when": {
+            "decision": "back_a_challenger"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "publish_expose.hostile.1",
+          "text": "Tonight we publish what really happened behind {act}.",
+          "when": {
+            "decision": "publish_expose"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "publish_expose.hostile.2",
+          "text": "Our investigation reveals what the White House tried to hide.",
+          "when": {
+            "decision": "publish_expose"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "call_for_investigation.hostile.1",
+          "text": "{act} demands a full, independent investigation.",
+          "when": {
+            "decision": "call_for_investigation"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "call_for_investigation.hostile.2",
+          "text": "We call for an investigation into {act}, starting now.",
+          "when": {
+            "decision": "call_for_investigation"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "blow_the_whistle.hostile.1",
+          "text": "I could not stay silent about {act}. The public has a right to know.",
+          "when": {
+            "decision": "blow_the_whistle"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "blow_the_whistle.hostile.2",
+          "text": "I have reported what I saw to the inspector general and to Congress.",
+          "when": {
+            "decision": "blow_the_whistle"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "anonymous_op_ed.hostile.1",
+          "text": "I serve inside this administration, and I can no longer stay quiet about {act}.",
+          "when": {
+            "decision": "anonymous_op_ed"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "anonymous_op_ed.hostile.2",
+          "text": "Some of us inside the government are working to limit the damage.",
+          "when": {
+            "decision": "anonymous_op_ed"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "resign_in_protest.hostile.1",
+          "text": "I cannot serve while {act} stands. I have resigned.",
+          "when": {
+            "decision": "resign_in_protest"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "resign_in_protest.hostile.2",
+          "text": "Today I resigned. I will not lend my name to {act}.",
+          "when": {
+            "decision": "resign_in_protest"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "streets.hostile.1",
+          "text": "Take to the streets. Peacefully, and in numbers.",
+          "when": {
+            "decision": [
+              "organize_protests",
+              "call_strike"
+            ]
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "streets.hostile.2",
+          "text": "Our members are walking out. Enough is enough.",
+          "when": {
+            "decision": [
+              "organize_protests",
+              "call_strike"
+            ]
+          },
+          "tone": "Hostile"
+        }
+      ]
+    },
+    {
+      "id": "dlg.statement.leverage",
+      "surface": "statement",
+      "point": "dp.pc_leverage",
+      "expects": [
+        {
+          "tones": [
+            "Cold"
+          ],
+          "decisions": [
+            "public_criticism",
+            "obstruct_bill",
+            "fund_rival",
+            "court_challenge",
+            "primary_challenge",
+            "media_campaign",
+            "capital_flight",
+            "slow_walk_implementation",
+            "refuse_orders",
+            "rate_pressure"
+          ]
+        },
+        {
+          "tones": [
+            "Hostile"
+          ],
+          "decisions": [
+            "strike"
+          ]
+        }
+      ],
+      "silent": [
+        "none",
+        "leak",
+        "coup_plot"
+      ],
+      "notes": "A power center turning its leverage on the leader.",
+      "lines": [
+        {
+          "id": "public_criticism.cold.1",
+          "text": "We've been patient with this White House. That patience is over.",
+          "when": {
+            "decision": "public_criticism"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "public_criticism.cold.2",
+          "text": "Our members deserve better than this administration has given them.",
+          "when": {
+            "decision": "public_criticism"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "obstruct_bill.cold.1",
+          "text": "Until our concerns are met, the President's agenda goes nowhere.",
+          "when": {
+            "decision": "obstruct_bill"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "obstruct_bill.cold.2",
+          "text": "We'll be voting against the White House until it listens.",
+          "when": {
+            "decision": "obstruct_bill"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "fund_rival.cold.1",
+          "text": "There are other candidates who'd serve this country better. We'll help them.",
+          "when": {
+            "decision": "fund_rival"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "fund_rival.cold.2",
+          "text": "Our support is going elsewhere this cycle.",
+          "when": {
+            "decision": "fund_rival"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "court_challenge.cold.1",
+          "text": "We'll see the administration in court.",
+          "when": {
+            "decision": "court_challenge"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "court_challenge.cold.2",
+          "text": "Our lawyers are preparing a challenge.",
+          "when": {
+            "decision": "court_challenge"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "primary_challenge.cold.1",
+          "text": "The party needs a choice. A primary challenge may be the only way to offer one.",
+          "when": {
+            "decision": "primary_challenge"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "primary_challenge.cold.2",
+          "text": "Nobody should run unopposed, not even a President.",
+          "when": {
+            "decision": "primary_challenge"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "media_campaign.cold.1",
+          "text": "We're going to make sure the public knows exactly what this White House is doing.",
+          "when": {
+            "decision": "media_campaign"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "media_campaign.cold.2",
+          "text": "Expect to hear from us on every channel.",
+          "when": {
+            "decision": "media_campaign"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "capital_flight.cold.1",
+          "text": "Capital goes where it is welcome. Right now, that isn't here.",
+          "when": {
+            "decision": "capital_flight"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "capital_flight.cold.2",
+          "text": "Our clients are moving money out until things settle.",
+          "when": {
+            "decision": "capital_flight"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "slow_walk_implementation.cold.1",
+          "text": "We'll implement the new rules as carefully as they deserve.",
+          "when": {
+            "decision": "slow_walk_implementation"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "slow_walk_implementation.cold.2",
+          "text": "Big changes take time. A lot of time.",
+          "when": {
+            "decision": "slow_walk_implementation"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "refuse_orders.cold.1",
+          "text": "Some orders will be examined very closely before anyone acts on them.",
+          "when": {
+            "decision": "refuse_orders"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "refuse_orders.cold.2",
+          "text": "We follow the law. Not every instruction meets that test.",
+          "when": {
+            "decision": "refuse_orders"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "rate_pressure.cold.1",
+          "text": "Monetary policy should not bend to political convenience.",
+          "when": {
+            "decision": "rate_pressure"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "rate_pressure.cold.2",
+          "text": "We'd urge the White House to leave interest rates to the experts.",
+          "when": {
+            "decision": "rate_pressure"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "strike.hostile.1",
+          "text": "Our members are walking off the job until this administration listens.",
+          "when": {
+            "decision": "strike"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "strike.hostile.2",
+          "text": "We're on strike. Working people have had enough.",
+          "when": {
+            "decision": "strike"
+          },
+          "tone": "Hostile"
+        }
+      ]
+    },
+    {
+      "id": "dlg.statement.court",
+      "surface": "statement",
+      "point": "dp.court_ruling",
+      "variables": [
+        "subject"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "uphold",
+            "strike",
+            "partial",
+            "delay"
+          ]
+        }
+      ],
+      "notes": "The court's opinion, read by its chief.",
+      "lines": [
+        {
+          "id": "uphold.neutral.1",
+          "text": "The Court finds that {subject} is within the government's lawful authority.",
+          "when": {
+            "decision": "uphold"
+          }
+        },
+        {
+          "id": "uphold.neutral.2",
+          "text": "We uphold {subject}. The law permits what was done.",
+          "when": {
+            "decision": "uphold"
+          }
+        },
+        {
+          "id": "uphold.neutral.academic.1",
+          "text": "Read in light of its text and history, the law permits {subject}.",
+          "when": {
+            "decision": "uphold"
+          },
+          "voice": [
+            "Academic"
+          ]
+        },
+        {
+          "id": "strike.neutral.1",
+          "text": "The Court holds that {subject} exceeds the authority the law allows. It cannot stand.",
+          "when": {
+            "decision": "strike"
+          }
+        },
+        {
+          "id": "strike.neutral.2",
+          "text": "{subject} is struck down. No official may act beyond the law, however urgent the cause.",
+          "when": {
+            "decision": "strike"
+          }
+        },
+        {
+          "id": "strike.neutral.academic.1",
+          "text": "Neither the text nor our precedents support {subject}. It is unlawful.",
+          "when": {
+            "decision": "strike"
+          },
+          "voice": [
+            "Academic"
+          ]
+        },
+        {
+          "id": "partial.neutral.1",
+          "text": "We uphold part of {subject} and strike the rest.",
+          "when": {
+            "decision": "partial"
+          }
+        },
+        {
+          "id": "partial.neutral.2",
+          "text": "The Court narrows {subject} to what the law permits.",
+          "when": {
+            "decision": "partial"
+          }
+        },
+        {
+          "id": "partial.neutral.academic.1",
+          "text": "Severing the unlawful parts, the Court lets the rest of {subject} stand.",
+          "when": {
+            "decision": "partial"
+          },
+          "voice": [
+            "Academic"
+          ]
+        },
+        {
+          "id": "delay.neutral.1",
+          "text": "The Court will hear further argument before ruling on {subject}.",
+          "when": {
+            "decision": "delay"
+          }
+        },
+        {
+          "id": "delay.neutral.2",
+          "text": "We are not prepared to rule on {subject} today.",
+          "when": {
+            "decision": "delay"
+          }
+        },
+        {
+          "id": "delay.neutral.academic.1",
+          "text": "The questions raised by {subject} are novel. We will hear further argument.",
+          "when": {
+            "decision": "delay"
+          },
+          "voice": [
+            "Academic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg.statement.rate",
+      "surface": "statement",
+      "point": "dp.central_bank_rate",
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "cut_50",
+            "cut_25",
+            "hold",
+            "hike_25",
+            "hike_50"
+          ]
+        }
+      ],
+      "notes": "The central bank chair explaining a rate decision.",
+      "lines": [
+        {
+          "id": "cut_50.neutral.1",
+          "text": "We are cutting rates by half a point. The economy needs the support.",
+          "when": {
+            "decision": "cut_50"
+          }
+        },
+        {
+          "id": "cut_50.neutral.2",
+          "text": "Conditions call for a decisive move: rates come down by fifty basis points.",
+          "when": {
+            "decision": "cut_50"
+          }
+        },
+        {
+          "id": "cut_50.neutral.market.1",
+          "text": "A larger cut today, to get ahead of the slowdown.",
+          "when": {
+            "decision": "cut_50"
+          },
+          "voice": [
+            "Market"
+          ]
+        },
+        {
+          "id": "cut_25.neutral.1",
+          "text": "We are lowering rates by a quarter point, and will watch the data closely.",
+          "when": {
+            "decision": "cut_25"
+          }
+        },
+        {
+          "id": "cut_25.neutral.2",
+          "text": "A modest cut today. Inflation is contained; growth needs help.",
+          "when": {
+            "decision": "cut_25"
+          }
+        },
+        {
+          "id": "cut_25.neutral.technocrat.1",
+          "text": "We are easing a little. Further moves will depend on the data.",
+          "when": {
+            "decision": "cut_25"
+          },
+          "voice": [
+            "Technocrat"
+          ]
+        },
+        {
+          "id": "hold.neutral.1",
+          "text": "We are holding rates steady. Policy is where it needs to be for now.",
+          "when": {
+            "decision": "hold"
+          }
+        },
+        {
+          "id": "hold.neutral.2",
+          "text": "No change today. We will move when the data tell us to.",
+          "when": {
+            "decision": "hold"
+          }
+        },
+        {
+          "id": "hold.neutral.technocrat.1",
+          "text": "Rates stay where they are. Patience is the right policy.",
+          "when": {
+            "decision": "hold"
+          },
+          "voice": [
+            "Technocrat"
+          ]
+        },
+        {
+          "id": "hike_25.neutral.1",
+          "text": "We are raising rates by a quarter point. Inflation is still too high.",
+          "when": {
+            "decision": "hike_25"
+          }
+        },
+        {
+          "id": "hike_25.neutral.2",
+          "text": "A measured increase today. Price stability comes first.",
+          "when": {
+            "decision": "hike_25"
+          }
+        },
+        {
+          "id": "hike_25.neutral.market.1",
+          "text": "We are tightening a little further, and we are prepared to do more.",
+          "when": {
+            "decision": "hike_25"
+          },
+          "voice": [
+            "Market"
+          ]
+        },
+        {
+          "id": "hike_50.neutral.1",
+          "text": "We are raising rates by half a point. We will do what it takes to bring inflation down.",
+          "when": {
+            "decision": "hike_50"
+          }
+        },
+        {
+          "id": "hike_50.neutral.2",
+          "text": "A large increase, and a necessary one. Inflation must come down.",
+          "when": {
+            "decision": "hike_50"
+          }
+        },
+        {
+          "id": "hike_50.neutral.technocrat.1",
+          "text": "Strong action today, so we don't need stronger action later.",
+          "when": {
+            "decision": "hike_50"
+          },
+          "voice": [
+            "Technocrat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg.statement.public",
+      "surface": "statement",
+      "point": "dp.public_statement",
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "issue_statement"
+          ]
+        }
+      ],
+      "silent": [
+        "stay_silent"
+      ],
+      "notes": "An institution's public statement (the military's).",
+      "lines": [
+        {
+          "id": "issue_statement.neutral.1",
+          "text": "The armed forces serve the Constitution and the law. They will not carry out unlawful orders.",
+          "when": {
+            "decision": "issue_statement"
+          }
+        },
+        {
+          "id": "issue_statement.neutral.2",
+          "text": "Our oath is to the Constitution. That has not changed, and it will not.",
+          "when": {
+            "decision": "issue_statement"
+          }
+        },
+        {
+          "id": "issue_statement.neutral.3",
+          "text": "The chain of command remains intact and bound by law.",
+          "when": {
+            "decision": "issue_statement"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "$schema": "../schemas/roles.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "roles": [
+    {
+      "id": "role.military_officer",
+      "appliesTo": [
+        "military_chief",
+        "military_commander",
+        "nmcc_officer"
+      ],
+      "inputWeights": {
+        "order.lawfulness": 1.5,
+        "order.warrant": 1.3
+      },
+      "optionBias": {
+        "comply": 1.2,
+        "comply_slowly": 0.5,
+        "resign": 0.3,
+        "leak": 0.2,
+        "alert_others": 1.5,
+        "praise": 0.1,
+        "criticize": 0.15,
+        "express_concern": 0.3,
+        "leak_to_press": 0.3,
+        "anonymous_op_ed": 0.1,
+        "comply_quietly": 1.5,
+        "raise_concerns_privately": 1.5,
+        "warn_privately": 1.4,
+        "resign_in_protest": 0.7,
+        "blow_the_whistle": 0.6
+      },
+      "typicalLawfulness": 68,
+      "typicalLoyalty": 55
+    },
+    {
+      "id": "role.missile_crew",
+      "inputWeights": {
+        "order.lawfulness": 1.5,
+        "order.warrant": 1.3
+      },
+      "optionBias": {
+        "comply": 1.2,
+        "comply_slowly": 0.3,
+        "resign": 0.1,
+        "leak": 0.1,
+        "alert_others": 1.2
+      },
+      "typicalLawfulness": 66,
+      "typicalLoyalty": 55
+    },
+    {
+      "id": "role.career_official",
+      "appliesTo": [
+        "fiscal_assistant_secretary",
+        "irs_commissioner"
+      ],
+      "inputWeights": {
+        "order.lawfulness": 1.3
+      },
+      "optionBias": {
+        "comply_slowly": 2,
+        "ask_confirmation": 1.6,
+        "leak": 1.3,
+        "resign": 0.8,
+        "criticize": 0.3,
+        "express_concern": 0.4,
+        "blow_the_whistle": 1.5,
+        "slow_walk": 1.4,
+        "request_legal_opinion": 1.5,
+        "memo_for_the_record": 1.3,
+        "leak_to_press": 0.9
+      },
+      "typicalLawfulness": 65,
+      "typicalLoyalty": 45
+    },
+    {
+      "id": "role.career_prosecutor",
+      "appliesTo": [
+        "special_counsel"
+      ],
+      "inputWeights": {
+        "order.lawfulness": 1.5,
+        "order.warrant": 1.5
+      },
+      "optionBias": {
+        "ask_confirmation": 1.3,
+        "resign": 1.5,
+        "criticize": 0.3,
+        "express_concern": 0.4,
+        "blow_the_whistle": 1.5,
+        "slow_walk": 1.4,
+        "request_legal_opinion": 1.5,
+        "memo_for_the_record": 1.3,
+        "leak_to_press": 0.9
+      },
+      "typicalLawfulness": 72,
+      "typicalLoyalty": 45
+    },
+    {
+      "id": "role.grand_jury",
+      "inputWeights": {
+        "order.warrant": 2
+      },
+      "optionBias": {
+        "resign": 0,
+        "leak": 0.1,
+        "alert_others": 0.1,
+        "ask_confirmation": 0.3,
+        "comply_slowly": 0.2
+      },
+      "typicalLawfulness": 60,
+      "typicalLoyalty": 40
+    },
+    {
+      "id": "role.law_enforcement",
+      "inputWeights": {
+        "order.lawfulness": 1.3
+      },
+      "optionBias": {
+        "alert_others": 1.3,
+        "comply_slowly": 1.2
+      },
+      "typicalLawfulness": 66,
+      "typicalLoyalty": 50
+    },
+    {
+      "id": "role.intelligence_officer",
+      "optionBias": {
+        "comply": 1.1,
+        "leak": 0.6
+      },
+      "typicalLawfulness": 55,
+      "typicalLoyalty": 60
+    },
+    {
+      "id": "role.political_appointee",
+      "appliesTo": [
+        "vice_president",
+        "chief_of_staff",
+        "fbi_director",
+        "cia_director",
+        "intelligence_chief",
+        "fcc_chair",
+        "secret_service_director",
+        "opm_director",
+        "deputy_attorney_general",
+        "solicitor_general",
+        "secretary_of_state",
+        "treasury_secretary",
+        "secretary_of_defense",
+        "attorney_general",
+        "secretary_of_interior",
+        "secretary_of_agriculture",
+        "secretary_of_commerce",
+        "secretary_of_labor",
+        "secretary_of_hhs",
+        "secretary_of_hud",
+        "secretary_of_transportation",
+        "secretary_of_energy",
+        "secretary_of_education",
+        "secretary_of_veterans_affairs",
+        "secretary_of_homeland_security"
+      ],
+      "inputWeights": {
+        "trait.loyalty": 1.5
+      },
+      "optionBias": {
+        "resign": 2,
+        "refuse": 0.6,
+        "leak": 0.5,
+        "alert_others": 1.2,
+        "criticize": 0.35,
+        "express_concern": 0.5,
+        "praise": 1.3,
+        "defend_publicly": 1.5,
+        "raise_concerns_privately": 1.4,
+        "resign_in_protest": 1.2,
+        "leak_to_press": 0.6,
+        "anonymous_op_ed": 0.5
+      },
+      "typicalLawfulness": 55,
+      "typicalLoyalty": 65
+    },
+    {
+      "id": "role.legislator",
+      "appliesTo": [
+        "party_leader_house",
+        "party_leader_senate",
+        "bloc_leader"
+      ]
+    },
+    {
+      "id": "role.judge",
+      "appliesTo": [
+        "chief_justice"
+      ],
+      "optionBias": {
+        "judicial_rebuke": 0.4,
+        "express_concern": 0.05,
+        "criticize": 0.02
+      }
+    },
+    {
+      "id": "role.central_banker",
+      "appliesTo": [
+        "central_bank_chair"
+      ],
+      "optionBias": {
+        "criticize": 0.3,
+        "condemn": 0.1,
+        "express_concern": 0.6,
+        "defend_independence": 1.5,
+        "warn_markets": 1.2
+      }
+    }
+  ]
+}

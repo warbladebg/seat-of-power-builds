@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schemas/localization.schema.json",
+  "strings": {
+    "crisis.usa.regional_bank.contagion": "The run spreads to larger banks.",
+    "crisis.usa.regional_bank.contained": "The panic fades; regulators wind down the weakest lenders.",
+    "crisis.usa.regional_bank.response.backstop": "Guarantee all deposits",
+    "crisis.usa.regional_bank.response.backstop_late": "Guarantee all deposits (late)",
+    "crisis.usa.regional_bank.response.reassure": "Reassure depositors",
+    "crisis.usa.regional_bank.rumors": "Rumours of losses spread through regional lenders.",
+    "crisis.usa.regional_bank.run": "Depositors queue outside branches; withdrawals accelerate.",
+    "crisis.usa.regional_bank.title": "Regional bank run",
+    "event.usa.bank_wobble.option.backstop": "Announce a deposit backstop",
+    "event.usa.bank_wobble.option.blame_congress": "Blame Congress for the uncertainty",
+    "event.usa.bank_wobble.option.let_market_handle": "Let the market sort it out",
+    "event.usa.bank_wobble.text": "Shares of several regional lenders slide as depositors move cash to money-market funds.",
+    "event.usa.bank_wobble.title": "Regional bank wobbles",
+    "event.usa.ratings_watch.option.release_reserve": "Order a strategic reserve release",
+    "event.usa.ratings_watch.option.wait": "Wait and see",
+    "event.usa.ratings_watch.text": "A major ratings agency warns that brinkmanship could lead to a downgrade.",
+    "event.usa.ratings_watch.title": "Ratings agency puts the US on negative watch",
+    "event.usa.spr_release_ordered.text": "The Energy Department schedules sales from the Strategic Petroleum Reserve.",
+    "event.usa.spr_release_ordered.title": "Reserve release ordered",
+    "event.usa.strong_jobs_report.text": "Hiring beats expectations for the month.",
+    "event.usa.strong_jobs_report.title": "Strong jobs report",
+    "event.usa.tax_receipts_surprise.text": "Treasury reports how April's tax receipts compare with expectations.",
+    "event.usa.tax_receipts_surprise.title": "April tax receipts are in",
+    "event.world.gulf_tension.text": "A naval standoff near a key shipping lane sends oil prices higher.",
+    "event.world.gulf_tension.title": "Tension in the Gulf"
+  }
+}

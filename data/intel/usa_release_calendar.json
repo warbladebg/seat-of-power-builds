@@ -1,0 +1,163 @@
+{
+  "$schema": "../schemas/release_calendar.schema.json",
+  "meta": {
+    "sources": [
+      "src.us_bls",
+      "src.us_treasury_fiscaldata",
+      "src.seatofpower_authored"
+    ],
+    "notes": "Release rules follow BLS, BEA and Treasury practice; noise and revisions are authored."
+  },
+  "country": "country.usa",
+  "releases": [
+    {
+      "id": "stat.usa.unemployment",
+      "nameKey": "stat.usa.unemployment.name",
+      "schedule": {
+        "rule": "weekday_of_month",
+        "n": 1,
+        "weekday": "Friday"
+      },
+      "variable": "econ.unemployment@{country}",
+      "period": "month",
+      "aggregate": "average",
+      "noiseSd": 0.1,
+      "revisions": [
+        {
+          "afterReleases": 1,
+          "noiseSd": 0.05
+        },
+        {
+          "afterReleases": 1,
+          "noiseSd": 0
+        }
+      ],
+      "reliability": "High",
+      "perceives": "econ.unemployment@{country}"
+    },
+    {
+      "id": "stat.usa.cpi",
+      "nameKey": "stat.usa.cpi.name",
+      "schedule": {
+        "rule": "day_of_month",
+        "n": 12
+      },
+      "variable": "econ.inflation@{country}",
+      "period": "month",
+      "aggregate": "average",
+      "noiseSd": 0.05,
+      "reliability": "High",
+      "perceives": "econ.inflation@{country}"
+    },
+    {
+      "id": "stat.usa.core_cpi",
+      "nameKey": "stat.usa.core_cpi.name",
+      "schedule": {
+        "rule": "day_of_month",
+        "n": 12
+      },
+      "variable": "econ.core_inflation@{country}",
+      "period": "month",
+      "aggregate": "average",
+      "noiseSd": 0.05,
+      "reliability": "High",
+      "perceives": "econ.core_inflation@{country}"
+    },
+    {
+      "id": "stat.usa.gdp",
+      "nameKey": "stat.usa.gdp.name",
+      "schedule": {
+        "rule": "days_after_period",
+        "n": 30
+      },
+      "variable": "econ.real_gdp@{country}",
+      "period": "quarter",
+      "aggregate": "annualized_growth",
+      "noiseSd": 0.6,
+      "revisions": [
+        {
+          "afterDays": 30,
+          "noiseSd": 0.35
+        },
+        {
+          "afterDays": 30,
+          "noiseSd": 0.15
+        }
+      ],
+      "reliability": "Medium",
+      "perceives": "econ.real_growth@{country}"
+    },
+    {
+      "id": "stat.usa.mts_receipts",
+      "nameKey": "stat.usa.mts_receipts.name",
+      "schedule": {
+        "rule": "business_day_of_month",
+        "n": 8
+      },
+      "measure": "treasury_receipts",
+      "period": "month",
+      "reliability": "Verified"
+    },
+    {
+      "id": "stat.usa.mts_outlays",
+      "nameKey": "stat.usa.mts_outlays.name",
+      "schedule": {
+        "rule": "business_day_of_month",
+        "n": 8
+      },
+      "measure": "treasury_outlays",
+      "period": "month",
+      "reliability": "Verified"
+    },
+    {
+      "id": "stat.usa.mts_deficit",
+      "nameKey": "stat.usa.mts_deficit.name",
+      "schedule": {
+        "rule": "business_day_of_month",
+        "n": 8
+      },
+      "measure": "treasury_deficit",
+      "period": "month",
+      "reliability": "Verified"
+    },
+    {
+      "id": "stat.usa.measures",
+      "nameKey": "stat.usa.measures.name",
+      "schedule": {
+        "rule": "business_day_of_month",
+        "n": 8
+      },
+      "variable": "econ.extraordinary_measures@{country}",
+      "period": "month",
+      "aggregate": "last",
+      "reliability": "Verified",
+      "perceives": "econ.extraordinary_measures@{country}"
+    },
+    {
+      "id": "stat.usa.dts_cash",
+      "nameKey": "stat.usa.dts_cash.name",
+      "schedule": {
+        "rule": "every_business_day",
+        "n": 1
+      },
+      "variable": "econ.treasury_cash@{country}",
+      "period": "day",
+      "aggregate": "last",
+      "reliability": "Verified",
+      "perceives": "econ.treasury_cash@{country}"
+    },
+    {
+      "id": "stat.usa.dts_debt",
+      "nameKey": "stat.usa.dts_debt.name",
+      "schedule": {
+        "rule": "every_business_day",
+        "n": 1
+      },
+      "variable": "econ.debt_subject_to_limit@{country}",
+      "period": "day",
+      "aggregate": "last",
+      "reliability": "Verified",
+      "perceives": "econ.debt_subject_to_limit@{country}"
+    }
+  ]
+}

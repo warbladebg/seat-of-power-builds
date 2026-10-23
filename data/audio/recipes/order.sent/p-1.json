@@ -1,0 +1,38 @@
+{
+  "cue": "order.sent",
+  "round": "p",
+  "option": 1,
+  "family": "Placeholder",
+  "label": "plain placeholder until a round picks this cue",
+  "seed": 1,
+  "tail": 0.03,
+  "loudness": -25,
+  "layers": [
+    {
+      "type": "tone",
+      "wave": "sine",
+      "freq": 500,
+      "at": 0.0,
+      "env": {
+        "a": 0.002,
+        "d": 0.1
+      },
+      "gain": 0.0,
+      "freqEnd": 800,
+      "glide": 0.06
+    },
+    {
+      "type": "noise",
+      "at": 0.0,
+      "env": {
+        "a": 0.0003,
+        "d": 0.004
+      },
+      "gain": -10,
+      "filter": {
+        "type": "highpass",
+        "freq": 2500
+      }
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "$schema": "../schemas/peer_groups.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "peerGroups": [
+    {
+      "id": "group.usa.cabinet",
+      "country": "country.usa",
+      "nameKey": "group.usa.cabinet.name",
+      "members": [
+        "char.usa.vice_president",
+        "char.usa.secretary_of_state",
+        "char.usa.treasury_secretary",
+        "char.usa.secretary_of_defense",
+        "char.usa.attorney_general",
+        "char.usa.secretary_of_interior",
+        "char.usa.secretary_of_agriculture",
+        "char.usa.secretary_of_commerce",
+        "char.usa.secretary_of_labor",
+        "char.usa.secretary_of_hhs",
+        "char.usa.secretary_of_hud",
+        "char.usa.secretary_of_transportation",
+        "char.usa.secretary_of_energy",
+        "char.usa.secretary_of_education",
+        "char.usa.secretary_of_veterans_affairs",
+        "char.usa.secretary_of_homeland_security",
+        "char.usa.chief_of_staff"
+      ],
+      "cohesion": 0.7,
+      "formal": true
+    },
+    {
+      "id": "group.usa.military_leadership",
+      "country": "country.usa",
+      "nameKey": "group.usa.military_leadership.name",
+      "members": [
+        "pc.usa.military",
+        "char.usa.stratcom_commander",
+        "char.usa.nmcc_director"
+      ],
+      "cohesion": 0.85,
+      "formal": true
+    },
+    {
+      "id": "group.usa.intelligence_community",
+      "country": "country.usa",
+      "nameKey": "group.usa.intelligence_community.name",
+      "members": [
+        "pc.usa.intelligence",
+        "char.usa.cia_director",
+        "char.usa.fbi_director",
+        "char.usa.secret_service_director"
+      ],
+      "cohesion": 0.6
+    },
+    {
+      "id": "group.usa.justice_department",
+      "country": "country.usa",
+      "nameKey": "group.usa.justice_department.name",
+      "members": [
+        "char.usa.attorney_general",
+        "char.usa.deputy_attorney_general",
+        "char.usa.solicitor_general",
+        "char.usa.fbi_director",
+        "char.usa.special_counsel"
+      ],
+      "cohesion": 0.7,
+      "formal": true
+    },
+    {
+      "id": "group.usa.house_democrats",
+      "country": "country.usa",
+      "nameKey": "group.usa.house_democrats.name",
+      "roles": [
+        "party_leader_house",
+        "representative"
+      ],
+      "powerCenterTypes": [
+        "LegislativeBloc"
+      ],
+      "party": "party.usa.democratic",
+      "chamber": "chamber.usa.house",
+      "cohesion": 0.6
+    },
+    {
+      "id": "group.usa.house_republicans",
+      "country": "country.usa",
+      "nameKey": "group.usa.house_republicans.name",
+      "roles": [
+        "party_leader_house",
+        "representative"
+      ],
+      "powerCenterTypes": [
+        "LegislativeBloc"
+      ],
+      "party": "party.usa.republican",
+      "chamber": "chamber.usa.house",
+      "cohesion": 0.65
+    },
+    {
+      "id": "group.usa.senate_democrats",
+      "country": "country.usa",
+      "nameKey": "group.usa.senate_democrats.name",
+      "roles": [
+        "party_leader_senate",
+        "senator"
+      ],
+      "powerCenterTypes": [
+        "LegislativeBloc"
+      ],
+      "party": "party.usa.democratic",
+      "chamber": "chamber.usa.senate",
+      "cohesion": 0.55
+    },
+    {
+      "id": "group.usa.senate_republicans",
+      "country": "country.usa",
+      "nameKey": "group.usa.senate_republicans.name",
+      "roles": [
+        "party_leader_senate",
+        "senator"
+      ],
+      "powerCenterTypes": [
+        "LegislativeBloc"
+      ],
+      "party": "party.usa.republican",
+      "chamber": "chamber.usa.senate",
+      "cohesion": 0.6
+    },
+    {
+      "id": "group.usa.federal_judiciary",
+      "country": "country.usa",
+      "nameKey": "group.usa.federal_judiciary.name",
+      "members": [
+        "pc.usa.supreme_court"
+      ],
+      "roles": [
+        "associate_justice"
+      ],
+      "cohesion": 0.5,
+      "formal": true
+    },
+    {
+      "id": "group.usa.press",
+      "country": "country.usa",
+      "nameKey": "group.usa.press.name",
+      "roles": [
+        "media_editor"
+      ],
+      "powerCenterTypes": [
+        "MediaCluster"
+      ],
+      "cohesion": 0.35
+    },
+    {
+      "id": "group.usa.business_community",
+      "country": "country.usa",
+      "nameKey": "group.usa.business_community.name",
+      "roles": [
+        "lobby_leader"
+      ],
+      "powerCenterTypes": [
+        "BusinessLobby"
+      ],
+      "cohesion": 0.5
+    },
+    {
+      "id": "group.usa.career_civil_service",
+      "country": "country.usa",
+      "nameKey": "group.usa.career_civil_service.name",
+      "members": [
+        "char.usa.fiscal_assistant_secretary",
+        "char.usa.irs_commissioner",
+        "char.usa.special_counsel"
+      ],
+      "cohesion": 0.6
+    }
+  ]
+}

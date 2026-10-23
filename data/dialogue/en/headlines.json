@@ -1,0 +1,6400 @@
+{
+  "$schema": "../../schemas/dialogue.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "templates": [
+    {
+      "id": "dlg.headline.economy",
+      "surface": "headline",
+      "point": "dp.media_framing",
+      "variables": [
+        "agency",
+        "from",
+        "to",
+        "rate",
+        "days",
+        "target",
+        "early",
+        "late"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "supportive",
+            "neutral",
+            "critical"
+          ],
+          "kinds": [
+            "xdate_reached",
+            "payments_missed",
+            "debt_default",
+            "payments_resumed",
+            "debt_limit_raised",
+            "debt_limit_suspended",
+            "rating_downgrade",
+            "rate_changed",
+            "shutdown_started",
+            "shutdown_ended",
+            "tariff_imposed",
+            "xdate_estimate"
+          ]
+        }
+      ],
+      "silent": [
+        "scandalize"
+      ],
+      "notes": "Economic milestones (04) and the budget office's X-date estimate.",
+      "lines": [
+        {
+          "id": "xdate_reached.supportive.neutral.1",
+          "text": "Treasury hits the wall as Congress fails to act",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "xdate_reached"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_reached.supportive.neutral.2",
+          "text": "Congress lets the X-date arrive",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "xdate_reached"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_reached.neutral.neutral.1",
+          "text": "Treasury [[runs out of room|hits the limit]] under the debt ceiling",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "xdate_reached"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_reached.neutral.neutral.2",
+          "text": "X-date arrives: Treasury can't pay every bill",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "xdate_reached"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_reached.critical.neutral.1",
+          "text": "X-date arrives on the President's watch",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "xdate_reached"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_reached.critical.neutral.2",
+          "text": "White House lets the X-date arrive",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "xdate_reached"
+              }
+            ]
+          }
+        },
+        {
+          "id": "payments_missed.supportive.neutral.1",
+          "text": "Congressional standoff forces Treasury to delay payments",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "payments_missed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "payments_missed.supportive.neutral.2",
+          "text": "Treasury forced to delay payments as Congress stalls",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "payments_missed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "payments_missed.neutral.neutral.1",
+          "text": "Treasury [[begins missing|starts to miss]] payments",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "payments_missed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "payments_missed.neutral.neutral.2",
+          "text": "Bills go unpaid as the debt limit bites",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "payments_missed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "payments_missed.critical.neutral.1",
+          "text": "Bills go unpaid as White House fails to cut a deal",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "payments_missed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "payments_missed.critical.neutral.2",
+          "text": "Unpaid bills pile up on the President's watch",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "payments_missed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_default.supportive.neutral.1",
+          "text": "Default as Congress lets the deadline pass",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "debt_default"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_default.supportive.neutral.2",
+          "text": "Congress's failure ends in default",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "debt_default"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_default.neutral.neutral.1",
+          "text": "{player_country} [[misses|fails to make]] a payment on its debt",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "debt_default"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_default.neutral.neutral.2",
+          "text": "Default: a debt payment goes unpaid",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "debt_default"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_default.critical.neutral.1",
+          "text": "Historic default stains the President's record",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "debt_default"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_default.critical.neutral.2",
+          "text": "Default: the President's [[gamble|bet]] fails",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "debt_default"
+              }
+            ]
+          }
+        },
+        {
+          "id": "payments_resumed.supportive.neutral.1",
+          "text": "Treasury pays all its bills again",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "payments_resumed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "payments_resumed.supportive.neutral.2",
+          "text": "Payments back on track after the President's push",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "payments_resumed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "payments_resumed.neutral.neutral.1",
+          "text": "Treasury [[resumes|restarts]] full payments",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "payments_resumed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "payments_resumed.neutral.neutral.2",
+          "text": "Payments resume after the debt standoff",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "payments_resumed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "payments_resumed.critical.neutral.1",
+          "text": "Payments resume, but the damage is done",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "payments_resumed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "payments_resumed.critical.neutral.2",
+          "text": "Treasury pays again after days of needless pain",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "payments_resumed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_limit_raised.supportive.neutral.1",
+          "text": "President's deal lifts the debt limit",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "debt_limit_raised"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_limit_raised.supportive.neutral.2",
+          "text": "Deal done: debt limit lifted",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "debt_limit_raised"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_limit_raised.neutral.neutral.1",
+          "text": "Debt limit [[raised|lifted]]",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "debt_limit_raised"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_limit_raised.neutral.neutral.2",
+          "text": "Congress raises the debt limit",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "debt_limit_raised"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_limit_raised.critical.neutral.1",
+          "text": "Debt limit raised after needless brinkmanship",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "debt_limit_raised"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_limit_raised.critical.neutral.2",
+          "text": "Debt limit lifted after weeks of chaos",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "debt_limit_raised"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_limit_suspended.supportive.neutral.1",
+          "text": "Debt limit suspended; crisis averted",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "debt_limit_suspended"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_limit_suspended.supportive.neutral.2",
+          "text": "Debt limit suspended in a win for the White House",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "debt_limit_suspended"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_limit_suspended.neutral.neutral.1",
+          "text": "Congress [[suspends|sets aside]] the debt limit",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "debt_limit_suspended"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_limit_suspended.neutral.neutral.2",
+          "text": "Debt limit suspended until further notice",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "debt_limit_suspended"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_limit_suspended.critical.neutral.1",
+          "text": "Debt limit suspended, the fight merely postponed",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "debt_limit_suspended"
+              }
+            ]
+          }
+        },
+        {
+          "id": "debt_limit_suspended.critical.neutral.2",
+          "text": "Debt limit suspended, but the bill comes due later",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "debt_limit_suspended"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rating_downgrade.supportive.neutral.1",
+          "text": "{agency} downgrade blamed on congressional gridlock",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "rating_downgrade"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rating_downgrade.supportive.neutral.2",
+          "text": "{agency} cites Congress as it cuts rating to {to}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "rating_downgrade"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rating_downgrade.neutral.neutral.1",
+          "text": "{agency} [[cuts|lowers]] the national credit rating to {to}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "rating_downgrade"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rating_downgrade.neutral.neutral.2",
+          "text": "Credit rating falls from {from} to {to}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "rating_downgrade"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rating_downgrade.critical.neutral.1",
+          "text": "Credit downgrade to {to} on the President's watch",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "rating_downgrade"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rating_downgrade.critical.neutral.2",
+          "text": "{agency} [[downgrade|cut]] to {to} hits the White House",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "rating_downgrade"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rate_changed.supportive.neutral.1",
+          "text": "Central bank sets rates at {rate}%",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "rate_changed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rate_changed.supportive.neutral.2",
+          "text": "Central bank steadies the economy at {rate}%",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "rate_changed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rate_changed.neutral.neutral.1",
+          "text": "Central bank [[moves|sets]] its policy rate to {rate}%",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "rate_changed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rate_changed.neutral.neutral.2",
+          "text": "Policy rate now {rate}%",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "rate_changed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rate_changed.critical.neutral.1",
+          "text": "Rate move to {rate}% reflects an economy under strain",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "rate_changed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rate_changed.critical.neutral.2",
+          "text": "Rate decision at {rate}% shows an economy under strain",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "rate_changed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rate_changed.supportive.neutral.3",
+          "text": "Rate cut offers relief to borrowers",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "rate_changed"
+              },
+              {
+                "hint": "down"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rate_changed.supportive.neutral.4",
+          "text": "Borrowers cheer as rates fall to {rate}%",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "rate_changed"
+              },
+              {
+                "hint": "down"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rate_changed.neutral.neutral.3",
+          "text": "Central bank [[cuts|lowers]] rates to {rate}%",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "rate_changed"
+              },
+              {
+                "hint": "down"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rate_changed.critical.neutral.3",
+          "text": "Rate cut signals a weakening economy",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "rate_changed"
+              },
+              {
+                "hint": "down"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rate_changed.critical.neutral.4",
+          "text": "Rates cut to {rate}% as the economy weakens",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "rate_changed"
+              },
+              {
+                "hint": "down"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rate_changed.supportive.neutral.5",
+          "text": "Central bank acts to keep prices in check",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "rate_changed"
+              },
+              {
+                "hint": "up"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rate_changed.supportive.neutral.6",
+          "text": "Central bank lifts rates to {rate}% to tame prices",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "rate_changed"
+              },
+              {
+                "hint": "up"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rate_changed.neutral.neutral.4",
+          "text": "Central bank [[raises|lifts]] rates to {rate}%",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "rate_changed"
+              },
+              {
+                "hint": "up"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rate_changed.critical.neutral.5",
+          "text": "Rate rise to {rate}% squeezes families further",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "rate_changed"
+              },
+              {
+                "hint": "up"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rate_changed.critical.neutral.6",
+          "text": "Higher rates at {rate}% add to family costs",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "rate_changed"
+              },
+              {
+                "hint": "up"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shutdown_started.supportive.neutral.1",
+          "text": "Shutdown begins as Congress refuses to fund the government",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "shutdown_started"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shutdown_started.supportive.neutral.2",
+          "text": "Congress forces a government shutdown",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "shutdown_started"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shutdown_started.neutral.neutral.1",
+          "text": "Government [[shuts down|closes its doors]]",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "shutdown_started"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shutdown_started.neutral.neutral.2",
+          "text": "Funding lapses; the government shuts down",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "shutdown_started"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shutdown_started.critical.neutral.1",
+          "text": "Government shuts down as White House talks collapse",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "shutdown_started"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shutdown_started.critical.neutral.2",
+          "text": "Shutdown: White House fails to keep the lights on",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "shutdown_started"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shutdown_ended.supportive.neutral.1",
+          "text": "Government back open after the President's push",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "shutdown_ended"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shutdown_ended.supportive.neutral.2",
+          "text": "Shutdown ends as the President's plan prevails",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "shutdown_ended"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shutdown_ended.neutral.neutral.1",
+          "text": "Government reopens after a {days}-day shutdown",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "shutdown_ended"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shutdown_ended.neutral.neutral.2",
+          "text": "Shutdown over after {days} days",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "shutdown_ended"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shutdown_ended.critical.neutral.1",
+          "text": "Shutdown ends after {days} needless days",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "shutdown_ended"
+              }
+            ]
+          }
+        },
+        {
+          "id": "shutdown_ended.critical.neutral.2",
+          "text": "Shutdown finally over after {days} days",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "shutdown_ended"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tariff_imposed.supportive.neutral.1",
+          "text": "President stands up for workers with tariffs on {target}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "tariff_imposed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tariff_imposed.supportive.neutral.2",
+          "text": "Tariffs on {target} put workers first",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "tariff_imposed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tariff_imposed.neutral.neutral.1",
+          "text": "New {rate}% tariffs on {target} [[take effect|come into force]]",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "tariff_imposed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tariff_imposed.neutral.neutral.2",
+          "text": "Tariffs on goods from {target} begin",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "tariff_imposed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tariff_imposed.critical.neutral.1",
+          "text": "Tariffs on {target} will raise prices at home",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "tariff_imposed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tariff_imposed.critical.neutral.2",
+          "text": "Consumers to pay for new tariffs on {target}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "tariff_imposed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.supportive.neutral.1",
+          "text": "Budget office sees X-date between {early} and {late}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "xdate_estimate"
+              },
+              {
+                "not": {
+                  "strength": "exact"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.supportive.neutral.2",
+          "text": "Still time to act: X-date {early} to {late}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "xdate_estimate"
+              },
+              {
+                "not": {
+                  "strength": "exact"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.neutral.neutral.1",
+          "text": "Budget office: X-date [[between|from]] {early} [[and|to]] {late}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "xdate_estimate"
+              },
+              {
+                "not": {
+                  "strength": "exact"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.neutral.neutral.2",
+          "text": "New estimate puts X-date at {early} to {late}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "xdate_estimate"
+              },
+              {
+                "not": {
+                  "strength": "exact"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.critical.neutral.1",
+          "text": "Clock ticking: X-date could come as soon as {early}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "xdate_estimate"
+              },
+              {
+                "not": {
+                  "strength": "exact"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.critical.neutral.2",
+          "text": "Congress dithers as X-date window opens {early}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "xdate_estimate"
+              },
+              {
+                "not": {
+                  "strength": "exact"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.supportive.neutral.3",
+          "text": "Budget office: still time to avoid default",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "xdate_estimate"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.neutral.neutral.3",
+          "text": "Budget office [[updates|revises]] its X-date estimate",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "xdate_estimate"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.critical.neutral.3",
+          "text": "Budget office warns the X-date is coming",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "xdate_estimate"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.supportive.neutral.4",
+          "text": "Budget office puts the X-date at {early}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "xdate_estimate"
+              },
+              {
+                "strength": "exact"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.neutral.neutral.4",
+          "text": "Budget office [[pins|narrows]] the X-date to {early}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "xdate_estimate"
+              },
+              {
+                "strength": "exact"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.critical.neutral.4",
+          "text": "Default looms: X-date set for {early}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "xdate_estimate"
+              },
+              {
+                "strength": "exact"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.supportive.neutral.5",
+          "text": "Time remains to avert default, budget office says",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "xdate_estimate"
+              },
+              {
+                "hint": "soon"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.supportive.neutral.6",
+          "text": "Budget office: still time to act before {early}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "xdate_estimate"
+              },
+              {
+                "hint": "soon"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.neutral.neutral.5",
+          "text": "X-date [[draws near|is close]]: {early} at the earliest",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "xdate_estimate"
+              },
+              {
+                "hint": "soon"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.critical.neutral.5",
+          "text": "Weeks from default: X-date as early as {early}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "xdate_estimate"
+              },
+              {
+                "hint": "soon"
+              }
+            ]
+          }
+        },
+        {
+          "id": "xdate_estimate.critical.neutral.6",
+          "text": "Default could come by {early}, budget office warns",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "xdate_estimate"
+              },
+              {
+                "hint": "soon"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dlg.headline.politics",
+      "surface": "headline",
+      "point": "dp.media_framing",
+      "variables": [
+        "bill",
+        "chamber",
+        "subject",
+        "seats"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "supportive",
+            "neutral",
+            "critical"
+          ],
+          "kinds": [
+            "bill_passed_chamber",
+            "bill_failed_chamber",
+            "bill_signed",
+            "bill_blocked",
+            "case_ruled",
+            "primary_launched",
+            "unrest_high",
+            "regime_backslide",
+            "election_held"
+          ]
+        }
+      ],
+      "silent": [
+        "scandalize"
+      ],
+      "notes": "Legislative, court, primary, unrest, institutional and election news (05).",
+      "lines": [
+        {
+          "id": "bill_passed_chamber.supportive.neutral.1",
+          "text": "{bill} clears the {chamber}: a win for the White House",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "bill_passed_chamber"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_passed_chamber.supportive.neutral.2",
+          "text": "Win for the White House: {bill} passes the {chamber}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "bill_passed_chamber"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_passed_chamber.neutral.neutral.1",
+          "text": "{chamber} [[passes|approves]] {bill}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "bill_passed_chamber"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_passed_chamber.neutral.neutral.2",
+          "text": "{bill} passes the {chamber}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "bill_passed_chamber"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_passed_chamber.critical.neutral.1",
+          "text": "{bill} squeaks through the {chamber}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "bill_passed_chamber"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_passed_chamber.critical.neutral.2",
+          "text": "{bill} scrapes through the {chamber}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "bill_passed_chamber"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_failed_chamber.supportive.neutral.1",
+          "text": "{chamber} sinks {bill} as opposition digs in",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "bill_failed_chamber"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_failed_chamber.supportive.neutral.2",
+          "text": "Opposition blocks {bill} in the {chamber}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "bill_failed_chamber"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_failed_chamber.neutral.neutral.1",
+          "text": "{bill} [[fails|goes down]] in the {chamber}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "bill_failed_chamber"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_failed_chamber.neutral.neutral.2",
+          "text": "{chamber} rejects {bill}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "bill_failed_chamber"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_failed_chamber.critical.neutral.1",
+          "text": "Defeat for the White House as {bill} fails",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "bill_failed_chamber"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_failed_chamber.critical.neutral.2",
+          "text": "{bill} defeated in a blow to the President",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "bill_failed_chamber"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_signed.supportive.neutral.1",
+          "text": "President signs {bill} into law",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "bill_signed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_signed.supportive.neutral.2",
+          "text": "{bill} signed: a win for the President",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "bill_signed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_signed.neutral.neutral.1",
+          "text": "{bill} [[becomes|is now]] law",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "bill_signed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_signed.neutral.neutral.2",
+          "text": "President signs {bill}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "bill_signed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_signed.critical.neutral.1",
+          "text": "{bill} becomes law despite deep doubts",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "bill_signed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_signed.critical.neutral.2",
+          "text": "President signs {bill} over critics' objections",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "bill_signed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_blocked.supportive.neutral.1",
+          "text": "Congressional leaders block {bill} from a vote",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "bill_blocked"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_blocked.supportive.neutral.2",
+          "text": "{bill} held back as Congress stalls",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "bill_blocked"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_blocked.neutral.neutral.1",
+          "text": "{bill} [[blocked|kept]] from reaching the floor",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "bill_blocked"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_blocked.neutral.neutral.2",
+          "text": "No floor vote for {bill}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "bill_blocked"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_blocked.critical.neutral.1",
+          "text": "White House bill stalls without a floor vote",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "bill_blocked"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bill_blocked.critical.neutral.2",
+          "text": "{bill} stalls, a setback for the White House",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "bill_blocked"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.supportive.neutral.1",
+          "text": "Court rules on {subject}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "case_ruled"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.supportive.neutral.2",
+          "text": "Judges hand down ruling on {subject}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "case_ruled"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.neutral.neutral.1",
+          "text": "Court [[issues|hands down]] ruling on {subject}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "case_ruled"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.neutral.neutral.2",
+          "text": "Judges rule on {subject}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "case_ruled"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.critical.neutral.1",
+          "text": "Judges weigh in on {subject}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "case_ruled"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.critical.neutral.2",
+          "text": "Court ruling on {subject} raises new questions",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "case_ruled"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.supportive.neutral.3",
+          "text": "Court upholds {subject}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "case_ruled"
+              },
+              {
+                "hint": "uphold"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.supportive.neutral.4",
+          "text": "Court backs the White House on {subject}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "case_ruled"
+              },
+              {
+                "hint": "uphold"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.neutral.neutral.3",
+          "text": "Court [[upholds|backs]] {subject}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "case_ruled"
+              },
+              {
+                "hint": "uphold"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.critical.neutral.3",
+          "text": "Court lets {subject} stand, to critics' dismay",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "case_ruled"
+              },
+              {
+                "hint": "uphold"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.critical.neutral.4",
+          "text": "Court upholds {subject} despite objections",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "case_ruled"
+              },
+              {
+                "hint": "uphold"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.supportive.neutral.5",
+          "text": "Court strikes {subject}; White House weighs next steps",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "case_ruled"
+              },
+              {
+                "hint": "strike"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.supportive.neutral.6",
+          "text": "Court strikes {subject}; White House vows a fix",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "case_ruled"
+              },
+              {
+                "hint": "strike"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.neutral.neutral.4",
+          "text": "Court [[strikes down|overturns]] {subject}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "case_ruled"
+              },
+              {
+                "hint": "strike"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.critical.neutral.5",
+          "text": "Court rebukes White House over {subject}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "case_ruled"
+              },
+              {
+                "hint": "strike"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.critical.neutral.6",
+          "text": "Court strikes down {subject} in a rebuke",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "case_ruled"
+              },
+              {
+                "hint": "strike"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.supportive.neutral.7",
+          "text": "Court keeps much of {subject}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "case_ruled"
+              },
+              {
+                "hint": "partial"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.supportive.neutral.8",
+          "text": "Most of {subject} survives court review",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "case_ruled"
+              },
+              {
+                "hint": "partial"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.neutral.neutral.5",
+          "text": "Court [[narrows|trims]] {subject}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "case_ruled"
+              },
+              {
+                "hint": "partial"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.critical.neutral.7",
+          "text": "Court guts much of {subject}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "case_ruled"
+              },
+              {
+                "hint": "partial"
+              }
+            ]
+          }
+        },
+        {
+          "id": "case_ruled.critical.neutral.8",
+          "text": "Court cuts back {subject}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "case_ruled"
+              },
+              {
+                "hint": "partial"
+              }
+            ]
+          }
+        },
+        {
+          "id": "primary_launched.supportive.neutral.1",
+          "text": "Long-shot challenger launches primary bid against the President",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "primary_launched"
+              }
+            ]
+          }
+        },
+        {
+          "id": "primary_launched.neutral.neutral.1",
+          "text": "Primary challenger [[enters the race|launches a bid]] against the President",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "primary_launched"
+              }
+            ]
+          }
+        },
+        {
+          "id": "primary_launched.neutral.neutral.2",
+          "text": "President faces a primary challenger",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "primary_launched"
+              }
+            ]
+          }
+        },
+        {
+          "id": "primary_launched.critical.neutral.1",
+          "text": "President faces a primary challenge from within the party",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "primary_launched"
+              }
+            ]
+          }
+        },
+        {
+          "id": "unrest_high.supportive.neutral.1",
+          "text": "Protests spread as tensions run high",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "unrest_high"
+              }
+            ]
+          }
+        },
+        {
+          "id": "unrest_high.neutral.neutral.1",
+          "text": "Mass protests [[spread|grow]] across the country",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "unrest_high"
+              }
+            ]
+          }
+        },
+        {
+          "id": "unrest_high.neutral.neutral.2",
+          "text": "Protests swell in cities nationwide",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "unrest_high"
+              }
+            ]
+          }
+        },
+        {
+          "id": "unrest_high.critical.neutral.1",
+          "text": "Nation in turmoil as protests grow",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "unrest_high"
+              }
+            ]
+          }
+        },
+        {
+          "id": "regime_backslide.supportive.neutral.1",
+          "text": "Experts debate the state of the nation's institutions",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "regime_backslide"
+              }
+            ]
+          }
+        },
+        {
+          "id": "regime_backslide.neutral.neutral.1",
+          "text": "Watchdogs warn democratic institutions are [[eroding|weakening]]",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "regime_backslide"
+              }
+            ]
+          }
+        },
+        {
+          "id": "regime_backslide.neutral.neutral.2",
+          "text": "Democracy ratings fall, watchdogs say",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "regime_backslide"
+              }
+            ]
+          }
+        },
+        {
+          "id": "regime_backslide.critical.neutral.1",
+          "text": "Democracy in retreat, watchdogs warn",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "regime_backslide"
+              }
+            ]
+          }
+        },
+        {
+          "id": "election_held.supportive.neutral.1",
+          "text": "Voters deliver their verdict in the {chamber}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "election_held"
+              }
+            ]
+          }
+        },
+        {
+          "id": "election_held.neutral.neutral.1",
+          "text": "Election results [[are in|announced]] for the {chamber}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "election_held"
+              }
+            ]
+          }
+        },
+        {
+          "id": "election_held.neutral.neutral.2",
+          "text": "{chamber} election results declared",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "election_held"
+              }
+            ]
+          }
+        },
+        {
+          "id": "election_held.critical.neutral.1",
+          "text": "Election delivers a verdict on the President",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "election_held"
+              }
+            ]
+          }
+        },
+        {
+          "id": "election_held.supportive.neutral.2",
+          "text": "President's party gains {seats} seats in the {chamber}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "election_held"
+              },
+              {
+                "hint": "gain"
+              }
+            ]
+          }
+        },
+        {
+          "id": "election_held.neutral.neutral.3",
+          "text": "President's party [[gains|picks up]] {seats} {chamber} seats",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "election_held"
+              },
+              {
+                "hint": "gain"
+              }
+            ]
+          }
+        },
+        {
+          "id": "election_held.critical.neutral.2",
+          "text": "Modest gains mask deeper troubles for the White House",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "election_held"
+              },
+              {
+                "hint": "gain"
+              }
+            ]
+          }
+        },
+        {
+          "id": "election_held.supportive.neutral.3",
+          "text": "President's party holds ground despite {chamber} losses",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "election_held"
+              },
+              {
+                "hint": "loss"
+              }
+            ]
+          }
+        },
+        {
+          "id": "election_held.neutral.neutral.4",
+          "text": "President's party [[loses|drops]] {seats} {chamber} seats",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "election_held"
+              },
+              {
+                "hint": "loss"
+              }
+            ]
+          }
+        },
+        {
+          "id": "election_held.critical.neutral.3",
+          "text": "Voters punish the President's party in the {chamber}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "election_held"
+              },
+              {
+                "hint": "loss"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dlg.headline.diplomacy",
+      "surface": "headline",
+      "point": "dp.media_framing",
+      "variables": [
+        "country"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "supportive",
+            "neutral",
+            "critical"
+          ],
+          "kinds": [
+            "agreement_signed",
+            "agreement_broken",
+            "tariffs_retaliate",
+            "creditor_sells",
+            "oil_cut",
+            "oil_raise",
+            "talks_leaked"
+          ]
+        }
+      ],
+      "silent": [
+        "scandalize"
+      ],
+      "notes": "Foreign news (08). {country} is the other country.",
+      "lines": [
+        {
+          "id": "agreement_signed.supportive.neutral.1",
+          "text": "President [[seals|clinches]] new deal with {country}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "agreement_signed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_signed.supportive.neutral.2",
+          "text": "Diplomatic win: agreement with {country} signed",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "agreement_signed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_signed.neutral.neutral.1",
+          "text": "{player_country} and {country} [[sign|conclude]] an agreement",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "agreement_signed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_signed.neutral.neutral.2",
+          "text": "New agreement with {country} signed",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "agreement_signed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_signed.critical.neutral.1",
+          "text": "Deal with {country} offers little, critics say",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "agreement_signed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_signed.critical.neutral.2",
+          "text": "Critics [[question|doubt]] what the deal with {country} delivers",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "agreement_signed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_broken.supportive.neutral.1",
+          "text": "Agreement with {country} collapses",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "agreement_broken"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_broken.supportive.neutral.2",
+          "text": "Deal with {country} falls apart; White House blames partner",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "agreement_broken"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_broken.neutral.neutral.1",
+          "text": "Agreement with {country} [[breaks down|falls apart]]",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "agreement_broken"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_broken.neutral.neutral.2",
+          "text": "Deal with {country} in tatters",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "agreement_broken"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_broken.critical.neutral.1",
+          "text": "Diplomatic setback as {country} deal collapses",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "agreement_broken"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_broken.critical.neutral.2",
+          "text": "Deal with {country} collapses on the President's watch",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "agreement_broken"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_broken.supportive.neutral.3",
+          "text": "{country} breaks its word on agreement",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "agreement_broken"
+              },
+              {
+                "hint": "by_them"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_broken.supportive.neutral.4",
+          "text": "{country} reneges on its deal with Washington",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "agreement_broken"
+              },
+              {
+                "hint": "by_them"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_broken.neutral.neutral.3",
+          "text": "{country} [[breaks|walks away from]] agreement",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "agreement_broken"
+              },
+              {
+                "hint": "by_them"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_broken.critical.neutral.3",
+          "text": "{country} walks away from White House deal",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "agreement_broken"
+              },
+              {
+                "hint": "by_them"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_broken.critical.neutral.4",
+          "text": "{country} quits deal, a blow to the White House",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "agreement_broken"
+              },
+              {
+                "hint": "by_them"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_broken.supportive.neutral.5",
+          "text": "President tears up a bad deal with {country}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "agreement_broken"
+              },
+              {
+                "hint": "by_us"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_broken.supportive.neutral.6",
+          "text": "President exits a bad deal with {country}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "agreement_broken"
+              },
+              {
+                "hint": "by_us"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_broken.neutral.neutral.4",
+          "text": "Washington [[breaks|exits]] agreement with {country}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "agreement_broken"
+              },
+              {
+                "hint": "by_us"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_broken.critical.neutral.5",
+          "text": "President breaks faith with {country}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "agreement_broken"
+              },
+              {
+                "hint": "by_us"
+              }
+            ]
+          }
+        },
+        {
+          "id": "agreement_broken.critical.neutral.6",
+          "text": "Washington walks out on {country}, alarming allies",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "agreement_broken"
+              },
+              {
+                "hint": "by_us"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tariffs_retaliate.supportive.neutral.1",
+          "text": "{country} hits back, but White House holds firm",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "tariffs_retaliate"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tariffs_retaliate.supportive.neutral.2",
+          "text": "White House stands firm as {country} retaliates",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "tariffs_retaliate"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tariffs_retaliate.neutral.neutral.1",
+          "text": "{country} [[retaliates|responds]] with tariffs of its own",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "tariffs_retaliate"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tariffs_retaliate.neutral.neutral.2",
+          "text": "{country} answers tariffs with tariffs",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "tariffs_retaliate"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tariffs_retaliate.critical.neutral.1",
+          "text": "Trade war widens as {country} retaliates",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "tariffs_retaliate"
+              }
+            ]
+          }
+        },
+        {
+          "id": "tariffs_retaliate.critical.neutral.2",
+          "text": "{country} retaliates; trade war costs mount",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "tariffs_retaliate"
+              }
+            ]
+          }
+        },
+        {
+          "id": "creditor_sells.supportive.neutral.1",
+          "text": "{country} trims Treasury holdings; markets steady",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "creditor_sells"
+              }
+            ]
+          }
+        },
+        {
+          "id": "creditor_sells.supportive.neutral.2",
+          "text": "Markets shrug as {country} trims Treasuries",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "creditor_sells"
+              }
+            ]
+          }
+        },
+        {
+          "id": "creditor_sells.neutral.neutral.1",
+          "text": "{country} [[sells|offloads]] Treasury bonds",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "creditor_sells"
+              }
+            ]
+          }
+        },
+        {
+          "id": "creditor_sells.neutral.neutral.2",
+          "text": "{country} cuts its holdings of Treasuries",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "creditor_sells"
+              }
+            ]
+          }
+        },
+        {
+          "id": "creditor_sells.critical.neutral.1",
+          "text": "{country} dumps Treasuries in a vote of no confidence",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "creditor_sells"
+              }
+            ]
+          }
+        },
+        {
+          "id": "creditor_sells.critical.neutral.2",
+          "text": "{country} sells Treasuries as confidence slips",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "creditor_sells"
+              }
+            ]
+          }
+        },
+        {
+          "id": "oil_cut.supportive.neutral.1",
+          "text": "{country} cuts oil output despite White House appeals",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "oil_cut"
+              }
+            ]
+          }
+        },
+        {
+          "id": "oil_cut.supportive.neutral.2",
+          "text": "White House [[presses|lobbies]] {country} after oil cut",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "oil_cut"
+              }
+            ]
+          }
+        },
+        {
+          "id": "oil_cut.neutral.neutral.1",
+          "text": "{country} [[cuts|reduces]] oil production",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "oil_cut"
+              }
+            ]
+          }
+        },
+        {
+          "id": "oil_cut.neutral.neutral.2",
+          "text": "Oil output cut by {country}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "oil_cut"
+              }
+            ]
+          }
+        },
+        {
+          "id": "oil_cut.critical.neutral.1",
+          "text": "Oil cut by {country} spells pain at the pump",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "oil_cut"
+              }
+            ]
+          }
+        },
+        {
+          "id": "oil_cut.critical.neutral.2",
+          "text": "White House outreach fails as {country} cuts oil",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "oil_cut"
+              }
+            ]
+          }
+        },
+        {
+          "id": "oil_raise.supportive.neutral.1",
+          "text": "{country} pumps more oil after White House outreach",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "oil_raise"
+              }
+            ]
+          }
+        },
+        {
+          "id": "oil_raise.supportive.neutral.2",
+          "text": "Relief at the pump as {country} [[lifts|raises]] output",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "oil_raise"
+              }
+            ]
+          }
+        },
+        {
+          "id": "oil_raise.neutral.neutral.1",
+          "text": "{country} [[raises|boosts]] oil output",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "oil_raise"
+              }
+            ]
+          }
+        },
+        {
+          "id": "oil_raise.neutral.neutral.2",
+          "text": "More oil from {country}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "oil_raise"
+              }
+            ]
+          }
+        },
+        {
+          "id": "oil_raise.critical.neutral.1",
+          "text": "{country} raises output, but gas prices stay high",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "oil_raise"
+              }
+            ]
+          }
+        },
+        {
+          "id": "oil_raise.critical.neutral.2",
+          "text": "More oil from {country}, but drivers still pay",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "oil_raise"
+              }
+            ]
+          }
+        },
+        {
+          "id": "talks_leaked.supportive.neutral.1",
+          "text": "Details of talks with {country} leak",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "talks_leaked"
+              }
+            ]
+          }
+        },
+        {
+          "id": "talks_leaked.supportive.neutral.2",
+          "text": "Leak of talks with {country} shows a tough stance",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "talks_leaked"
+              }
+            ]
+          }
+        },
+        {
+          "id": "talks_leaked.neutral.neutral.1",
+          "text": "Leak [[reveals|exposes]] details of talks with {country}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "talks_leaked"
+              }
+            ]
+          }
+        },
+        {
+          "id": "talks_leaked.neutral.neutral.2",
+          "text": "Talks with {country} leak",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "talks_leaked"
+              }
+            ]
+          }
+        },
+        {
+          "id": "talks_leaked.critical.neutral.1",
+          "text": "Leaked talks with {country} embarrass the White House",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "talks_leaked"
+              }
+            ]
+          }
+        },
+        {
+          "id": "talks_leaked.critical.neutral.2",
+          "text": "Leak shows White House giving ground to {country}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "talks_leaked"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dlg.headline.incident",
+      "surface": "headline",
+      "point": "dp.media_framing",
+      "variables": [
+        "act",
+        "target",
+        "actor"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "supportive",
+            "neutral",
+            "critical"
+          ],
+          "kinds": [
+            "order_executed",
+            "order_refused",
+            "resignation",
+            "firing"
+          ]
+        }
+      ],
+      "silent": [
+        "scandalize"
+      ],
+      "notes": "An incident made public (23). Hint: legality; strength: severity.",
+      "lines": [
+        {
+          "id": "order_executed.supportive.neutral.1",
+          "text": "White House carries out {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "order_executed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "order_executed.supportive.neutral.2",
+          "text": "Administration acts: {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "order_executed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "order_executed.neutral.neutral.1",
+          "text": "Administration [[carries out|goes ahead with]] {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "order_executed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "order_executed.neutral.neutral.2",
+          "text": "Government acts: {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "order_executed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "order_executed.critical.neutral.1",
+          "text": "Administration pushes ahead with {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "order_executed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "order_executed.critical.neutral.2",
+          "text": "Critics alarmed as administration carries out {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "order_executed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "order_executed.neutral.neutral.3",
+          "text": "Legal questions [[swirl|mount]] after {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "order_executed"
+              },
+              {
+                "hint": [
+                  "unlawful",
+                  "manifestly_unlawful"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "order_executed.critical.neutral.3",
+          "text": "Outrage as administration carries out {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "order_executed"
+              },
+              {
+                "hint": [
+                  "unlawful",
+                  "manifestly_unlawful"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "order_refused.supportive.neutral.1",
+          "text": "Officials balk at {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "order_refused"
+              }
+            ]
+          }
+        },
+        {
+          "id": "order_refused.supportive.neutral.2",
+          "text": "Officials push back on {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "order_refused"
+              }
+            ]
+          }
+        },
+        {
+          "id": "order_refused.neutral.neutral.1",
+          "text": "Officials [[refuse|decline]] to carry out {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "order_refused"
+              }
+            ]
+          }
+        },
+        {
+          "id": "order_refused.neutral.neutral.2",
+          "text": "Order refused: {act} stopped",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "order_refused"
+              }
+            ]
+          }
+        },
+        {
+          "id": "order_refused.critical.neutral.1",
+          "text": "Revolt inside the government over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "order_refused"
+              }
+            ]
+          }
+        },
+        {
+          "id": "order_refused.critical.neutral.2",
+          "text": "Officials defy the White House over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "order_refused"
+              }
+            ]
+          }
+        },
+        {
+          "id": "resignation.supportive.neutral.1",
+          "text": "{actor} steps down",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "resignation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "resignation.supportive.neutral.2",
+          "text": "{actor} leaves the administration",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "resignation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "resignation.neutral.neutral.1",
+          "text": "{actor} [[resigns|quits]]",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "resignation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "resignation.neutral.neutral.2",
+          "text": "Resignation: {actor} leaves the government",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "resignation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "resignation.critical.neutral.1",
+          "text": "{actor} quits in protest",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "resignation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "resignation.critical.neutral.2",
+          "text": "{actor} walks out, rattling the White House",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "resignation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "firing.supportive.neutral.1",
+          "text": "President dismisses {target}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "firing"
+              }
+            ]
+          }
+        },
+        {
+          "id": "firing.supportive.neutral.2",
+          "text": "President replaces {target}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "firing"
+              }
+            ]
+          }
+        },
+        {
+          "id": "firing.neutral.neutral.1",
+          "text": "{target} [[fired|dismissed]] by the President",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "firing"
+              }
+            ]
+          }
+        },
+        {
+          "id": "firing.neutral.neutral.2",
+          "text": "President fires {target}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "firing"
+              }
+            ]
+          }
+        },
+        {
+          "id": "firing.critical.neutral.1",
+          "text": "President fires {target}, raising alarm",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "firing"
+              }
+            ]
+          }
+        },
+        {
+          "id": "firing.critical.neutral.2",
+          "text": "{target} ousted in a White House purge",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "firing"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dlg.headline.reaction",
+      "surface": "headline",
+      "point": "dp.media_framing",
+      "variables": [
+        "actor",
+        "act"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "supportive",
+            "neutral",
+            "critical"
+          ],
+          "kinds": [
+            "resignation_protest",
+            "impeachment_call",
+            "hearings",
+            "special_counsel",
+            "protests",
+            "lawsuit",
+            "whistleblower",
+            "foreign_condemnation"
+          ]
+        }
+      ],
+      "silent": [
+        "scandalize"
+      ],
+      "notes": "Big reactions (07) that make news. Strength: token, limited, major.",
+      "lines": [
+        {
+          "id": "resignation_protest.supportive.neutral.1",
+          "text": "{actor} resigns over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "resignation_protest"
+              }
+            ]
+          }
+        },
+        {
+          "id": "resignation_protest.supportive.neutral.2",
+          "text": "{actor} departs over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "resignation_protest"
+              }
+            ]
+          }
+        },
+        {
+          "id": "resignation_protest.neutral.neutral.1",
+          "text": "{actor} [[resigns|quits]] in protest over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "resignation_protest"
+              }
+            ]
+          }
+        },
+        {
+          "id": "resignation_protest.neutral.neutral.2",
+          "text": "{actor} resigns, citing {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "resignation_protest"
+              }
+            ]
+          }
+        },
+        {
+          "id": "resignation_protest.critical.neutral.1",
+          "text": "{actor} quits, condemning {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "resignation_protest"
+              }
+            ]
+          }
+        },
+        {
+          "id": "resignation_protest.critical.neutral.2",
+          "text": "{actor} resigns in protest, a blow to the President",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "resignation_protest"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeachment_call.supportive.neutral.1",
+          "text": "{actor} calls for impeachment; allies dismiss it",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "impeachment_call"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeachment_call.supportive.neutral.2",
+          "text": "{actor} pushes impeachment; few follow",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "impeachment_call"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeachment_call.neutral.neutral.1",
+          "text": "{actor} [[calls for|demands]] the President's removal",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "impeachment_call"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeachment_call.neutral.neutral.2",
+          "text": "{actor} urges impeachment",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "impeachment_call"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeachment_call.critical.neutral.1",
+          "text": "Calls for impeachment grow as {actor} joins in",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "impeachment_call"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeachment_call.critical.neutral.2",
+          "text": "{actor} joins growing calls for impeachment",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "impeachment_call"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hearings.supportive.neutral.1",
+          "text": "{actor} demands hearings into {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "hearings"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hearings.supportive.neutral.2",
+          "text": "{actor} seeks hearings on {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "hearings"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hearings.neutral.neutral.1",
+          "text": "{actor} [[seeks|demands]] hearings on {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "hearings"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hearings.neutral.neutral.2",
+          "text": "Hearings sought on {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "hearings"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hearings.critical.neutral.1",
+          "text": "Congress closes in: {actor} demands answers on {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "hearings"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hearings.critical.neutral.2",
+          "text": "Hearings loom as {actor} targets {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "hearings"
+              }
+            ]
+          }
+        },
+        {
+          "id": "special_counsel.supportive.neutral.1",
+          "text": "{actor} wants special counsel; White House cries politics",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "special_counsel"
+              }
+            ]
+          }
+        },
+        {
+          "id": "special_counsel.supportive.neutral.2",
+          "text": "{actor} seeks a special counsel in a partisan move",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "special_counsel"
+              }
+            ]
+          }
+        },
+        {
+          "id": "special_counsel.neutral.neutral.1",
+          "text": "{actor} [[calls for|demands]] a special counsel",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "special_counsel"
+              }
+            ]
+          }
+        },
+        {
+          "id": "special_counsel.neutral.neutral.2",
+          "text": "Special counsel sought over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "special_counsel"
+              }
+            ]
+          }
+        },
+        {
+          "id": "special_counsel.critical.neutral.1",
+          "text": "Pressure mounts for a special counsel over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "special_counsel"
+              }
+            ]
+          }
+        },
+        {
+          "id": "special_counsel.critical.neutral.2",
+          "text": "{actor} demands a special counsel over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "special_counsel"
+              }
+            ]
+          }
+        },
+        {
+          "id": "protests.supportive.neutral.1",
+          "text": "Demonstrators rally against {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "protests"
+              }
+            ]
+          }
+        },
+        {
+          "id": "protests.supportive.neutral.2",
+          "text": "Small crowds protest {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "protests"
+              }
+            ]
+          }
+        },
+        {
+          "id": "protests.neutral.neutral.1",
+          "text": "Protests [[erupt|break out]] over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "protests"
+              }
+            ]
+          }
+        },
+        {
+          "id": "protests.neutral.neutral.2",
+          "text": "Rallies against {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "protests"
+              }
+            ]
+          }
+        },
+        {
+          "id": "protests.critical.neutral.1",
+          "text": "Thousands take to the streets over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "protests"
+              }
+            ]
+          }
+        },
+        {
+          "id": "protests.critical.neutral.2",
+          "text": "Anger spills into the streets over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "protests"
+              }
+            ]
+          }
+        },
+        {
+          "id": "lawsuit.supportive.neutral.1",
+          "text": "{actor} sues over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "lawsuit"
+              }
+            ]
+          }
+        },
+        {
+          "id": "lawsuit.supportive.neutral.2",
+          "text": "{actor} goes to court over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "lawsuit"
+              }
+            ]
+          }
+        },
+        {
+          "id": "lawsuit.neutral.neutral.1",
+          "text": "{actor} [[takes|brings]] {act} to court",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "lawsuit"
+              }
+            ]
+          }
+        },
+        {
+          "id": "lawsuit.neutral.neutral.2",
+          "text": "Lawsuit filed over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "lawsuit"
+              }
+            ]
+          }
+        },
+        {
+          "id": "lawsuit.critical.neutral.1",
+          "text": "Legal fight looms as {actor} sues over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "lawsuit"
+              }
+            ]
+          }
+        },
+        {
+          "id": "lawsuit.critical.neutral.2",
+          "text": "{actor} sues to stop {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "lawsuit"
+              }
+            ]
+          }
+        },
+        {
+          "id": "whistleblower.supportive.neutral.1",
+          "text": "White House disputes insider's claims about {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "whistleblower"
+              }
+            ]
+          }
+        },
+        {
+          "id": "whistleblower.supportive.neutral.2",
+          "text": "Insider's claims on {act} disputed",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "whistleblower"
+              }
+            ]
+          }
+        },
+        {
+          "id": "whistleblower.neutral.neutral.1",
+          "text": "Whistleblower [[speaks out|comes forward]] on {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "whistleblower"
+              }
+            ]
+          }
+        },
+        {
+          "id": "whistleblower.neutral.neutral.2",
+          "text": "Insider reports {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "whistleblower"
+              }
+            ]
+          }
+        },
+        {
+          "id": "whistleblower.critical.neutral.1",
+          "text": "Whistleblower exposes {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "whistleblower"
+              }
+            ]
+          }
+        },
+        {
+          "id": "whistleblower.critical.neutral.2",
+          "text": "Insider blows the whistle on {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "whistleblower"
+              }
+            ]
+          }
+        },
+        {
+          "id": "foreign_condemnation.supportive.neutral.1",
+          "text": "{actor} criticises Washington over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "foreign_condemnation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "foreign_condemnation.supportive.neutral.2",
+          "text": "{actor} objects to {act}; Washington unmoved",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "foreign_condemnation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "foreign_condemnation.neutral.neutral.1",
+          "text": "{actor} [[condemns|denounces]] {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "foreign_condemnation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "foreign_condemnation.neutral.neutral.2",
+          "text": "{actor} protests {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "foreign_condemnation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "foreign_condemnation.critical.neutral.1",
+          "text": "{actor} condemns {act} as isolation grows",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "foreign_condemnation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "foreign_condemnation.critical.neutral.2",
+          "text": "{actor} condemns {act}, isolating Washington",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "foreign_condemnation"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dlg.headline.agenda",
+      "surface": "headline",
+      "point": "dp.media_framing",
+      "variables": [
+        "actor"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "supportive",
+            "neutral",
+            "critical"
+          ],
+          "kinds": [
+            "party_revolt",
+            "investigation"
+          ]
+        }
+      ],
+      "silent": [
+        "scandalize"
+      ],
+      "notes": "Campaigns against the leader (07).",
+      "lines": [
+        {
+          "id": "party_revolt.supportive.neutral.1",
+          "text": "A few dissenters break with the President",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "party_revolt"
+              }
+            ]
+          }
+        },
+        {
+          "id": "party_revolt.supportive.neutral.2",
+          "text": "A few dissenters, led by {actor}, break ranks",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "party_revolt"
+              }
+            ]
+          }
+        },
+        {
+          "id": "party_revolt.neutral.neutral.1",
+          "text": "{actor} [[leads|heads]] a revolt in the President's party",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "party_revolt"
+              }
+            ]
+          }
+        },
+        {
+          "id": "party_revolt.neutral.neutral.2",
+          "text": "Party revolt led by {actor}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "party_revolt"
+              }
+            ]
+          }
+        },
+        {
+          "id": "party_revolt.critical.neutral.1",
+          "text": "Party revolt: {actor} turns on the President",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "party_revolt"
+              }
+            ]
+          }
+        },
+        {
+          "id": "party_revolt.critical.neutral.2",
+          "text": "{actor} leads a revolt against the President",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "party_revolt"
+              }
+            ]
+          }
+        },
+        {
+          "id": "investigation.supportive.neutral.1",
+          "text": "{actor} opens a partisan investigation",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "investigation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "investigation.supportive.neutral.2",
+          "text": "{actor} launches a political investigation",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "investigation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "investigation.neutral.neutral.1",
+          "text": "{actor} [[launches|opens]] an investigation",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "investigation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "investigation.neutral.neutral.2",
+          "text": "Investigation launched by {actor}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "investigation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "investigation.critical.neutral.1",
+          "text": "{actor} opens an investigation into the White House",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "investigation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "investigation.critical.neutral.2",
+          "text": "{actor} launches a probe of the White House",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "investigation"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dlg.headline.procedure",
+      "surface": "headline",
+      "point": "dp.media_framing",
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "supportive",
+            "neutral",
+            "critical"
+          ],
+          "kinds": [
+            "a25_cabinet",
+            "a25_removed",
+            "impeach_house",
+            "impeach_removed",
+            "impeach_acquitted",
+            "resign_mass",
+            "military_statement"
+          ]
+        }
+      ],
+      "silent": [
+        "scandalize"
+      ],
+      "notes": "Institutional procedures (23, 05): the 25th Amendment, impeachment, mass resignations, the military's statement.",
+      "lines": [
+        {
+          "id": "a25_cabinet.supportive.neutral.1",
+          "text": "Cabinet meets amid questions about the President",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "a25_cabinet"
+              }
+            ]
+          }
+        },
+        {
+          "id": "a25_cabinet.neutral.neutral.1",
+          "text": "Cabinet [[weighs|considers]] the 25th Amendment",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "a25_cabinet"
+              }
+            ]
+          }
+        },
+        {
+          "id": "a25_cabinet.neutral.neutral.2",
+          "text": "25th Amendment on the Cabinet's table",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "a25_cabinet"
+              }
+            ]
+          }
+        },
+        {
+          "id": "a25_cabinet.critical.neutral.1",
+          "text": "Cabinet considers removing the President",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "a25_cabinet"
+              }
+            ]
+          }
+        },
+        {
+          "id": "a25_removed.supportive.neutral.1",
+          "text": "Vice President takes over as acting President",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "a25_removed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "a25_removed.neutral.neutral.1",
+          "text": "President [[removed|sidelined]] under the 25th Amendment",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "a25_removed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "a25_removed.neutral.neutral.2",
+          "text": "25th Amendment invoked: Vice President in charge",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "a25_removed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "a25_removed.critical.neutral.1",
+          "text": "President stripped of power under the 25th Amendment",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "a25_removed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeach_house.supportive.neutral.1",
+          "text": "House prepares a partisan impeachment vote",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "impeach_house"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeach_house.neutral.neutral.1",
+          "text": "House [[to vote|set to vote]] on impeachment",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "impeach_house"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeach_house.neutral.neutral.2",
+          "text": "Impeachment heads to a House vote",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "impeach_house"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeach_house.critical.neutral.1",
+          "text": "Impeachment vote looms for the President",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "impeach_house"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeach_removed.supportive.neutral.1",
+          "text": "Senate removes the President from office",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "impeach_removed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeach_removed.neutral.neutral.1",
+          "text": "Senate [[convicts|finds the President guilty]]; President removed",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "impeach_removed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeach_removed.neutral.neutral.2",
+          "text": "President removed after Senate trial",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "impeach_removed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeach_removed.critical.neutral.1",
+          "text": "President convicted and removed from office",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "impeach_removed"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeach_acquitted.supportive.neutral.1",
+          "text": "President acquitted, vindicated",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "impeach_acquitted"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeach_acquitted.neutral.neutral.1",
+          "text": "Senate [[acquits|clears]] the President",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "impeach_acquitted"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeach_acquitted.neutral.neutral.2",
+          "text": "President acquitted in Senate trial",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "impeach_acquitted"
+              }
+            ]
+          }
+        },
+        {
+          "id": "impeach_acquitted.critical.neutral.1",
+          "text": "Acquittal leaves the President wounded",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "impeach_acquitted"
+              }
+            ]
+          }
+        },
+        {
+          "id": "resign_mass.supportive.neutral.1",
+          "text": "Wave of departures hits the administration",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "resign_mass"
+              }
+            ]
+          }
+        },
+        {
+          "id": "resign_mass.neutral.neutral.1",
+          "text": "Mass resignations [[shake|rock]] the administration",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "resign_mass"
+              }
+            ]
+          }
+        },
+        {
+          "id": "resign_mass.neutral.neutral.2",
+          "text": "Officials resign in large numbers",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "resign_mass"
+              }
+            ]
+          }
+        },
+        {
+          "id": "resign_mass.critical.neutral.1",
+          "text": "Exodus: officials resign en masse",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "resign_mass"
+              }
+            ]
+          }
+        },
+        {
+          "id": "military_statement.supportive.neutral.1",
+          "text": "Military leaders reaffirm their oath",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "military_statement"
+              }
+            ]
+          }
+        },
+        {
+          "id": "military_statement.neutral.neutral.1",
+          "text": "Joint Chiefs [[issue|release]] a rare public statement",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "military_statement"
+              }
+            ]
+          }
+        },
+        {
+          "id": "military_statement.neutral.neutral.2",
+          "text": "Military leadership speaks out",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "military_statement"
+              }
+            ]
+          }
+        },
+        {
+          "id": "military_statement.critical.neutral.1",
+          "text": "Military leaders rebuke the White House",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "military_statement"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dlg.headline.release",
+      "surface": "headline",
+      "point": "dp.media_framing",
+      "variables": [
+        "value",
+        "period"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "supportive",
+            "neutral",
+            "critical"
+          ],
+          "kinds": [
+            "jobs",
+            "cpi",
+            "gdp"
+          ]
+        }
+      ],
+      "silent": [
+        "scandalize"
+      ],
+      "notes": "Statistics releases (09). Hint: better, worse or steady versus the last release.",
+      "lines": [
+        {
+          "id": "jobs.supportive.neutral.1",
+          "text": "Jobs report: unemployment [[at|holds at]] {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "jobs"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jobs.supportive.neutral.2",
+          "text": "Job market holds firm at {value}% unemployment",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "jobs"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jobs.neutral.neutral.1",
+          "text": "Unemployment [[at|stands at]] {value}% in {period}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "jobs"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jobs.neutral.neutral.2",
+          "text": "Jobs report: jobless rate {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "jobs"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jobs.critical.neutral.1",
+          "text": "Jobless rate [[stands at|stuck at]] {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "jobs"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jobs.critical.neutral.2",
+          "text": "No progress on jobs: unemployment at {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "jobs"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jobs.supportive.neutral.3",
+          "text": "Unemployment falls to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "jobs"
+              },
+              {
+                "hint": "better"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jobs.supportive.neutral.4",
+          "text": "Jobless rate falls to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "jobs"
+              },
+              {
+                "hint": "better"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jobs.neutral.neutral.3",
+          "text": "Unemployment [[falls|drops]] to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "jobs"
+              },
+              {
+                "hint": "better"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jobs.critical.neutral.3",
+          "text": "Jobless rate dips, but wages lag",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "jobs"
+              },
+              {
+                "hint": "better"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jobs.critical.neutral.4",
+          "text": "Unemployment dips to {value}%, but pay lags",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "jobs"
+              },
+              {
+                "hint": "better"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jobs.supportive.neutral.5",
+          "text": "Unemployment edges up to {value}%, still low",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "jobs"
+              },
+              {
+                "hint": "worse"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jobs.supportive.neutral.6",
+          "text": "Unemployment up slightly to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "jobs"
+              },
+              {
+                "hint": "worse"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jobs.neutral.neutral.4",
+          "text": "Unemployment [[rises|climbs]] to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "jobs"
+              },
+              {
+                "hint": "worse"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jobs.critical.neutral.5",
+          "text": "Job market weakens: unemployment hits {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "jobs"
+              },
+              {
+                "hint": "worse"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jobs.critical.neutral.6",
+          "text": "Jobless rate climbs to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "jobs"
+              },
+              {
+                "hint": "worse"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpi.supportive.neutral.1",
+          "text": "Inflation [[at|holds at]] {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "cpi"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpi.supportive.neutral.2",
+          "text": "Prices steady: inflation at {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "cpi"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpi.neutral.neutral.1",
+          "text": "Consumer prices [[up|higher by]] {value}% on a year ago",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "cpi"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpi.neutral.neutral.2",
+          "text": "Inflation: {value}% in {period}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "cpi"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpi.critical.neutral.1",
+          "text": "Prices keep climbing: inflation at {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "cpi"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpi.critical.neutral.2",
+          "text": "Families still squeezed as inflation [[runs at|sits at]] {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "cpi"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpi.supportive.neutral.3",
+          "text": "Inflation [[cools|eases]] to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "cpi"
+              },
+              {
+                "hint": "better"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpi.supportive.neutral.4",
+          "text": "Good news on prices: inflation down to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "cpi"
+              },
+              {
+                "hint": "better"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpi.neutral.neutral.3",
+          "text": "Inflation [[eases|slows]] to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "cpi"
+              },
+              {
+                "hint": "better"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpi.critical.neutral.3",
+          "text": "Inflation eases, but prices are still high",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "cpi"
+              },
+              {
+                "hint": "better"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpi.critical.neutral.4",
+          "text": "Inflation dips to {value}%; grocery bills don't",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "cpi"
+              },
+              {
+                "hint": "better"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpi.supportive.neutral.5",
+          "text": "Inflation ticks up to {value}%, within range",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "cpi"
+              },
+              {
+                "hint": "worse"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpi.supportive.neutral.6",
+          "text": "Inflation edges up to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "cpi"
+              },
+              {
+                "hint": "worse"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpi.neutral.neutral.4",
+          "text": "Inflation [[rises|picks up]] to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "cpi"
+              },
+              {
+                "hint": "worse"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpi.critical.neutral.5",
+          "text": "Inflation heats up to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "cpi"
+              },
+              {
+                "hint": "worse"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cpi.critical.neutral.6",
+          "text": "Prices climb faster: inflation at {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "cpi"
+              },
+              {
+                "hint": "worse"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gdp.supportive.neutral.1",
+          "text": "GDP report: {value}% annual pace",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "gdp"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gdp.supportive.neutral.2",
+          "text": "Economy [[grows|expands]] at {value}% pace",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "gdp"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gdp.neutral.neutral.1",
+          "text": "GDP: {value}% [[annual pace|annualised]] in {period}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "gdp"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gdp.neutral.neutral.2",
+          "text": "Economy's pace: {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "gdp"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gdp.critical.neutral.1",
+          "text": "GDP figures: {value}%, and doubts grow",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "gdp"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gdp.critical.neutral.2",
+          "text": "Growth of {value}% leaves many behind, critics say",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "gdp"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gdp.supportive.neutral.3",
+          "text": "Growth picks up to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "gdp"
+              },
+              {
+                "hint": "better"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gdp.supportive.neutral.4",
+          "text": "Economy picks up speed: {value}% growth",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "gdp"
+              },
+              {
+                "hint": "better"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gdp.neutral.neutral.3",
+          "text": "Growth [[quickens|accelerates]] to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "gdp"
+              },
+              {
+                "hint": "better"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gdp.critical.neutral.3",
+          "text": "Growth picks up, but slowly",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "gdp"
+              },
+              {
+                "hint": "better"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gdp.critical.neutral.4",
+          "text": "Growth improves to {value}%, but unevenly",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "gdp"
+              },
+              {
+                "hint": "better"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gdp.supportive.neutral.5",
+          "text": "Growth slows to {value}% amid global headwinds",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "gdp"
+              },
+              {
+                "hint": "worse"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gdp.supportive.neutral.6",
+          "text": "Growth eases to {value}% as the world slows",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "gdp"
+              },
+              {
+                "hint": "worse"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gdp.neutral.neutral.4",
+          "text": "Growth [[slows|eases]] to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "gdp"
+              },
+              {
+                "hint": "worse"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gdp.critical.neutral.5",
+          "text": "Economy slows to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "gdp"
+              },
+              {
+                "hint": "worse"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gdp.critical.neutral.6",
+          "text": "Growth slumps to {value}%",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "gdp"
+              },
+              {
+                "hint": "worse"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dlg.headline.policy",
+      "surface": "headline",
+      "point": "dp.media_framing",
+      "variables": [
+        "policy"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "supportive",
+            "neutral",
+            "critical"
+          ],
+          "kinds": [
+            "enacted"
+          ]
+        }
+      ],
+      "silent": [
+        "scandalize"
+      ],
+      "notes": "A policy taking effect (06).",
+      "lines": [
+        {
+          "id": "enacted.supportive.neutral.1",
+          "text": "President's {policy} takes effect",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "enacted"
+              }
+            ]
+          }
+        },
+        {
+          "id": "enacted.supportive.neutral.2",
+          "text": "New policy takes effect: {policy}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "enacted"
+              }
+            ]
+          }
+        },
+        {
+          "id": "enacted.neutral.neutral.1",
+          "text": "{policy} [[takes effect|comes into force]]",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "enacted"
+              }
+            ]
+          }
+        },
+        {
+          "id": "enacted.neutral.neutral.2",
+          "text": "New policy: {policy}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "enacted"
+              }
+            ]
+          }
+        },
+        {
+          "id": "enacted.critical.neutral.1",
+          "text": "{policy} takes effect amid criticism",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "enacted"
+              }
+            ]
+          }
+        },
+        {
+          "id": "enacted.critical.neutral.2",
+          "text": "{policy} takes effect over objections",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "enacted"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dlg.headline.staff",
+      "surface": "headline",
+      "point": "dp.media_framing",
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "supportive",
+            "neutral",
+            "critical"
+          ],
+          "kinds": [
+            "advisor_leak"
+          ]
+        }
+      ],
+      "silent": [
+        "scandalize"
+      ],
+      "notes": "Leaks from the leader's staff (09).",
+      "lines": [
+        {
+          "id": "advisor_leak.supportive.neutral.1",
+          "text": "Anonymous sources claim White House rifts",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "advisor_leak"
+              }
+            ]
+          }
+        },
+        {
+          "id": "advisor_leak.supportive.neutral.2",
+          "text": "Leakers take aim at the White House",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "advisor_leak"
+              }
+            ]
+          }
+        },
+        {
+          "id": "advisor_leak.neutral.neutral.1",
+          "text": "Leak [[reveals|points to]] divisions inside the White House",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "advisor_leak"
+              }
+            ]
+          }
+        },
+        {
+          "id": "advisor_leak.neutral.neutral.2",
+          "text": "Insiders describe a divided White House",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "advisor_leak"
+              }
+            ]
+          }
+        },
+        {
+          "id": "advisor_leak.critical.neutral.1",
+          "text": "White House in turmoil, insiders say",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "advisor_leak"
+              }
+            ]
+          }
+        },
+        {
+          "id": "advisor_leak.critical.neutral.2",
+          "text": "Insiders paint a White House in chaos",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "advisor_leak"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dlg.headline.take",
+      "surface": "headline",
+      "point": "dp.media_framing",
+      "variables": [
+        "act"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "supportive",
+            "neutral",
+            "critical",
+            "scandalize"
+          ],
+          "kinds": [
+            "incident",
+            "leak",
+            "story"
+          ]
+        }
+      ],
+      "notes": "A media cluster's take on a big story the day after it broke; the slant is its dp.media_framing choice. Kinds: incident, leak, story. Strength: grave or moderate.",
+      "lines": [
+        {
+          "id": "incident.supportive.neutral.1",
+          "text": "Opinion: the President had good reasons for {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "incident"
+              }
+            ]
+          }
+        },
+        {
+          "id": "incident.supportive.neutral.2",
+          "text": "Analysis: {act} is less than critics claim",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "incident"
+              }
+            ]
+          }
+        },
+        {
+          "id": "incident.neutral.neutral.1",
+          "text": "What we know, and don't, about {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "incident"
+              }
+            ]
+          }
+        },
+        {
+          "id": "incident.neutral.neutral.2",
+          "text": "The questions after {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "incident"
+              }
+            ]
+          }
+        },
+        {
+          "id": "incident.critical.neutral.1",
+          "text": "Opinion: {act} crosses a line",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "incident"
+              }
+            ]
+          }
+        },
+        {
+          "id": "incident.critical.neutral.2",
+          "text": "Editorial: the President must answer for {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "incident"
+              }
+            ]
+          }
+        },
+        {
+          "id": "incident.scandalize.neutral.1",
+          "text": "Scandal engulfs the White House over {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "scandalize"
+              },
+              {
+                "kind": "incident"
+              }
+            ]
+          }
+        },
+        {
+          "id": "incident.scandalize.neutral.2",
+          "text": "Shocking new details emerge on {act}",
+          "when": {
+            "all": [
+              {
+                "decision": "scandalize"
+              },
+              {
+                "kind": "incident"
+              }
+            ]
+          }
+        },
+        {
+          "id": "leak.supportive.neutral.1",
+          "text": "Opinion: leakers, not the President, are the story",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "leak"
+              }
+            ]
+          }
+        },
+        {
+          "id": "leak.supportive.neutral.2",
+          "text": "Analysis: a leak, not a crisis",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "leak"
+              }
+            ]
+          }
+        },
+        {
+          "id": "leak.neutral.neutral.1",
+          "text": "Inside the leak: what it tells us",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "leak"
+              }
+            ]
+          }
+        },
+        {
+          "id": "leak.neutral.neutral.2",
+          "text": "Behind the leak: who knew what",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "leak"
+              }
+            ]
+          }
+        },
+        {
+          "id": "leak.critical.neutral.1",
+          "text": "Leak exposes a White House at war with itself",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "leak"
+              }
+            ]
+          }
+        },
+        {
+          "id": "leak.critical.neutral.2",
+          "text": "Opinion: a leaky ship reflects its captain",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "leak"
+              }
+            ]
+          }
+        },
+        {
+          "id": "leak.scandalize.neutral.1",
+          "text": "Bombshell leak: chaos in the West Wing",
+          "when": {
+            "all": [
+              {
+                "decision": "scandalize"
+              },
+              {
+                "kind": "leak"
+              }
+            ]
+          }
+        },
+        {
+          "id": "leak.scandalize.neutral.2",
+          "text": "Leak reveals a White House in meltdown",
+          "when": {
+            "all": [
+              {
+                "decision": "scandalize"
+              },
+              {
+                "kind": "leak"
+              }
+            ]
+          }
+        },
+        {
+          "id": "story.supportive.neutral.1",
+          "text": "Opinion: the President is standing firm",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "story"
+              }
+            ]
+          }
+        },
+        {
+          "id": "story.supportive.neutral.2",
+          "text": "Analysis: the White House weathers the storm",
+          "when": {
+            "all": [
+              {
+                "decision": "supportive"
+              },
+              {
+                "kind": "story"
+              }
+            ]
+          }
+        },
+        {
+          "id": "story.neutral.neutral.1",
+          "text": "Analysis: where the latest fight leaves the White House",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "story"
+              }
+            ]
+          }
+        },
+        {
+          "id": "story.neutral.neutral.2",
+          "text": "Explainer: the week that shook Washington",
+          "when": {
+            "all": [
+              {
+                "decision": "neutral"
+              },
+              {
+                "kind": "story"
+              }
+            ]
+          }
+        },
+        {
+          "id": "story.critical.neutral.1",
+          "text": "Opinion: another self-inflicted wound for the White House",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "story"
+              }
+            ]
+          }
+        },
+        {
+          "id": "story.critical.neutral.2",
+          "text": "Editorial: a presidency adrift",
+          "when": {
+            "all": [
+              {
+                "decision": "critical"
+              },
+              {
+                "kind": "story"
+              }
+            ]
+          }
+        },
+        {
+          "id": "story.scandalize.neutral.1",
+          "text": "Crisis deepens for embattled President",
+          "when": {
+            "all": [
+              {
+                "decision": "scandalize"
+              },
+              {
+                "kind": "story"
+              }
+            ]
+          }
+        },
+        {
+          "id": "story.scandalize.neutral.2",
+          "text": "Washington in uproar as crisis spirals",
+          "when": {
+            "all": [
+              {
+                "decision": "scandalize"
+              },
+              {
+                "kind": "story"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

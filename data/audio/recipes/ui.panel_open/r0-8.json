@@ -1,0 +1,64 @@
+{
+  "cue": "ui.panel_open",
+  "round": "r0",
+  "option": 8,
+  "family": "D. Paper",
+  "label": "rubber stamp on a desk",
+  "seed": 8,
+  "loudness": -23,
+  "tail": 0.03,
+  "layers": [
+    {
+      "type": "tone",
+      "at": 0.0,
+      "freq": 115,
+      "freqEnd": 55,
+      "glide": 0.05,
+      "env": {
+        "a": 0.0015,
+        "d": 0.11
+      }
+    },
+    {
+      "type": "noise",
+      "at": 0.0,
+      "env": {
+        "a": 0.0004,
+        "d": 0.045
+      },
+      "filter": {
+        "type": "lowpass",
+        "freq": 2600,
+        "q": 0.8
+      },
+      "gain": -4
+    },
+    {
+      "type": "tone",
+      "at": 0.0,
+      "freq": 410,
+      "partials": [
+        [
+          1,
+          1,
+          0.04
+        ],
+        [
+          2.3,
+          0.4,
+          0.025
+        ]
+      ],
+      "env": {
+        "a": 0.001,
+        "d": 0.05
+      },
+      "gain": -14
+    }
+  ],
+  "room": {
+    "size": 0.3,
+    "mix": 0.14,
+    "damp": 3500
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "../../schemas/legislature.schema.json",
+  "meta": {
+    "sources": [
+      "src.us_house_clerk",
+      "src.unitedstates_legislators",
+      "src.seatofpower_authored"
+    ],
+    "notes": "Seats by caucus mirror the 119th Congress at the snapshot (generated/usa/congress.json: House D 214, R 220, 1 vacancy; Senate D 47 including two independents, R 53). The split of each caucus into blocs is a design estimate. The X-Date scenario overrides seats per party choice (12 §2)."
+  },
+  "chambers": [
+    {
+      "id": "chamber.usa.house",
+      "nameKey": "chamber.usa.house.name",
+      "seats": 435,
+      "rules": {
+        "passFraction": 0.5,
+        "vetoOverrideFraction": 0.6666666666666666,
+        "viceTieBreak": false
+      },
+      "seatsByBloc": {
+        "pc.usa.house_dem_progressive": 95,
+        "pc.usa.house_dem_mainstream": 85,
+        "pc.usa.house_dem_moderate": 34,
+        "pc.usa.house_rep_moderate": 35,
+        "pc.usa.house_rep_mainstream": 150,
+        "pc.usa.house_rep_hardline": 35
+      },
+      "vacancies": 1
+    },
+    {
+      "id": "chamber.usa.senate",
+      "nameKey": "chamber.usa.senate.name",
+      "seats": 100,
+      "rules": {
+        "passFraction": 0.5,
+        "supermajoritySeats": 60,
+        "vetoOverrideFraction": 0.6666666666666666,
+        "viceTieBreak": true
+      },
+      "seatsByBloc": {
+        "pc.usa.senate_dem_progressive": 14,
+        "pc.usa.senate_dem_mainstream": 33,
+        "pc.usa.senate_rep_mainstream": 43,
+        "pc.usa.senate_rep_hardline": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "cue": "ui.panel_open",
+  "round": "r0",
+  "option": 9,
+  "family": "E. Radio",
+  "label": "Quindar tone: the Apollo mission-control beep (2525 Hz), over a radio channel",
+  "seed": 9,
+  "loudness": -25,
+  "tail": 0.03,
+  "layers": [
+    {
+      "type": "tone",
+      "freq": 2525,
+      "env": {
+        "a": 0.004,
+        "h": 0.23,
+        "r": 0.012
+      }
+    },
+    {
+      "type": "noise",
+      "env": {
+        "a": 0.004,
+        "h": 0.23,
+        "r": 0.03
+      },
+      "grain": {
+        "rate": 40,
+        "depth": 0.5
+      },
+      "gain": -24
+    }
+  ],
+  "post": [
+    {
+      "type": "radio",
+      "low": 300,
+      "high": 3400,
+      "drive": 1.4
+    }
+  ]
+}

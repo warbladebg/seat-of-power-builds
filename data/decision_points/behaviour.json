@@ -1,0 +1,3065 @@
+{
+  "$schema": "../schemas/decision_points.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "decisionPoints": [
+    {
+      "id": "dp.react_to_action",
+      "actor": "any",
+      "kind": "Choice",
+      "deliberationDays": 1,
+      "temperature": 0.6,
+      "options": [
+        {
+          "id": "ignore",
+          "description": "Let it pass"
+        },
+        {
+          "id": "praise",
+          "description": "Praise it"
+        },
+        {
+          "id": "defend_publicly",
+          "description": "Defend the president in public"
+        },
+        {
+          "id": "support_publicly",
+          "description": "Back it publicly"
+        },
+        {
+          "id": "express_concern",
+          "description": "Express concern"
+        },
+        {
+          "id": "criticize",
+          "description": "Criticize it"
+        },
+        {
+          "id": "condemn",
+          "description": "Condemn it"
+        },
+        {
+          "id": "demand_concession",
+          "description": "Demand something in return"
+        },
+        {
+          "id": "rebuke_publicly",
+          "description": "Criticize it publicly"
+        },
+        {
+          "id": "condemn_internationally",
+          "description": "Condemn it"
+        },
+        {
+          "id": "statement_of_support",
+          "description": "Voice support for the government"
+        },
+        {
+          "id": "statement_of_confidence",
+          "description": "Express confidence in its economy and debt"
+        },
+        {
+          "id": "offer_assistance",
+          "description": "Offer help"
+        },
+        {
+          "id": "private_demarche",
+          "description": "Raise concerns through diplomatic channels"
+        },
+        {
+          "id": "summon_ambassador",
+          "description": "Summon the ambassador"
+        },
+        {
+          "id": "recall_ambassador",
+          "description": "Recall its ambassador"
+        },
+        {
+          "id": "retaliate_in_kind",
+          "description": "Retaliate in kind"
+        },
+        {
+          "id": "downgrade_cooperation",
+          "description": "Scale back cooperation"
+        },
+        {
+          "id": "exploit_opening",
+          "description": "Exploit the opening"
+        },
+        {
+          "id": "raise_concerns_privately",
+          "description": "Raise concerns in private"
+        },
+        {
+          "id": "call_for_resignation",
+          "description": "Call on the president to resign"
+        },
+        {
+          "id": "leak_to_press",
+          "description": "Leak it to the press"
+        },
+        {
+          "id": "anonymous_op_ed",
+          "description": "Write an anonymous op-ed from inside"
+        },
+        {
+          "id": "comply_quietly",
+          "description": "Go along quietly"
+        },
+        {
+          "id": "slow_walk",
+          "description": "Slow-walk it"
+        },
+        {
+          "id": "request_legal_opinion",
+          "description": "Ask for a legal opinion"
+        },
+        {
+          "id": "memo_for_the_record",
+          "description": "Write a memo for the record"
+        },
+        {
+          "id": "blow_the_whistle",
+          "description": "Blow the whistle"
+        },
+        {
+          "id": "resign_in_protest",
+          "description": "Resign in protest"
+        },
+        {
+          "id": "resign_quietly",
+          "description": "Resign quietly"
+        },
+        {
+          "id": "cooperate_with_investigators",
+          "description": "Cooperate with investigators"
+        },
+        {
+          "id": "warn_privately",
+          "description": "Warn of the consequences in private"
+        },
+        {
+          "id": "reaffirm_oath",
+          "description": "Reaffirm the oath to the Constitution"
+        },
+        {
+          "id": "withhold_votes",
+          "description": "Withhold votes on the president's agenda"
+        },
+        {
+          "id": "hold_nominees",
+          "description": "Hold the president's nominees"
+        },
+        {
+          "id": "demand_hearings",
+          "description": "Demand hearings"
+        },
+        {
+          "id": "issue_subpoenas",
+          "description": "Issue subpoenas"
+        },
+        {
+          "id": "censure",
+          "description": "Move to censure the president"
+        },
+        {
+          "id": "push_impeachment",
+          "description": "Push for impeachment"
+        },
+        {
+          "id": "introduce_blocking_bill",
+          "description": "Introduce a bill to block it"
+        },
+        {
+          "id": "cut_funding",
+          "description": "Cut its funding"
+        },
+        {
+          "id": "break_with_party",
+          "description": "Break with the president's party line"
+        },
+        {
+          "id": "back_a_challenger",
+          "description": "Back a primary challenger"
+        },
+        {
+          "id": "rally_votes",
+          "description": "Rally votes for the president"
+        },
+        {
+          "id": "bipartisan_outreach",
+          "description": "Offer a bipartisan deal"
+        },
+        {
+          "id": "joint_letter",
+          "description": "Sign a joint letter of concern"
+        },
+        {
+          "id": "criminal_referral",
+          "description": "Send a criminal referral"
+        },
+        {
+          "id": "demand_special_counsel",
+          "description": "Demand a special counsel"
+        },
+        {
+          "id": "sue_over_dismissal",
+          "description": "Sue over their dismissal"
+        },
+        {
+          "id": "file_lawsuit",
+          "description": "Sue"
+        },
+        {
+          "id": "seek_injunction",
+          "description": "Seek an emergency injunction"
+        },
+        {
+          "id": "file_amicus_brief",
+          "description": "File a brief in the case"
+        },
+        {
+          "id": "judicial_rebuke",
+          "description": "Rebuke it from the bench"
+        },
+        {
+          "id": "state_lawsuit",
+          "description": "Sue on behalf of the state"
+        },
+        {
+          "id": "investigate_story",
+          "description": "Investigate the story"
+        },
+        {
+          "id": "publish_expose",
+          "description": "Publish an exposé"
+        },
+        {
+          "id": "editorial_against",
+          "description": "Run an editorial against it"
+        },
+        {
+          "id": "frame_favourably",
+          "description": "Frame it favourably"
+        },
+        {
+          "id": "call_for_investigation",
+          "description": "Call for an investigation"
+        },
+        {
+          "id": "lobby_against",
+          "description": "Lobby against it"
+        },
+        {
+          "id": "lobby_for",
+          "description": "Lobby for it"
+        },
+        {
+          "id": "withhold_donations",
+          "description": "Withhold donations"
+        },
+        {
+          "id": "move_money",
+          "description": "Move money out"
+        },
+        {
+          "id": "warn_markets",
+          "description": "Warn publicly about the economic damage"
+        },
+        {
+          "id": "threaten_relocation",
+          "description": "Threaten to move investment abroad"
+        },
+        {
+          "id": "defend_independence",
+          "description": "Defend the central bank's independence"
+        },
+        {
+          "id": "organize_protests",
+          "description": "Organise protests"
+        },
+        {
+          "id": "call_strike",
+          "description": "Call a strike"
+        },
+        {
+          "id": "mobilize_voters",
+          "description": "Mobilise voters against it"
+        },
+        {
+          "id": "distance_from_leader",
+          "description": "Put distance between themselves and the president"
+        },
+        {
+          "id": "close_ranks",
+          "description": "Close ranks behind the president"
+        },
+        {
+          "id": "fundraise_on_it",
+          "description": "Fundraise on the outrage"
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "ignore"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "ignore"
+        },
+        {
+          "use": "consideration.react.barely_touched",
+          "option": "ignore"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "praise"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "praise"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "praise"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "praise"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "praise"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "praise"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "praise"
+        },
+        {
+          "use": "consideration.react.defensible",
+          "option": "praise"
+        },
+        {
+          "use": "consideration.react.loyal",
+          "option": "praise"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "defend_publicly"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "defend_publicly"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "defend_publicly"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "defend_publicly"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "defend_publicly"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "defend_publicly"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "defend_publicly"
+        },
+        {
+          "use": "consideration.react.defensible",
+          "option": "defend_publicly"
+        },
+        {
+          "use": "consideration.react.loyal",
+          "option": "defend_publicly"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "support_publicly"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "support_publicly"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "support_publicly"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "support_publicly"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "support_publicly"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "support_publicly"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "support_publicly"
+        },
+        {
+          "use": "consideration.react.defensible",
+          "option": "support_publicly"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "express_concern"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "express_concern"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "express_concern"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "express_concern"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "express_concern"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "express_concern"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "express_concern"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "express_concern"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "criticize"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "criticize"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "criticize"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "criticize"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "criticize"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "criticize"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "criticize"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "criticize"
+        },
+        {
+          "use": "consideration.react.breaks_ranks",
+          "option": "criticize"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "condemn"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "condemn"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "condemn"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "condemn"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "condemn"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "condemn"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "condemn"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "condemn"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "condemn"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "condemn"
+        },
+        {
+          "use": "consideration.react.proud",
+          "option": "condemn"
+        },
+        {
+          "use": "consideration.react.breaks_ranks",
+          "option": "condemn"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "demand_concession"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "demand_concession"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "demand_concession"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "demand_concession"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "demand_concession"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "demand_concession"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "demand_concession"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "demand_concession"
+        },
+        {
+          "use": "consideration.react.proud",
+          "option": "demand_concession"
+        },
+        {
+          "use": "consideration.react.pragmatic",
+          "option": "demand_concession"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "rebuke_publicly"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "rebuke_publicly"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "rebuke_publicly"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "rebuke_publicly"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "rebuke_publicly"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "rebuke_publicly"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "rebuke_publicly"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "rebuke_publicly"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "condemn_internationally"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "condemn_internationally"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "condemn_internationally"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "condemn_internationally"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "condemn_internationally"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "condemn_internationally"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "condemn_internationally"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "condemn_internationally"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "condemn_internationally"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "condemn_internationally"
+        },
+        {
+          "use": "consideration.react.proud",
+          "option": "condemn_internationally"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "statement_of_support"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "statement_of_support"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "statement_of_support"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "statement_of_support"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "statement_of_support"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "statement_of_support"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "statement_of_support"
+        },
+        {
+          "use": "consideration.react.defensible",
+          "option": "statement_of_support"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "statement_of_confidence"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "statement_of_confidence"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "statement_of_confidence"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "statement_of_confidence"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "statement_of_confidence"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "statement_of_confidence"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "statement_of_confidence"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "offer_assistance"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "offer_assistance"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "offer_assistance"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "offer_assistance"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "offer_assistance"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "offer_assistance"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "offer_assistance"
+        },
+        {
+          "use": "consideration.react.pragmatic",
+          "option": "offer_assistance"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "private_demarche"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "private_demarche"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "private_demarche"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "private_demarche"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "private_demarche"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "private_demarche"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "private_demarche"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "private_demarche"
+        },
+        {
+          "use": "consideration.react.pragmatic",
+          "option": "private_demarche"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "summon_ambassador"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "summon_ambassador"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "summon_ambassador"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "summon_ambassador"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "summon_ambassador"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "summon_ambassador"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "summon_ambassador"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "summon_ambassador"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "recall_ambassador"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "recall_ambassador"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "recall_ambassador"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "recall_ambassador"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "recall_ambassador"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "recall_ambassador"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "recall_ambassador"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "recall_ambassador"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "recall_ambassador"
+        },
+        {
+          "use": "consideration.react.proud",
+          "option": "recall_ambassador"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "recall_ambassador"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "retaliate_in_kind"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "retaliate_in_kind"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "retaliate_in_kind"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "retaliate_in_kind"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "retaliate_in_kind"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "retaliate_in_kind"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "retaliate_in_kind"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "retaliate_in_kind"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "retaliate_in_kind"
+        },
+        {
+          "use": "consideration.react.proud",
+          "option": "retaliate_in_kind"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "downgrade_cooperation"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "downgrade_cooperation"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "downgrade_cooperation"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "downgrade_cooperation"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "downgrade_cooperation"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "downgrade_cooperation"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "downgrade_cooperation"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "downgrade_cooperation"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "exploit_opening"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "exploit_opening"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "exploit_opening"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "exploit_opening"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "exploit_opening"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "exploit_opening"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "exploit_opening"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "exploit_opening"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "raise_concerns_privately"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "raise_concerns_privately"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "raise_concerns_privately"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "raise_concerns_privately"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "raise_concerns_privately"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "raise_concerns_privately"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "raise_concerns_privately"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "raise_concerns_privately"
+        },
+        {
+          "use": "consideration.react.loyal",
+          "option": "raise_concerns_privately"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "call_for_resignation"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "call_for_resignation"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "call_for_resignation"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "call_for_resignation"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "call_for_resignation"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "call_for_resignation"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "call_for_resignation"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "call_for_resignation"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "call_for_resignation"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "call_for_resignation"
+        },
+        {
+          "use": "consideration.react.proud",
+          "option": "call_for_resignation"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "leak_to_press"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "leak_to_press"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "leak_to_press"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "leak_to_press"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "leak_to_press"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "leak_to_press"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "leak_to_press"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "leak_to_press"
+        },
+        {
+          "use": "consideration.react.irregular_channel",
+          "option": "leak_to_press"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "leak_to_press"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "anonymous_op_ed"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "anonymous_op_ed"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "anonymous_op_ed"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "anonymous_op_ed"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "anonymous_op_ed"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "anonymous_op_ed"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "anonymous_op_ed"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "anonymous_op_ed"
+        },
+        {
+          "use": "consideration.react.irregular_channel",
+          "option": "anonymous_op_ed"
+        },
+        {
+          "use": "consideration.react.disloyal",
+          "option": "anonymous_op_ed"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "comply_quietly"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "comply_quietly"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "comply_quietly"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "comply_quietly"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "comply_quietly"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "comply_quietly"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "comply_quietly"
+        },
+        {
+          "use": "consideration.react.loyal",
+          "option": "comply_quietly"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "slow_walk"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "slow_walk"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "slow_walk"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "slow_walk"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "slow_walk"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "slow_walk"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "slow_walk"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "slow_walk"
+        },
+        {
+          "use": "consideration.react.irregular_channel",
+          "option": "slow_walk"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "request_legal_opinion"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "request_legal_opinion"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "request_legal_opinion"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "request_legal_opinion"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "request_legal_opinion"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "request_legal_opinion"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "request_legal_opinion"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "request_legal_opinion"
+        },
+        {
+          "use": "consideration.react.lawful_channel",
+          "option": "request_legal_opinion"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "memo_for_the_record"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "memo_for_the_record"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "memo_for_the_record"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "memo_for_the_record"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "memo_for_the_record"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "memo_for_the_record"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "memo_for_the_record"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "memo_for_the_record"
+        },
+        {
+          "use": "consideration.react.lawful_channel",
+          "option": "memo_for_the_record"
+        },
+        {
+          "use": "consideration.react.honest",
+          "option": "memo_for_the_record"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "blow_the_whistle"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "blow_the_whistle"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "blow_the_whistle"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "blow_the_whistle"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "blow_the_whistle"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "blow_the_whistle"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "blow_the_whistle"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "blow_the_whistle"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "blow_the_whistle"
+        },
+        {
+          "use": "consideration.react.lawful_channel",
+          "option": "blow_the_whistle"
+        },
+        {
+          "use": "consideration.react.honest",
+          "option": "blow_the_whistle"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "blow_the_whistle"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "resign_in_protest"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "resign_in_protest"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "resign_in_protest"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "resign_in_protest"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "resign_in_protest"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "resign_in_protest"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "resign_in_protest"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "resign_in_protest"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "resign_in_protest"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "resign_in_protest"
+        },
+        {
+          "use": "consideration.react.honest",
+          "option": "resign_in_protest"
+        },
+        {
+          "use": "consideration.react.disloyal",
+          "option": "resign_in_protest"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "resign_quietly"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "resign_quietly"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "resign_quietly"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "resign_quietly"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "resign_quietly"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "resign_quietly"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "resign_quietly"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "resign_quietly"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "resign_quietly"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "cooperate_with_investigators"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "cooperate_with_investigators"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "cooperate_with_investigators"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "cooperate_with_investigators"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "cooperate_with_investigators"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "cooperate_with_investigators"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "cooperate_with_investigators"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "cooperate_with_investigators"
+        },
+        {
+          "use": "consideration.react.lawful_channel",
+          "option": "cooperate_with_investigators"
+        },
+        {
+          "use": "consideration.react.honest",
+          "option": "cooperate_with_investigators"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "warn_privately"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "warn_privately"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "warn_privately"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "warn_privately"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "warn_privately"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "warn_privately"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "warn_privately"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "warn_privately"
+        },
+        {
+          "use": "consideration.react.lawful_channel",
+          "option": "warn_privately"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "reaffirm_oath"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "reaffirm_oath"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "reaffirm_oath"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "reaffirm_oath"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "reaffirm_oath"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "reaffirm_oath"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "reaffirm_oath"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "reaffirm_oath"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "reaffirm_oath"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "reaffirm_oath"
+        },
+        {
+          "use": "consideration.react.lawful_channel",
+          "option": "reaffirm_oath"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "withhold_votes"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "withhold_votes"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "withhold_votes"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "withhold_votes"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "withhold_votes"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "withhold_votes"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "withhold_votes"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "withhold_votes"
+        },
+        {
+          "use": "consideration.react.breaks_ranks",
+          "option": "withhold_votes"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "hold_nominees"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "hold_nominees"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "hold_nominees"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "hold_nominees"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "hold_nominees"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "hold_nominees"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "hold_nominees"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "hold_nominees"
+        },
+        {
+          "use": "consideration.react.breaks_ranks",
+          "option": "hold_nominees"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "demand_hearings"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "demand_hearings"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "demand_hearings"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "demand_hearings"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "demand_hearings"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "demand_hearings"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "demand_hearings"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "demand_hearings"
+        },
+        {
+          "use": "consideration.react.breaks_ranks",
+          "option": "demand_hearings"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "issue_subpoenas"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "issue_subpoenas"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "issue_subpoenas"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "issue_subpoenas"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "issue_subpoenas"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "issue_subpoenas"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "issue_subpoenas"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "issue_subpoenas"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "issue_subpoenas"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "issue_subpoenas"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "censure"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "censure"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "censure"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "censure"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "censure"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "censure"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "censure"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "censure"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "censure"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "censure"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "push_impeachment"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "push_impeachment"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "push_impeachment"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "push_impeachment"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "push_impeachment"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "push_impeachment"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "push_impeachment"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "push_impeachment"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "push_impeachment"
+        },
+        {
+          "use": "consideration.react.bandwagon",
+          "option": "push_impeachment"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "push_impeachment"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "introduce_blocking_bill"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "introduce_blocking_bill"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "introduce_blocking_bill"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "introduce_blocking_bill"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "introduce_blocking_bill"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "introduce_blocking_bill"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "introduce_blocking_bill"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "introduce_blocking_bill"
+        },
+        {
+          "use": "consideration.react.breaks_ranks",
+          "option": "introduce_blocking_bill"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "cut_funding"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "cut_funding"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "cut_funding"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "cut_funding"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "cut_funding"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "cut_funding"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "cut_funding"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "cut_funding"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "cut_funding"
+        },
+        {
+          "use": "consideration.react.breaks_ranks",
+          "option": "cut_funding"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "break_with_party"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "break_with_party"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "break_with_party"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "break_with_party"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "break_with_party"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "break_with_party"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "break_with_party"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "break_with_party"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "break_with_party"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "break_with_party"
+        },
+        {
+          "use": "consideration.react.disloyal",
+          "option": "break_with_party"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "back_a_challenger"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "back_a_challenger"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "back_a_challenger"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "back_a_challenger"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "back_a_challenger"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "back_a_challenger"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "back_a_challenger"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "back_a_challenger"
+        },
+        {
+          "use": "consideration.react.disloyal",
+          "option": "back_a_challenger"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "back_a_challenger"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "rally_votes"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "rally_votes"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "rally_votes"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "rally_votes"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "rally_votes"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "rally_votes"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "rally_votes"
+        },
+        {
+          "use": "consideration.react.loyal",
+          "option": "rally_votes"
+        },
+        {
+          "use": "consideration.react.defensible",
+          "option": "rally_votes"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "bipartisan_outreach"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "bipartisan_outreach"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "bipartisan_outreach"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "bipartisan_outreach"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "bipartisan_outreach"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "bipartisan_outreach"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "bipartisan_outreach"
+        },
+        {
+          "use": "consideration.react.pragmatic",
+          "option": "bipartisan_outreach"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "joint_letter"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "joint_letter"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "joint_letter"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "joint_letter"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "joint_letter"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "joint_letter"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "joint_letter"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "joint_letter"
+        },
+        {
+          "use": "consideration.react.breaks_ranks",
+          "option": "joint_letter"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "criminal_referral"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "criminal_referral"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "criminal_referral"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "criminal_referral"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "criminal_referral"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "criminal_referral"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "criminal_referral"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "criminal_referral"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "criminal_referral"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "criminal_referral"
+        },
+        {
+          "use": "consideration.react.lawful_channel",
+          "option": "criminal_referral"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "demand_special_counsel"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "demand_special_counsel"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "demand_special_counsel"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "demand_special_counsel"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "demand_special_counsel"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "demand_special_counsel"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "demand_special_counsel"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "demand_special_counsel"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "demand_special_counsel"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "sue_over_dismissal"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "sue_over_dismissal"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "sue_over_dismissal"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "sue_over_dismissal"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "sue_over_dismissal"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "sue_over_dismissal"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "sue_over_dismissal"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "sue_over_dismissal"
+        },
+        {
+          "use": "consideration.react.lawful_channel",
+          "option": "sue_over_dismissal"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "file_lawsuit"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "file_lawsuit"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "file_lawsuit"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "file_lawsuit"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "file_lawsuit"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "file_lawsuit"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "file_lawsuit"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "file_lawsuit"
+        },
+        {
+          "use": "consideration.react.has_standing",
+          "option": "file_lawsuit"
+        },
+        {
+          "use": "consideration.react.lawful_channel",
+          "option": "file_lawsuit"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "seek_injunction"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "seek_injunction"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "seek_injunction"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "seek_injunction"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "seek_injunction"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "seek_injunction"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "seek_injunction"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "seek_injunction"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "seek_injunction"
+        },
+        {
+          "use": "consideration.react.has_standing",
+          "option": "seek_injunction"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "seek_injunction"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "file_amicus_brief"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "file_amicus_brief"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "file_amicus_brief"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "file_amicus_brief"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "file_amicus_brief"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "file_amicus_brief"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "file_amicus_brief"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "file_amicus_brief"
+        },
+        {
+          "use": "consideration.react.lawful_channel",
+          "option": "file_amicus_brief"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "judicial_rebuke"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "judicial_rebuke"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "judicial_rebuke"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "judicial_rebuke"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "judicial_rebuke"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "judicial_rebuke"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "judicial_rebuke"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "judicial_rebuke"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "judicial_rebuke"
+        },
+        {
+          "use": "consideration.react.lawful_channel",
+          "option": "judicial_rebuke"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "state_lawsuit"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "state_lawsuit"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "state_lawsuit"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "state_lawsuit"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "state_lawsuit"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "state_lawsuit"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "state_lawsuit"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "state_lawsuit"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "state_lawsuit"
+        },
+        {
+          "use": "consideration.react.has_standing",
+          "option": "state_lawsuit"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "investigate_story"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "investigate_story"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "investigate_story"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "investigate_story"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "investigate_story"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "investigate_story"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "investigate_story"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "investigate_story"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "publish_expose"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "publish_expose"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "publish_expose"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "publish_expose"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "publish_expose"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "publish_expose"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "publish_expose"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "publish_expose"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "publish_expose"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "publish_expose"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "editorial_against"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "editorial_against"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "editorial_against"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "editorial_against"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "editorial_against"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "editorial_against"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "editorial_against"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "editorial_against"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "frame_favourably"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "frame_favourably"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "frame_favourably"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "frame_favourably"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "frame_favourably"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "frame_favourably"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "frame_favourably"
+        },
+        {
+          "use": "consideration.react.defensible",
+          "option": "frame_favourably"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "call_for_investigation"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "call_for_investigation"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "call_for_investigation"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "call_for_investigation"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "call_for_investigation"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "call_for_investigation"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "call_for_investigation"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "call_for_investigation"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "call_for_investigation"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "call_for_investigation"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "lobby_against"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "lobby_against"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "lobby_against"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "lobby_against"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "lobby_against"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "lobby_against"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "lobby_against"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "lobby_against"
+        },
+        {
+          "use": "consideration.react.pragmatic",
+          "option": "lobby_against"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "lobby_for"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "lobby_for"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "lobby_for"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "lobby_for"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "lobby_for"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "lobby_for"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "lobby_for"
+        },
+        {
+          "use": "consideration.react.pragmatic",
+          "option": "lobby_for"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "withhold_donations"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "withhold_donations"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "withhold_donations"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "withhold_donations"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "withhold_donations"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "withhold_donations"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "withhold_donations"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "withhold_donations"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "move_money"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "move_money"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "move_money"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "move_money"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "move_money"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "move_money"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "move_money"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "move_money"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "warn_markets"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "warn_markets"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "warn_markets"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "warn_markets"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "warn_markets"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "warn_markets"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "warn_markets"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "warn_markets"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "threaten_relocation"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "threaten_relocation"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "threaten_relocation"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "threaten_relocation"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "threaten_relocation"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "threaten_relocation"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "threaten_relocation"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "threaten_relocation"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "threaten_relocation"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "defend_independence"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "defend_independence"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "defend_independence"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "defend_independence"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "defend_independence"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "defend_independence"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "defend_independence"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "defend_independence"
+        },
+        {
+          "use": "consideration.react.lawful_channel",
+          "option": "defend_independence"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "organize_protests"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "organize_protests"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "organize_protests"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "organize_protests"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "organize_protests"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "organize_protests"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "organize_protests"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "organize_protests"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "organize_protests"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "organize_protests"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "call_strike"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "call_strike"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "call_strike"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "call_strike"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "call_strike"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "call_strike"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "call_strike"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "call_strike"
+        },
+        {
+          "use": "consideration.react.capable",
+          "option": "call_strike"
+        },
+        {
+          "use": "consideration.react.grave_enough",
+          "option": "call_strike"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "mobilize_voters"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "mobilize_voters"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "mobilize_voters"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "mobilize_voters"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "mobilize_voters"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "mobilize_voters"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "mobilize_voters"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "mobilize_voters"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "distance_from_leader"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "distance_from_leader"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "distance_from_leader"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "distance_from_leader"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "distance_from_leader"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "distance_from_leader"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "distance_from_leader"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "distance_from_leader"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "close_ranks"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "close_ranks"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "close_ranks"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "close_ranks"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "close_ranks"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "close_ranks"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "close_ranks"
+        },
+        {
+          "use": "consideration.react.loyal",
+          "option": "close_ranks"
+        },
+        {
+          "use": "consideration.react.fits_stance",
+          "option": "fundraise_on_it"
+        },
+        {
+          "use": "consideration.react.fits_scale",
+          "option": "fundraise_on_it"
+        },
+        {
+          "use": "consideration.react.affordable",
+          "option": "fundraise_on_it"
+        },
+        {
+          "use": "consideration.react.fits_voice",
+          "option": "fundraise_on_it"
+        },
+        {
+          "use": "consideration.react.fresh",
+          "option": "fundraise_on_it"
+        },
+        {
+          "use": "consideration.react.not_too_deep",
+          "option": "fundraise_on_it"
+        },
+        {
+          "use": "consideration.react.leader_exposed",
+          "option": "fundraise_on_it"
+        },
+        {
+          "use": "consideration.react.peers_agree",
+          "option": "fundraise_on_it"
+        }
+      ]
+    },
+    {
+      "id": "dp.reaction_strength",
+      "actor": "any",
+      "kind": "Choice",
+      "deliberationDays": 1,
+      "temperature": 0.6,
+      "options": [
+        {
+          "id": "token",
+          "description": "A token gesture."
+        },
+        {
+          "id": "limited",
+          "description": "A measured response."
+        },
+        {
+          "id": "major",
+          "description": "All in."
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.strength.fits",
+          "option": "*"
+        },
+        {
+          "use": "consideration.strength.affordable",
+          "option": "*"
+        },
+        {
+          "use": "consideration.strength.proud",
+          "option": "major"
+        },
+        {
+          "use": "consideration.strength.grave",
+          "option": "major"
+        }
+      ]
+    },
+    {
+      "id": "dp.agenda_step",
+      "actor": "any",
+      "kind": "Choice",
+      "deliberationDays": 1,
+      "temperature": 0.7,
+      "options": [
+        {
+          "id": "proceed",
+          "description": "Take the next step."
+        },
+        {
+          "id": "wait",
+          "description": "Wait for a better moment.",
+          "weight": 0.8
+        },
+        {
+          "id": "abandon",
+          "description": "Give it up.",
+          "weight": 0.5
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.agenda.motivated",
+          "option": "proceed"
+        },
+        {
+          "use": "consideration.agenda.good_odds",
+          "option": "proceed"
+        },
+        {
+          "use": "consideration.agenda.cheap",
+          "option": "proceed"
+        },
+        {
+          "use": "consideration.agenda.momentum",
+          "option": "proceed"
+        },
+        {
+          "use": "consideration.agenda.peers_with",
+          "option": "proceed"
+        },
+        {
+          "use": "consideration.agenda.patient",
+          "option": "wait"
+        },
+        {
+          "use": "consideration.agenda.poor_odds",
+          "option": "wait"
+        },
+        {
+          "use": "consideration.agenda.fresh_wait",
+          "option": "wait"
+        },
+        {
+          "use": "consideration.agenda.unmotivated",
+          "option": "abandon"
+        },
+        {
+          "use": "consideration.agenda.costly",
+          "option": "abandon"
+        },
+        {
+          "use": "consideration.agenda.no_momentum",
+          "option": "abandon"
+        },
+        {
+          "use": "consideration.agenda.waited_long",
+          "option": "abandon"
+        }
+      ]
+    }
+  ]
+}

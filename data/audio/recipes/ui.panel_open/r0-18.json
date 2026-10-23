@@ -1,0 +1,86 @@
+{
+  "cue": "ui.panel_open",
+  "round": "r0",
+  "option": 18,
+  "family": "Mix B + E",
+  "label": "mission control console: switch click, then a short Quindar beep",
+  "seed": 18,
+  "loudness": -23,
+  "tail": 0.03,
+  "layers": [
+    {
+      "type": "noise",
+      "at": 0.0,
+      "env": {
+        "a": 0.0003,
+        "d": 0.012
+      },
+      "filter": {
+        "type": "bandpass",
+        "freq": 3200,
+        "q": 1.4
+      },
+      "gain": 0
+    },
+    {
+      "type": "tone",
+      "at": 0.0,
+      "freq": 2150,
+      "partials": [
+        [
+          1,
+          1,
+          0.03
+        ],
+        [
+          1.71,
+          0.6,
+          0.018
+        ],
+        [
+          2.47,
+          0.4,
+          0.012
+        ],
+        [
+          3.63,
+          0.25,
+          0.007
+        ]
+      ],
+      "env": {
+        "a": 0.0003,
+        "d": 0.04
+      },
+      "gain": -9
+    },
+    {
+      "type": "tone",
+      "at": 0.0,
+      "freq": 190,
+      "freqEnd": 150,
+      "glide": 0.02,
+      "env": {
+        "a": 0.001,
+        "d": 0.035
+      },
+      "gain": -6
+    },
+    {
+      "type": "tone",
+      "freq": 2525,
+      "env": {
+        "a": 0.004,
+        "h": 0.1,
+        "r": 0.012
+      },
+      "at": 0.05,
+      "gain": -9
+    }
+  ],
+  "room": {
+    "size": 0.3,
+    "mix": 0.12,
+    "damp": 5000
+  }
+}

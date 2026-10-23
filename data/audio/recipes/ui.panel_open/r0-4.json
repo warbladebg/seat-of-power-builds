@@ -1,0 +1,84 @@
+{
+  "cue": "ui.panel_open",
+  "round": "r0",
+  "option": 4,
+  "family": "B. Mechanical",
+  "label": "relay / typewriter key: thud, clack and a metal ring",
+  "seed": 4,
+  "loudness": -23,
+  "tail": 0.03,
+  "layers": [
+    {
+      "type": "tone",
+      "at": 0.0,
+      "freq": 150,
+      "freqEnd": 90,
+      "glide": 0.03,
+      "env": {
+        "a": 0.001,
+        "d": 0.05
+      },
+      "gain": -3
+    },
+    {
+      "type": "noise",
+      "at": 0.0,
+      "env": {
+        "a": 0.0003,
+        "d": 0.03
+      },
+      "filter": {
+        "type": "bandpass",
+        "freq": 1800,
+        "q": 2.2
+      },
+      "gain": 0
+    },
+    {
+      "type": "noise",
+      "at": 0.011,
+      "env": {
+        "a": 0.0003,
+        "d": 0.02
+      },
+      "filter": {
+        "type": "bandpass",
+        "freq": 2600,
+        "q": 2.5
+      },
+      "gain": -5
+    },
+    {
+      "type": "tone",
+      "at": 0.0,
+      "freq": 3110,
+      "partials": [
+        [
+          1,
+          1,
+          0.09
+        ],
+        [
+          1.566,
+          0.6,
+          0.06
+        ],
+        [
+          2.31,
+          0.3,
+          0.04
+        ]
+      ],
+      "env": {
+        "a": 0.0005,
+        "d": 0.1
+      },
+      "gain": -20
+    }
+  ],
+  "room": {
+    "size": 0.2,
+    "mix": 0.1,
+    "damp": 5000
+  }
+}

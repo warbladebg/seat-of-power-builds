@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "variables.schema.json",
+  "title": "VariablesFile",
+  "type": "object",
+  "properties": {
+    "variables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "idPattern": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "default": {
+            "type": "number",
+            "default": 0
+          },
+          "min": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "default": null
+          },
+          "max": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "default": null
+          },
+          "fullCountriesOnly": {
+            "type": "boolean",
+            "default": false
+          },
+          "format": {
+            "type": "string",
+            "default": "0.00"
+          },
+          "category": {
+            "type": "string",
+            "default": ""
+          },
+          "playerVisible": {
+            "type": "boolean",
+            "default": true
+          },
+          "nameKey": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "description": "Localisation key (data/localization/en)."
+          },
+          "history": {
+            "enum": [
+              "Daily",
+              "Weekly",
+              "None"
+            ],
+            "default": "Daily"
+          }
+        },
+        "required": [
+          "idPattern",
+          "unit"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "variables"
+  ],
+  "additionalProperties": false
+}

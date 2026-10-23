@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "procedures.schema.json",
+  "title": "ProceduresFile",
+  "type": "object",
+  "properties": {
+    "procedures": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^procedure\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "country": {
+            "type": "string",
+            "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "trigger": true,
+          "stages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "textKey": {
+                  "type": "string",
+                  "description": "Localisation key (data/localization/en)."
+                },
+                "delayDays": {
+                  "type": "integer",
+                  "default": 0,
+                  "minimum": 0,
+                  "maximum": 365
+                },
+                "vote": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "point": {
+                      "type": "string",
+                      "pattern": "^dp\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+                    },
+                    "yesOption": {
+                      "type": "string",
+                      "default": "yes"
+                    },
+                    "chamber": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "default": null
+                    },
+                    "threshold": {
+                      "type": "number",
+                      "default": 0.5,
+                      "minimum": 0,
+                      "maximum": 1
+                    },
+                    "characters": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "string",
+                        "pattern": "^char\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+                      },
+                      "default": null
+                    },
+                    "roles": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "string"
+                      },
+                      "default": null
+                    },
+                    "required": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "string",
+                        "pattern": "^char\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+                      },
+                      "default": null
+                    }
+                  },
+                  "required": [
+                    "point"
+                  ],
+                  "additionalProperties": false,
+                  "default": null
+                },
+                "onPass": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "onFail": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "next": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "terminal": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "ending": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "autoPause": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "onEnter": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "default": null
+                }
+              },
+              "required": [
+                "id",
+                "textKey"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "cooldownDays": {
+            "type": "integer",
+            "default": 365,
+            "minimum": 0,
+            "maximum": 3650
+          }
+        },
+        "required": [
+          "id",
+          "country",
+          "nameKey",
+          "trigger",
+          "stages"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "procedures"
+  ],
+  "additionalProperties": false
+}

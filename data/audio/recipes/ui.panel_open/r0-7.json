@@ -1,0 +1,68 @@
+{
+  "cue": "ui.panel_open",
+  "round": "r0",
+  "option": 7,
+  "family": "D. Paper",
+  "label": "folder opening: card thump and paper slide",
+  "seed": 7,
+  "loudness": -23,
+  "tail": 0.03,
+  "layers": [
+    {
+      "type": "tone",
+      "at": 0.0,
+      "freq": 230,
+      "freqEnd": 160,
+      "glide": 0.03,
+      "env": {
+        "a": 0.002,
+        "d": 0.05
+      },
+      "gain": -6
+    },
+    {
+      "type": "noise",
+      "at": 0.0,
+      "env": {
+        "a": 0.0005,
+        "d": 0.03
+      },
+      "filter": {
+        "type": "bandpass",
+        "freq": 1200,
+        "q": 1.0
+      },
+      "gain": -6
+    },
+    {
+      "type": "noise",
+      "at": 0.03,
+      "env": {
+        "a": 0.04,
+        "h": 0.06,
+        "d": 0.12
+      },
+      "grain": {
+        "rate": 260,
+        "depth": 0.75,
+        "length": 0.003
+      },
+      "filter": [
+        {
+          "type": "highpass",
+          "freq": 1800
+        },
+        {
+          "type": "lowpass",
+          "freq": 7500
+        }
+      ],
+      "gain": -2
+    }
+  ],
+  "room": {
+    "size": 0.25,
+    "mix": 0.12,
+    "damp": 5000
+  }
+}

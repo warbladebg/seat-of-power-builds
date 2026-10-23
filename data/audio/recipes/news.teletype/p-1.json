@@ -1,0 +1,54 @@
+{
+  "cue": "news.teletype",
+  "round": "p",
+  "option": 1,
+  "family": "Placeholder",
+  "label": "plain placeholder until a round picks this cue",
+  "seed": 1,
+  "tail": 0.03,
+  "loudness": -29,
+  "layers": [
+    {
+      "type": "noise",
+      "at": 0,
+      "env": {
+        "a": 0.0003,
+        "d": 0.01
+      },
+      "gain": 0.0,
+      "filter": {
+        "type": "bandpass",
+        "freq": 2500,
+        "q": 1.5
+      }
+    },
+    {
+      "type": "noise",
+      "at": 0.045,
+      "env": {
+        "a": 0.0003,
+        "d": 0.01
+      },
+      "gain": 0.0,
+      "filter": {
+        "type": "bandpass",
+        "freq": 2500,
+        "q": 1.5
+      }
+    },
+    {
+      "type": "noise",
+      "at": 0.09,
+      "env": {
+        "a": 0.0003,
+        "d": 0.01
+      },
+      "gain": 0.0,
+      "filter": {
+        "type": "bandpass",
+        "freq": 2500,
+        "q": 1.5
+      }
+    }
+  ]
+}

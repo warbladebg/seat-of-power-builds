@@ -1,0 +1,52 @@
+{
+  "cue": "ui.panel_open",
+  "round": "r0",
+  "option": 10,
+  "family": "E. Radio",
+  "label": "squelch: a short burst of static that cuts off",
+  "seed": 10,
+  "loudness": -25,
+  "tail": 0.03,
+  "layers": [
+    {
+      "type": "noise",
+      "env": {
+        "a": 0.002,
+        "h": 0.09,
+        "r": 0.015
+      },
+      "grain": {
+        "rate": 300,
+        "depth": 0.35
+      },
+      "filter": {
+        "type": "bandpass",
+        "freq": 1500,
+        "freqEnd": 1100,
+        "sweep": 0.1,
+        "q": 0.8
+      }
+    },
+    {
+      "type": "tone",
+      "wave": "square",
+      "at": 0.0,
+      "freq": 1180,
+      "freqEnd": 1250,
+      "glide": 0.02,
+      "env": {
+        "a": 0.002,
+        "d": 0.03
+      },
+      "gain": -18
+    }
+  ],
+  "post": [
+    {
+      "type": "radio",
+      "low": 400,
+      "high": 3000,
+      "drive": 2.2
+    }
+  ]
+}

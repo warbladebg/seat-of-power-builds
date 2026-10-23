@@ -1,0 +1,29 @@
+{
+  "$schema": "../../schemas/diplomacy_profile.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "redLines": [
+    {
+      "term": "term.holding_pledge",
+      "side": "give",
+      "reasonKey": "redline.chn.holding_pledge"
+    },
+    {
+      "term": "term.security_guarantee",
+      "side": "any",
+      "reasonKey": "redline.chn.security_guarantee"
+    }
+  ],
+  "pressures": [
+    {
+      "tag": "nationalist_pressure"
+    }
+  ],
+  "params": {
+    "holdingsControl": 0.9,
+    "militaryPower": 0.6
+  }
+}

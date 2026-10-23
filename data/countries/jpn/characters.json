@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schemas/characters.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Fictional leader (D-009)."
+  },
+  "characters": [
+    {
+      "id": "char.jpn.leader",
+      "name": "Haruto Kisaragi",
+      "role": "head_of_government",
+      "personality": {
+        "riskTolerance": 30,
+        "pride": 55,
+        "pragmatism": 75,
+        "patience": 70,
+        "hawkishness": 40,
+        "honesty": 70,
+        "loyalty": 75,
+        "ideologicalRigidity": 35,
+        "grudgeHolding": 40,
+        "publicOrientation": 50,
+        "lawfulness": 70
+      },
+      "voice": [
+        "Formal",
+        "Diplomatic"
+      ],
+      "titleKey": "title.prime_minister",
+      "competence": 70,
+      "goals": [
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        },
+        {
+          "goal": "goal.alliance_with:country.usa",
+          "weight": 0.7
+        },
+        {
+          "goal": "goal.market_stability",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.energy_security",
+          "weight": 0.6
+        }
+      ]
+    }
+  ]
+}

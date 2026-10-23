@@ -1,0 +1,61 @@
+{
+  "cue": "ending.win",
+  "round": "p",
+  "option": 1,
+  "family": "Placeholder",
+  "label": "plain placeholder until a round picks this cue",
+  "seed": 1,
+  "tail": 0.03,
+  "loudness": -21,
+  "layers": [
+    {
+      "type": "tone",
+      "wave": "triangle",
+      "freq": 261.6,
+      "at": 0.0,
+      "env": {
+        "a": 0.05,
+        "d": 2.0
+      },
+      "gain": 0.0
+    },
+    {
+      "type": "tone",
+      "wave": "triangle",
+      "freq": 329.6,
+      "at": 0.25,
+      "env": {
+        "a": 0.05,
+        "d": 2.0
+      },
+      "gain": 0.0
+    },
+    {
+      "type": "tone",
+      "wave": "triangle",
+      "freq": 392,
+      "at": 0.5,
+      "env": {
+        "a": 0.05,
+        "d": 2.0
+      },
+      "gain": 0.0
+    },
+    {
+      "type": "tone",
+      "wave": "triangle",
+      "freq": 523.3,
+      "at": 0.75,
+      "env": {
+        "a": 0.05,
+        "d": 2.5
+      },
+      "gain": 0.0
+    }
+  ],
+  "room": {
+    "size": 1.6,
+    "mix": 0.25,
+    "damp": 4500
+  }
+}

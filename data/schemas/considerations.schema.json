@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "considerations.schema.json",
+  "title": "ConsiderationsFile",
+  "type": "object",
+  "properties": {
+    "considerations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^consideration\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "input": {
+            "type": "string"
+          },
+          "curve": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "enum": [
+                  "Linear",
+                  "Inverse",
+                  "Logistic",
+                  "InverseLogistic",
+                  "Quadratic",
+                  "InverseQuadratic",
+                  "Step"
+                ],
+                "default": "Linear"
+              },
+              "midpoint": {
+                "type": "number",
+                "default": 0.5,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "steepness": {
+                "type": "number",
+                "default": 10,
+                "minimum": 0.1,
+                "maximum": 100
+              },
+              "min": {
+                "type": "number",
+                "default": 0,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "max": {
+                "type": "number",
+                "default": 1,
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "weight": {
+            "type": "number",
+            "default": 1,
+            "minimum": 0,
+            "maximum": 10
+          },
+          "scaleByTrait": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          },
+          "default": {
+            "type": "number",
+            "default": 0.5,
+            "minimum": 0,
+            "maximum": 1
+          },
+          "onlyWhenProvided": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "required": [
+          "id",
+          "input",
+          "curve"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "considerations"
+  ],
+  "additionalProperties": false
+}

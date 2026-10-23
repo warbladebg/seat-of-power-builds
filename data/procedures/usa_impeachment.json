@@ -1,0 +1,116 @@
+{
+  "$schema": "../schemas/procedures.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "procedures": [
+    {
+      "id": "procedure.usa.impeachment",
+      "country": "country.usa",
+      "nameKey": "procedure.usa.impeachment.name",
+      "trigger": {
+        "all": [
+          {
+            "var": "politics.impeachment_pressure@{country}",
+            "op": ">=",
+            "value": 50
+          },
+          {
+            "flag": "politics.{country}.opposition_controls_lower"
+          }
+        ]
+      },
+      "cooldownDays": 180,
+      "stages": [
+        {
+          "id": "impeach_inquiry",
+          "textKey": "procedure.stage.impeach_inquiry",
+          "delayDays": 14,
+          "onEnter": [
+            {
+              "type": "set_flag",
+              "flag": "politics.{country}.impeachment_inquiry"
+            }
+          ],
+          "next": "impeach_house"
+        },
+        {
+          "id": "impeach_house",
+          "textKey": "procedure.stage.impeach_house",
+          "delayDays": 7,
+          "vote": {
+            "point": "dp.vote_impeach",
+            "chamber": "chamber.usa.house",
+            "threshold": 0.5001
+          },
+          "onPass": "impeach_trial",
+          "onFail": "impeach_failed"
+        },
+        {
+          "id": "impeach_trial",
+          "textKey": "procedure.stage.impeach_trial",
+          "delayDays": 21,
+          "onEnter": [
+            {
+              "type": "set_flag",
+              "flag": "politics.{country}.impeached"
+            },
+            {
+              "type": "modify_var",
+              "var": "politics.scandal@{country}",
+              "amount": 10
+            }
+          ],
+          "vote": {
+            "point": "dp.vote_convict",
+            "chamber": "chamber.usa.senate",
+            "threshold": 0.6667
+          },
+          "onPass": "impeach_removed",
+          "onFail": "impeach_acquitted"
+        },
+        {
+          "id": "impeach_failed",
+          "textKey": "procedure.stage.impeach_failed",
+          "terminal": true,
+          "autoPause": false,
+          "onEnter": [
+            {
+              "type": "clear_flag",
+              "flag": "politics.{country}.impeachment_inquiry"
+            }
+          ]
+        },
+        {
+          "id": "impeach_acquitted",
+          "textKey": "procedure.stage.impeach_acquitted",
+          "terminal": true,
+          "onEnter": [
+            {
+              "type": "clear_flag",
+              "flag": "politics.{country}.impeachment_inquiry"
+            },
+            {
+              "type": "set_flag",
+              "flag": "politics.{country}.acquitted"
+            }
+          ]
+        },
+        {
+          "id": "impeach_removed",
+          "textKey": "procedure.stage.impeach_removed",
+          "terminal": true,
+          "ending": "removed",
+          "onEnter": [
+            {
+              "type": "set_flag",
+              "flag": "politics.{country}.president_removed"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

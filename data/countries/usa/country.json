@@ -1,0 +1,39 @@
+{
+  "$schema": "../../schemas/country.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Regime indicators are design estimates informed by public democracy indices (no third-party data copied)."
+  },
+  "id": "country.usa",
+  "depth": "Full",
+  "nameKey": "country.usa.name",
+  "iso3": "USA",
+  "entityType": "Country",
+  "regimeType": "LiberalDemocracy",
+  "currency": "USD",
+  "capitalKey": "country.usa.capital",
+  "mapColor": "#3C6E9E",
+  "leaderCharacterId": "char.usa.president",
+  "parties": [
+    {
+      "id": "party.usa.democratic",
+      "nameKey": "party.usa.democratic.name",
+      "color": "#2E5EAA"
+    },
+    {
+      "id": "party.usa.republican",
+      "nameKey": "party.usa.republican.name",
+      "color": "#C8302C"
+    }
+  ],
+  "regimeIndicators": {
+    "judicialIndependence": 78,
+    "mediaFreedom": 80,
+    "electoralIntegrity": 76,
+    "civilLiberties": 80,
+    "legislativeConstraint": 72,
+    "civilianControlOfMilitary": 95
+  }
+}

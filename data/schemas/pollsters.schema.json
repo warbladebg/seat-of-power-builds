@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pollsters.schema.json",
+  "title": "PollstersFile",
+  "type": "object",
+  "properties": {
+    "pollsters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^pollster\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "country": {
+            "type": "string",
+            "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "method": {
+            "type": "string",
+            "enum": [
+              "phone",
+              "online",
+              "panel",
+              "ivr"
+            ]
+          },
+          "sampleSize": {
+            "type": "integer",
+            "default": 1000,
+            "minimum": 100,
+            "maximum": 100000
+          },
+          "everyDays": {
+            "type": "integer",
+            "default": 14,
+            "minimum": 1,
+            "maximum": 120
+          },
+          "offsetDays": {
+            "type": "integer",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 120
+          },
+          "fieldDays": {
+            "type": "integer",
+            "default": 3,
+            "minimum": 0,
+            "maximum": 30
+          },
+          "partisanLean": {
+            "type": "number",
+            "default": 0,
+            "minimum": -10,
+            "maximum": 10
+          },
+          "quality": {
+            "type": "number",
+            "default": 0.5,
+            "minimum": 0,
+            "maximum": 1
+          },
+          "blocErrors": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "number"
+            },
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "nameKey",
+          "country",
+          "method"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "pollsters"
+  ],
+  "additionalProperties": false
+}

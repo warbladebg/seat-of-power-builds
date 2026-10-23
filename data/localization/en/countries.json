@@ -1,0 +1,24 @@
+{
+  "$schema": "../../schemas/localization.schema.json",
+  "strings": {
+    "commodity.oil.name": "Crude oil (Brent)",
+    "country.can.capital": "Ottawa",
+    "country.can.name": "Canada",
+    "country.chn.capital": "Beijing",
+    "country.chn.name": "China",
+    "country.eu.capital": "Brussels",
+    "country.eu.name": "European Union",
+    "country.gbr.capital": "London",
+    "country.gbr.name": "United Kingdom",
+    "country.jpn.capital": "Tokyo",
+    "country.jpn.name": "Japan",
+    "country.mex.capital": "Mexico City",
+    "country.mex.name": "Mexico",
+    "country.sau.capital": "Riyadh",
+    "country.sau.name": "Saudi Arabia",
+    "country.usa.capital": "Washington, D.C.",
+    "country.usa.name": "United States",
+    "party.usa.democratic.name": "Democratic Party",
+    "party.usa.republican.name": "Republican Party"
+  }
+}

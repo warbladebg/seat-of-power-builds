@@ -1,0 +1,2863 @@
+{
+  "$schema": "../../schemas/characters.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "All people are fictional (D-009); names are checked against real US politicians by tools/pipeline/check_names.py. Party leaders are listed per party; the politics system decides who is Speaker from the House majority."
+  },
+  "characters": [
+    {
+      "id": "char.usa.president",
+      "name": "Morgan Ashdown",
+      "role": "head_of_government",
+      "personality": {
+        "riskTolerance": 55,
+        "pride": 60,
+        "pragmatism": 65,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 60,
+        "loyalty": 60,
+        "ideologicalRigidity": 40,
+        "grudgeHolding": 50,
+        "publicOrientation": 75,
+        "lawfulness": 50
+      },
+      "voice": [
+        "Formal",
+        "Folksy"
+      ],
+      "titleKey": "title.president",
+      "goals": [
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.5
+        },
+        {
+          "goal": "goal.avoid_default",
+          "weight": 0.3
+        },
+        {
+          "goal": "goal.legacy",
+          "weight": 0.2
+        }
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.vice_president",
+      "name": "Ruth Calloway",
+      "role": "vice_president",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 45,
+        "pragmatism": 70,
+        "patience": 60,
+        "hawkishness": 40,
+        "honesty": 70,
+        "loyalty": 80,
+        "ideologicalRigidity": 40,
+        "grudgeHolding": 40,
+        "publicOrientation": 60,
+        "lawfulness": 62
+      },
+      "voice": [
+        "Diplomatic"
+      ],
+      "titleKey": "title.vice_president",
+      "competence": 60
+    },
+    {
+      "id": "char.usa.treasury_secretary",
+      "name": "Victor Lindqvist",
+      "role": "treasury_secretary",
+      "personality": {
+        "riskTolerance": 30,
+        "pride": 40,
+        "pragmatism": 80,
+        "patience": 60,
+        "hawkishness": 20,
+        "honesty": 75,
+        "loyalty": 70,
+        "ideologicalRigidity": 30,
+        "grudgeHolding": 30,
+        "publicOrientation": 35,
+        "lawfulness": 70
+      },
+      "voice": [
+        "Technocrat"
+      ],
+      "titleKey": "title.secretary",
+      "goals": [
+        {
+          "goal": "goal.avoid_default",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.market_stability",
+          "weight": 0.4
+        }
+      ],
+      "bias": {
+        "optimism": 15,
+        "alarmism": 10
+      },
+      "competence": 80
+    },
+    {
+      "id": "char.usa.chief_of_staff",
+      "name": "Priyanka Venkataraman",
+      "role": "chief_of_staff",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 50,
+        "pragmatism": 85,
+        "patience": 55,
+        "hawkishness": 35,
+        "honesty": 60,
+        "loyalty": 85,
+        "ideologicalRigidity": 30,
+        "grudgeHolding": 40,
+        "publicOrientation": 70,
+        "lawfulness": 52
+      },
+      "voice": [
+        "Blunt",
+        "Technocrat"
+      ],
+      "bias": {
+        "optimism": 10
+      },
+      "competence": 75,
+      "goals": [
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        },
+        {
+          "goal": "goal.legislative_wins",
+          "weight": 0.4
+        }
+      ]
+    },
+    {
+      "id": "char.usa.house_dem_leader",
+      "name": "Theodore Banerjee",
+      "role": "party_leader_house",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 65,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 35,
+        "honesty": 60,
+        "loyalty": 75,
+        "ideologicalRigidity": 50,
+        "grudgeHolding": 60,
+        "publicOrientation": 65
+      },
+      "voice": [
+        "Combative",
+        "Formal"
+      ],
+      "titleKey": "title.leader",
+      "powerCenterId": "pc.usa.house_dem_mainstream",
+      "party": "party.usa.democratic",
+      "goals": [
+        {
+          "goal": "goal.win_majority",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.protect_programs",
+          "weight": 0.4
+        }
+      ],
+      "competence": 70
+    },
+    {
+      "id": "char.usa.house_rep_leader",
+      "name": "Garrett Holloway",
+      "role": "party_leader_house",
+      "personality": {
+        "riskTolerance": 55,
+        "pride": 70,
+        "pragmatism": 55,
+        "patience": 45,
+        "hawkishness": 55,
+        "honesty": 55,
+        "loyalty": 70,
+        "ideologicalRigidity": 55,
+        "grudgeHolding": 65,
+        "publicOrientation": 65
+      },
+      "voice": [
+        "Combative",
+        "Folksy"
+      ],
+      "titleKey": "title.leader",
+      "powerCenterId": "pc.usa.house_rep_mainstream",
+      "party": "party.usa.republican",
+      "goals": [
+        {
+          "goal": "goal.win_majority",
+          "weight": 0.5
+        },
+        {
+          "goal": "goal.fiscal_restraint",
+          "weight": 0.5
+        }
+      ],
+      "competence": 70
+    },
+    {
+      "id": "char.usa.house_dem_progressive_leader",
+      "name": "Lucia Ferrante",
+      "role": "bloc_leader",
+      "personality": {
+        "riskTolerance": 60,
+        "pride": 60,
+        "pragmatism": 35,
+        "patience": 40,
+        "hawkishness": 30,
+        "honesty": 70,
+        "loyalty": 55,
+        "ideologicalRigidity": 80,
+        "grudgeHolding": 60,
+        "publicOrientation": 85
+      },
+      "voice": [
+        "Combative"
+      ],
+      "titleKey": "title.representative",
+      "powerCenterId": "pc.usa.house_dem_progressive",
+      "party": "party.usa.democratic",
+      "goals": [
+        {
+          "goal": "goal.protect_programs",
+          "weight": 0.7
+        },
+        {
+          "goal": "goal.climate_action",
+          "weight": 0.3
+        }
+      ],
+      "competence": 60
+    },
+    {
+      "id": "char.usa.house_dem_moderate_leader",
+      "name": "Wade Ostrander",
+      "role": "bloc_leader",
+      "personality": {
+        "riskTolerance": 35,
+        "pride": 40,
+        "pragmatism": 80,
+        "patience": 60,
+        "hawkishness": 45,
+        "honesty": 65,
+        "loyalty": 60,
+        "ideologicalRigidity": 25,
+        "grudgeHolding": 35,
+        "publicOrientation": 55
+      },
+      "voice": [
+        "Folksy"
+      ],
+      "titleKey": "title.representative",
+      "powerCenterId": "pc.usa.house_dem_moderate",
+      "party": "party.usa.democratic",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_seat",
+          "weight": 0.4
+        }
+      ],
+      "competence": 60
+    },
+    {
+      "id": "char.usa.house_rep_moderate_leader",
+      "name": "Claire Pemberton",
+      "role": "bloc_leader",
+      "personality": {
+        "riskTolerance": 35,
+        "pride": 45,
+        "pragmatism": 80,
+        "patience": 60,
+        "hawkishness": 45,
+        "honesty": 70,
+        "loyalty": 55,
+        "ideologicalRigidity": 25,
+        "grudgeHolding": 35,
+        "publicOrientation": 55
+      },
+      "voice": [
+        "Formal"
+      ],
+      "titleKey": "title.representative",
+      "powerCenterId": "pc.usa.house_rep_moderate",
+      "party": "party.usa.republican",
+      "goals": [
+        {
+          "goal": "goal.keep_seat",
+          "weight": 0.5
+        },
+        {
+          "goal": "goal.market_stability",
+          "weight": 0.5
+        }
+      ],
+      "competence": 60
+    },
+    {
+      "id": "char.usa.house_rep_hardline_leader",
+      "name": "Boyd Kessler",
+      "role": "bloc_leader",
+      "personality": {
+        "riskTolerance": 80,
+        "pride": 80,
+        "pragmatism": 20,
+        "patience": 35,
+        "hawkishness": 75,
+        "honesty": 50,
+        "loyalty": 45,
+        "ideologicalRigidity": 90,
+        "grudgeHolding": 80,
+        "publicOrientation": 80
+      },
+      "voice": [
+        "Blunt",
+        "Nationalist"
+      ],
+      "titleKey": "title.representative",
+      "powerCenterId": "pc.usa.house_rep_hardline",
+      "party": "party.usa.republican",
+      "goals": [
+        {
+          "goal": "goal.fiscal_restraint",
+          "weight": 0.8
+        },
+        {
+          "goal": "goal.media_profile",
+          "weight": 0.2
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.senate_dem_leader",
+      "name": "Harriet Osei",
+      "role": "party_leader_senate",
+      "personality": {
+        "riskTolerance": 35,
+        "pride": 55,
+        "pragmatism": 70,
+        "patience": 70,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 75,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 55,
+        "publicOrientation": 55
+      },
+      "voice": [
+        "Formal",
+        "Diplomatic"
+      ],
+      "titleKey": "title.leader",
+      "powerCenterId": "pc.usa.senate_dem_mainstream",
+      "party": "party.usa.democratic",
+      "goals": [
+        {
+          "goal": "goal.win_majority",
+          "weight": 0.5
+        },
+        {
+          "goal": "goal.protect_programs",
+          "weight": 0.5
+        }
+      ],
+      "competence": 75
+    },
+    {
+      "id": "char.usa.senate_rep_leader",
+      "name": "Franklin Dorsey",
+      "role": "party_leader_senate",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 60,
+        "pragmatism": 65,
+        "patience": 75,
+        "hawkishness": 55,
+        "honesty": 55,
+        "loyalty": 75,
+        "ideologicalRigidity": 50,
+        "grudgeHolding": 60,
+        "publicOrientation": 50
+      },
+      "voice": [
+        "Formal"
+      ],
+      "titleKey": "title.leader",
+      "powerCenterId": "pc.usa.senate_rep_mainstream",
+      "party": "party.usa.republican",
+      "goals": [
+        {
+          "goal": "goal.win_majority",
+          "weight": 0.5
+        },
+        {
+          "goal": "goal.fiscal_restraint",
+          "weight": 0.5
+        }
+      ],
+      "competence": 75
+    },
+    {
+      "id": "char.usa.senate_dem_progressive_leader",
+      "name": "Naomi Castellanos",
+      "role": "bloc_leader",
+      "personality": {
+        "riskTolerance": 60,
+        "pride": 55,
+        "pragmatism": 40,
+        "patience": 45,
+        "hawkishness": 30,
+        "honesty": 75,
+        "loyalty": 55,
+        "ideologicalRigidity": 75,
+        "grudgeHolding": 55,
+        "publicOrientation": 85
+      },
+      "voice": [
+        "Combative",
+        "Academic"
+      ],
+      "titleKey": "title.senator",
+      "powerCenterId": "pc.usa.senate_dem_progressive",
+      "party": "party.usa.democratic",
+      "goals": [
+        {
+          "goal": "goal.protect_programs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.climate_action",
+          "weight": 0.4
+        }
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.senate_rep_hardline_leader",
+      "name": "Colt Rasmussen",
+      "role": "bloc_leader",
+      "personality": {
+        "riskTolerance": 75,
+        "pride": 75,
+        "pragmatism": 25,
+        "patience": 40,
+        "hawkishness": 70,
+        "honesty": 55,
+        "loyalty": 45,
+        "ideologicalRigidity": 85,
+        "grudgeHolding": 75,
+        "publicOrientation": 80
+      },
+      "voice": [
+        "Blunt"
+      ],
+      "titleKey": "title.senator",
+      "powerCenterId": "pc.usa.senate_rep_hardline",
+      "party": "party.usa.republican",
+      "goals": [
+        {
+          "goal": "goal.fiscal_restraint",
+          "weight": 0.8
+        },
+        {
+          "goal": "goal.media_profile",
+          "weight": 0.2
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.chief_justice",
+      "name": "Margaret Thorne",
+      "role": "chief_justice",
+      "personality": {
+        "riskTolerance": 20,
+        "pride": 55,
+        "pragmatism": 55,
+        "patience": 85,
+        "hawkishness": 30,
+        "honesty": 85,
+        "loyalty": 50,
+        "ideologicalRigidity": 60,
+        "grudgeHolding": 30,
+        "publicOrientation": 20,
+        "lawfulness": 85
+      },
+      "voice": [
+        "Academic",
+        "Formal"
+      ],
+      "titleKey": "title.chief_justice",
+      "powerCenterId": "pc.usa.supreme_court",
+      "goals": [
+        {
+          "goal": "goal.institutional_legitimacy",
+          "weight": 0.8
+        },
+        {
+          "goal": "goal.legal_consistency",
+          "weight": 0.2
+        }
+      ],
+      "competence": 90
+    },
+    {
+      "id": "char.usa.fed_chair",
+      "name": "Alistair Penrose",
+      "role": "central_bank_chair",
+      "personality": {
+        "riskTolerance": 20,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 80,
+        "hawkishness": 55,
+        "honesty": 85,
+        "loyalty": 50,
+        "ideologicalRigidity": 55,
+        "grudgeHolding": 30,
+        "publicOrientation": 15,
+        "lawfulness": 78
+      },
+      "voice": [
+        "Technocrat",
+        "Market"
+      ],
+      "titleKey": "title.chair",
+      "powerCenterId": "pc.usa.federal_reserve",
+      "goals": [
+        {
+          "goal": "goal.price_stability",
+          "weight": 0.7
+        },
+        {
+          "goal": "goal.central_bank_independence",
+          "weight": 0.3
+        }
+      ],
+      "competence": 85
+    },
+    {
+      "id": "char.usa.joint_chiefs_chair",
+      "name": "Denise Okafor",
+      "role": "military_chief",
+      "personality": {
+        "riskTolerance": 30,
+        "pride": 55,
+        "pragmatism": 65,
+        "patience": 70,
+        "hawkishness": 60,
+        "honesty": 80,
+        "loyalty": 70,
+        "ideologicalRigidity": 40,
+        "grudgeHolding": 40,
+        "publicOrientation": 20,
+        "lawfulness": 76
+      },
+      "voice": [
+        "Formal",
+        "Blunt"
+      ],
+      "titleKey": "title.general",
+      "powerCenterId": "pc.usa.military",
+      "goals": [
+        {
+          "goal": "goal.readiness",
+          "weight": 0.7
+        },
+        {
+          "goal": "goal.civilian_control",
+          "weight": 0.3
+        }
+      ],
+      "competence": 80
+    },
+    {
+      "id": "char.usa.intelligence_director",
+      "name": "Samuel Achterberg",
+      "role": "intelligence_chief",
+      "personality": {
+        "riskTolerance": 30,
+        "pride": 40,
+        "pragmatism": 70,
+        "patience": 70,
+        "hawkishness": 55,
+        "honesty": 60,
+        "loyalty": 65,
+        "ideologicalRigidity": 40,
+        "grudgeHolding": 50,
+        "publicOrientation": 15,
+        "lawfulness": 64
+      },
+      "voice": [
+        "Evasive",
+        "Technocrat"
+      ],
+      "titleKey": "title.director",
+      "powerCenterId": "pc.usa.intelligence",
+      "competence": 75
+    },
+    {
+      "id": "char.usa.business_council_head",
+      "name": "Rebecca Lowell",
+      "role": "lobby_leader",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 50,
+        "pragmatism": 75,
+        "patience": 55,
+        "hawkishness": 30,
+        "honesty": 55,
+        "loyalty": 40,
+        "ideologicalRigidity": 35,
+        "grudgeHolding": 50,
+        "publicOrientation": 30
+      },
+      "voice": [
+        "Market",
+        "Diplomatic"
+      ],
+      "titleKey": "title.chair",
+      "powerCenterId": "pc.usa.business_lobby",
+      "goals": [
+        {
+          "goal": "goal.lower_taxes",
+          "weight": 0.5
+        },
+        {
+          "goal": "goal.market_stability",
+          "weight": 0.5
+        }
+      ],
+      "competence": 70
+    },
+    {
+      "id": "char.usa.finance_lobby_head",
+      "name": "Conrad Whitaker",
+      "role": "lobby_leader",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 55,
+        "pragmatism": 70,
+        "patience": 45,
+        "hawkishness": 35,
+        "honesty": 50,
+        "loyalty": 35,
+        "ideologicalRigidity": 30,
+        "grudgeHolding": 55,
+        "publicOrientation": 25
+      },
+      "voice": [
+        "Market"
+      ],
+      "titleKey": "title.chair",
+      "powerCenterId": "pc.usa.wall_street",
+      "goals": [
+        {
+          "goal": "goal.market_stability",
+          "weight": 0.8
+        },
+        {
+          "goal": "goal.lower_taxes",
+          "weight": 0.2
+        }
+      ],
+      "competence": 75
+    },
+    {
+      "id": "char.usa.union_federation_head",
+      "name": "Dolores Brennan",
+      "role": "lobby_leader",
+      "personality": {
+        "riskTolerance": 55,
+        "pride": 60,
+        "pragmatism": 55,
+        "patience": 55,
+        "hawkishness": 50,
+        "honesty": 70,
+        "loyalty": 60,
+        "ideologicalRigidity": 65,
+        "grudgeHolding": 65,
+        "publicOrientation": 75
+      },
+      "voice": [
+        "Folksy",
+        "Combative"
+      ],
+      "titleKey": "title.chair",
+      "powerCenterId": "pc.usa.labor_unions",
+      "goals": [
+        {
+          "goal": "goal.protect_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.protect_programs",
+          "weight": 0.4
+        }
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.secretary_of_state",
+      "name": "Helena Marsh",
+      "role": "secretary_of_state",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 75,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 65,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 65
+      },
+      "voice": [
+        "Diplomatic"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.secretary_of_defense",
+      "name": "Raymond Okafor",
+      "role": "secretary_of_defense",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 65,
+        "honesty": 65,
+        "loyalty": 70,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 62
+      },
+      "voice": [
+        "Blunt"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.attorney_general",
+      "name": "Catherine Velez",
+      "role": "attorney_general",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 60,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 72
+      },
+      "voice": [
+        "Formal"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.secretary_of_interior",
+      "name": "Thomas Greaves",
+      "role": "secretary_of_interior",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 65,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 58
+      },
+      "voice": [
+        "Folksy"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.secretary_of_agriculture",
+      "name": "Linda Sorensen",
+      "role": "secretary_of_agriculture",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 65,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Folksy"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.secretary_of_commerce",
+      "name": "Marcus Feld",
+      "role": "secretary_of_commerce",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 75,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 65,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 55
+      },
+      "voice": [
+        "Technocrat"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.secretary_of_labor",
+      "name": "Rosa Delgado",
+      "role": "secretary_of_labor",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 65,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 62
+      },
+      "voice": [
+        "Folksy"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.secretary_of_hhs",
+      "name": "Alan Whitfield",
+      "role": "secretary_of_hhs",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 65,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 68
+      },
+      "voice": [
+        "Academic"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.secretary_of_hud",
+      "name": "Janet Park",
+      "role": "secretary_of_hud",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 65,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Technocrat"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.secretary_of_transportation",
+      "name": "Owen Brady",
+      "role": "secretary_of_transportation",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 65,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 58
+      },
+      "voice": [
+        "Folksy"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.secretary_of_energy",
+      "name": "Priya Raman",
+      "role": "secretary_of_energy",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 65,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 64
+      },
+      "voice": [
+        "Technocrat"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.secretary_of_education",
+      "name": "Gloria Benson",
+      "role": "secretary_of_education",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 65,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 63
+      },
+      "voice": [
+        "Formal"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.secretary_of_veterans_affairs",
+      "name": "Daniel Hollis",
+      "role": "secretary_of_veterans_affairs",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 65,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 66
+      },
+      "voice": [
+        "Blunt"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.secretary_of_homeland_security",
+      "name": "Craig Mendel",
+      "role": "secretary_of_homeland_security",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 70,
+        "honesty": 65,
+        "loyalty": 75,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 52
+      },
+      "voice": [
+        "Combative"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.fbi_director",
+      "name": "Nathan Coyle",
+      "role": "fbi_director",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 75,
+        "loyalty": 50,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 78
+      },
+      "voice": [
+        "Formal"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.cia_director",
+      "name": "Evelyn Strand",
+      "role": "cia_director",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 50,
+        "loyalty": 60,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Evasive"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.irs_commissioner",
+      "name": "Howard Pike",
+      "role": "irs_commissioner",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 80,
+        "loyalty": 40,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 80
+      },
+      "voice": [
+        "Technocrat"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.fiscal_assistant_secretary",
+      "name": "Margaret Ellison",
+      "role": "fiscal_assistant_secretary",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 80,
+        "loyalty": 40,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 82
+      },
+      "voice": [
+        "Technocrat"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.nmcc_director",
+      "name": "Samuel Ortiz",
+      "role": "nmcc_officer",
+      "personality": {
+        "riskTolerance": 25,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 80
+      },
+      "voice": [
+        "Formal"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.stratcom_commander",
+      "name": "Karen Holtby",
+      "role": "military_commander",
+      "personality": {
+        "riskTolerance": 25,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 78
+      },
+      "voice": [
+        "Formal"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.fcc_chair",
+      "name": "Bradley Kwon",
+      "role": "fcc_chair",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 65,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 58
+      },
+      "voice": [
+        "Technocrat"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.secret_service_director",
+      "name": "Diane Foster",
+      "role": "secret_service_director",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 60,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 74
+      },
+      "voice": [
+        "Formal"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.opm_director",
+      "name": "Gregory Lane",
+      "role": "opm_director",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 70,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 55
+      },
+      "voice": [
+        "Technocrat"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.rep_vandermolen",
+      "name": "Hollis Vandermolen",
+      "role": "representative",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 75,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 70,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Folksy"
+      ],
+      "powerCenterId": "pc.usa.house_dem_moderate",
+      "party": "party.usa.democratic",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.rep_quintanar",
+      "name": "Marisol Quintanar",
+      "role": "representative",
+      "personality": {
+        "riskTolerance": 55,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 55,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Formal"
+      ],
+      "powerCenterId": "pc.usa.house_dem_moderate",
+      "party": "party.usa.democratic",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.rep_blackwood",
+      "name": "Cyrus Blackwood",
+      "role": "representative",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 65,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 35,
+        "loyalty": 45,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Blunt"
+      ],
+      "powerCenterId": "pc.usa.house_dem_moderate",
+      "party": "party.usa.democratic",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.rep_aldana",
+      "name": "Teodora Aldana",
+      "role": "representative",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 75,
+        "loyalty": 55,
+        "ideologicalRigidity": 70,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Formal"
+      ],
+      "powerCenterId": "pc.usa.house_dem_progressive",
+      "party": "party.usa.democratic",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.rep_fairweather",
+      "name": "Dalton Fairweather",
+      "role": "representative",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 60,
+        "loyalty": 65,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Diplomatic"
+      ],
+      "powerCenterId": "pc.usa.house_dem_mainstream",
+      "party": "party.usa.democratic",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.rep_lindgard",
+      "name": "Annika Lindgard",
+      "role": "representative",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 75,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 65,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Diplomatic"
+      ],
+      "powerCenterId": "pc.usa.house_rep_moderate",
+      "party": "party.usa.republican",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.rep_okonkwo",
+      "name": "Emeka Okonkwo-Hale",
+      "role": "representative",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 80,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 70
+      },
+      "voice": [
+        "Formal"
+      ],
+      "powerCenterId": "pc.usa.house_rep_moderate",
+      "party": "party.usa.republican",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.rep_strathmore",
+      "name": "Garland Strathmore",
+      "role": "representative",
+      "personality": {
+        "riskTolerance": 55,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 40,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Folksy"
+      ],
+      "powerCenterId": "pc.usa.house_rep_moderate",
+      "party": "party.usa.republican",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.rep_mercado",
+      "name": "Ines Mercado-Pratt",
+      "role": "representative",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 50,
+        "loyalty": 60,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Blunt"
+      ],
+      "powerCenterId": "pc.usa.house_rep_mainstream",
+      "party": "party.usa.republican",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.rep_tolliver",
+      "name": "Buck Tolliver",
+      "role": "representative",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 70,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 30,
+        "loyalty": 55,
+        "ideologicalRigidity": 75,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Combative"
+      ],
+      "powerCenterId": "pc.usa.house_rep_hardline",
+      "party": "party.usa.republican",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.sen_ravensworth",
+      "name": "Adelaide Ravensworth",
+      "role": "senator",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 70,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 70,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Diplomatic"
+      ],
+      "powerCenterId": "pc.usa.senate_dem_mainstream",
+      "party": "party.usa.democratic",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.sen_kittredge",
+      "name": "Lowell Kittredge",
+      "role": "senator",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 55,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Folksy"
+      ],
+      "powerCenterId": "pc.usa.senate_dem_mainstream",
+      "party": "party.usa.democratic",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.sen_abernethy",
+      "name": "Rosalind Abernethy",
+      "role": "senator",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 45,
+        "loyalty": 50,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Formal"
+      ],
+      "powerCenterId": "pc.usa.senate_dem_mainstream",
+      "party": "party.usa.democratic",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.sen_dunmore",
+      "name": "Silas Dunmore",
+      "role": "senator",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 65,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 35,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Blunt"
+      ],
+      "powerCenterId": "pc.usa.senate_dem_mainstream",
+      "party": "party.usa.democratic",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.sen_achebe",
+      "name": "Nkiru Achebe-Lund",
+      "role": "senator",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 75,
+        "loyalty": 55,
+        "ideologicalRigidity": 70,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Formal"
+      ],
+      "powerCenterId": "pc.usa.senate_dem_progressive",
+      "party": "party.usa.democratic",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.sen_carrow",
+      "name": "Prudence Carrow",
+      "role": "senator",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 75,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 65,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Diplomatic"
+      ],
+      "powerCenterId": "pc.usa.senate_rep_mainstream",
+      "party": "party.usa.republican",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.sen_haverford",
+      "name": "Augustin Haverford",
+      "role": "senator",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 80,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 70
+      },
+      "voice": [
+        "Folksy"
+      ],
+      "powerCenterId": "pc.usa.senate_rep_mainstream",
+      "party": "party.usa.republican",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.sen_wexley",
+      "name": "Corinne Wexley",
+      "role": "senator",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 40,
+        "loyalty": 50,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Blunt"
+      ],
+      "powerCenterId": "pc.usa.senate_rep_mainstream",
+      "party": "party.usa.republican",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.sen_briarwood",
+      "name": "Thaddeus Briarwood",
+      "role": "senator",
+      "personality": {
+        "riskTolerance": 50,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 55,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Formal"
+      ],
+      "powerCenterId": "pc.usa.senate_rep_mainstream",
+      "party": "party.usa.republican",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.sen_kolstad",
+      "name": "Rune Kolstad",
+      "role": "senator",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 30,
+        "loyalty": 55,
+        "ideologicalRigidity": 75,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Combative"
+      ],
+      "powerCenterId": "pc.usa.senate_rep_hardline",
+      "party": "party.usa.republican",
+      "goals": [
+        {
+          "goal": "goal.protect_district_jobs",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "competence": 55
+    },
+    {
+      "id": "char.usa.justice_halvorsen",
+      "name": "Ingrid Halvorsen",
+      "role": "associate_justice",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 70,
+        "hawkishness": 45,
+        "honesty": 60,
+        "loyalty": 40,
+        "ideologicalRigidity": 60,
+        "grudgeHolding": 50,
+        "publicOrientation": 25,
+        "lawfulness": 85
+      },
+      "voice": [
+        "Formal"
+      ],
+      "powerCenterId": "pc.usa.supreme_court",
+      "competence": 80
+    },
+    {
+      "id": "char.usa.justice_marchetti",
+      "name": "Lorenzo Marchetti",
+      "role": "associate_justice",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 70,
+        "patience": 70,
+        "hawkishness": 45,
+        "honesty": 60,
+        "loyalty": 40,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 25,
+        "lawfulness": 85
+      },
+      "voice": [
+        "Formal"
+      ],
+      "powerCenterId": "pc.usa.supreme_court",
+      "competence": 80
+    },
+    {
+      "id": "char.usa.justice_osterhout",
+      "name": "Beatrix Osterhout",
+      "role": "associate_justice",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 70,
+        "hawkishness": 45,
+        "honesty": 60,
+        "loyalty": 40,
+        "ideologicalRigidity": 70,
+        "grudgeHolding": 50,
+        "publicOrientation": 25,
+        "lawfulness": 85
+      },
+      "voice": [
+        "Formal"
+      ],
+      "powerCenterId": "pc.usa.supreme_court",
+      "competence": 80
+    },
+    {
+      "id": "char.usa.justice_nakashima",
+      "name": "Kenji Nakashima-Bell",
+      "role": "associate_justice",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 65,
+        "patience": 70,
+        "hawkishness": 45,
+        "honesty": 60,
+        "loyalty": 40,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 25,
+        "lawfulness": 85
+      },
+      "voice": [
+        "Formal"
+      ],
+      "powerCenterId": "pc.usa.supreme_court",
+      "competence": 80
+    },
+    {
+      "id": "char.usa.justice_delacroix",
+      "name": "Celestine Delacroix",
+      "role": "associate_justice",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 70,
+        "hawkishness": 45,
+        "honesty": 60,
+        "loyalty": 40,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 40,
+        "lawfulness": 85
+      },
+      "voice": [
+        "Formal"
+      ],
+      "powerCenterId": "pc.usa.supreme_court",
+      "competence": 80
+    },
+    {
+      "id": "char.usa.justice_whitlock",
+      "name": "Ambrose Whitlock",
+      "role": "associate_justice",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 70,
+        "hawkishness": 45,
+        "honesty": 60,
+        "loyalty": 40,
+        "ideologicalRigidity": 65,
+        "grudgeHolding": 50,
+        "publicOrientation": 25,
+        "lawfulness": 85
+      },
+      "voice": [
+        "Formal"
+      ],
+      "powerCenterId": "pc.usa.supreme_court",
+      "competence": 80
+    },
+    {
+      "id": "char.usa.justice_varga",
+      "name": "Tamsin Varga",
+      "role": "associate_justice",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 70,
+        "patience": 70,
+        "hawkishness": 45,
+        "honesty": 60,
+        "loyalty": 40,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 25,
+        "lawfulness": 85
+      },
+      "voice": [
+        "Formal"
+      ],
+      "powerCenterId": "pc.usa.supreme_court",
+      "competence": 80
+    },
+    {
+      "id": "char.usa.justice_ashgrove",
+      "name": "Philippa Ashgrove",
+      "role": "associate_justice",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 70,
+        "hawkishness": 45,
+        "honesty": 60,
+        "loyalty": 40,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 25,
+        "lawfulness": 85
+      },
+      "voice": [
+        "Formal"
+      ],
+      "powerCenterId": "pc.usa.supreme_court",
+      "competence": 80
+    },
+    {
+      "id": "char.usa.editor_progressive",
+      "name": "Juniper Sloane",
+      "role": "media_editor",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 60,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 75,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Blunt"
+      ],
+      "powerCenterId": "pc.usa.media_progressive",
+      "competence": 70
+    },
+    {
+      "id": "char.usa.editor_mainstream",
+      "name": "Marcus Bellweather",
+      "role": "media_editor",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 70,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 65,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Blunt"
+      ],
+      "powerCenterId": "pc.usa.media_mainstream",
+      "competence": 70
+    },
+    {
+      "id": "char.usa.editor_conservative",
+      "name": "Delia Harrowgate",
+      "role": "media_editor",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 55,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 80,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Blunt"
+      ],
+      "powerCenterId": "pc.usa.media_conservative",
+      "competence": 70
+    },
+    {
+      "id": "char.usa.editor_financial",
+      "name": "Oswin Thackeray",
+      "role": "media_editor",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 75,
+        "loyalty": 55,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 45,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Blunt"
+      ],
+      "powerCenterId": "pc.usa.media_financial",
+      "competence": 70
+    },
+    {
+      "id": "char.usa.challenger_dem",
+      "name": "Rowena Castellane",
+      "role": "primary_challenger",
+      "personality": {
+        "riskTolerance": 70,
+        "pride": 70,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 60,
+        "loyalty": 30,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Combative"
+      ],
+      "party": "party.usa.democratic",
+      "competence": 60
+    },
+    {
+      "id": "char.usa.challenger_rep",
+      "name": "Bram Holloway-Pike",
+      "role": "primary_challenger",
+      "personality": {
+        "riskTolerance": 70,
+        "pride": 70,
+        "pragmatism": 60,
+        "patience": 50,
+        "hawkishness": 45,
+        "honesty": 60,
+        "loyalty": 30,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Combative"
+      ],
+      "party": "party.usa.republican",
+      "competence": 60
+    },
+    {
+      "id": "char.usa.deputy_attorney_general",
+      "name": "Walter Ashby",
+      "role": "deputy_attorney_general",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 78,
+        "loyalty": 50,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 82
+      },
+      "voice": [
+        "Formal"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.solicitor_general",
+      "name": "Philip Dunmore",
+      "role": "solicitor_general",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 72,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 65,
+        "loyalty": 72,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 50
+      },
+      "voice": [
+        "Academic"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.special_counsel",
+      "name": "Leonard Kessler",
+      "role": "special_counsel",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 50,
+        "pragmatism": 60,
+        "patience": 55,
+        "hawkishness": 40,
+        "honesty": 85,
+        "loyalty": 30,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 88
+      },
+      "voice": [
+        "Formal"
+      ],
+      "competence": 65
+    },
+    {
+      "id": "char.usa.legislative_affairs_director",
+      "name": "Delphine Quennell",
+      "role": "legislative_affairs_director",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 45,
+        "pragmatism": 85,
+        "patience": 65,
+        "hawkishness": 40,
+        "honesty": 60,
+        "loyalty": 75,
+        "ideologicalRigidity": 30,
+        "grudgeHolding": 45,
+        "publicOrientation": 55,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Folksy"
+      ],
+      "goals": [
+        {
+          "goal": "goal.legislative_wins",
+          "weight": 0.8
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.4
+        }
+      ],
+      "bias": {
+        "optimism": 10
+      },
+      "competence": 75
+    },
+    {
+      "id": "char.usa.leg_affairs_grady_holcombe",
+      "name": "Grady Holcombe",
+      "role": "advisor_candidate",
+      "personality": {
+        "riskTolerance": 55,
+        "pride": 55,
+        "pragmatism": 80,
+        "patience": 50,
+        "hawkishness": 50,
+        "honesty": 45,
+        "loyalty": 70,
+        "ideologicalRigidity": 35,
+        "grudgeHolding": 55,
+        "publicOrientation": 50,
+        "lawfulness": 50
+      },
+      "voice": [
+        "Blunt"
+      ],
+      "goals": [
+        {
+          "goal": "goal.legislative_wins",
+          "weight": 0.9
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.3
+        }
+      ],
+      "bias": {
+        "optimism": 20
+      },
+      "competence": 82
+    },
+    {
+      "id": "char.usa.leg_affairs_sabine_okonta",
+      "name": "Sabine Okonta",
+      "role": "advisor_candidate",
+      "personality": {
+        "riskTolerance": 35,
+        "pride": 40,
+        "pragmatism": 75,
+        "patience": 75,
+        "hawkishness": 35,
+        "honesty": 80,
+        "loyalty": 60,
+        "ideologicalRigidity": 40,
+        "grudgeHolding": 30,
+        "publicOrientation": 45,
+        "lawfulness": 70
+      },
+      "voice": [
+        "Formal"
+      ],
+      "goals": [
+        {
+          "goal": "goal.legislative_wins",
+          "weight": 0.7
+        },
+        {
+          "goal": "goal.legacy",
+          "weight": 0.4
+        }
+      ],
+      "bias": {
+        "alarmism": 10
+      },
+      "competence": 64
+    },
+    {
+      "id": "char.usa.press_secretary",
+      "name": "Tobias Wrenfield",
+      "role": "press_secretary",
+      "personality": {
+        "riskTolerance": 50,
+        "pride": 60,
+        "pragmatism": 70,
+        "patience": 45,
+        "hawkishness": 45,
+        "honesty": 55,
+        "loyalty": 80,
+        "ideologicalRigidity": 35,
+        "grudgeHolding": 50,
+        "publicOrientation": 90,
+        "lawfulness": 55
+      },
+      "voice": [
+        "Combative"
+      ],
+      "goals": [
+        {
+          "goal": "goal.good_press",
+          "weight": 0.9
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.5
+        }
+      ],
+      "bias": {
+        "optimism": 15
+      },
+      "competence": 70
+    },
+    {
+      "id": "char.usa.press_everett_dunstable",
+      "name": "Everett Dunstable",
+      "role": "advisor_candidate",
+      "personality": {
+        "riskTolerance": 65,
+        "pride": 70,
+        "pragmatism": 55,
+        "patience": 35,
+        "hawkishness": 60,
+        "honesty": 35,
+        "loyalty": 85,
+        "ideologicalRigidity": 55,
+        "grudgeHolding": 60,
+        "publicOrientation": 95,
+        "lawfulness": 40
+      },
+      "voice": [
+        "Combative",
+        "Folksy"
+      ],
+      "goals": [
+        {
+          "goal": "goal.good_press",
+          "weight": 0.7
+        },
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        }
+      ],
+      "bias": {
+        "optimism": 30
+      },
+      "competence": 58
+    },
+    {
+      "id": "char.usa.nec_director",
+      "name": "Corwin Halloway",
+      "role": "nec_director",
+      "personality": {
+        "riskTolerance": 50,
+        "pride": 50,
+        "pragmatism": 80,
+        "patience": 55,
+        "hawkishness": 30,
+        "honesty": 65,
+        "loyalty": 70,
+        "ideologicalRigidity": 35,
+        "grudgeHolding": 40,
+        "publicOrientation": 45,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Technocrat"
+      ],
+      "goals": [
+        {
+          "goal": "goal.growth",
+          "weight": 0.8
+        },
+        {
+          "goal": "goal.market_stability",
+          "weight": 0.4
+        }
+      ],
+      "bias": {
+        "optimism": 20
+      },
+      "competence": 78,
+      "powerCenterId": "pc.usa.business_lobby"
+    },
+    {
+      "id": "char.usa.nec_mireille_fontanet",
+      "name": "Mireille Fontanet",
+      "role": "advisor_candidate",
+      "personality": {
+        "riskTolerance": 35,
+        "pride": 45,
+        "pragmatism": 75,
+        "patience": 65,
+        "hawkishness": 30,
+        "honesty": 75,
+        "loyalty": 60,
+        "ideologicalRigidity": 50,
+        "grudgeHolding": 35,
+        "publicOrientation": 40,
+        "lawfulness": 70
+      },
+      "voice": [
+        "Academic",
+        "Technocrat"
+      ],
+      "goals": [
+        {
+          "goal": "goal.fiscal_restraint",
+          "weight": 0.7
+        },
+        {
+          "goal": "goal.price_stability",
+          "weight": 0.5
+        }
+      ],
+      "bias": {
+        "alarmism": 20
+      },
+      "competence": 84,
+      "powerCenterId": "pc.usa.wall_street"
+    },
+    {
+      "id": "char.usa.nec_rajan_velloor",
+      "name": "Rajan Velloor",
+      "role": "advisor_candidate",
+      "personality": {
+        "riskTolerance": 60,
+        "pride": 40,
+        "pragmatism": 70,
+        "patience": 50,
+        "hawkishness": 25,
+        "honesty": 70,
+        "loyalty": 65,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 30,
+        "publicOrientation": 60,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Academic"
+      ],
+      "goals": [
+        {
+          "goal": "goal.protect_jobs",
+          "weight": 0.8
+        },
+        {
+          "goal": "goal.protect_programs",
+          "weight": 0.5
+        }
+      ],
+      "bias": {
+        "optimism": 25
+      },
+      "competence": 70,
+      "powerCenterId": "pc.usa.labor_unions"
+    },
+    {
+      "id": "char.usa.national_security_advisor",
+      "name": "Astrid Solvang",
+      "role": "national_security_advisor",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 55,
+        "pragmatism": 70,
+        "patience": 65,
+        "hawkishness": 55,
+        "honesty": 60,
+        "loyalty": 70,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 50,
+        "publicOrientation": 30,
+        "lawfulness": 65
+      },
+      "voice": [
+        "Formal"
+      ],
+      "goals": [
+        {
+          "goal": "goal.national_security",
+          "weight": 0.8
+        },
+        {
+          "goal": "goal.alliances",
+          "weight": 0.5
+        }
+      ],
+      "bias": {
+        "alarmism": 10
+      },
+      "competence": 76,
+      "powerCenterId": "pc.usa.military"
+    },
+    {
+      "id": "char.usa.nsa_hartley_brennock",
+      "name": "Hartley Brennock",
+      "role": "advisor_candidate",
+      "personality": {
+        "riskTolerance": 70,
+        "pride": 70,
+        "pragmatism": 50,
+        "patience": 40,
+        "hawkishness": 85,
+        "honesty": 55,
+        "loyalty": 75,
+        "ideologicalRigidity": 70,
+        "grudgeHolding": 65,
+        "publicOrientation": 35,
+        "lawfulness": 50
+      },
+      "voice": [
+        "Blunt",
+        "Nationalist"
+      ],
+      "goals": [
+        {
+          "goal": "goal.national_security",
+          "weight": 1.0
+        }
+      ],
+      "bias": {
+        "alarmism": 25
+      },
+      "competence": 72,
+      "powerCenterId": "pc.usa.military"
+    },
+    {
+      "id": "char.usa.nsa_imogen_selwyn",
+      "name": "Imogen Selwyn",
+      "role": "advisor_candidate",
+      "personality": {
+        "riskTolerance": 30,
+        "pride": 45,
+        "pragmatism": 80,
+        "patience": 75,
+        "hawkishness": 25,
+        "honesty": 70,
+        "loyalty": 60,
+        "ideologicalRigidity": 35,
+        "grudgeHolding": 30,
+        "publicOrientation": 35,
+        "lawfulness": 75
+      },
+      "voice": [
+        "Diplomatic"
+      ],
+      "goals": [
+        {
+          "goal": "goal.alliances",
+          "weight": 0.9
+        },
+        {
+          "goal": "goal.national_security",
+          "weight": 0.4
+        }
+      ],
+      "bias": {
+        "optimism": 10
+      },
+      "competence": 80,
+      "powerCenterId": "pc.usa.intelligence"
+    },
+    {
+      "id": "char.usa.cos_benedict_ashcombe",
+      "name": "Benedict Ashcombe",
+      "role": "advisor_candidate",
+      "personality": {
+        "riskTolerance": 35,
+        "pride": 50,
+        "pragmatism": 80,
+        "patience": 70,
+        "hawkishness": 40,
+        "honesty": 70,
+        "loyalty": 80,
+        "ideologicalRigidity": 35,
+        "grudgeHolding": 40,
+        "publicOrientation": 55,
+        "lawfulness": 70
+      },
+      "voice": [
+        "Formal"
+      ],
+      "goals": [
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.7
+        },
+        {
+          "goal": "goal.legislative_wins",
+          "weight": 0.5
+        }
+      ],
+      "bias": {
+        "alarmism": 10
+      },
+      "competence": 80
+    },
+    {
+      "id": "char.usa.treasury_lucian_pellegrew",
+      "name": "Lucian Pellegrew",
+      "role": "advisor_candidate",
+      "personality": {
+        "riskTolerance": 20,
+        "pride": 50,
+        "pragmatism": 75,
+        "patience": 60,
+        "hawkishness": 25,
+        "honesty": 70,
+        "loyalty": 60,
+        "ideologicalRigidity": 45,
+        "grudgeHolding": 40,
+        "publicOrientation": 30,
+        "lawfulness": 75
+      },
+      "voice": [
+        "Technocrat"
+      ],
+      "goals": [
+        {
+          "goal": "goal.avoid_default",
+          "weight": 0.7
+        },
+        {
+          "goal": "goal.fiscal_restraint",
+          "weight": 0.5
+        },
+        {
+          "goal": "goal.market_stability",
+          "weight": 0.4
+        }
+      ],
+      "bias": {
+        "alarmism": 30
+      },
+      "competence": 85,
+      "powerCenterId": "pc.usa.wall_street"
+    },
+    {
+      "id": "char.usa.treasury_odessa_marchbank",
+      "name": "Odessa Marchbank",
+      "role": "advisor_candidate",
+      "personality": {
+        "riskTolerance": 60,
+        "pride": 45,
+        "pragmatism": 70,
+        "patience": 50,
+        "hawkishness": 30,
+        "honesty": 65,
+        "loyalty": 70,
+        "ideologicalRigidity": 40,
+        "grudgeHolding": 35,
+        "publicOrientation": 55,
+        "lawfulness": 60
+      },
+      "voice": [
+        "Folksy",
+        "Technocrat"
+      ],
+      "goals": [
+        {
+          "goal": "goal.avoid_default",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.protect_jobs",
+          "weight": 0.5
+        }
+      ],
+      "bias": {
+        "optimism": 25
+      },
+      "competence": 72,
+      "powerCenterId": "pc.usa.labor_unions"
+    },
+    {
+      "id": "char.usa.cos_cordelia_tremaine",
+      "name": "Cordelia Tremaine",
+      "role": "advisor_candidate",
+      "personality": {
+        "riskTolerance": 65,
+        "pride": 65,
+        "pragmatism": 65,
+        "patience": 40,
+        "hawkishness": 55,
+        "honesty": 45,
+        "loyalty": 90,
+        "ideologicalRigidity": 60,
+        "grudgeHolding": 60,
+        "publicOrientation": 75,
+        "lawfulness": 45
+      },
+      "voice": [
+        "Combative"
+      ],
+      "goals": [
+        {
+          "goal": "goal.keep_power",
+          "weight": 1.0
+        }
+      ],
+      "bias": {
+        "optimism": 20
+      },
+      "competence": 68
+    },
+    {
+      "id": "char.usa.press_maren_ellsworth",
+      "name": "Maren Ellsworth",
+      "role": "advisor_candidate",
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 45,
+        "pragmatism": 80,
+        "patience": 60,
+        "hawkishness": 35,
+        "honesty": 75,
+        "loyalty": 65,
+        "ideologicalRigidity": 30,
+        "grudgeHolding": 35,
+        "publicOrientation": 85,
+        "lawfulness": 65
+      },
+      "voice": [
+        "Diplomatic"
+      ],
+      "goals": [
+        {
+          "goal": "goal.good_press",
+          "weight": 0.8
+        },
+        {
+          "goal": "goal.legacy",
+          "weight": 0.3
+        }
+      ],
+      "bias": {
+        "alarmism": 15
+      },
+      "competence": 78
+    }
+  ]
+}

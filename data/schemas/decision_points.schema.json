@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "decision_points.schema.json",
+  "title": "DecisionPointsFile",
+  "type": "object",
+  "properties": {
+    "decisionPoints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^dp\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "actor": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "Choice",
+              "Score",
+              "YesNo"
+            ]
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "weight": {
+                  "type": "number",
+                  "default": 1,
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                "requires": {
+                  "default": null
+                }
+              },
+              "required": [
+                "id",
+                "description"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "deliberationDays": {
+            "type": "integer",
+            "default": 3,
+            "minimum": 1,
+            "maximum": 60
+          },
+          "temperature": {
+            "type": "number",
+            "default": 1,
+            "minimum": 0.05,
+            "maximum": 5
+          },
+          "considerations": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "use": {
+                  "type": "string",
+                  "pattern": "^consideration\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+                },
+                "option": {
+                  "type": "string",
+                  "default": "*"
+                },
+                "weight": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "default": null,
+                  "minimum": 0,
+                  "maximum": 10
+                }
+              },
+              "required": [
+                "use"
+              ],
+              "additionalProperties": false
+            },
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "actor",
+          "kind",
+          "options"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "decisionPoints"
+  ],
+  "additionalProperties": false
+}

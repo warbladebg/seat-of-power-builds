@@ -1,0 +1,1052 @@
+{
+  "$schema": "../../schemas/dialogue.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "templates": [
+    {
+      "id": "dlg.legislature.bloc_stance",
+      "surface": "legislature",
+      "point": "dp.bloc_stance_on_bill",
+      "variables": [
+        "bill"
+      ],
+      "optional": [
+        "provision"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Warm",
+            "Neutral"
+          ],
+          "decisions": [
+            "support"
+          ]
+        },
+        {
+          "tones": [
+            "Cold",
+            "Hostile"
+          ],
+          "decisions": [
+            "oppose"
+          ]
+        },
+        {
+          "tones": [
+            "Evasive"
+          ],
+          "decisions": [
+            "split",
+            "abstain"
+          ]
+        },
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "demand_changes"
+          ]
+        }
+      ],
+      "notes": "A bloc leader announcing the bloc's stance on a bill.",
+      "lines": [
+        {
+          "id": "support.warm.1",
+          "text": "This is a good bill, and our caucus will be there for it.",
+          "when": {
+            "decision": "support"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "support.warm.2",
+          "text": "{bill} has our support. Let's get it done.",
+          "when": {
+            "decision": "support"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "support.warm.folksy.1",
+          "text": "We're with the President on this one. Count us in.",
+          "when": {
+            "decision": "support"
+          },
+          "voice": [
+            "Folksy",
+            "Blunt"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "support.warm.folksy.2",
+          "text": "Folks back home want this done, and so do we. We're a yes.",
+          "when": {
+            "decision": "support"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "support.neutral.1",
+          "text": "We'll support {bill}. It's not perfect, but it's the right thing to do.",
+          "when": {
+            "decision": "support"
+          }
+        },
+        {
+          "id": "support.neutral.2",
+          "text": "Our members will vote yes on {bill}.",
+          "when": {
+            "decision": "support"
+          }
+        },
+        {
+          "id": "support.neutral.academic.1",
+          "text": "We have studied {bill} with care. On the merits, it deserves our support.",
+          "when": {
+            "decision": "support"
+          },
+          "voice": [
+            "Academic"
+          ]
+        },
+        {
+          "id": "support.neutral.3",
+          "text": "We don't often help this White House, but {bill} deserves our votes.",
+          "when": {
+            "all": [
+              {
+                "decision": "support"
+              },
+              {
+                "party": "opp"
+              }
+            ]
+          }
+        },
+        {
+          "id": "support.neutral.formal.1",
+          "text": "The country needs {bill} to pass. Party comes second today.",
+          "when": {
+            "decision": "support"
+          },
+          "voice": [
+            "Formal"
+          ]
+        },
+        {
+          "id": "oppose.cold.1",
+          "text": "We can't support {bill}. It's the wrong answer to a real problem.",
+          "when": {
+            "decision": "oppose"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "oppose.cold.2",
+          "text": "Our caucus will vote no on {bill}.",
+          "when": {
+            "decision": "oppose"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "oppose.cold.formal.1",
+          "text": "With respect to the White House, our caucus cannot support {bill}.",
+          "when": {
+            "decision": "oppose"
+          },
+          "voice": [
+            "Formal",
+            "Diplomatic"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "oppose.cold.3",
+          "text": "The {own_party} leadership wrote this bill without us. It shows. We're voting no.",
+          "when": {
+            "all": [
+              {
+                "decision": "oppose"
+              },
+              {
+                "party": "opp"
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "oppose.cold.4",
+          "text": "Even friends have to say no sometimes. On {bill}, our members can't follow the White House.",
+          "when": {
+            "all": [
+              {
+                "decision": "oppose"
+              },
+              {
+                "party": "own"
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "oppose.cold.blunt.1",
+          "text": "No. {bill} spends money we don't have on things we don't need.",
+          "when": {
+            "decision": "oppose"
+          },
+          "voice": [
+            "Blunt"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "oppose.hostile.1",
+          "text": "{bill} is a disgrace, and we will fight it every step of the way.",
+          "when": {
+            "decision": "oppose"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "oppose.hostile.2",
+          "text": "This White House can forget about our votes.",
+          "when": {
+            "decision": "oppose"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "oppose.hostile.nationalist.1",
+          "text": "{bill} puts Washington's convenience before the country. We will fight it.",
+          "when": {
+            "decision": "oppose"
+          },
+          "voice": [
+            "Nationalist",
+            "Combative"
+          ],
+          "tone": "Hostile"
+        },
+        {
+          "id": "oppose.hostile.combative.1",
+          "text": "Read my lips: not one of our members votes for {bill}.",
+          "when": {
+            "decision": "oppose"
+          },
+          "voice": [
+            "Combative"
+          ],
+          "tone": "Hostile"
+        },
+        {
+          "id": "split.evasive.1",
+          "text": "Our members are divided on {bill}. Each will vote their conscience.",
+          "when": {
+            "decision": "split"
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "split.evasive.2",
+          "text": "There's no single view in our caucus on this one.",
+          "when": {
+            "decision": "split"
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "split.evasive.folksy.1",
+          "text": "Some of our folks like it, some don't. We'll see on the day.",
+          "when": {
+            "decision": "split"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Evasive"
+        },
+        {
+          "id": "abstain.evasive.1",
+          "text": "We're not going to take a position on {bill} right now.",
+          "when": {
+            "decision": "abstain"
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "abstain.evasive.2",
+          "text": "We'll sit this one out.",
+          "when": {
+            "decision": "abstain"
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "abstain.evasive.formal.1",
+          "text": "Our members will make up their own minds. We're not whipping it.",
+          "when": {
+            "decision": "abstain"
+          },
+          "voice": [
+            "Formal"
+          ],
+          "tone": "Evasive"
+        },
+        {
+          "id": "demand_changes.neutral.1",
+          "text": "Fix {bill} and we're there. As written, we're not.",
+          "when": {
+            "decision": "demand_changes"
+          }
+        },
+        {
+          "id": "demand_changes.neutral.2",
+          "text": "We have concerns about parts of {bill}. Let's talk about amendments.",
+          "when": {
+            "decision": "demand_changes"
+          }
+        },
+        {
+          "id": "demand_changes.neutral.academic.1",
+          "text": "The reasoning behind {bill} is sound; the drafting is not. Fix it and we'll be there.",
+          "when": {
+            "decision": "demand_changes"
+          },
+          "voice": [
+            "Academic"
+          ]
+        },
+        {
+          "id": "demand_changes.neutral.3",
+          "text": "We could support {bill} with changes. {provision} has to go.",
+          "when": {
+            "all": [
+              {
+                "decision": "demand_changes"
+              },
+              {
+                "has": "provision"
+              }
+            ]
+          }
+        },
+        {
+          "id": "demand_changes.neutral.4",
+          "text": "Change {provision}, and you'll have our votes.",
+          "when": {
+            "all": [
+              {
+                "decision": "demand_changes"
+              },
+              {
+                "has": "provision"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dlg.legislature.member_vote",
+      "surface": "legislature",
+      "point": "dp.swing_member_vote",
+      "variables": [
+        "bill"
+      ],
+      "optional": [
+        "wanted"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Warm",
+            "Neutral"
+          ],
+          "decisions": [
+            "yes"
+          ]
+        },
+        {
+          "tones": [
+            "Cold",
+            "Hostile"
+          ],
+          "decisions": [
+            "no"
+          ]
+        },
+        {
+          "tones": [
+            "Evasive"
+          ],
+          "decisions": [
+            "abstain"
+          ]
+        },
+        {
+          "tones": [
+            "Evasive",
+            "Neutral"
+          ],
+          "decisions": [
+            "hold_out_for"
+          ]
+        }
+      ],
+      "notes": "A swing member's vote. {wanted} is the favour a hold-out hints at.",
+      "lines": [
+        {
+          "id": "yes.warm.1",
+          "text": "I'll be a yes. Proud to stand with the President on this.",
+          "when": {
+            "decision": "yes"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "yes.warm.2",
+          "text": "Count me in on {bill}.",
+          "when": {
+            "decision": "yes"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "yes.warm.folksy.1",
+          "text": "Yes. This one's good for my district.",
+          "when": {
+            "decision": "yes"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "yes.neutral.1",
+          "text": "After a lot of thought, I'm voting yes on {bill}.",
+          "when": {
+            "decision": "yes"
+          }
+        },
+        {
+          "id": "yes.neutral.2",
+          "text": "It's not the bill I'd have written, but I'm a yes.",
+          "when": {
+            "decision": "yes"
+          }
+        },
+        {
+          "id": "yes.neutral.3",
+          "text": "I'll vote yes. It's the responsible thing to do.",
+          "when": {
+            "decision": "yes"
+          }
+        },
+        {
+          "id": "yes.neutral.4",
+          "text": "Yes, with reservations. I'll be watching how it's carried out.",
+          "when": {
+            "decision": "yes"
+          }
+        },
+        {
+          "id": "yes.neutral.formal.1",
+          "text": "Having weighed it carefully, I will vote in favour.",
+          "when": {
+            "decision": "yes"
+          },
+          "voice": [
+            "Formal",
+            "Diplomatic"
+          ]
+        },
+        {
+          "id": "yes.neutral.5",
+          "text": "My party won't love it, but I'm voting for {bill}.",
+          "when": {
+            "all": [
+              {
+                "decision": "yes"
+              },
+              {
+                "party": "opp"
+              }
+            ]
+          }
+        },
+        {
+          "id": "yes.neutral.folksy.1",
+          "text": "I've talked to farmers, nurses and small business owners. They want this. I'm a yes.",
+          "when": {
+            "decision": "yes"
+          },
+          "voice": [
+            "Folksy"
+          ]
+        },
+        {
+          "id": "no.cold.1",
+          "text": "I'm a no on {bill}. I can't defend it back home.",
+          "when": {
+            "decision": "no"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "no.cold.2",
+          "text": "No. I've told the leadership and I'll tell you.",
+          "when": {
+            "decision": "no"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "no.cold.3",
+          "text": "I've heard the arguments. I'm still a no.",
+          "when": {
+            "decision": "no"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "no.cold.4",
+          "text": "Not on {bill}. My answer is no.",
+          "when": {
+            "decision": "no"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "no.cold.diplomatic.1",
+          "text": "I respect the President, but I cannot support {bill}.",
+          "when": {
+            "decision": "no"
+          },
+          "voice": [
+            "Diplomatic"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "no.cold.blunt.1",
+          "text": "I came here to fix problems, not to rubber-stamp {bill}. No.",
+          "when": {
+            "decision": "no"
+          },
+          "voice": [
+            "Blunt"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "no.hostile.1",
+          "text": "No, and don't bother calling again.",
+          "when": {
+            "decision": "no"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "no.hostile.2",
+          "text": "I won't be bullied into voting for {bill}.",
+          "when": {
+            "decision": "no"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "no.hostile.combative.1",
+          "text": "Not a chance. My district deserves better.",
+          "when": {
+            "decision": "no"
+          },
+          "voice": [
+            "Combative"
+          ],
+          "tone": "Hostile"
+        },
+        {
+          "id": "abstain.evasive.1",
+          "text": "I'll be voting present. I can't support it, and I won't block it.",
+          "when": {
+            "decision": "abstain"
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "abstain.evasive.2",
+          "text": "I haven't made up my mind, and I may not.",
+          "when": {
+            "decision": "abstain"
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "abstain.evasive.3",
+          "text": "This one's complicated for me. I'm staying out of it.",
+          "when": {
+            "decision": "abstain"
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "hold_out_for.evasive.1",
+          "text": "I'm not there yet. Help me help you.",
+          "when": {
+            "decision": "hold_out_for"
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "hold_out_for.evasive.2",
+          "text": "Let's just say my vote is available to a good argument.",
+          "when": {
+            "decision": "hold_out_for"
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "hold_out_for.evasive.folksy.1",
+          "text": "{bill} could get my vote. What's in it for my district?",
+          "when": {
+            "decision": "hold_out_for"
+          },
+          "voice": [
+            "Folksy",
+            "Blunt"
+          ],
+          "tone": "Evasive"
+        },
+        {
+          "id": "hold_out_for.neutral.1",
+          "text": "I could get to yes on {bill}. {wanted} would go a long way.",
+          "when": {
+            "all": [
+              {
+                "decision": "hold_out_for"
+              },
+              {
+                "has": "wanted"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hold_out_for.neutral.2",
+          "text": "My price is simple: {wanted}. Then I'm a yes.",
+          "when": {
+            "all": [
+              {
+                "decision": "hold_out_for"
+              },
+              {
+                "has": "wanted"
+              }
+            ]
+          }
+        },
+        {
+          "id": "hold_out_for.neutral.formal.1",
+          "text": "I would be pleased to support {bill} if {wanted} were part of the arrangement.",
+          "when": {
+            "all": [
+              {
+                "decision": "hold_out_for"
+              },
+              {
+                "has": "wanted"
+              }
+            ]
+          },
+          "voice": [
+            "Formal"
+          ]
+        },
+        {
+          "id": "hold_out_for.neutral.3",
+          "text": "I'm undecided on {bill}. Persuade me.",
+          "when": {
+            "decision": "hold_out_for"
+          }
+        },
+        {
+          "id": "hold_out_for.neutral.4",
+          "text": "I want to vote yes. Give me a reason I can take home.",
+          "when": {
+            "decision": "hold_out_for"
+          }
+        },
+        {
+          "id": "hold_out_for.neutral.blunt.1",
+          "text": "I'm a maybe. Make it a yes.",
+          "when": {
+            "decision": "hold_out_for"
+          },
+          "voice": [
+            "Blunt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg.legislature.schedule",
+      "surface": "legislature",
+      "point": "dp.schedule_bill",
+      "variables": [
+        "bill",
+        "chamber"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Warm",
+            "Neutral"
+          ],
+          "decisions": [
+            "schedule_now"
+          ]
+        },
+        {
+          "tones": [
+            "Evasive"
+          ],
+          "decisions": [
+            "delay"
+          ]
+        },
+        {
+          "tones": [
+            "Cold",
+            "Hostile"
+          ],
+          "decisions": [
+            "refuse"
+          ]
+        },
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "demand_changes"
+          ]
+        }
+      ],
+      "notes": "The chamber leader on whether a bill gets a floor vote.",
+      "lines": [
+        {
+          "id": "schedule_now.warm.1",
+          "text": "We'll bring {bill} to the floor this week.",
+          "when": {
+            "decision": "schedule_now"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "schedule_now.warm.2",
+          "text": "{bill} gets its vote. Let's pass it.",
+          "when": {
+            "decision": "schedule_now"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "schedule_now.warm.formal.1",
+          "text": "The {chamber} will take up {bill} without delay.",
+          "when": {
+            "decision": "schedule_now"
+          },
+          "voice": [
+            "Formal"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "schedule_now.neutral.1",
+          "text": "{bill} will get a floor vote.",
+          "when": {
+            "decision": "schedule_now"
+          }
+        },
+        {
+          "id": "schedule_now.neutral.2",
+          "text": "We'll schedule {bill}. The members will decide.",
+          "when": {
+            "decision": "schedule_now"
+          }
+        },
+        {
+          "id": "schedule_now.neutral.folksy.1",
+          "text": "I've put {bill} on the calendar.",
+          "when": {
+            "decision": "schedule_now"
+          },
+          "voice": [
+            "Folksy",
+            "Blunt"
+          ]
+        },
+        {
+          "id": "delay.evasive.1",
+          "text": "The floor schedule is tight. {bill} will have to wait.",
+          "when": {
+            "decision": "delay"
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "delay.evasive.2",
+          "text": "We'll get to {bill} when the votes are there.",
+          "when": {
+            "decision": "delay"
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "delay.evasive.diplomatic.1",
+          "text": "We will schedule {bill} at the appropriate time.",
+          "when": {
+            "decision": "delay"
+          },
+          "voice": [
+            "Diplomatic"
+          ],
+          "tone": "Evasive"
+        },
+        {
+          "id": "refuse.cold.1",
+          "text": "{bill} won't come to the floor while I run it.",
+          "when": {
+            "decision": "refuse"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "refuse.cold.2",
+          "text": "I won't schedule {bill}. It doesn't have the support of my conference.",
+          "when": {
+            "decision": "refuse"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "refuse.cold.combative.1",
+          "text": "{bill} is dead on arrival in the {chamber}.",
+          "when": {
+            "decision": "refuse"
+          },
+          "voice": [
+            "Combative",
+            "Blunt"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "refuse.hostile.1",
+          "text": "The White House can send whatever it likes. {bill} isn't moving.",
+          "when": {
+            "decision": "refuse"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "refuse.hostile.2",
+          "text": "I'm not wasting the {chamber}'s time on {bill}.",
+          "when": {
+            "decision": "refuse"
+          },
+          "tone": "Hostile"
+        },
+        {
+          "id": "refuse.hostile.combative.1",
+          "text": "Not a chance. Not this bill, not this way.",
+          "when": {
+            "decision": "refuse"
+          },
+          "voice": [
+            "Combative"
+          ],
+          "tone": "Hostile"
+        },
+        {
+          "id": "demand_changes.neutral.1",
+          "text": "Change {bill} and I'll schedule it.",
+          "when": {
+            "decision": "demand_changes"
+          }
+        },
+        {
+          "id": "demand_changes.neutral.2",
+          "text": "{bill} needs work before it sees the floor.",
+          "when": {
+            "decision": "demand_changes"
+          }
+        },
+        {
+          "id": "demand_changes.neutral.formal.1",
+          "text": "When {bill} has been revised, I will be glad to schedule it.",
+          "when": {
+            "decision": "demand_changes"
+          },
+          "voice": [
+            "Formal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg.favour.answer",
+      "surface": "favour",
+      "point": "dp.respond_to_favour",
+      "variables": [
+        "favour"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Warm",
+            "Neutral"
+          ],
+          "decisions": [
+            "accept"
+          ]
+        },
+        {
+          "tones": [
+            "Cold"
+          ],
+          "decisions": [
+            "reject"
+          ]
+        },
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "ask_more"
+          ]
+        }
+      ],
+      "notes": "Answering the player's favour. Kind: the favour.",
+      "lines": [
+        {
+          "id": "accept.warm.1",
+          "text": "That's very kind. I won't forget it.",
+          "when": {
+            "decision": "accept"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "accept.warm.2",
+          "text": "Thank you. Consider me in your corner.",
+          "when": {
+            "decision": "accept"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "accept.warm.folksy.1",
+          "text": "Well, that's mighty decent of you. I'll remember it.",
+          "when": {
+            "decision": "accept"
+          },
+          "voice": [
+            "Folksy"
+          ],
+          "tone": "Warm"
+        },
+        {
+          "id": "accept.neutral.1",
+          "text": "All right. I'll take you up on that.",
+          "when": {
+            "decision": "accept"
+          }
+        },
+        {
+          "id": "accept.neutral.2",
+          "text": "Fair enough. We have an understanding.",
+          "when": {
+            "decision": "accept"
+          }
+        },
+        {
+          "id": "accept.neutral.formal.1",
+          "text": "Thank you for {favour}. Noted.",
+          "when": {
+            "decision": "accept"
+          },
+          "voice": [
+            "Formal"
+          ]
+        },
+        {
+          "id": "reject.cold.1",
+          "text": "Thanks, but my vote isn't for sale.",
+          "when": {
+            "decision": "reject"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "reject.cold.2",
+          "text": "I'll pass. It wouldn't look right.",
+          "when": {
+            "decision": "reject"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "reject.cold.blunt.1",
+          "text": "No thank you. I make up my own mind.",
+          "when": {
+            "decision": "reject"
+          },
+          "voice": [
+            "Blunt"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "ask_more.neutral.1",
+          "text": "{favour} is a start. I need more than that.",
+          "when": {
+            "decision": "ask_more"
+          }
+        },
+        {
+          "id": "ask_more.neutral.2",
+          "text": "I appreciate the offer. It isn't enough.",
+          "when": {
+            "decision": "ask_more"
+          }
+        },
+        {
+          "id": "ask_more.neutral.blunt.1",
+          "text": "Let's talk about something bigger than {favour}.",
+          "when": {
+            "decision": "ask_more"
+          },
+          "voice": [
+            "Blunt",
+            "Combative"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,369 @@
+{
+  "$schema": "../schemas/treaties.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Real agreements in force; their terms are the model's simplified reading."
+  },
+  "treaties": [
+    {
+      "id": "treaty.nato_north_america_uk",
+      "nameKey": "treaty.nato_north_america_uk.name",
+      "kind": "alliance",
+      "parties": [
+        "country.usa",
+        "country.can",
+        "country.gbr"
+      ],
+      "terms": [
+        {
+          "term": "term.security_guarantee",
+          "from": "country.usa",
+          "to": "country.can",
+          "size": 2
+        },
+        {
+          "term": "term.security_guarantee",
+          "from": "country.usa",
+          "to": "country.gbr",
+          "size": 2
+        },
+        {
+          "term": "term.security_guarantee",
+          "from": "country.can",
+          "to": "country.usa",
+          "size": 0.4
+        },
+        {
+          "term": "term.security_guarantee",
+          "from": "country.gbr",
+          "to": "country.usa"
+        },
+        {
+          "term": "term.security_guarantee",
+          "from": "country.can",
+          "to": "country.gbr",
+          "size": 0.4
+        },
+        {
+          "term": "term.security_guarantee",
+          "from": "country.gbr",
+          "to": "country.can",
+          "size": 0.4
+        }
+      ],
+      "since": "1949-04-04",
+      "brokenIf": {
+        "flag": "world.{country}.left_nato"
+      }
+    },
+    {
+      "id": "treaty.nato_europe",
+      "nameKey": "treaty.nato_europe.name",
+      "kind": "alliance",
+      "parties": [
+        "country.usa",
+        "country.eu"
+      ],
+      "terms": [
+        {
+          "term": "term.security_guarantee",
+          "from": "country.usa",
+          "to": "country.eu",
+          "size": 2
+        },
+        {
+          "term": "term.security_guarantee",
+          "from": "country.eu",
+          "to": "country.usa",
+          "size": 0.4
+        }
+      ],
+      "since": "1949-04-04",
+      "brokenIf": {
+        "flag": "world.{country}.left_nato"
+      }
+    },
+    {
+      "id": "treaty.usa_jpn_security",
+      "nameKey": "treaty.usa_jpn_security.name",
+      "kind": "alliance",
+      "parties": [
+        "country.usa",
+        "country.jpn"
+      ],
+      "terms": [
+        {
+          "term": "term.security_guarantee",
+          "from": "country.usa",
+          "to": "country.jpn",
+          "size": 2
+        }
+      ],
+      "since": "1960-01-19"
+    },
+    {
+      "id": "treaty.usa_sau_partnership",
+      "nameKey": "treaty.usa_sau_partnership.name",
+      "kind": "security_partnership",
+      "parties": [
+        "country.usa",
+        "country.sau"
+      ],
+      "terms": [
+        {
+          "term": "term.security_guarantee",
+          "from": "country.usa",
+          "to": "country.sau",
+          "size": 0.4
+        }
+      ],
+      "since": "1945-02-14"
+    },
+    {
+      "id": "treaty.usmca",
+      "nameKey": "treaty.usmca.name",
+      "kind": "trade_agreement",
+      "parties": [
+        "country.usa",
+        "country.mex",
+        "country.can"
+      ],
+      "terms": [
+        {
+          "term": "term.tariff_cut",
+          "from": "country.usa",
+          "to": "country.can"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.can",
+          "to": "country.usa"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.usa",
+          "to": "country.mex"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.mex",
+          "to": "country.usa"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.can",
+          "to": "country.mex"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.mex",
+          "to": "country.can"
+        }
+      ],
+      "since": "2020-07-01"
+    },
+    {
+      "id": "treaty.usa_jpn_trade",
+      "nameKey": "treaty.usa_jpn_trade.name",
+      "kind": "trade_agreement",
+      "parties": [
+        "country.usa",
+        "country.jpn"
+      ],
+      "terms": [
+        {
+          "term": "term.tariff_cut",
+          "from": "country.usa",
+          "to": "country.jpn",
+          "size": 0.4
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.jpn",
+          "to": "country.usa",
+          "size": 0.4
+        }
+      ],
+      "since": "2020-01-01"
+    },
+    {
+      "id": "treaty.fed_swap_lines",
+      "nameKey": "treaty.fed_swap_lines.name",
+      "kind": "swap_line",
+      "parties": [
+        "country.usa",
+        "country.eu",
+        "country.jpn",
+        "country.gbr",
+        "country.can"
+      ],
+      "terms": [
+        {
+          "term": "term.swap_line",
+          "from": "country.usa",
+          "to": "country.eu"
+        },
+        {
+          "term": "term.swap_line",
+          "from": "country.usa",
+          "to": "country.jpn"
+        },
+        {
+          "term": "term.swap_line",
+          "from": "country.usa",
+          "to": "country.gbr"
+        },
+        {
+          "term": "term.swap_line",
+          "from": "country.usa",
+          "to": "country.can"
+        }
+      ],
+      "since": "2013-10-31"
+    },
+    {
+      "id": "treaty.eu_jpn_epa",
+      "nameKey": "treaty.eu_jpn_epa.name",
+      "kind": "trade_agreement",
+      "parties": [
+        "country.eu",
+        "country.jpn"
+      ],
+      "terms": [
+        {
+          "term": "term.tariff_cut",
+          "from": "country.eu",
+          "to": "country.jpn"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.jpn",
+          "to": "country.eu"
+        }
+      ],
+      "since": "2019-02-01"
+    },
+    {
+      "id": "treaty.eu_can_ceta",
+      "nameKey": "treaty.eu_can_ceta.name",
+      "kind": "trade_agreement",
+      "parties": [
+        "country.eu",
+        "country.can"
+      ],
+      "terms": [
+        {
+          "term": "term.tariff_cut",
+          "from": "country.eu",
+          "to": "country.can"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.can",
+          "to": "country.eu"
+        }
+      ],
+      "since": "2017-09-21"
+    },
+    {
+      "id": "treaty.eu_mex_global",
+      "nameKey": "treaty.eu_mex_global.name",
+      "kind": "trade_agreement",
+      "parties": [
+        "country.eu",
+        "country.mex"
+      ],
+      "terms": [
+        {
+          "term": "term.tariff_cut",
+          "from": "country.eu",
+          "to": "country.mex",
+          "size": 0.4
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.mex",
+          "to": "country.eu",
+          "size": 0.4
+        }
+      ],
+      "since": "2000-07-01"
+    },
+    {
+      "id": "treaty.cptpp",
+      "nameKey": "treaty.cptpp.name",
+      "kind": "trade_agreement",
+      "parties": [
+        "country.jpn",
+        "country.can",
+        "country.mex",
+        "country.gbr"
+      ],
+      "terms": [
+        {
+          "term": "term.tariff_cut",
+          "from": "country.jpn",
+          "to": "country.can"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.can",
+          "to": "country.jpn"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.jpn",
+          "to": "country.mex"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.mex",
+          "to": "country.jpn"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.jpn",
+          "to": "country.gbr"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.gbr",
+          "to": "country.jpn"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.can",
+          "to": "country.mex"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.mex",
+          "to": "country.can"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.can",
+          "to": "country.gbr"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.gbr",
+          "to": "country.can"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.mex",
+          "to": "country.gbr"
+        },
+        {
+          "term": "term.tariff_cut",
+          "from": "country.gbr",
+          "to": "country.mex"
+        }
+      ],
+      "since": "2018-12-30"
+    }
+  ]
+}

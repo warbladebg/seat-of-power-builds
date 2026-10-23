@@ -1,0 +1,41 @@
+{
+  "$schema": "../schemas/analysts.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Fictional banks (D-009)."
+  },
+  "analysts": [
+    {
+      "id": "analyst.northbridge_halden",
+      "nameKey": "analyst.northbridge_halden.name",
+      "country": "country.usa",
+      "everyDays": 21,
+      "offsetDays": 3,
+      "skill": 80,
+      "alarmism": 0,
+      "marketWeight": 0.6
+    },
+    {
+      "id": "analyst.halberd_crane",
+      "nameKey": "analyst.halberd_crane.name",
+      "country": "country.usa",
+      "everyDays": 14,
+      "offsetDays": 9,
+      "skill": 55,
+      "alarmism": 35,
+      "marketWeight": 0.5
+    },
+    {
+      "id": "analyst.calder_street",
+      "nameKey": "analyst.calder_street.name",
+      "country": "country.usa",
+      "everyDays": 28,
+      "offsetDays": 16,
+      "skill": 40,
+      "alarmism": 10,
+      "marketWeight": 0.3
+    }
+  ]
+}

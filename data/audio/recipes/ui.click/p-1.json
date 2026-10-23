@@ -1,0 +1,36 @@
+{
+  "cue": "ui.click",
+  "round": "p",
+  "option": 1,
+  "family": "Placeholder",
+  "label": "plain placeholder until a round picks this cue",
+  "seed": 1,
+  "tail": 0.03,
+  "loudness": -27,
+  "layers": [
+    {
+      "type": "tone",
+      "wave": "sine",
+      "freq": 1400,
+      "at": 0.0,
+      "env": {
+        "a": 0.001,
+        "d": 0.03
+      },
+      "gain": 0.0
+    },
+    {
+      "type": "noise",
+      "at": 0.0,
+      "env": {
+        "a": 0.0003,
+        "d": 0.004
+      },
+      "gain": -12,
+      "filter": {
+        "type": "highpass",
+        "freq": 3000
+      }
+    }
+  ]
+}

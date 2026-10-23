@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "chains.schema.json",
+  "title": "ChainsFile",
+  "type": "object",
+  "properties": {
+    "chains": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^chain\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "country": {
+            "type": "string",
+            "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "executor": {
+            "type": "string",
+            "pattern": "^executor\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "nameKey": {
+                  "type": "string",
+                  "description": "Localisation key (data/localization/en)."
+                },
+                "character": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "default": null,
+                  "pattern": "^char\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+                },
+                "role": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "default": null,
+                  "pattern": "^role\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+                },
+                "count": {
+                  "type": "integer",
+                  "default": 1,
+                  "minimum": 1,
+                  "maximum": 20
+                },
+                "rule": {
+                  "enum": [
+                    "All",
+                    "Majority",
+                    "Any"
+                  ],
+                  "default": "All"
+                },
+                "successors": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "string",
+                    "pattern": "^char\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+                  },
+                  "default": null
+                }
+              },
+              "required": [
+                "label",
+                "nameKey"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "daysPerLink": {
+            "type": "integer",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 60
+          },
+          "void": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "required": [
+          "id",
+          "country",
+          "executor",
+          "links"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "chains"
+  ],
+  "additionalProperties": false
+}

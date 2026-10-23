@@ -1,0 +1,12 @@
+{
+  "$schema": "../../schemas/diplomacy_profile.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "params": {
+    "holdingsControl": 0.1,
+    "militaryPower": 0.25
+  }
+}

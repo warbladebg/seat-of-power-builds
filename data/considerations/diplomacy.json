@@ -1,0 +1,1465 @@
+{
+  "$schema": "../schemas/considerations.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "considerations": [
+    {
+      "id": "consideration.diplomacy.offer.good",
+      "input": "offer.value",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.6,
+        "steepness": 12
+      },
+      "weight": 6
+    },
+    {
+      "id": "consideration.diplomacy.offer.bad",
+      "input": "offer.value",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.45,
+        "steepness": 10
+      },
+      "weight": 4
+    },
+    {
+      "id": "consideration.diplomacy.offer.close_call",
+      "input": "offer.closeness",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.diplomacy.offer.trusted",
+      "input": "offer.trust_fit",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.05,
+        "max": 1
+      },
+      "weight": 3
+    },
+    {
+      "id": "consideration.diplomacy.offer.friendly",
+      "input": "offer.opinion",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.diplomacy.offer.unfriendly",
+      "input": "offer.opinion",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.8
+    },
+    {
+      "id": "consideration.diplomacy.offer.not_insulting",
+      "input": "offer.insult",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.05,
+        "max": 1
+      },
+      "weight": 2,
+      "scaleByTrait": "pride",
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.offer.insulted",
+      "input": "offer.insult",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1.5,
+      "scaleByTrait": "pride",
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.offer.face_ok",
+      "input": "offer.face",
+      "curve": {
+        "kind": "Logistic",
+        "min": 0.05,
+        "max": 1,
+        "midpoint": 0.35,
+        "steepness": 12
+      },
+      "weight": 1.5,
+      "default": 1
+    },
+    {
+      "id": "consideration.diplomacy.offer.face_lost",
+      "input": "offer.face",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 1
+    },
+    {
+      "id": "consideration.diplomacy.offer.cheap_at_home",
+      "input": "offer.domestic",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.2,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.offer.costly_at_home",
+      "input": "offer.domestic",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.offer.leverage",
+      "input": "offer.leverage",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.2
+    },
+    {
+      "id": "consideration.diplomacy.offer.room_to_ask",
+      "input": "offer.counter_gain",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.1,
+        "max": 1
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.offer.hated_term",
+      "input": "offer.hated",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.1,
+        "max": 1
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.offer.rounds_left",
+      "input": "offer.rounds_left",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.1,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.diplomacy.offer.warm",
+      "input": "offer.stance",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.8
+    },
+    {
+      "id": "consideration.diplomacy.offer.pragmatic",
+      "input": "trait.pragmatism",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.diplomacy.offer.hawkish",
+      "input": "trait.hawkishness",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.8
+    },
+    {
+      "id": "consideration.diplomacy.offer.patient",
+      "input": "trait.patience",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.2
+    },
+    {
+      "id": "consideration.diplomacy.offer.proud",
+      "input": "trait.pride",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.6,
+        "max": 1
+      },
+      "weight": 0.6
+    },
+    {
+      "id": "consideration.diplomacy.stance.likes_them",
+      "input": "stance.opinion",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.6,
+        "steepness": 8
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.diplomacy.stance.dislikes_them",
+      "input": "stance.opinion",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.45,
+        "steepness": 8
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.diplomacy.stance.warming",
+      "input": "stance.trend",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.diplomacy.stance.souring",
+      "input": "stance.trend",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.diplomacy.stance.depends",
+      "input": "stance.dependence",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.6,
+        "max": 1
+      },
+      "weight": 0.8,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.stance.independent",
+      "input": "stance.dependence",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.stance.threatened",
+      "input": "stance.threat",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.diplomacy.stance.they_are_weak",
+      "input": "stance.partner_weak",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.stance.wants_something",
+      "input": "stance.wants",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.1,
+        "max": 1
+      },
+      "weight": 1.8,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.stance.pressured_at_home",
+      "input": "stance.pressured",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.6,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.stance.needs_growth",
+      "input": "stance.economy_weak",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.8,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.stance.fresh_deal",
+      "input": "stance.recent_deal",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.6,
+        "max": 1
+      },
+      "weight": 0.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.stance.open_to_deals",
+      "input": "stance.opinion",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.4,
+        "steepness": 6
+      },
+      "weight": 0.8
+    },
+    {
+      "id": "consideration.diplomacy.stance.unfriendly",
+      "input": "stance.opinion",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.diplomacy.stance.patient",
+      "input": "trait.patience",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.6
+    },
+    {
+      "id": "consideration.diplomacy.stance.continuity",
+      "input": "stance.continuity",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.55,
+        "max": 1
+      },
+      "weight": 1.2,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.stance.hawkish",
+      "input": "trait.hawkishness",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.diplomacy.stance.pragmatic",
+      "input": "trait.pragmatism",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.diplomacy.stance.proud",
+      "input": "trait.pride",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.6
+    },
+    {
+      "id": "consideration.diplomacy.holdings.safe",
+      "input": "holdings.default_risk",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.3,
+        "steepness": 10
+      },
+      "weight": 3,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.risky",
+      "input": "holdings.default_risk",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.25,
+        "max": 1
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.no_drama",
+      "input": "holdings.brinkmanship",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1.2,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.drama",
+      "input": "holdings.brinkmanship",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.big_exposure",
+      "input": "holdings.exposure",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.self_harm",
+      "input": "holdings.exposure",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.2,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.keeps_pledge",
+      "input": "holdings.pledged",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.85,
+        "max": 1
+      },
+      "weight": 1.5,
+      "scaleByTrait": "honesty",
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.no_pledge",
+      "input": "holdings.pledged",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.15,
+        "max": 1
+      },
+      "weight": 2,
+      "scaleByTrait": "honesty",
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.no_pledge_public",
+      "input": "holdings.pledged",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.05,
+        "max": 1
+      },
+      "weight": 3,
+      "scaleByTrait": "honesty",
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.reassured",
+      "input": "holdings.reassured",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.85,
+        "max": 1
+      },
+      "weight": 0.8,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.distrust",
+      "input": "holdings.trust",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.diplomacy.holdings.needs_cash",
+      "input": "holdings.liquidity_need",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.9,
+        "max": 1
+      },
+      "weight": 0.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.dislikes",
+      "input": "holdings.opinion",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.6,
+        "max": 1
+      },
+      "weight": 0.6
+    },
+    {
+      "id": "consideration.diplomacy.holdings.likes",
+      "input": "holdings.opinion",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.diplomacy.holdings.too_big_to_sell",
+      "input": "holdings.exposure",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 0.6,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.ally",
+      "input": "holdings.ally",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.55,
+        "max": 1
+      },
+      "weight": 3,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.not_ally",
+      "input": "holdings.ally",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.35,
+        "max": 1
+      },
+      "weight": 2,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.hostile",
+      "input": "holdings.opinion",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1.2
+    },
+    {
+      "id": "consideration.diplomacy.holdings.rival",
+      "input": "holdings.rival",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.6,
+        "max": 1
+      },
+      "weight": 0.8
+    },
+    {
+      "id": "consideration.diplomacy.holdings.rival_signal",
+      "input": "holdings.rival",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1.2
+    },
+    {
+      "id": "consideration.diplomacy.holdings.provoked",
+      "input": "holdings.provoked",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.15,
+        "max": 1
+      },
+      "weight": 2,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.not_provoked",
+      "input": "holdings.provoked",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.public_signal",
+      "input": "holdings.brinkmanship",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.opportunity",
+      "input": "holdings.brinkmanship",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.not_into_default",
+      "input": "holdings.default_risk",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.5,
+        "steepness": 10
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.stressed_market",
+      "input": "holdings.stress",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 0.8,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.risk_signal",
+      "input": "holdings.default_risk",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 0.8,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.holdings.hawkish",
+      "input": "trait.hawkishness",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.diplomacy.holdings.showy",
+      "input": "trait.publicOrientation",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.5
+    },
+    {
+      "id": "consideration.diplomacy.holdings.pragmatic",
+      "input": "trait.pragmatism",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.diplomacy.oil.price_near_breakeven",
+      "input": "oil.price_near",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.diplomacy.oil.price_high",
+      "input": "oil.price_gap",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.65,
+        "steepness": 8
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.diplomacy.oil.price_very_high",
+      "input": "oil.price_gap",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.8,
+        "steepness": 10
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.diplomacy.oil.price_low",
+      "input": "oil.price_gap",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.45,
+        "steepness": 8
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.diplomacy.oil.share_at_risk",
+      "input": "oil.market_share",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.oil.share_at_risk_sharp",
+      "input": "oil.market_share",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.oil.share_safe",
+      "input": "oil.market_share",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.oil.committed",
+      "input": "oil.committed",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 1.5,
+      "scaleByTrait": "honesty",
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.oil.committed_sharp",
+      "input": "oil.committed",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.oil.keeps_commitment",
+      "input": "oil.committed",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.1,
+        "max": 1
+      },
+      "weight": 2,
+      "scaleByTrait": "honesty",
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.oil.asked",
+      "input": "oil.asked",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 1.2,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.oil.asked_sharp",
+      "input": "oil.asked",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.oil.not_pushed",
+      "input": "oil.pressured",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1.2,
+      "scaleByTrait": "pride",
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.oil.not_pushed_sharp",
+      "input": "oil.pressured",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1.5,
+      "scaleByTrait": "pride",
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.oil.defiant",
+      "input": "oil.pressured",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 1,
+      "scaleByTrait": "pride",
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.oil.no_fiscal_need",
+      "input": "oil.fiscal_need",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.oil.no_fiscal_need_sharp",
+      "input": "oil.fiscal_need",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.1,
+        "max": 1
+      },
+      "weight": 2,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.oil.fiscal_need",
+      "input": "oil.fiscal_need",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.oil.patient",
+      "input": "trait.patience",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.6
+    },
+    {
+      "id": "consideration.diplomacy.trade.proud",
+      "input": "trait.pride",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1.2
+    },
+    {
+      "id": "consideration.diplomacy.trade.hawkish",
+      "input": "trait.hawkishness",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.diplomacy.trade.pressured",
+      "input": "trade.pressured",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.7,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.trade.talks_failed",
+      "input": "trade.talks_failed",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.6,
+        "max": 1
+      },
+      "weight": 2,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.trade.hurts",
+      "input": "trade.harm",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.diplomacy.trade.unfriendly",
+      "input": "trade.opinion",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.diplomacy.trade.has_leverage",
+      "input": "trade.leverage",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.diplomacy.trade.secure_alone",
+      "input": "trade.security_need",
+      "curve": {
+        "kind": "InverseLogistic",
+        "min": 0.05,
+        "max": 1,
+        "midpoint": 0.25,
+        "steepness": 15
+      },
+      "weight": 6,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.trade.pragmatic",
+      "input": "trait.pragmatism",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1.2
+    },
+    {
+      "id": "consideration.diplomacy.trade.much_at_stake",
+      "input": "trade.harm",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.diplomacy.trade.allies",
+      "input": "trade.ally",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.6,
+        "max": 1
+      },
+      "weight": 0.8,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.trade.weak_hand",
+      "input": "trade.leverage",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.8
+    },
+    {
+      "id": "consideration.diplomacy.trade.talks_not_tried",
+      "input": "trade.talks_failed",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.1,
+        "max": 1
+      },
+      "weight": 3,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.trade.friendly",
+      "input": "trade.opinion",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.2
+    },
+    {
+      "id": "consideration.diplomacy.trade.little_harm",
+      "input": "trade.harm",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.diplomacy.trade.needs_protector",
+      "input": "trade.security_need",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.trade.patient",
+      "input": "trait.patience",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.8
+    },
+    {
+      "id": "consideration.diplomacy.trade.meek",
+      "input": "trait.pride",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.diplomacy.trade.no_failed_talks",
+      "input": "trade.talks_failed",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.8,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.leak.honest",
+      "input": "trait.honesty",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.diplomacy.leak.not_hostile",
+      "input": "leak.hostile",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.leak.not_insulted",
+      "input": "leak.insulted",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.leak.public_minded",
+      "input": "trait.publicOrientation",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.diplomacy.leak.audience_at_home",
+      "input": "leak.pressured",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1.2,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.leak.has_a_win",
+      "input": "leak.concessions",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.leak.hostile",
+      "input": "leak.hostile",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.1,
+        "max": 1
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.leak.insulted",
+      "input": "leak.insulted",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.leak.dishonest",
+      "input": "trait.honesty",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.diplomacy.leak.embarrassing",
+      "input": "leak.concessions",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 0.8,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.leak.showy",
+      "input": "trait.publicOrientation",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 0.5
+    },
+    {
+      "id": "consideration.diplomacy.honor.cheap",
+      "input": "honor.cost",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.1,
+        "max": 1
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.diplomacy.honor.costly",
+      "input": "honor.cost",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.1,
+        "max": 1
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.diplomacy.honor.costly_some",
+      "input": "honor.cost",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.diplomacy.honor.honest",
+      "input": "trait.honesty",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.diplomacy.honor.dishonest",
+      "input": "trait.honesty",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.1,
+        "max": 1
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.diplomacy.honor.lawful",
+      "input": "trait.lawfulness",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.diplomacy.honor.partner_kept",
+      "input": "honor.partner_kept",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1.5,
+      "default": 1
+    },
+    {
+      "id": "consideration.diplomacy.honor.partner_broke",
+      "input": "honor.partner_kept",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 1
+    },
+    {
+      "id": "consideration.diplomacy.honor.partner_broke_exit",
+      "input": "honor.partner_kept",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1.5,
+      "default": 1
+    },
+    {
+      "id": "consideration.diplomacy.honor.trusts",
+      "input": "honor.trust",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.8
+    },
+    {
+      "id": "consideration.diplomacy.honor.distrusts",
+      "input": "honor.trust",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.8
+    },
+    {
+      "id": "consideration.diplomacy.honor.depends",
+      "input": "honor.dependence",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.6,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.honor.depends_some",
+      "input": "honor.dependence",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.6,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.honor.independent",
+      "input": "honor.dependence",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.2,
+      "default": 0
+    },
+    {
+      "id": "consideration.diplomacy.honor.likes",
+      "input": "honor.opinion",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 0.8
+    },
+    {
+      "id": "consideration.diplomacy.honor.dislikes",
+      "input": "honor.opinion",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.diplomacy.honor.pragmatic",
+      "input": "trait.pragmatism",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.2
+    },
+    {
+      "id": "consideration.diplomacy.honor.proud",
+      "input": "trait.pride",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 0.8
+    }
+  ]
+}

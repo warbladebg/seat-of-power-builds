@@ -1,0 +1,129 @@
+{
+  "$schema": "../schemas/manifest.schema.json",
+  "files": [
+    {
+      "path": "usa/bls.json",
+      "sources": [
+        "src.us_bls"
+      ],
+      "urls": [
+        "https://api.bls.gov/publicAPI/v1/timeseries/data/"
+      ],
+      "retrieved": "2026-10-04",
+      "sha256": "a4c31f10c3175372eb10f9902fe16dc951154f848d7a969fc3a56e99d2e3716b"
+    },
+    {
+      "path": "usa/congress.json",
+      "sources": [
+        "src.unitedstates_legislators",
+        "src.us_house_clerk"
+      ],
+      "urls": [
+        "https://clerk.house.gov/xml/lists/MemberData.xml",
+        "https://unitedstates.github.io/congress-legislators/legislators-current.csv"
+      ],
+      "retrieved": "2026-10-04",
+      "sha256": "7b571fd004ae0d08d27c04b25a53738c2eedda70b6b66e489239327606cb7119"
+    },
+    {
+      "path": "usa/daily_profile.json",
+      "sources": [
+        "src.us_treasury_fiscaldata"
+      ],
+      "urls": [
+        "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/dts/operating_cash_balance"
+      ],
+      "retrieved": "2026-10-04",
+      "sha256": "1e763956c1628b51441fca1e2266693b24cbe7c1b7e5f6d9a8060a8745b858d3"
+    },
+    {
+      "path": "usa/mts.json",
+      "sources": [
+        "src.us_treasury_fiscaldata"
+      ],
+      "urls": [
+        "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/mts/mts_table_1"
+      ],
+      "retrieved": "2026-10-04",
+      "sha256": "6e308db412a1b74ff7db28e401960b510a06c82ed4e92903c4b703f7b472be80"
+    },
+    {
+      "path": "usa/rates.json",
+      "sources": [
+        "src.us_fed_h15"
+      ],
+      "urls": [
+        "https://www.federalreserve.gov/datadownload/Output.aspx?rel=H15&series=bf17364827e38702b42a58cf8eaa3f78&lastobs=40&from=&to=&filetype=csv&label=include&layout=seriescolumn"
+      ],
+      "retrieved": "2026-10-04",
+      "sha256": "5d34f1c11eb9063821eb495622e6617b1fa17aac5818f3753eecdd9cb1835c44"
+    },
+    {
+      "path": "usa/tic.json",
+      "sources": [
+        "src.us_treasury_tic"
+      ],
+      "urls": [
+        "https://ticdata.treasury.gov/resource-center/data-chart-center/tic/Documents/slt_table5.txt"
+      ],
+      "retrieved": "2026-10-04",
+      "sha256": "b54291b4e7f5487e78d37d672a684849ce23b4bd6b4edb299f91894370a1a507"
+    },
+    {
+      "path": "usa/treasury.json",
+      "sources": [
+        "src.us_treasury_fiscaldata"
+      ],
+      "urls": [
+        "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/dts/debt_subject_to_limit",
+        "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v1/accounting/dts/operating_cash_balance",
+        "https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny"
+      ],
+      "retrieved": "2026-10-04",
+      "sha256": "bc9379db9ee9876908445741093ac6b6636df6186c8e6c3a47b704090976a832"
+    },
+    {
+      "path": "wdi/indicators.json",
+      "sources": [
+        "src.worldbank_wdi"
+      ],
+      "urls": [
+        "https://api.worldbank.org/v2/country/BGR;RUS;TUR;UKR;MKD/indicator/EG.IMP.CONS.ZS?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/BGR;RUS;TUR;UKR;MKD/indicator/FP.CPI.TOTL.ZG?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/BGR;RUS;TUR;UKR;MKD/indicator/GC.DOD.TOTL.GD.ZS?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/BGR;RUS;TUR;UKR;MKD/indicator/GC.REV.XGRT.GD.ZS?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/BGR;RUS;TUR;UKR;MKD/indicator/NE.EXP.GNFS.ZS?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/BGR;RUS;TUR;UKR;MKD/indicator/NY.GDP.MKTP.CD?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/BGR;RUS;TUR;UKR;MKD/indicator/NY.GDP.MKTP.CN?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/BGR;RUS;TUR;UKR;MKD/indicator/NY.GDP.MKTP.KD.ZG?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/BGR;RUS;TUR;UKR;MKD/indicator/SI.POV.GINI?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/BGR;RUS;TUR;UKR;MKD/indicator/SL.UEM.TOTL.ZS?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/BGR;RUS;TUR;UKR;MKD/indicator/SP.POP.TOTL?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/USA;JPN;CHN;EUU;SAU;GBR;CAN;MEX/indicator/EG.IMP.CONS.ZS?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/USA;JPN;CHN;EUU;SAU;GBR;CAN;MEX/indicator/FP.CPI.TOTL.ZG?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/USA;JPN;CHN;EUU;SAU;GBR;CAN;MEX/indicator/GC.DOD.TOTL.GD.ZS?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/USA;JPN;CHN;EUU;SAU;GBR;CAN;MEX/indicator/GC.REV.XGRT.GD.ZS?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/USA;JPN;CHN;EUU;SAU;GBR;CAN;MEX/indicator/NE.EXP.GNFS.ZS?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/USA;JPN;CHN;EUU;SAU;GBR;CAN;MEX/indicator/NY.GDP.MKTP.CD?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/USA;JPN;CHN;EUU;SAU;GBR;CAN;MEX/indicator/NY.GDP.MKTP.CN?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/USA;JPN;CHN;EUU;SAU;GBR;CAN;MEX/indicator/NY.GDP.MKTP.KD.ZG?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/USA;JPN;CHN;EUU;SAU;GBR;CAN;MEX/indicator/SI.POV.GINI?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/USA;JPN;CHN;EUU;SAU;GBR;CAN;MEX/indicator/SL.UEM.TOTL.ZS?format=json&mrnev=1&per_page=100",
+        "https://api.worldbank.org/v2/country/USA;JPN;CHN;EUU;SAU;GBR;CAN;MEX/indicator/SP.POP.TOTL?format=json&mrnev=1&per_page=100"
+      ],
+      "retrieved": "2026-10-09",
+      "sha256": "7b5e7c79adc3b781ca70c85b867dc33a549f1cfac7e5bc1e39220b42a7d3b233"
+    },
+    {
+      "path": "worldbank/commodities.json",
+      "sources": [
+        "src.worldbank_pinksheet"
+      ],
+      "urls": [
+        "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx"
+      ],
+      "retrieved": "2026-10-04",
+      "sha256": "e2408dc0996242efdc4dd51b04a3c81e43d8acfbcd0091a54c8f8ae0e97a064e"
+    }
+  ]
+}

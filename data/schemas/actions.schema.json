@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "actions.schema.json",
+  "title": "ActionsFile",
+  "type": "object",
+  "properties": {
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^action\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "domestic",
+              "economic",
+              "diplomatic",
+              "information"
+            ]
+          },
+          "target": {
+            "enum": [
+              "None",
+              "PowerCenter",
+              "VoterBloc",
+              "Character",
+              "Country"
+            ],
+            "default": "None"
+          },
+          "capitalCost": {
+            "type": "number",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 100
+          },
+          "cooldownDays": {
+            "type": "integer",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 3650
+          },
+          "requires": {
+            "default": null
+          },
+          "descriptionKey": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "description": "Localisation key (data/localization/en)."
+          },
+          "effects": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "default": null
+          },
+          "targetTypes": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "enum": [
+                "LegislativeBloc",
+                "Court",
+                "CentralBank",
+                "Military",
+                "SecurityServices",
+                "BusinessLobby",
+                "MediaCluster",
+                "PartyFaction",
+                "RegionalElite",
+                "Oligarchs",
+                "Public"
+              ]
+            },
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "nameKey",
+          "category"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "actions"
+  ],
+  "additionalProperties": false
+}

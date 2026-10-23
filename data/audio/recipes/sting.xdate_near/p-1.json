@@ -1,0 +1,40 @@
+{
+  "cue": "sting.xdate_near",
+  "round": "p",
+  "option": 1,
+  "family": "Placeholder",
+  "label": "plain placeholder until a round picks this cue",
+  "seed": 1,
+  "tail": 0.03,
+  "loudness": -22,
+  "layers": [
+    {
+      "type": "tone",
+      "freq": 1000,
+      "at": 0.0,
+      "env": {
+        "a": 0.004,
+        "h": 0.12,
+        "r": 0.01
+      }
+    },
+    {
+      "type": "tone",
+      "freq": 1000,
+      "at": 0.25,
+      "env": {
+        "a": 0.004,
+        "h": 0.12,
+        "r": 0.01
+      }
+    }
+  ],
+  "post": [
+    {
+      "type": "radio",
+      "low": 300,
+      "high": 3400,
+      "drive": 1.3
+    }
+  ]
+}

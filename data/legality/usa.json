@@ -1,0 +1,646 @@
+{
+  "$schema": "../schemas/legality.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "US law as the game models it (23 §9). Plain summaries for gameplay, not legal advice."
+  },
+  "legalityRules": [
+    {
+      "id": "legality.usa.nuclear_unjustified",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.launch_nuclear_strike",
+          "justified": false
+        }
+      },
+      "class": "ManifestlyUnlawful",
+      "reason": "With no attack or confirmed imminent threat, a nuclear strike fails necessity and proportionality; officers have a duty to refuse manifestly unlawful orders."
+    },
+    {
+      "id": "legality.usa.nuclear_retaliation",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.launch_nuclear_strike",
+          "justified": true
+        }
+      },
+      "class": "Lawful",
+      "reason": "The president has sole launch authority, and a response to an attack under way can meet necessity and proportionality."
+    },
+    {
+      "id": "legality.usa.fire_on_protesters",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.fire_on_protesters"
+        }
+      },
+      "class": "ManifestlyUnlawful",
+      "reason": "Using lethal force against peaceful protesters violates the Constitution and the law of armed conflict."
+    },
+    {
+      "id": "legality.usa.arrest_bloc",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.arrest_bloc"
+        }
+      },
+      "class": "ManifestlyUnlawful",
+      "reason": "Members of Congress can't be arrested for their votes or speech (Speech or Debate Clause, Article I §6)."
+    },
+    {
+      "id": "legality.usa.arrest_party_leader_house",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.arrest",
+          "targetRole": "party_leader_house",
+          "justified": false
+        }
+      },
+      "class": "ManifestlyUnlawful",
+      "reason": "Arresting a member of Congress without evidence of a crime attacks the separation of powers (Article I §6)."
+    },
+    {
+      "id": "legality.usa.arrest_party_leader_senate",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.arrest",
+          "targetRole": "party_leader_senate",
+          "justified": false
+        }
+      },
+      "class": "ManifestlyUnlawful",
+      "reason": "Arresting a member of Congress without evidence of a crime attacks the separation of powers (Article I §6)."
+    },
+    {
+      "id": "legality.usa.arrest_bloc_leader",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.arrest",
+          "targetRole": "bloc_leader",
+          "justified": false
+        }
+      },
+      "class": "ManifestlyUnlawful",
+      "reason": "Arresting a member of Congress without evidence of a crime attacks the separation of powers (Article I §6)."
+    },
+    {
+      "id": "legality.usa.arrest_with_evidence",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.arrest",
+          "justified": true
+        }
+      },
+      "class": "Lawful",
+      "reason": "Arrests on evidence of a crime are lawful."
+    },
+    {
+      "id": "legality.usa.arrest_without_evidence",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.arrest"
+        }
+      },
+      "class": "Unlawful",
+      "reason": "An arrest needs probable cause."
+    },
+    {
+      "id": "legality.usa.raid_without_evidence",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.raid",
+          "justified": false
+        }
+      },
+      "class": "Unlawful",
+      "reason": "A search needs a warrant based on probable cause (Fourth Amendment)."
+    },
+    {
+      "id": "legality.usa.prosecute_without_evidence",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.prosecute",
+          "justified": false
+        }
+      },
+      "class": "Unlawful",
+      "reason": "Ordering a prosecution without evidence is an abuse of power; prosecutors may only charge on evidence."
+    },
+    {
+      "id": "legality.usa.investigate_party_leader_house",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.investigate",
+          "targetRole": "party_leader_house",
+          "justified": false
+        }
+      },
+      "class": "Unlawful",
+      "reason": "Investigating a political opponent with no predicate is an abuse of power."
+    },
+    {
+      "id": "legality.usa.investigate_party_leader_senate",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.investigate",
+          "targetRole": "party_leader_senate",
+          "justified": false
+        }
+      },
+      "class": "Unlawful",
+      "reason": "Investigating a political opponent with no predicate is an abuse of power."
+    },
+    {
+      "id": "legality.usa.investigate_bloc_leader",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.investigate",
+          "targetRole": "bloc_leader",
+          "justified": false
+        }
+      },
+      "class": "Unlawful",
+      "reason": "Investigating a political opponent with no predicate is an abuse of power."
+    },
+    {
+      "id": "legality.usa.investigate_without_predicate",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.investigate",
+          "justified": false
+        }
+      },
+      "class": "Contested",
+      "reason": "Investigations normally need a factual predicate."
+    },
+    {
+      "id": "legality.usa.fire_special_counsel_for_cause",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.fire_special_counsel",
+          "justified": true
+        }
+      },
+      "class": "Lawful",
+      "reason": "A special counsel may be removed for misconduct, dereliction of duty, incapacity or a conflict of interest (28 CFR 600.7)."
+    },
+    {
+      "id": "legality.usa.fire_special_counsel",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.fire_special_counsel"
+        }
+      },
+      "class": "Unlawful",
+      "reason": "Removing a special counsel without good cause breaks the Justice Department's own regulation (28 CFR 600.7); a court held the 1973 firing illegal."
+    },
+    {
+      "id": "legality.usa.audit_opponent",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.audit_opponent"
+        }
+      },
+      "class": "Unlawful",
+      "reason": "The president may not request an IRS audit of a named taxpayer (26 U.S.C. § 7217)."
+    },
+    {
+      "id": "legality.usa.surveil_warrantless",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.surveil",
+          "method": "warrantless"
+        }
+      },
+      "class": "Unlawful",
+      "reason": "Surveillance without a warrant violates the Fourth Amendment and FISA."
+    },
+    {
+      "id": "legality.usa.surveil_without_evidence",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.surveil",
+          "justified": false
+        }
+      },
+      "class": "Contested",
+      "reason": "A court may refuse the warrant without evidence."
+    },
+    {
+      "id": "legality.usa.detain_without_cause",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.detain_protesters",
+          "justified": false
+        }
+      },
+      "class": "Unlawful",
+      "reason": "Detaining peaceful protesters violates the First and Fourth Amendments."
+    },
+    {
+      "id": "legality.usa.detain_insurrection",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.detain_protesters"
+        }
+      },
+      "class": "Contested",
+      "reason": "Detentions during an insurrection will be tested in court."
+    },
+    {
+      "id": "legality.usa.troops_direct",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.deploy_troops_domestic",
+          "method": "direct"
+        }
+      },
+      "class": "Unlawful",
+      "reason": "The Posse Comitatus Act bars using the military for law enforcement without a statutory exception."
+    },
+    {
+      "id": "legality.usa.troops_insurrection_unjustified",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.deploy_troops_domestic",
+          "justified": false
+        }
+      },
+      "class": "Unlawful",
+      "reason": "Invoking the Insurrection Act with no insurrection is an abuse of the statute."
+    },
+    {
+      "id": "legality.usa.troops_insurrection",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.deploy_troops_domestic"
+        }
+      },
+      "class": "Contested",
+      "reason": "The Insurrection Act allows it, but its use will be challenged."
+    },
+    {
+      "id": "legality.usa.strike_unjustified",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.conventional_strike",
+          "justified": false
+        }
+      },
+      "class": "Contested",
+      "reason": "Strikes without congressional authorisation or self-defence are disputed under the War Powers Resolution."
+    },
+    {
+      "id": "legality.usa.blockade_unjustified",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.blockade",
+          "justified": false
+        }
+      },
+      "class": "Unlawful",
+      "reason": "A blockade is an act of war; without authorisation or self-defence it is unlawful."
+    },
+    {
+      "id": "legality.usa.blockade",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.blockade"
+        }
+      },
+      "class": "Contested",
+      "reason": "A blockade needs congressional backing to last."
+    },
+    {
+      "id": "legality.usa.ignore_court",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.ignore_court_ruling"
+        }
+      },
+      "class": "Unlawful",
+      "reason": "Court orders bind the executive branch."
+    },
+    {
+      "id": "legality.usa.shut_down_outlet",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.shut_down_outlet"
+        }
+      },
+      "class": "ManifestlyUnlawful",
+      "reason": "Shutting down a news outlet is a prior restraint that the First Amendment forbids."
+    },
+    {
+      "id": "legality.usa.censor",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.censor_internet"
+        }
+      },
+      "class": "Unlawful",
+      "reason": "Government censorship of lawful speech violates the First Amendment."
+    },
+    {
+      "id": "legality.usa.pressure_outlet_fcc",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.pressure_outlet",
+          "method": "fcc"
+        }
+      },
+      "class": "Contested",
+      "reason": "Using licensing to punish coverage is likely unconstitutional."
+    },
+    {
+      "id": "legality.usa.nationalize_unjustified",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.nationalize",
+          "justified": false
+        }
+      },
+      "class": "Unlawful",
+      "reason": "Seizing private property without authority or compensation violates the Takings Clause."
+    },
+    {
+      "id": "legality.usa.nationalize",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.nationalize"
+        }
+      },
+      "class": "Contested",
+      "reason": "Emergency seizures were struck down before (Youngstown, 1952)."
+    },
+    {
+      "id": "legality.usa.repudiate_debt",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.repudiate_debt"
+        }
+      },
+      "class": "ManifestlyUnlawful",
+      "reason": "The validity of the public debt shall not be questioned (Fourteenth Amendment §4)."
+    },
+    {
+      "id": "legality.usa.withdraw_nato",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.withdraw_from_nato"
+        }
+      },
+      "class": "Unlawful",
+      "reason": "A 2023 law bars leaving NATO without two-thirds of the Senate or an act of Congress."
+    },
+    {
+      "id": "legality.usa.assassination",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.assassinate_leader"
+        }
+      },
+      "class": "ManifestlyUnlawful",
+      "reason": "Executive Order 12333 bans assassination, and killing a head of state outside war breaks international law."
+    },
+    {
+      "id": "legality.usa.covert_coup",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.covert_regime_change"
+        }
+      },
+      "class": "Contested",
+      "reason": "Covert action needs a presidential finding and notice to Congress."
+    },
+    {
+      "id": "legality.usa.refuse_to_leave",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.refuse_to_leave_office"
+        }
+      },
+      "class": "ManifestlyUnlawful",
+      "reason": "The president's term ends at noon on January 20 (Twentieth Amendment)."
+    },
+    {
+      "id": "legality.usa.postpone_election",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.postpone_election"
+        }
+      },
+      "class": "ManifestlyUnlawful",
+      "reason": "Federal election dates are set by law and run by the states; the president has no power to move them."
+    },
+    {
+      "id": "legality.usa.dissolve_legislature",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.dissolve_legislature"
+        }
+      },
+      "class": "ManifestlyUnlawful",
+      "reason": "The president has no power to dissolve Congress."
+    },
+    {
+      "id": "legality.usa.pack_court",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.pack_court"
+        }
+      },
+      "class": "Unlawful",
+      "reason": "The size of the Supreme Court is set by statute."
+    },
+    {
+      "id": "legality.usa.call_referendum",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.call_referendum"
+        }
+      },
+      "class": "Contested",
+      "reason": "There is no national referendum in US law."
+    },
+    {
+      "id": "legality.usa.fire_investigator",
+      "country": "country.usa",
+      "when": {
+        "all": [
+          {
+            "order": {
+              "verb": "verb.fire_official",
+              "targetRole": "fbi_director"
+            }
+          },
+          {
+            "flag": "justice.{country}.investigating_leader"
+          }
+        ]
+      },
+      "class": "Contested",
+      "reason": "Firing the official who leads an investigation of the president may be obstruction of justice (18 U.S.C. § 1505)."
+    },
+    {
+      "id": "legality.usa.fire_fed_chair",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.fire_official",
+          "targetRole": "central_bank_chair"
+        }
+      },
+      "class": "Contested",
+      "reason": "Fed governors can be removed only for cause."
+    },
+    {
+      "id": "legality.usa.self_pardon",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.pardon",
+          "targetRole": "head_of_government"
+        }
+      },
+      "class": "Contested",
+      "reason": "A self-pardon has never been tested in court."
+    },
+    {
+      "id": "legality.usa.freeze_spending",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.freeze_spending",
+          "justified": false
+        }
+      },
+      "class": "Contested",
+      "reason": "The Impoundment Control Act limits withholding appropriated funds."
+    },
+    {
+      "id": "legality.usa.prioritize_payments",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.prioritize_payments"
+        }
+      },
+      "class": "Contested",
+      "reason": "No law authorises choosing which obligations to pay; courts and markets would test it."
+    },
+    {
+      "id": "legality.usa.mass_firing",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.mass_firing"
+        }
+      },
+      "class": "Contested",
+      "reason": "Civil service protections limit firing career staff."
+    },
+    {
+      "id": "legality.usa.emergency_unjustified",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.declare_emergency",
+          "justified": false
+        }
+      },
+      "class": "Contested",
+      "reason": "Emergency declarations without an emergency invite court challenges."
+    },
+    {
+      "id": "legality.usa.seize_assets_unjustified",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.seize_assets",
+          "justified": false
+        }
+      },
+      "class": "Contested",
+      "reason": "Asset seizures need a legal basis."
+    },
+    {
+      "id": "legality.usa.price_controls",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.price_controls"
+        }
+      },
+      "class": "Contested",
+      "reason": "Peacetime price controls need authority from Congress."
+    },
+    {
+      "id": "legality.usa.bail_out",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.bail_out"
+        }
+      },
+      "class": "Contested",
+      "reason": "Spending on a bailout needs an appropriation."
+    },
+    {
+      "id": "legality.usa.purge_military",
+      "country": "country.usa",
+      "when": {
+        "order": {
+          "verb": "verb.purge_military_leadership"
+        }
+      },
+      "class": "Contested",
+      "reason": "Firing commanders is legal, but a purge to install loyalists threatens civilian control norms."
+    }
+  ]
+}

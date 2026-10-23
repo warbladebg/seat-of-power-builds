@@ -1,0 +1,299 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "scenario.schema.json",
+  "title": "ScenarioDef",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^scenario\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+    },
+    "startDate": {
+      "type": "string",
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "endDate": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "default": null
+    },
+    "nameKey": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null,
+      "description": "Localisation key (data/localization/en)."
+    },
+    "descriptionKey": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null,
+      "description": "Localisation key (data/localization/en)."
+    },
+    "playableCountry": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null,
+      "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    },
+    "countries": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string",
+        "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+      },
+      "default": null
+    },
+    "scheduledEvents": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "eventId": {
+            "type": "string",
+            "pattern": "^event\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          }
+        },
+        "required": [
+          "date",
+          "eventId"
+        ],
+        "additionalProperties": false
+      },
+      "default": null
+    },
+    "playableParties": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string",
+        "pattern": "^party\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+      },
+      "default": null
+    },
+    "varOverrides": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": "number"
+      },
+      "default": null
+    },
+    "partyVariants": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "party": {
+            "type": "string",
+            "pattern": "^party\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "varOverrides": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "number"
+            },
+            "default": null
+          },
+          "seatOverrides": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "chamber": {
+                  "type": "string",
+                  "pattern": "^chamber\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+                },
+                "bloc": {
+                  "type": "string",
+                  "pattern": "^pc\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+                },
+                "seats": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 10000
+                }
+              },
+              "required": [
+                "chamber",
+                "bloc",
+                "seats"
+              ],
+              "additionalProperties": false
+            },
+            "default": null
+          }
+        },
+        "required": [
+          "party"
+        ],
+        "additionalProperties": false
+      },
+      "default": null
+    },
+    "goals": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "kind": {
+            "enum": [
+              "Must",
+              "Score"
+            ]
+          },
+          "weight": {
+            "type": "number",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 1
+          },
+          "condition": {
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "nameKey",
+          "kind"
+        ],
+        "additionalProperties": false
+      },
+      "default": null
+    },
+    "endings": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "minScore": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "default": null,
+            "minimum": 0,
+            "maximum": 100
+          },
+          "defeat": {
+            "type": "boolean",
+            "default": false
+          },
+          "condition": {
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "nameKey"
+        ],
+        "additionalProperties": false
+      },
+      "default": null
+    },
+    "enabledSystems": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "string"
+      },
+      "default": null
+    }
+  },
+  "required": [
+    "id",
+    "startDate"
+  ],
+  "additionalProperties": false
+}

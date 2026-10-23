@@ -1,0 +1,41 @@
+{
+  "cue": "vote.failed",
+  "round": "p",
+  "option": 1,
+  "family": "Placeholder",
+  "label": "plain placeholder until a round picks this cue",
+  "seed": 1,
+  "tail": 0.03,
+  "loudness": -23,
+  "layers": [
+    {
+      "type": "tone",
+      "wave": "triangle",
+      "freq": 440,
+      "at": 0.0,
+      "env": {
+        "a": 0.002,
+        "d": 0.3
+      },
+      "gain": 0.0,
+      "freqEnd": 415,
+      "glide": 0.15
+    },
+    {
+      "type": "tone",
+      "wave": "triangle",
+      "freq": 349.2,
+      "at": 0.14,
+      "env": {
+        "a": 0.002,
+        "d": 0.4
+      },
+      "gain": 0.0
+    }
+  ],
+  "room": {
+    "size": 0.7,
+    "mix": 0.18,
+    "damp": 4000
+  }
+}

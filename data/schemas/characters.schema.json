@@ -1,0 +1,257 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "characters.schema.json",
+  "title": "CharactersFile",
+  "type": "object",
+  "properties": {
+    "characters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^char\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "name": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "personality": {
+            "type": "object",
+            "properties": {
+              "riskTolerance": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "pride": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "pragmatism": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "patience": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "hawkishness": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "honesty": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "loyalty": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "ideologicalRigidity": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "grudgeHolding": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "publicOrientation": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "lawfulness": {
+                "type": "number",
+                "default": 50,
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "required": [
+              "riskTolerance",
+              "pride",
+              "pragmatism",
+              "patience",
+              "hawkishness",
+              "honesty",
+              "loyalty",
+              "ideologicalRigidity",
+              "grudgeHolding",
+              "publicOrientation"
+            ],
+            "additionalProperties": false
+          },
+          "voice": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "Formal",
+                "Blunt",
+                "Folksy",
+                "Technocrat",
+                "Nationalist",
+                "Diplomatic",
+                "Combative",
+                "Evasive",
+                "Academic",
+                "Market",
+                "Generic"
+              ]
+            }
+          },
+          "titleKey": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "description": "Localisation key (data/localization/en)."
+          },
+          "powerCenterId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "pattern": "^pc\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "party": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "pattern": "^party\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "competence": {
+            "type": "number",
+            "default": 50,
+            "minimum": 0,
+            "maximum": 100
+          },
+          "portraitAsset": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          },
+          "gender": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "enum": [
+              "m",
+              "f"
+            ]
+          },
+          "goals": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "goal": {
+                  "type": "string"
+                },
+                "weight": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              "required": [
+                "goal",
+                "weight"
+              ],
+              "additionalProperties": false
+            },
+            "default": null
+          },
+          "redLines": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "default": null
+          },
+          "bias": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "number",
+              "minimum": -100,
+              "maximum": 100
+            },
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "role",
+          "personality",
+          "voice"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "characters"
+  ],
+  "additionalProperties": false
+}

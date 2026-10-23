@@ -1,0 +1,8 @@
+{
+  "$schema": "../../schemas/localization.schema.json",
+  "strings": {
+    "action.address_nation.name": "Address the nation",
+    "action.fed_pressure_statement.name": "Publicly pressure the central bank",
+    "action.foreign_reassurance_call.name": "Reassurance call to a foreign leader"
+  }
+}

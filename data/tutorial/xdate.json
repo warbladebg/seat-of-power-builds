@@ -1,0 +1,594 @@
+{
+  "scenario": "scenario.xdate",
+  "party": "party.usa.democratic",
+  "seed": 2027,
+  "walkthrough": [
+    {
+      "id": "welcome",
+      "chapter": "tutorial.chapter.desk",
+      "text": "tutorial.step.welcome",
+      "done": [
+        {
+          "kind": "next"
+        }
+      ]
+    },
+    {
+      "id": "camera",
+      "chapter": "tutorial.chapter.desk",
+      "text": "tutorial.step.camera",
+      "done": [
+        {
+          "kind": "camera_moved"
+        },
+        {
+          "kind": "camera_zoomed"
+        }
+      ],
+      "anchor": "map"
+    },
+    {
+      "id": "xdate",
+      "chapter": "tutorial.chapter.desk",
+      "text": "tutorial.step.xdate",
+      "done": [
+        {
+          "kind": "tooltip_shown",
+          "arg": "econ.xdate_days"
+        }
+      ],
+      "anchor": "top.xdate"
+    },
+    {
+      "id": "tooltip",
+      "chapter": "tutorial.chapter.desk",
+      "text": "tutorial.step.tooltip",
+      "done": [
+        {
+          "kind": "tooltip_pinned",
+          "arg": "econ.yield_10y"
+        },
+        {
+          "kind": "tooltip_drilled"
+        }
+      ],
+      "anchor": "top.yield"
+    },
+    {
+      "id": "goals",
+      "chapter": "tutorial.chapter.standing",
+      "text": "tutorial.step.goals",
+      "done": [
+        {
+          "kind": "goals_opened"
+        }
+      ],
+      "anchor": "objectives.goals"
+    },
+    {
+      "id": "overview",
+      "chapter": "tutorial.chapter.standing",
+      "text": "tutorial.step.overview",
+      "done": [
+        {
+          "kind": "panel_opened",
+          "arg": "Overview"
+        }
+      ],
+      "anchor": "rail.overview",
+      "screen": "Overview"
+    },
+    {
+      "id": "wire",
+      "chapter": "tutorial.chapter.standing",
+      "text": "tutorial.step.wire",
+      "done": [
+        {
+          "kind": "wire_toggled",
+          "count": 2
+        }
+      ],
+      "anchor": "wire.fold"
+    },
+    {
+      "id": "intel",
+      "chapter": "tutorial.chapter.reading",
+      "text": "tutorial.step.intel",
+      "done": [
+        {
+          "kind": "panel_opened",
+          "arg": "Intel"
+        }
+      ],
+      "anchor": "rail.intel",
+      "screen": "Intel"
+    },
+    {
+      "id": "public",
+      "chapter": "tutorial.chapter.reading",
+      "text": "tutorial.step.public",
+      "done": [
+        {
+          "kind": "panel_opened",
+          "arg": "Public"
+        },
+        {
+          "kind": "region_selected",
+          "arg": "state"
+        }
+      ],
+      "anchor": "rail.public|map",
+      "screen": "Public"
+    },
+    {
+      "id": "modes",
+      "chapter": "tutorial.chapter.reading",
+      "text": "tutorial.step.modes",
+      "done": [
+        {
+          "kind": "map_mode",
+          "arg": "opinion"
+        },
+        {
+          "kind": "region_selected",
+          "arg": "country"
+        }
+      ],
+      "anchor": "map.modes"
+    },
+    {
+      "id": "time",
+      "chapter": "tutorial.chapter.time",
+      "text": "tutorial.step.time",
+      "done": [
+        {
+          "kind": "days_passed",
+          "arg": "3"
+        }
+      ],
+      "anchor": "top.speed",
+      "unlocksTime": true
+    },
+    {
+      "id": "congress",
+      "chapter": "tutorial.chapter.congress",
+      "text": "tutorial.step.congress",
+      "done": [
+        {
+          "kind": "panel_opened",
+          "arg": "Congress"
+        }
+      ],
+      "anchor": "rail.congress",
+      "screen": "Congress"
+    },
+    {
+      "id": "draft",
+      "chapter": "tutorial.chapter.congress",
+      "text": "tutorial.step.draft",
+      "done": [
+        {
+          "kind": "draft_exists"
+        }
+      ],
+      "anchor": "congress.draft",
+      "screen": "Congress"
+    },
+    {
+      "id": "whip",
+      "chapter": "tutorial.chapter.congress",
+      "text": "tutorial.step.whip",
+      "done": [
+        {
+          "kind": "bill_submitted"
+        },
+        {
+          "kind": "whip_requested"
+        }
+      ],
+      "anchor": "congress.bills",
+      "screen": "Congress"
+    },
+    {
+      "id": "favour",
+      "chapter": "tutorial.chapter.congress",
+      "text": "tutorial.step.favour",
+      "done": [
+        {
+          "kind": "favour_offered"
+        }
+      ],
+      "anchor": "factions.offer|rail.factions",
+      "screen": "Factions"
+    },
+    {
+      "id": "cabinet",
+      "chapter": "tutorial.chapter.government",
+      "text": "tutorial.step.cabinet",
+      "done": [
+        {
+          "kind": "row_opened",
+          "arg": "Cabinet"
+        }
+      ],
+      "anchor": "cabinet.row|rail.cabinet",
+      "screen": "Cabinet"
+    },
+    {
+      "id": "orders",
+      "chapter": "tutorial.chapter.government",
+      "text": "tutorial.step.orders",
+      "done": [
+        {
+          "kind": "order_issued"
+        }
+      ],
+      "anchor": "orders.issue|orders.desk|rail.orders",
+      "screen": "Orders"
+    },
+    {
+      "id": "economy_world",
+      "chapter": "tutorial.chapter.government",
+      "text": "tutorial.step.economy_world",
+      "done": [
+        {
+          "kind": "panel_opened",
+          "arg": "Economy"
+        },
+        {
+          "kind": "panel_opened",
+          "arg": "World"
+        }
+      ],
+      "anchor": "rail.economy|rail.world"
+    },
+    {
+      "id": "decision",
+      "chapter": "tutorial.chapter.decisions",
+      "text": "tutorial.step.decision",
+      "done": [
+        {
+          "kind": "choice_answered"
+        },
+        {
+          "kind": "days_passed",
+          "arg": "45"
+        }
+      ],
+      "anchor": "wire.action",
+      "any": true
+    },
+    {
+      "id": "done",
+      "chapter": "tutorial.chapter.decisions",
+      "text": "tutorial.step.done",
+      "done": [
+        {
+          "kind": "next"
+        }
+      ],
+      "anchor": "hint.ask"
+    }
+  ],
+  "guidedStart": [
+    {
+      "id": "xdates",
+      "chapter": "tutorial.chapter.start",
+      "text": "tutorial.guided.xdates",
+      "done": [
+        {
+          "kind": "next"
+        }
+      ],
+      "anchor": "rail.intel",
+      "screen": "Intel"
+    },
+    {
+      "id": "tooltip",
+      "chapter": "tutorial.chapter.start",
+      "text": "tutorial.guided.tooltip",
+      "done": [
+        {
+          "kind": "next"
+        }
+      ],
+      "anchor": "top.yield"
+    },
+    {
+      "id": "goals",
+      "chapter": "tutorial.chapter.start",
+      "text": "tutorial.guided.goals",
+      "done": [
+        {
+          "kind": "next"
+        }
+      ],
+      "anchor": "objectives.goals"
+    },
+    {
+      "id": "whip",
+      "chapter": "tutorial.chapter.start",
+      "text": "tutorial.guided.whip",
+      "done": [
+        {
+          "kind": "next"
+        }
+      ],
+      "anchor": "rail.congress",
+      "screen": "Congress"
+    },
+    {
+      "id": "unpause",
+      "chapter": "tutorial.chapter.start",
+      "text": "tutorial.guided.unpause",
+      "done": [
+        {
+          "kind": "next"
+        }
+      ],
+      "anchor": "top.speed"
+    }
+  ],
+  "hints": [
+    {
+      "id": "panel_overview",
+      "text": "tutorial.hint.panel_overview",
+      "trigger": "panel",
+      "arg": "Overview"
+    },
+    {
+      "id": "panel_economy",
+      "text": "tutorial.hint.panel_economy",
+      "trigger": "panel",
+      "arg": "Economy"
+    },
+    {
+      "id": "panel_congress",
+      "text": "tutorial.hint.panel_congress",
+      "trigger": "panel",
+      "arg": "Congress"
+    },
+    {
+      "id": "panel_factions",
+      "text": "tutorial.hint.panel_factions",
+      "trigger": "panel",
+      "arg": "Factions"
+    },
+    {
+      "id": "panel_public",
+      "text": "tutorial.hint.panel_public",
+      "trigger": "panel",
+      "arg": "Public"
+    },
+    {
+      "id": "panel_world",
+      "text": "tutorial.hint.panel_world",
+      "trigger": "panel",
+      "arg": "World"
+    },
+    {
+      "id": "panel_intel",
+      "text": "tutorial.hint.panel_intel",
+      "trigger": "panel",
+      "arg": "Intel"
+    },
+    {
+      "id": "panel_cabinet",
+      "text": "tutorial.hint.panel_cabinet",
+      "trigger": "panel",
+      "arg": "Cabinet"
+    },
+    {
+      "id": "panel_orders",
+      "text": "tutorial.hint.panel_orders",
+      "trigger": "panel",
+      "arg": "Orders"
+    },
+    {
+      "id": "panel_log",
+      "text": "tutorial.hint.panel_log",
+      "trigger": "panel",
+      "arg": "Log"
+    },
+    {
+      "id": "first_crisis",
+      "text": "tutorial.hint.first_crisis",
+      "trigger": "event",
+      "arg": "CrisisStage"
+    },
+    {
+      "id": "first_negotiation",
+      "text": "tutorial.hint.first_negotiation",
+      "trigger": "event",
+      "arg": "Diplomacy:event.diplomacy.session_opened"
+    },
+    {
+      "id": "first_court_case",
+      "text": "tutorial.hint.first_court_case",
+      "trigger": "event",
+      "arg": "EventFired:event.politics.case_filed"
+    },
+    {
+      "id": "bill_on_desk",
+      "text": "tutorial.hint.bill_on_desk",
+      "trigger": "event",
+      "arg": "EventFired:event.politics.bill_on_desk"
+    },
+    {
+      "id": "first_whip",
+      "text": "tutorial.hint.first_whip",
+      "trigger": "situation",
+      "arg": "whip_count",
+      "anchor": "congress.bills",
+      "screen": "Congress"
+    },
+    {
+      "id": "order_trouble",
+      "text": "tutorial.hint.order_trouble",
+      "trigger": "situation",
+      "arg": "order_trouble",
+      "anchor": "rail.orders",
+      "screen": "Orders"
+    },
+    {
+      "id": "order_moot",
+      "text": "tutorial.hint.order_moot",
+      "trigger": "situation",
+      "arg": "order_moot",
+      "anchor": "rail.orders",
+      "screen": "Orders",
+      "urgent": true
+    },
+    {
+      "id": "first_incident",
+      "text": "tutorial.hint.first_incident",
+      "trigger": "situation",
+      "arg": "incident",
+      "anchor": "rail.orders",
+      "screen": "Orders"
+    },
+    {
+      "id": "xdate_close",
+      "text": "tutorial.hint.xdate_close",
+      "trigger": "situation",
+      "arg": "xdate_close",
+      "anchor": "rail.congress",
+      "screen": "Congress",
+      "urgent": true
+    },
+    {
+      "id": "capital_low",
+      "text": "tutorial.hint.capital_low",
+      "trigger": "situation",
+      "arg": "capital_low",
+      "anchor": "top.capital"
+    },
+    {
+      "id": "approval_slide",
+      "text": "tutorial.hint.approval_slide",
+      "trigger": "situation",
+      "arg": "approval_slide",
+      "anchor": "rail.public",
+      "screen": "Public"
+    },
+    {
+      "id": "must_at_risk",
+      "text": "tutorial.hint.must_at_risk",
+      "trigger": "situation",
+      "arg": "must_at_risk",
+      "anchor": "objectives.goals",
+      "urgent": true
+    },
+    {
+      "id": "shutdown",
+      "text": "tutorial.hint.shutdown",
+      "trigger": "situation",
+      "arg": "shutdown",
+      "anchor": "rail.congress",
+      "screen": "Congress",
+      "urgent": true
+    }
+  ],
+  "panelHints": {
+    "Overview": [
+      "tutorial.panel.overview.1",
+      "tutorial.panel.overview.2",
+      "tutorial.panel.overview.3"
+    ],
+    "Economy": [
+      "tutorial.panel.economy.1",
+      "tutorial.panel.economy.2",
+      "tutorial.panel.economy.3"
+    ],
+    "Congress": [
+      "tutorial.panel.congress.1",
+      "tutorial.panel.congress.2",
+      "tutorial.panel.congress.3"
+    ],
+    "Factions": [
+      "tutorial.panel.factions.1",
+      "tutorial.panel.factions.2",
+      "tutorial.panel.factions.3"
+    ],
+    "Public": [
+      "tutorial.panel.public.1",
+      "tutorial.panel.public.2",
+      "tutorial.panel.public.3"
+    ],
+    "World": [
+      "tutorial.panel.world.1",
+      "tutorial.panel.world.2",
+      "tutorial.panel.world.3"
+    ],
+    "Intel": [
+      "tutorial.panel.intel.1",
+      "tutorial.panel.intel.2",
+      "tutorial.panel.intel.3"
+    ],
+    "Cabinet": [
+      "tutorial.panel.cabinet.1",
+      "tutorial.panel.cabinet.2"
+    ],
+    "Orders": [
+      "tutorial.panel.orders.1",
+      "tutorial.panel.orders.2",
+      "tutorial.panel.orders.3"
+    ],
+    "Log": [
+      "tutorial.panel.log.1",
+      "tutorial.panel.log.2"
+    ]
+  },
+  "glossary": [
+    {
+      "id": "x_date",
+      "term": "tutorial.term.x_date",
+      "definition": "tutorial.term.x_date.def"
+    },
+    {
+      "id": "debt_limit",
+      "term": "tutorial.term.debt_limit",
+      "definition": "tutorial.term.debt_limit.def"
+    },
+    {
+      "id": "extraordinary_measures",
+      "term": "tutorial.term.extraordinary_measures",
+      "definition": "tutorial.term.extraordinary_measures.def"
+    },
+    {
+      "id": "technical_default",
+      "term": "tutorial.term.technical_default",
+      "definition": "tutorial.term.technical_default.def"
+    },
+    {
+      "id": "political_capital",
+      "term": "tutorial.term.political_capital",
+      "definition": "tutorial.term.political_capital.def"
+    },
+    {
+      "id": "whip_count",
+      "term": "tutorial.term.whip_count",
+      "definition": "tutorial.term.whip_count.def"
+    },
+    {
+      "id": "cloture",
+      "term": "tutorial.term.cloture",
+      "definition": "tutorial.term.cloture.def"
+    },
+    {
+      "id": "approval",
+      "term": "tutorial.term.approval",
+      "definition": "tutorial.term.approval.def"
+    },
+    {
+      "id": "map_mode",
+      "term": "tutorial.term.map_mode",
+      "definition": "tutorial.term.map_mode.def"
+    },
+    {
+      "id": "perceived",
+      "term": "tutorial.term.perceived",
+      "definition": "tutorial.term.perceived.def"
+    }
+  ]
+}

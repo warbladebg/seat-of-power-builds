@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/diplomacy_profile.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "exportsPctGdp: exports outside the EU (goods and services), about 22% of GDP; WDI's aggregate counts trade between members."
+  },
+  "redLines": [
+    {
+      "term": "term.security_guarantee",
+      "side": "give",
+      "reasonKey": "redline.eu.security_guarantee"
+    }
+  ],
+  "pressures": [
+    {
+      "tag": "elite_split"
+    }
+  ],
+  "params": {
+    "holdingsControl": 0.05,
+    "exportsPctGdp": 22,
+    "militaryPower": 0.3
+  }
+}

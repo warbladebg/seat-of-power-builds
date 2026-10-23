@@ -1,0 +1,773 @@
+{
+  "$schema": "../schemas/considerations.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "considerations": [
+    {
+      "id": "consideration.politics.bill.aligned",
+      "input": "bill.alignment",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.5,
+        "steepness": 8
+      },
+      "weight": 4
+    },
+    {
+      "id": "consideration.politics.bill.misaligned",
+      "input": "bill.alignment",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.5,
+        "steepness": 8
+      },
+      "weight": 4
+    },
+    {
+      "id": "consideration.politics.bill.not_hated",
+      "input": "bill.alignment",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.3,
+        "steepness": 10
+      }
+    },
+    {
+      "id": "consideration.politics.bill.not_loved",
+      "input": "bill.alignment",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.7,
+        "steepness": 10
+      }
+    },
+    {
+      "id": "consideration.politics.bill.no_poison_pill",
+      "input": "bill.poison_pill",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.02
+      },
+      "weight": 2,
+      "default": 0
+    },
+    {
+      "id": "consideration.politics.bill.poison_pill",
+      "input": "bill.poison_pill",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4
+      },
+      "default": 0
+    },
+    {
+      "id": "consideration.politics.bill.sweetened",
+      "input": "bill.sweetened",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.75
+      },
+      "default": 0
+    },
+    {
+      "id": "consideration.politics.bill.not_sweetened",
+      "input": "bill.sweetened",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.05
+      },
+      "weight": 2,
+      "default": 0
+    },
+    {
+      "id": "consideration.politics.bill.must_pass",
+      "input": "bill.must_pass",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.7
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.politics.bill.not_urgent",
+      "input": "bill.must_pass",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.6
+      },
+      "default": 0
+    },
+    {
+      "id": "consideration.politics.deadline.calm",
+      "input": "deadline.missed",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.1
+      },
+      "weight": 5,
+      "default": 0,
+      "onlyWhenProvided": true
+    },
+    {
+      "id": "consideration.politics.markets.calm",
+      "input": "markets.stress",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.6,
+        "steepness": 8,
+        "min": 0.15
+      },
+      "weight": 3,
+      "default": 0,
+      "onlyWhenProvided": true
+    },
+    {
+      "id": "consideration.politics.leadership.not_own_bill",
+      "input": "bill.own_leadership",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3
+      },
+      "weight": 5,
+      "default": 0,
+      "onlyWhenProvided": true
+    },
+    {
+      "id": "consideration.politics.deadline.not_imminent",
+      "input": "deadline.urgency",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.85,
+        "steepness": 20,
+        "min": 0.2
+      },
+      "weight": 4,
+      "default": 0,
+      "onlyWhenProvided": true
+    },
+    {
+      "id": "consideration.politics.bill.fixable",
+      "input": "bill.worst_provision",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.politics.bill.majority_supports",
+      "input": "bill.majority_support",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.5,
+        "steepness": 8
+      },
+      "weight": 5
+    },
+    {
+      "id": "consideration.politics.bill.majority_opposes",
+      "input": "bill.majority_support",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.5,
+        "steepness": 8
+      },
+      "weight": 5
+    },
+    {
+      "id": "consideration.politics.bill.majority_lukewarm",
+      "input": "bill.majority_support",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.7,
+        "steepness": 10
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.politics.bill.leader_likes",
+      "input": "bill.alignment",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.5,
+        "steepness": 6
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.politics.bill.asked_often",
+      "input": "bill.attempts",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4
+      },
+      "default": 0
+    },
+    {
+      "id": "consideration.politics.whip.with",
+      "input": "whip.position",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.politics.whip.against",
+      "input": "whip.position",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.politics.member.favoured",
+      "input": "member.favoured",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.6
+      },
+      "default": 0
+    },
+    {
+      "id": "consideration.politics.member.not_favoured",
+      "input": "member.favoured",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.2
+      },
+      "default": 0
+    },
+    {
+      "id": "consideration.politics.leader.loyal",
+      "input": "actor.loyalty",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.politics.leader.disloyal",
+      "input": "actor.loyalty",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.politics.party.same",
+      "input": "actor.same_party",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.25
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.politics.party.other",
+      "input": "actor.same_party",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.25
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.politics.leader.popular",
+      "input": "leader.approval",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5
+      },
+      "weight": 0.5
+    },
+    {
+      "id": "consideration.politics.actor.obstructing",
+      "input": "actor.obstructing",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5
+      },
+      "default": 0
+    },
+    {
+      "id": "consideration.politics.actor.not_obstructing",
+      "input": "actor.obstructing",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.05
+      },
+      "default": 0
+    },
+    {
+      "id": "consideration.politics.actor.unhappy",
+      "input": "actor.support",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.35,
+        "steepness": 10
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.politics.actor.very_unhappy",
+      "input": "actor.support",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.25,
+        "steepness": 12
+      },
+      "weight": 3
+    },
+    {
+      "id": "consideration.politics.actor.content",
+      "input": "actor.support",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.3,
+        "steepness": 10
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.politics.actor.grudge",
+      "input": "actor.grudge",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3
+      },
+      "default": 0
+    },
+    {
+      "id": "consideration.politics.leverage.strong",
+      "input": "leverage.strength",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3
+      }
+    },
+    {
+      "id": "consideration.politics.trait.pragmatic",
+      "input": "trait.pragmatism",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3
+      }
+    },
+    {
+      "id": "consideration.politics.trait.flexible",
+      "input": "trait.ideologicalRigidity",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3
+      }
+    },
+    {
+      "id": "consideration.politics.trait.rigid",
+      "input": "trait.ideologicalRigidity",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4
+      }
+    },
+    {
+      "id": "consideration.politics.trait.cautious",
+      "input": "trait.riskTolerance",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.4
+      }
+    },
+    {
+      "id": "consideration.politics.trait.bold",
+      "input": "trait.riskTolerance",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3
+      }
+    },
+    {
+      "id": "consideration.politics.trait.patient",
+      "input": "trait.patience",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4
+      }
+    },
+    {
+      "id": "consideration.politics.trait.proud",
+      "input": "trait.pride",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3
+      }
+    },
+    {
+      "id": "consideration.politics.trait.public",
+      "input": "trait.publicOrientation",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4
+      }
+    },
+    {
+      "id": "consideration.politics.trait.honest",
+      "input": "trait.honesty",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4
+      }
+    },
+    {
+      "id": "consideration.politics.trait.dishonest",
+      "input": "trait.honesty",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.4
+      }
+    },
+    {
+      "id": "consideration.politics.trait.lawful",
+      "input": "trait.lawfulness",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4
+      }
+    },
+    {
+      "id": "consideration.politics.trait.hawkish",
+      "input": "trait.hawkishness",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3
+      }
+    },
+    {
+      "id": "consideration.politics.case.sound",
+      "input": "case.legal_merit",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.45,
+        "steepness": 8
+      },
+      "weight": 3,
+      "scaleByTrait": "lawfulness"
+    },
+    {
+      "id": "consideration.politics.case.unsound",
+      "input": "case.legal_merit",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.45,
+        "steepness": 8
+      },
+      "weight": 3,
+      "scaleByTrait": "lawfulness"
+    },
+    {
+      "id": "consideration.politics.case.middling_low",
+      "input": "case.legal_merit",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.25,
+        "steepness": 10
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.politics.case.middling_high",
+      "input": "case.legal_merit",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.7,
+        "steepness": 10
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.politics.case.friendly",
+      "input": "case.ideology",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.5,
+        "steepness": 6
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.politics.case.hostile",
+      "input": "case.ideology",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.5,
+        "steepness": 6
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.politics.case.mild",
+      "input": "case.norms",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.2
+      },
+      "weight": 1.5,
+      "scaleByTrait": "lawfulness"
+    },
+    {
+      "id": "consideration.politics.case.norm_breaking",
+      "input": "case.norms",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2
+      },
+      "weight": 1.5,
+      "scaleByTrait": "lawfulness"
+    },
+    {
+      "id": "consideration.politics.case.not_delayed",
+      "input": "case.delays",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.1
+      },
+      "weight": 2,
+      "default": 0
+    },
+    {
+      "id": "consideration.politics.court.deferent",
+      "input": "regime.judicial_independence",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.5
+      }
+    },
+    {
+      "id": "consideration.politics.court.independent",
+      "input": "regime.judicial_independence",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3
+      }
+    },
+    {
+      "id": "consideration.politics.media.friendly",
+      "input": "media.lean",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.5,
+        "steepness": 8
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.politics.media.hostile",
+      "input": "media.lean",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.5,
+        "steepness": 8
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.politics.media.centrist_low",
+      "input": "media.lean",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.25,
+        "steepness": 10
+      }
+    },
+    {
+      "id": "consideration.politics.media.centrist_high",
+      "input": "media.lean",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.75,
+        "steepness": 10
+      }
+    },
+    {
+      "id": "consideration.politics.story.minor",
+      "input": "story.gravity",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.2
+      }
+    },
+    {
+      "id": "consideration.politics.story.grave",
+      "input": "story.gravity",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3
+      }
+    },
+    {
+      "id": "consideration.politics.story.very_grave",
+      "input": "story.gravity",
+      "curve": {
+        "kind": "Quadratic",
+        "min": 0.1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.politics.primary.base_fine",
+      "input": "primary.base_approval",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.3,
+        "steepness": 10
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.politics.primary.base_low",
+      "input": "primary.base_approval",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.35,
+        "steepness": 10
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.politics.primary.base_very_low",
+      "input": "primary.base_approval",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.28,
+        "steepness": 12
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.politics.primary.long",
+      "input": "primary.weeks",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.politics.primary.not_floated",
+      "input": "primary.floated",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.05
+      },
+      "weight": 2,
+      "default": 0
+    },
+    {
+      "id": "consideration.politics.primary.floated",
+      "input": "primary.floated",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3
+      },
+      "default": 0
+    },
+    {
+      "id": "consideration.politics.favour.big",
+      "input": "favour.size",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.politics.favour.small",
+      "input": "favour.size",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.politics.coup.low_risk",
+      "input": "coup.risk",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.2
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.politics.coup.risky",
+      "input": "coup.risk",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.5,
+        "steepness": 8
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.politics.coup.very_risky",
+      "input": "coup.risk",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.7,
+        "steepness": 10
+      },
+      "weight": 3
+    },
+    {
+      "id": "consideration.politics.impeach.pressure",
+      "input": "politics.impeachment_pressure",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.5,
+        "steepness": 8
+      },
+      "weight": 2,
+      "scaleByTrait": "lawfulness"
+    },
+    {
+      "id": "consideration.politics.impeach.little_pressure",
+      "input": "politics.impeachment_pressure",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.5,
+        "steepness": 8
+      },
+      "weight": 2,
+      "scaleByTrait": "lawfulness"
+    },
+    {
+      "id": "consideration.politics.convict.pressure",
+      "input": "politics.impeachment_pressure",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.7,
+        "steepness": 8
+      },
+      "weight": 2,
+      "scaleByTrait": "lawfulness"
+    },
+    {
+      "id": "consideration.politics.convict.little_pressure",
+      "input": "politics.impeachment_pressure",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.7,
+        "steepness": 8
+      },
+      "weight": 2,
+      "scaleByTrait": "lawfulness"
+    }
+  ]
+}

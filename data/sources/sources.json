@@ -1,0 +1,248 @@
+{
+  "$schema": "../schemas/sources.schema.json",
+  "sources": [
+    {
+      "id": "src.worldbank_wdi",
+      "name": "World Bank World Development Indicators",
+      "url": "https://data.worldbank.org/",
+      "licence": "CC-BY-4.0",
+      "attribution": "World Bank, World Development Indicators. Licensed under CC BY 4.0.",
+      "retrievedDate": "2026-10-04",
+      "commercialOk": true
+    },
+    {
+      "id": "src.worldbank_pinksheet",
+      "name": "World Bank Commodity Price Data (The Pink Sheet)",
+      "url": "https://www.worldbank.org/en/research/commodity-markets",
+      "licence": "CC-BY-4.0",
+      "attribution": "World Bank, Commodity Price Data (The Pink Sheet). Licensed under CC BY 4.0.",
+      "retrievedDate": "2026-10-04",
+      "commercialOk": true
+    },
+    {
+      "id": "src.us_treasury_fiscaldata",
+      "name": "U.S. Treasury Fiscal Data (Daily and Monthly Treasury Statements, Debt to the Penny)",
+      "url": "https://fiscaldata.treasury.gov/",
+      "licence": "PD-USGov",
+      "attribution": "U.S. Department of the Treasury, Bureau of the Fiscal Service.",
+      "retrievedDate": "2026-10-04",
+      "commercialOk": true
+    },
+    {
+      "id": "src.us_treasury_tic",
+      "name": "Treasury International Capital (TIC) System, Major Foreign Holders",
+      "url": "https://ticdata.treasury.gov/",
+      "licence": "PD-USGov",
+      "attribution": "U.S. Department of the Treasury, Treasury International Capital System.",
+      "retrievedDate": "2026-10-04",
+      "commercialOk": true
+    },
+    {
+      "id": "src.us_bls",
+      "name": "U.S. Bureau of Labor Statistics (CPI, Current Population Survey)",
+      "url": "https://www.bls.gov/",
+      "licence": "PD-USGov",
+      "attribution": "U.S. Bureau of Labor Statistics.",
+      "retrievedDate": "2026-10-04",
+      "commercialOk": true
+    },
+    {
+      "id": "src.us_fed_h15",
+      "name": "Federal Reserve Statistical Release H.15, Selected Interest Rates",
+      "url": "https://www.federalreserve.gov/releases/h15/",
+      "licence": "PD-USGov",
+      "attribution": "Board of Governors of the Federal Reserve System, H.15.",
+      "retrievedDate": "2026-10-04",
+      "commercialOk": true
+    },
+    {
+      "id": "src.fomc",
+      "name": "Federal Open Market Committee statements (federal funds target range)",
+      "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+      "licence": "PD-USGov",
+      "attribution": "Board of Governors of the Federal Reserve System, FOMC statements.",
+      "retrievedDate": "2026-10-04",
+      "commercialOk": true
+    },
+    {
+      "id": "src.us_cbo",
+      "name": "Congressional Budget Office budget and economic projections",
+      "url": "https://www.cbo.gov/data",
+      "licence": "PD-USGov",
+      "attribution": "Congressional Budget Office. Values are rounded approximations used as game starting points.",
+      "retrievedDate": "2026-10-04",
+      "commercialOk": true
+    },
+    {
+      "id": "src.us_census_trade",
+      "name": "U.S. Census Bureau foreign trade statistics",
+      "url": "https://www.census.gov/foreign-trade/",
+      "licence": "PD-USGov",
+      "attribution": "U.S. Census Bureau, Foreign Trade Division. Shares are rounded approximations.",
+      "retrievedDate": "2026-10-04",
+      "commercialOk": true
+    },
+    {
+      "id": "src.us_house_clerk",
+      "name": "Office of the Clerk, U.S. House of Representatives (member data)",
+      "url": "https://clerk.house.gov/",
+      "licence": "PD-USGov",
+      "attribution": "Office of the Clerk, U.S. House of Representatives.",
+      "retrievedDate": "2026-10-04",
+      "commercialOk": true
+    },
+    {
+      "id": "src.unitedstates_legislators",
+      "name": "@unitedstates congress-legislators",
+      "url": "https://github.com/unitedstates/congress-legislators",
+      "licence": "CC0-1.0",
+      "attribution": "The @unitedstates project, congress-legislators (CC0).",
+      "retrievedDate": "2026-10-04",
+      "commercialOk": true
+    },
+    {
+      "id": "src.central_banks",
+      "name": "Central bank policy rate announcements",
+      "url": "https://www.bis.org/statistics/cbpol.htm",
+      "licence": "facts",
+      "attribution": "Policy rates as announced by the Bank of Japan, People's Bank of China, European Central Bank, Saudi Central Bank, Bank of England, Bank of Canada and Bank of Mexico (public facts; entered by hand).",
+      "retrievedDate": "2026-10-04",
+      "commercialOk": true
+    },
+    {
+      "id": "src.seatofpower_authored",
+      "name": "Seat of Power design estimates",
+      "url": "docs/agents/03-data-model-and-pipeline.md",
+      "licence": "proprietary",
+      "attribution": "Approximations and game-design assumptions by the Seat of Power authors, informed by public information.",
+      "retrievedDate": "2026-10-04",
+      "commercialOk": true
+    },
+    {
+      "id": "src.natural_earth",
+      "name": "Natural Earth (1:10m admin-1, land, lakes, populated places, roads, railroads and ports; 1:50m admin-0 countries)",
+      "url": "https://www.naturalearthdata.com/",
+      "licence": "PD",
+      "attribution": "Made with Natural Earth. Free vector and raster map data @ naturalearthdata.com.",
+      "retrievedDate": "2026-10-07",
+      "commercialOk": true
+    },
+    {
+      "id": "src.us_census_cartographic",
+      "name": "U.S. Census Bureau cartographic boundary files (states, 1:20m, 2024)",
+      "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html",
+      "licence": "PD-USGov",
+      "attribution": "U.S. Census Bureau, Cartographic Boundary Files.",
+      "retrievedDate": "2026-10-06",
+      "commercialOk": true
+    },
+    {
+      "id": "src.font_inter",
+      "name": "Inter typeface (UI font)",
+      "url": "https://github.com/rsms/inter",
+      "licence": "OFL-1.1",
+      "attribution": "Inter 4.1 (full character set incl. Cyrillic), copyright (c) 2016 The Inter Project Authors, SIL Open Font License 1.1 (godot/assets/fonts/Inter-LICENSE.txt).",
+      "retrievedDate": "2026-10-09",
+      "commercialOk": true
+    },
+    {
+      "id": "src.font_ibm_plex_mono",
+      "name": "IBM Plex Mono typeface (numbers)",
+      "url": "https://github.com/IBM/plex",
+      "licence": "OFL-1.1",
+      "attribution": "IBM Plex Mono 1.1.0 (complete set incl. Cyrillic), copyright 2017 IBM Corp., SIL Open Font License 1.1 (godot/assets/fonts/IBMPlex-LICENSE.txt).",
+      "retrievedDate": "2026-10-09",
+      "commercialOk": true
+    },
+    {
+      "id": "src.gebco_2024",
+      "name": "GEBCO 2024 Grid (elevation and bathymetry)",
+      "url": "https://www.gebco.net/data_and_products/gridded_bathymetry_data/",
+      "licence": "GEBCO terms of use (public domain, attribution requested)",
+      "attribution": "GEBCO Compilation Group (2024) GEBCO 2024 Grid (doi:10.5285/1c44ce99-0a0d-5f4f-e063-7086abc0ea0f).",
+      "retrievedDate": "2026-10-07",
+      "commercialOk": true
+    },
+    {
+      "id": "src.nasa_blue_marble",
+      "name": "NASA Blue Marble Next Generation (June 2004)",
+      "url": "https://visibleearth.nasa.gov/collection/1484/blue-marble",
+      "licence": "PD-USGov",
+      "attribution": "NASA Earth Observatory, Blue Marble: Next Generation (Reto Stöckli, NASA Earth Observatory).",
+      "retrievedDate": "2026-10-07",
+      "commercialOk": true
+    },
+    {
+      "id": "src.nasa_black_marble",
+      "name": "NASA Black Marble 2016 (night lights, greyscale, 3 km)",
+      "url": "https://science.nasa.gov/earth/earth-observatory/earth-at-night/",
+      "licence": "PD-USGov",
+      "attribution": "NASA Earth Observatory images by Joshua Stevens, using Suomi NPP VIIRS data from Miguel Román, NASA's Goddard Space Flight Center.",
+      "retrievedDate": "2026-10-07",
+      "commercialOk": true
+    },
+    {
+      "id": "src.cgls_lc100",
+      "name": "Copernicus Global Land Service Land Cover 100 m, collection 3, epoch 2019",
+      "url": "https://doi.org/10.5281/zenodo.3939050",
+      "licence": "CC-BY-4.0",
+      "attribution": "Buchhorn, M. et al. Copernicus Global Land Service: Land Cover 100m: collection 3: epoch 2019: Globe (Version V3.0.1). Zenodo, doi:10.5281/zenodo.3939050.",
+      "retrievedDate": "2026-10-07",
+      "commercialOk": true
+    },
+    {
+      "id": "src.ghsl_r2023a",
+      "name": "EU JRC Global Human Settlement Layer R2023A (built-up surface, built-up volume, population, 2020)",
+      "url": "https://human-settlement.emergency.copernicus.eu/",
+      "licence": "EC reuse policy (Decision 2011/833/EU): reuse authorised with acknowledgement",
+      "attribution": "European Commission, Joint Research Centre (JRC): GHS-BUILT-S, GHS-BUILT-V and GHS-POP R2023A, epoch 2020, 30 arc-seconds.",
+      "retrievedDate": "2026-10-07",
+      "commercialOk": true
+    },
+    {
+      "id": "src.bg_nsi",
+      "name": "National Statistical Institute of Bulgaria (debt and deficit notification, wages)",
+      "url": "https://www.nsi.bg/en",
+      "licence": "facts",
+      "attribution": "Bulgaria's general government debt and deficit (2025, April 2026 notification) and average wages, as published by the National Statistical Institute (public facts; entered by hand).",
+      "retrievedDate": "2026-10-09",
+      "commercialOk": true
+    },
+    {
+      "id": "src.eurostat",
+      "name": "Eurostat (government finance, trade)",
+      "url": "https://ec.europa.eu/eurostat",
+      "licence": "facts",
+      "attribution": "Government deficit and debt, imports and HICP weights as published by Eurostat (public facts; entered by hand; Eurostat allows reuse with acknowledgement).",
+      "retrievedDate": "2026-10-09",
+      "commercialOk": true
+    },
+    {
+      "id": "src.ecb",
+      "name": "European Central Bank key interest rates",
+      "url": "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.en.html",
+      "licence": "facts",
+      "attribution": "The ECB deposit facility rate (public fact; entered by hand).",
+      "retrievedDate": "2026-10-09",
+      "commercialOk": true
+    },
+    {
+      "id": "src.bg_minfin",
+      "name": "Bulgarian Ministry of Finance (government securities auctions)",
+      "url": "https://www.minfin.bg/en",
+      "licence": "facts",
+      "attribution": "Yield at the 12 May 2026 auction of 10-year government bonds (public fact; entered by hand).",
+      "retrievedDate": "2026-10-09",
+      "commercialOk": true
+    },
+    {
+      "id": "src.bg_cik",
+      "name": "Central Election Commission of Bulgaria (19 April 2026 results)",
+      "url": "https://www.cik.bg/en",
+      "licence": "facts",
+      "attribution": "Votes and seats per party in the 19 April 2026 National Assembly election (public facts; entered by hand).",
+      "retrievedDate": "2026-10-09",
+      "commercialOk": true
+    }
+  ]
+}

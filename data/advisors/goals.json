@@ -1,0 +1,286 @@
+{
+  "$schema": "../schemas/advisor_goals.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "goals": [
+    {
+      "goal": "goal.avoid_default",
+      "variables": [
+        {
+          "pattern": "econ.xdate_days@{country}",
+          "perUnit": 0.05
+        },
+        {
+          "pattern": "econ.default_risk@{country}",
+          "perUnit": -20
+        },
+        {
+          "pattern": "econ.market_stress@{country}",
+          "perUnit": -0.15
+        }
+      ],
+      "tags": {
+        "debt_limit_resolved": 8,
+        "brinkmanship": -3,
+        "escalation": -1
+      }
+    },
+    {
+      "goal": "goal.market_stability",
+      "variables": [
+        {
+          "pattern": "econ.market_stress@{country}",
+          "perUnit": -0.3
+        },
+        {
+          "pattern": "econ.stock_index@{country}",
+          "perUnit": 0.15
+        },
+        {
+          "pattern": "econ.yield_10y@{country}",
+          "perUnit": -3
+        },
+        {
+          "pattern": "econ.risk_premium@{country}",
+          "perUnit": -3
+        }
+      ],
+      "tags": {
+        "debt_limit_resolved": 4,
+        "escalation": -2,
+        "risky": -2
+      },
+      "powerCenters": {
+        "pc.usa.wall_street": 0.1
+      }
+    },
+    {
+      "goal": "goal.fiscal_restraint",
+      "variables": [
+        {
+          "pattern": "econ.deficit@{country}",
+          "perUnit": -0.01
+        },
+        {
+          "pattern": "econ.deficit_to_gdp@{country}",
+          "perUnit": -2
+        },
+        {
+          "pattern": "econ.debt_to_gdp@{country}",
+          "perUnit": -0.5
+        }
+      ],
+      "tags": {
+        "spending": -2,
+        "spending_cuts": 2,
+        "sweetener": -1
+      }
+    },
+    {
+      "goal": "goal.price_stability",
+      "variables": [
+        {
+          "pattern": "econ.inflation@{country}",
+          "perUnit": -4
+        },
+        {
+          "pattern": "econ.gas_price@{country}",
+          "perUnit": -2
+        },
+        {
+          "pattern": "world.oil_price",
+          "perUnit": -0.05
+        }
+      ]
+    },
+    {
+      "goal": "goal.growth",
+      "variables": [
+        {
+          "pattern": "econ.real_growth@{country}",
+          "perUnit": 2
+        },
+        {
+          "pattern": "econ.unemployment@{country}",
+          "perUnit": -3
+        },
+        {
+          "pattern": "econ.consumer_confidence@{country}",
+          "perUnit": 0.2
+        },
+        {
+          "pattern": "econ.business_confidence@{country}",
+          "perUnit": 0.2
+        },
+        {
+          "pattern": "econ.stock_index@{country}",
+          "perUnit": 0.05
+        },
+        {
+          "pattern": "econ.gap_shock@{country}",
+          "perUnit": 2
+        }
+      ],
+      "tags": {
+        "spending": 1,
+        "debt_limit_resolved": 3
+      },
+      "powerCenters": {
+        "pc.usa.business_lobby": 0.1
+      }
+    },
+    {
+      "goal": "goal.protect_jobs",
+      "variables": [
+        {
+          "pattern": "econ.unemployment@{country}",
+          "perUnit": -4
+        },
+        {
+          "pattern": "econ.real_growth@{country}",
+          "perUnit": 1
+        }
+      ],
+      "tags": {
+        "spending": 1,
+        "spending_cuts": -2
+      },
+      "powerCenters": {
+        "pc.usa.labor_unions": 0.1
+      }
+    },
+    {
+      "goal": "goal.protect_programs",
+      "variables": [
+        {
+          "pattern": "econ.spending_nondefense@{country}",
+          "perUnit": 0.01
+        }
+      ],
+      "tags": {
+        "spending": 2,
+        "spending_cuts": -3
+      }
+    },
+    {
+      "goal": "goal.keep_power",
+      "variables": [
+        {
+          "pattern": "politics.approval@{country}",
+          "perUnit": 1
+        },
+        {
+          "pattern": "politics.scandal@{country}",
+          "perUnit": -0.5
+        },
+        {
+          "pattern": "politics.impeachment_pressure@{country}",
+          "perUnit": -0.3
+        },
+        {
+          "pattern": "politics.leader_security@{country}",
+          "perUnit": 0.5
+        }
+      ],
+      "tags": {
+        "popular": 2,
+        "unpopular": -2
+      }
+    },
+    {
+      "goal": "goal.legislative_wins",
+      "variables": [
+        {
+          "pattern": "politics.approval@{country}",
+          "perUnit": 0.5
+        },
+        {
+          "pattern": "politics.projected_seat_change@{country}",
+          "perUnit": 0.3
+        }
+      ],
+      "tags": {
+        "debt_limit_resolved": 3,
+        "bipartisan": 2,
+        "policy_change": 1,
+        "brinkmanship": -1
+      }
+    },
+    {
+      "goal": "goal.good_press",
+      "variables": [
+        {
+          "pattern": "politics.scandal@{country}",
+          "perUnit": -1
+        },
+        {
+          "pattern": "politics.approval@{country}",
+          "perUnit": 0.6
+        },
+        {
+          "pattern": "politics.blame@{country}",
+          "perUnit": -0.5
+        }
+      ],
+      "tags": {
+        "popular": 2,
+        "unpopular": -2,
+        "escalation": -1,
+        "brinkmanship": -1
+      }
+    },
+    {
+      "goal": "goal.national_security",
+      "variables": [
+        {
+          "pattern": "diplo.threat@*>{country}",
+          "perUnit": -0.3
+        },
+        {
+          "pattern": "diplo.trust@*>{country}",
+          "perUnit": 0.05
+        }
+      ],
+      "tags": {
+        "alliance": 3,
+        "restraint": -1
+      },
+      "powerCenters": {
+        "pc.usa.military": 0.1,
+        "pc.usa.intelligence": 0.05
+      }
+    },
+    {
+      "goal": "goal.alliances",
+      "variables": [
+        {
+          "pattern": "diplo.trust@*>{country}",
+          "perUnit": 0.1
+        },
+        {
+          "pattern": "diplo.opinion@*>{country}",
+          "perUnit": 0.08
+        }
+      ],
+      "tags": {
+        "alliance": 3,
+        "escalation": -1
+      }
+    },
+    {
+      "goal": "goal.legacy",
+      "variables": [
+        {
+          "pattern": "politics.approval@{country}",
+          "perUnit": 0.4
+        }
+      ],
+      "tags": {
+        "bipartisan": 1
+      }
+    }
+  ]
+}

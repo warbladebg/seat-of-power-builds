@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/relations.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Starting opinion and trust are design estimates."
+  },
+  "relations": [
+    {
+      "target": "country.usa",
+      "opinion": 60,
+      "trust": 70
+    },
+    {
+      "target": "country.chn",
+      "opinion": -25,
+      "trust": 20
+    },
+    {
+      "target": "country.eu",
+      "opinion": 35,
+      "trust": 55
+    }
+  ]
+}

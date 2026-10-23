@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "diplomacy_profile.schema.json",
+  "title": "DiplomacyProfileDef",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    },
+    "redLines": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "term": {
+            "type": "string",
+            "pattern": "^term\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "side": {
+            "type": "string",
+            "default": "give",
+            "enum": [
+              "give",
+              "receive",
+              "any"
+            ]
+          },
+          "reasonKey": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "description": "Localisation key (data/localization/en)."
+          }
+        },
+        "required": [
+          "term"
+        ],
+        "additionalProperties": false
+      },
+      "default": null
+    },
+    "pressures": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "tag": {
+            "type": "string"
+          },
+          "from": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "default": null
+          },
+          "until": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "default": null
+          },
+          "when": {
+            "default": null
+          }
+        },
+        "required": [
+          "tag"
+        ],
+        "additionalProperties": false
+      },
+      "default": null
+    },
+    "params": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": "number"
+      },
+      "default": null
+    }
+  },
+  "additionalProperties": false
+}

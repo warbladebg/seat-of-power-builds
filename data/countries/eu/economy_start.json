@@ -1,0 +1,30 @@
+{
+  "$schema": "../../schemas/economy_start.schema.json",
+  "meta": {
+    "sources": [
+      "src.worldbank_wdi",
+      "src.central_banks",
+      "src.us_census_trade"
+    ],
+    "notes": "policyRate: central bank policy rate announced at the snapshot. tradePartners: approximate share of the country's exports going to the US (rounded)."
+  },
+  "gdp": {
+    "$ref": "generated:wdi.euu.gdp_usd_bn"
+  },
+  "realGrowth": {
+    "$ref": "generated:wdi.euu.real_growth"
+  },
+  "inflation": {
+    "$ref": "generated:wdi.euu.inflation"
+  },
+  "policyRate": 2.25,
+  "unemployment": {
+    "$ref": "generated:wdi.euu.unemployment"
+  },
+  "exportsPctGdp": {
+    "$ref": "generated:wdi.euu.exports_pct_gdp"
+  },
+  "tradePartners": {
+    "country.usa": 0.19
+  }
+}

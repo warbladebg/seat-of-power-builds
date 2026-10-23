@@ -1,0 +1,167 @@
+{
+  "$schema": "../schemas/considerations.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "considerations": [
+    {
+      "id": "consideration.leadership.urgent",
+      "input": "deadline.urgency",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.75,
+        "steepness": 10
+      },
+      "weight": 3,
+      "default": 0
+    },
+    {
+      "id": "consideration.leadership.pressing",
+      "input": "deadline.urgency",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.5,
+        "steepness": 8
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.leadership.not_urgent",
+      "input": "deadline.urgency",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.6,
+        "steepness": 8
+      },
+      "weight": 2,
+      "default": 0
+    },
+    {
+      "id": "consideration.leadership.missed",
+      "input": "deadline.missed",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2
+      },
+      "weight": 3,
+      "default": 0
+    },
+    {
+      "id": "consideration.leadership.markets_rattled",
+      "input": "markets.stress",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.5,
+        "steepness": 8
+      },
+      "weight": 2,
+      "default": 0
+    },
+    {
+      "id": "consideration.leadership.deal_whipped",
+      "input": "deal.whipped",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3
+      },
+      "weight": 2,
+      "default": 0
+    },
+    {
+      "id": "consideration.leadership.blamed",
+      "input": "blame.on_us",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2
+      },
+      "weight": 2,
+      "default": 0
+    },
+    {
+      "id": "consideration.leadership.player_pending",
+      "input": "bill.player_pending",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3
+      },
+      "default": 0
+    },
+    {
+      "id": "consideration.leadership.calm",
+      "input": "deadline.missed",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.1
+      },
+      "weight": 3,
+      "default": 0
+    },
+    {
+      "id": "consideration.leadership.cheap_to_wait",
+      "input": "leadership.cost_of_waiting",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.1
+      },
+      "weight": 3,
+      "default": 0
+    },
+    {
+      "id": "consideration.leadership.not_imminent",
+      "input": "deadline.urgency",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.78,
+        "steepness": 18,
+        "min": 0.15
+      },
+      "weight": 4,
+      "default": 0
+    },
+    {
+      "id": "consideration.leadership.terms_good",
+      "input": "bill.leader_alignment",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.5,
+        "steepness": 10
+      },
+      "weight": 4
+    },
+    {
+      "id": "consideration.leadership.terms_poor",
+      "input": "bill.leader_alignment",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.5,
+        "steepness": 10
+      },
+      "weight": 4
+    },
+    {
+      "id": "consideration.leadership.talks_on",
+      "input": "deal.whipped",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.leadership.early",
+      "input": "deadline.urgency",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.45,
+        "steepness": 8,
+        "min": 0.3
+      },
+      "weight": 2,
+      "default": 0
+    }
+  ]
+}

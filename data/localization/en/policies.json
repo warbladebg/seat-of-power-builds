@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/localization.schema.json",
+  "strings": {
+    "policy.infrastructure_package.description": "Roads, grids and broadband. Slow to build, lasting gains.",
+    "policy.infrastructure_package.name": "Infrastructure package",
+    "policy.level.large": "Large",
+    "policy.level.mild": "Mild",
+    "policy.level.small": "Small",
+    "policy.level.strict": "Strict",
+    "policy.usa.gas_tax_holiday.description": "Suspend the federal fuel tax. Popular, costly, small.",
+    "policy.usa.gas_tax_holiday.name": "Federal gas tax holiday",
+    "policy.usa.spending_caps.description": "Statutory limits on non-defence appropriations.",
+    "policy.usa.spending_caps.name": "Discretionary spending caps",
+    "policy.usa.spr_release.description": "Sell crude from the reserve to push down pump prices for a few months.",
+    "policy.usa.spr_release.name": "Strategic Petroleum Reserve release",
+    "var.politics.political_capital.name": "Political capital"
+  }
+}

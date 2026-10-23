@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "treaties.schema.json",
+  "title": "TreatiesFile",
+  "type": "object",
+  "properties": {
+    "treaties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^treaty\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "alliance",
+              "trade_agreement",
+              "energy_contract",
+              "security_partnership",
+              "swap_line",
+              "joint_statement",
+              "deal"
+            ]
+          },
+          "parties": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+            }
+          },
+          "since": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "default": null
+          },
+          "brokenIf": {
+            "default": null
+          },
+          "terms": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "term": {
+                  "type": "string",
+                  "pattern": "^term\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+                },
+                "from": {
+                  "type": "string",
+                  "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+                },
+                "to": {
+                  "type": "string",
+                  "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+                },
+                "size": {
+                  "type": "number",
+                  "default": 1,
+                  "minimum": 0.1,
+                  "maximum": 3
+                }
+              },
+              "required": [
+                "term",
+                "from",
+                "to"
+              ],
+              "additionalProperties": false
+            },
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "nameKey",
+          "kind",
+          "parties"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "treaties"
+  ],
+  "additionalProperties": false
+}

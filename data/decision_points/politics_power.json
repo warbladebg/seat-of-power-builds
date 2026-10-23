@@ -1,0 +1,428 @@
+{
+  "$schema": "../schemas/decision_points.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "decisionPoints": [
+    {
+      "id": "dp.pc_leverage",
+      "actor": "power_center",
+      "kind": "Choice",
+      "options": [
+        {
+          "id": "none",
+          "description": "Do nothing for now."
+        },
+        {
+          "id": "public_criticism",
+          "description": "Criticise the leader in public.",
+          "weight": 0.8
+        },
+        {
+          "id": "obstruct_bill",
+          "description": "Obstruct the leader's bills for a while.",
+          "weight": 0.6
+        },
+        {
+          "id": "leak",
+          "description": "Leak damaging information.",
+          "weight": 0.4
+        },
+        {
+          "id": "fund_rival",
+          "description": "Fund the leader's rivals.",
+          "weight": 0.3
+        },
+        {
+          "id": "court_challenge",
+          "description": "Take an executive action to court.",
+          "weight": 0.4
+        },
+        {
+          "id": "primary_challenge",
+          "description": "Back a primary challenge.",
+          "weight": 0.2
+        },
+        {
+          "id": "media_campaign",
+          "description": "Run a media campaign against the leader.",
+          "weight": 0.6
+        },
+        {
+          "id": "capital_flight",
+          "description": "Move money out of the country.",
+          "weight": 0.3
+        },
+        {
+          "id": "slow_walk_implementation",
+          "description": "Slow-walk the leader's policies.",
+          "weight": 0.4
+        },
+        {
+          "id": "refuse_orders",
+          "description": "Let it be known that orders may be refused.",
+          "weight": 0.1
+        },
+        {
+          "id": "coup_plot",
+          "description": "Start plotting.",
+          "weight": 0.05
+        },
+        {
+          "id": "rate_pressure",
+          "description": "Push back on rate policy in public.",
+          "weight": 0.3
+        },
+        {
+          "id": "strike",
+          "description": "Call a strike.",
+          "weight": 0.4
+        }
+      ],
+      "deliberationDays": 3,
+      "considerations": [
+        {
+          "use": "consideration.politics.actor.content",
+          "option": "none"
+        },
+        {
+          "use": "consideration.politics.trait.cautious",
+          "option": "none"
+        },
+        {
+          "use": "consideration.politics.trait.patient",
+          "option": "none"
+        },
+        {
+          "use": "consideration.politics.actor.unhappy",
+          "option": "public_criticism"
+        },
+        {
+          "use": "consideration.politics.actor.unhappy",
+          "option": "obstruct_bill"
+        },
+        {
+          "use": "consideration.politics.actor.unhappy",
+          "option": "leak"
+        },
+        {
+          "use": "consideration.politics.actor.unhappy",
+          "option": "fund_rival"
+        },
+        {
+          "use": "consideration.politics.actor.unhappy",
+          "option": "court_challenge"
+        },
+        {
+          "use": "consideration.politics.actor.unhappy",
+          "option": "media_campaign"
+        },
+        {
+          "use": "consideration.politics.actor.unhappy",
+          "option": "capital_flight"
+        },
+        {
+          "use": "consideration.politics.actor.unhappy",
+          "option": "slow_walk_implementation"
+        },
+        {
+          "use": "consideration.politics.actor.unhappy",
+          "option": "rate_pressure"
+        },
+        {
+          "use": "consideration.politics.actor.unhappy",
+          "option": "strike"
+        },
+        {
+          "use": "consideration.politics.trait.proud",
+          "option": "public_criticism"
+        },
+        {
+          "use": "consideration.politics.trait.public",
+          "option": "public_criticism"
+        },
+        {
+          "use": "consideration.politics.actor.grudge",
+          "option": "obstruct_bill"
+        },
+        {
+          "use": "consideration.politics.trait.rigid",
+          "option": "obstruct_bill"
+        },
+        {
+          "use": "consideration.politics.trait.dishonest",
+          "option": "leak"
+        },
+        {
+          "use": "consideration.politics.actor.grudge",
+          "option": "leak"
+        },
+        {
+          "use": "consideration.politics.leverage.strong",
+          "option": "fund_rival"
+        },
+        {
+          "use": "consideration.politics.actor.grudge",
+          "option": "fund_rival"
+        },
+        {
+          "use": "consideration.politics.trait.lawful",
+          "option": "court_challenge"
+        },
+        {
+          "use": "consideration.politics.actor.very_unhappy",
+          "option": "primary_challenge"
+        },
+        {
+          "use": "consideration.politics.trait.bold",
+          "option": "primary_challenge"
+        },
+        {
+          "use": "consideration.politics.actor.grudge",
+          "option": "primary_challenge"
+        },
+        {
+          "use": "consideration.politics.trait.public",
+          "option": "media_campaign"
+        },
+        {
+          "use": "consideration.politics.trait.cautious",
+          "option": "capital_flight"
+        },
+        {
+          "use": "consideration.politics.trait.patient",
+          "option": "slow_walk_implementation"
+        },
+        {
+          "use": "consideration.politics.actor.very_unhappy",
+          "option": "refuse_orders"
+        },
+        {
+          "use": "consideration.politics.trait.lawful",
+          "option": "refuse_orders"
+        },
+        {
+          "use": "consideration.politics.actor.very_unhappy",
+          "option": "coup_plot"
+        },
+        {
+          "use": "consideration.politics.trait.bold",
+          "option": "coup_plot"
+        },
+        {
+          "use": "consideration.politics.trait.hawkish",
+          "option": "coup_plot"
+        },
+        {
+          "use": "consideration.politics.trait.public",
+          "option": "strike"
+        }
+      ],
+      "temperature": 0.7
+    },
+    {
+      "id": "dp.respond_to_favour",
+      "actor": "power_center",
+      "kind": "Choice",
+      "options": [
+        {
+          "id": "accept",
+          "description": "Accept the favour."
+        },
+        {
+          "id": "reject",
+          "description": "Turn it down.",
+          "weight": 0.4
+        },
+        {
+          "id": "ask_more",
+          "description": "Ask for more.",
+          "weight": 0.5
+        }
+      ],
+      "deliberationDays": 2,
+      "considerations": [
+        {
+          "use": "consideration.politics.favour.big",
+          "option": "accept"
+        },
+        {
+          "use": "consideration.politics.leader.loyal",
+          "option": "accept",
+          "weight": 1
+        },
+        {
+          "use": "consideration.politics.party.same",
+          "option": "accept",
+          "weight": 1
+        },
+        {
+          "use": "consideration.politics.trait.pragmatic",
+          "option": "accept"
+        },
+        {
+          "use": "consideration.politics.leader.disloyal",
+          "option": "reject"
+        },
+        {
+          "use": "consideration.politics.actor.grudge",
+          "option": "reject"
+        },
+        {
+          "use": "consideration.politics.trait.proud",
+          "option": "reject"
+        },
+        {
+          "use": "consideration.politics.favour.small",
+          "option": "reject",
+          "weight": 1
+        },
+        {
+          "use": "consideration.politics.favour.small",
+          "option": "ask_more"
+        },
+        {
+          "use": "consideration.politics.trait.proud",
+          "option": "ask_more"
+        },
+        {
+          "use": "consideration.politics.trait.pragmatic",
+          "option": "ask_more",
+          "weight": 0.5
+        }
+      ],
+      "temperature": 0.8
+    },
+    {
+      "id": "dp.primary_challenge",
+      "actor": "power_center",
+      "kind": "Choice",
+      "options": [
+        {
+          "id": "none",
+          "description": "Stay behind the leader."
+        },
+        {
+          "id": "float_challenger",
+          "description": "Float a primary challenger.",
+          "weight": 0.6
+        },
+        {
+          "id": "launch_challenger",
+          "description": "Launch a primary challenge.",
+          "weight": 0.4
+        }
+      ],
+      "deliberationDays": 7,
+      "considerations": [
+        {
+          "use": "consideration.politics.primary.base_fine",
+          "option": "none"
+        },
+        {
+          "use": "consideration.politics.leader.loyal",
+          "option": "none"
+        },
+        {
+          "use": "consideration.politics.trait.cautious",
+          "option": "none"
+        },
+        {
+          "use": "consideration.politics.primary.base_low",
+          "option": "float_challenger"
+        },
+        {
+          "use": "consideration.politics.primary.long",
+          "option": "float_challenger",
+          "weight": 1
+        },
+        {
+          "use": "consideration.politics.primary.not_floated",
+          "option": "float_challenger"
+        },
+        {
+          "use": "consideration.politics.primary.base_very_low",
+          "option": "launch_challenger"
+        },
+        {
+          "use": "consideration.politics.primary.long",
+          "option": "launch_challenger"
+        },
+        {
+          "use": "consideration.politics.primary.floated",
+          "option": "launch_challenger"
+        },
+        {
+          "use": "consideration.politics.trait.bold",
+          "option": "launch_challenger"
+        },
+        {
+          "use": "consideration.politics.leader.disloyal",
+          "option": "launch_challenger",
+          "weight": 1
+        }
+      ],
+      "temperature": 0.8
+    },
+    {
+      "id": "dp.coup_attempt",
+      "actor": "military",
+      "kind": "Choice",
+      "options": [
+        {
+          "id": "stay_loyal",
+          "description": "Stay loyal."
+        },
+        {
+          "id": "plot",
+          "description": "Plot quietly.",
+          "weight": 0.5
+        },
+        {
+          "id": "coup",
+          "description": "Move against the leader.",
+          "weight": 0.3
+        }
+      ],
+      "deliberationDays": 5,
+      "considerations": [
+        {
+          "use": "consideration.politics.coup.low_risk",
+          "option": "stay_loyal"
+        },
+        {
+          "use": "consideration.politics.leader.loyal",
+          "option": "stay_loyal",
+          "weight": 1
+        },
+        {
+          "use": "consideration.politics.trait.lawful",
+          "option": "stay_loyal"
+        },
+        {
+          "use": "consideration.politics.coup.risky",
+          "option": "plot"
+        },
+        {
+          "use": "consideration.politics.trait.patient",
+          "option": "plot"
+        },
+        {
+          "use": "consideration.politics.coup.very_risky",
+          "option": "coup"
+        },
+        {
+          "use": "consideration.politics.trait.bold",
+          "option": "coup"
+        },
+        {
+          "use": "consideration.politics.trait.hawkish",
+          "option": "coup"
+        }
+      ],
+      "temperature": 0.7
+    }
+  ]
+}

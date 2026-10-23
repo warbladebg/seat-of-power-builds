@@ -1,0 +1,25 @@
+{
+  "cue": "time.resume",
+  "round": "p",
+  "option": 1,
+  "family": "Placeholder",
+  "label": "plain placeholder until a round picks this cue",
+  "seed": 1,
+  "tail": 0.03,
+  "loudness": -29,
+  "layers": [
+    {
+      "type": "tone",
+      "wave": "sine",
+      "freq": 400,
+      "at": 0.0,
+      "env": {
+        "a": 0.002,
+        "d": 0.08
+      },
+      "gain": 0.0,
+      "freqEnd": 600,
+      "glide": 0.05
+    }
+  ]
+}

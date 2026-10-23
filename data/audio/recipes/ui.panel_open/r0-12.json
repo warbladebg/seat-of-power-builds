@@ -1,0 +1,54 @@
+{
+  "cue": "ui.panel_open",
+  "round": "r0",
+  "option": 12,
+  "family": "F. Soft synth",
+  "label": "warm pad note, opening up",
+  "seed": 12,
+  "loudness": -23,
+  "tail": 0.03,
+  "layers": [
+    {
+      "type": "tone",
+      "wave": "saw",
+      "freq": 220,
+      "detune": 9,
+      "env": {
+        "a": 0.1,
+        "ac": 1.5,
+        "d": 0.55
+      },
+      "filter": {
+        "type": "lowpass",
+        "freq": 380,
+        "freqEnd": 1500,
+        "sweep": 0.18,
+        "q": 1.1
+      }
+    },
+    {
+      "type": "tone",
+      "wave": "saw",
+      "freq": 330,
+      "detune": 7,
+      "env": {
+        "a": 0.1,
+        "ac": 1.5,
+        "d": 0.5
+      },
+      "filter": {
+        "type": "lowpass",
+        "freq": 380,
+        "freqEnd": 1500,
+        "sweep": 0.18,
+        "q": 1.1
+      },
+      "gain": -6
+    }
+  ],
+  "room": {
+    "size": 1.0,
+    "mix": 0.2,
+    "damp": 3500
+  }
+}

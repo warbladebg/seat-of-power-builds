@@ -1,0 +1,1081 @@
+{
+  "$schema": "../schemas/agendas.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "agendas": [
+    {
+      "id": "agenda.impeachment_push",
+      "nameKey": "agenda.impeachment_push.name",
+      "actors": [
+        "Legislator",
+        "Bloc"
+      ],
+      "stance": "hostile",
+      "start": {
+        "party": "opposition",
+        "maxLoyalty": 0.4,
+        "when": {
+          "var": "politics.impeachment_pressure@{country}",
+          "op": ">=",
+          "value": 30
+        }
+      },
+      "steps": [
+        {
+          "id": "build_case",
+          "textKey": "agenda.impeachment_push.build_case",
+          "delayDays": 7,
+          "cost": 0.2,
+          "consequences": [
+            {
+              "kind": "Hearing",
+              "amount": 2
+            }
+          ]
+        },
+        {
+          "id": "draft_articles",
+          "textKey": "agenda.impeachment_push.draft_articles",
+          "delayDays": 14,
+          "cost": 0.35,
+          "consequences": [
+            {
+              "kind": "Pressure",
+              "amount": 4
+            },
+            {
+              "kind": "Scandal",
+              "amount": 2
+            }
+          ],
+          "cascade": true,
+          "severity": "Moderate"
+        },
+        {
+          "id": "whip_votes",
+          "textKey": "agenda.impeachment_push.whip_votes",
+          "delayDays": 14,
+          "cost": 0.4,
+          "consequences": [
+            {
+              "kind": "Pressure",
+              "amount": 6
+            }
+          ]
+        },
+        {
+          "id": "floor_push",
+          "textKey": "agenda.impeachment_push.floor_push",
+          "delayDays": 10,
+          "cost": 0.5,
+          "consequences": [
+            {
+              "kind": "Pressure",
+              "amount": 8
+            }
+          ],
+          "cascade": true,
+          "severity": "Serious"
+        }
+      ],
+      "abort": {
+        "var": "politics.impeachment_pressure@{country}",
+        "op": "<",
+        "value": 10
+      },
+      "maxRunning": 1
+    },
+    {
+      "id": "agenda.leak_campaign",
+      "nameKey": "agenda.leak_campaign.name",
+      "actors": [
+        "Official",
+        "Security",
+        "Career",
+        "Military"
+      ],
+      "stance": "hostile",
+      "start": {
+        "afterReaction": "reaction.memo_for_the_record",
+        "weekly": false
+      },
+      "steps": [
+        {
+          "id": "first_leak",
+          "textKey": "agenda.leak_campaign.first_leak",
+          "delayDays": 10,
+          "cost": 0.35,
+          "consequences": [
+            {
+              "kind": "Scandal",
+              "amount": 2
+            },
+            {
+              "kind": "Media",
+              "amount": 0.4
+            }
+          ],
+          "cascade": true,
+          "severity": "Moderate"
+        },
+        {
+          "id": "second_leak",
+          "textKey": "agenda.leak_campaign.second_leak",
+          "delayDays": 14,
+          "cost": 0.4,
+          "consequences": [
+            {
+              "kind": "Scandal",
+              "amount": 3
+            },
+            {
+              "kind": "Pressure",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "id": "on_record",
+          "textKey": "agenda.leak_campaign.on_record",
+          "delayDays": 21,
+          "cost": 0.6,
+          "consequences": [
+            {
+              "kind": "Scandal",
+              "amount": 3
+            },
+            {
+              "kind": "Approval",
+              "amount": -1
+            },
+            {
+              "kind": "Pressure",
+              "amount": 2
+            }
+          ],
+          "cascade": true,
+          "severity": "Serious"
+        }
+      ]
+    },
+    {
+      "id": "agenda.obstruction",
+      "nameKey": "agenda.obstruction.name",
+      "actors": [
+        "Bloc"
+      ],
+      "stance": "hostile",
+      "start": {
+        "party": "opposition",
+        "maxLoyalty": 0.3,
+        "minGrievance": 0.1
+      },
+      "steps": [
+        {
+          "id": "slow_calendar",
+          "textKey": "agenda.obstruction.slow_calendar",
+          "delayDays": 7,
+          "cost": 0.15,
+          "consequences": [
+            {
+              "kind": "Obstruct",
+              "days": 30
+            }
+          ]
+        },
+        {
+          "id": "block_nominees",
+          "textKey": "agenda.obstruction.block_nominees",
+          "delayDays": 21,
+          "cost": 0.2,
+          "consequences": [
+            {
+              "kind": "Obstruct",
+              "days": 30
+            },
+            {
+              "kind": "Flag",
+              "id": "politics.{country}.nominees_blocked"
+            }
+          ]
+        },
+        {
+          "id": "brinkmanship",
+          "textKey": "agenda.obstruction.brinkmanship",
+          "delayDays": 21,
+          "cost": 0.35,
+          "consequences": [
+            {
+              "kind": "Obstruct",
+              "days": 45
+            },
+            {
+              "kind": "MarketStress",
+              "amount": 0.5
+            }
+          ],
+          "cascade": true,
+          "severity": "Moderate"
+        }
+      ]
+    },
+    {
+      "id": "agenda.whistleblower",
+      "nameKey": "agenda.whistleblower.name",
+      "actors": [
+        "Official",
+        "Security",
+        "Career",
+        "Military"
+      ],
+      "stance": "hostile",
+      "start": {
+        "afterReaction": "reaction.blow_the_whistle",
+        "weekly": false
+      },
+      "steps": [
+        {
+          "id": "ig_complaint",
+          "textKey": "agenda.whistleblower.ig_complaint",
+          "delayDays": 3,
+          "cost": 0.3,
+          "consequences": [
+            {
+              "kind": "Flag",
+              "id": "justice.{country}.ig_complaint.{actor}"
+            }
+          ]
+        },
+        {
+          "id": "congress_briefed",
+          "textKey": "agenda.whistleblower.congress_briefed",
+          "delayDays": 14,
+          "cost": 0.4,
+          "consequences": [
+            {
+              "kind": "Hearing",
+              "amount": 2
+            },
+            {
+              "kind": "Pressure",
+              "amount": 1.5
+            }
+          ]
+        },
+        {
+          "id": "testifies",
+          "textKey": "agenda.whistleblower.testifies",
+          "delayDays": 21,
+          "cost": 0.6,
+          "consequences": [
+            {
+              "kind": "Scandal",
+              "amount": 4
+            },
+            {
+              "kind": "Pressure",
+              "amount": 3
+            },
+            {
+              "kind": "Approval",
+              "amount": -1
+            }
+          ],
+          "cascade": true,
+          "severity": "Serious"
+        }
+      ]
+    },
+    {
+      "id": "agenda.donor_revolt",
+      "nameKey": "agenda.donor_revolt.name",
+      "actors": [
+        "Business"
+      ],
+      "stance": "hostile",
+      "start": {
+        "maxLoyalty": 0.35,
+        "minGrievance": 0.2
+      },
+      "steps": [
+        {
+          "id": "private_warning",
+          "textKey": "agenda.donor_revolt.private_warning",
+          "delayDays": 7,
+          "cost": 0.1,
+          "consequences": [
+            {
+              "kind": "Loyalty",
+              "amount": -2
+            }
+          ]
+        },
+        {
+          "id": "withhold",
+          "textKey": "agenda.donor_revolt.withhold",
+          "delayDays": 21,
+          "cost": 0.25,
+          "consequences": [
+            {
+              "kind": "PartyRift",
+              "amount": -3
+            },
+            {
+              "kind": "Flag",
+              "id": "politics.{country}.donors_withholding.{actor}"
+            }
+          ]
+        },
+        {
+          "id": "fund_opponents",
+          "textKey": "agenda.donor_revolt.fund_opponents",
+          "delayDays": 30,
+          "cost": 0.4,
+          "consequences": [
+            {
+              "kind": "PartyRift",
+              "amount": -4
+            },
+            {
+              "kind": "Flag",
+              "id": "politics.{country}.donors_funding_opposition"
+            }
+          ],
+          "cascade": true,
+          "severity": "Minor"
+        }
+      ]
+    },
+    {
+      "id": "agenda.media_crusade",
+      "nameKey": "agenda.media_crusade.name",
+      "actors": [
+        "Media"
+      ],
+      "stance": "hostile",
+      "start": {
+        "maxLoyalty": 0.3,
+        "minGrievance": 0.15
+      },
+      "steps": [
+        {
+          "id": "series",
+          "textKey": "agenda.media_crusade.series",
+          "delayDays": 7,
+          "cost": 0.15,
+          "consequences": [
+            {
+              "kind": "Scandal",
+              "amount": 3
+            }
+          ],
+          "cascade": true,
+          "severity": "Moderate"
+        },
+        {
+          "id": "records_fight",
+          "textKey": "agenda.media_crusade.records_fight",
+          "delayDays": 21,
+          "cost": 0.2,
+          "consequences": [
+            {
+              "kind": "Scandal",
+              "amount": 2
+            }
+          ]
+        },
+        {
+          "id": "resignation_editorial",
+          "textKey": "agenda.media_crusade.resignation_editorial",
+          "delayDays": 21,
+          "cost": 0.3,
+          "consequences": [
+            {
+              "kind": "Approval",
+              "amount": -1
+            },
+            {
+              "kind": "Pressure",
+              "amount": 1.5
+            }
+          ],
+          "cascade": true,
+          "severity": "Moderate"
+        }
+      ]
+    },
+    {
+      "id": "agenda.party_revolt",
+      "nameKey": "agenda.party_revolt.name",
+      "actors": [
+        "Legislator",
+        "Bloc",
+        "Party"
+      ],
+      "stance": "hostile",
+      "start": {
+        "party": "same",
+        "maxLoyalty": 0.3,
+        "when": {
+          "var": "politics.approval@{country}",
+          "op": "<",
+          "value": 40
+        }
+      },
+      "steps": [
+        {
+          "id": "grumbling",
+          "textKey": "agenda.party_revolt.grumbling",
+          "delayDays": 7,
+          "cost": 0.15,
+          "consequences": [
+            {
+              "kind": "PartyRift",
+              "amount": -2
+            }
+          ]
+        },
+        {
+          "id": "public_break",
+          "textKey": "agenda.party_revolt.public_break",
+          "delayDays": 21,
+          "cost": 0.4,
+          "consequences": [
+            {
+              "kind": "PartyRift",
+              "amount": -4
+            },
+            {
+              "kind": "Approval",
+              "amount": -1
+            }
+          ],
+          "cascade": true,
+          "severity": "Moderate"
+        },
+        {
+          "id": "step_aside",
+          "textKey": "agenda.party_revolt.step_aside",
+          "delayDays": 30,
+          "cost": 0.6,
+          "consequences": [
+            {
+              "kind": "PartyRift",
+              "amount": -6
+            },
+            {
+              "kind": "Pressure",
+              "amount": 2
+            }
+          ],
+          "cascade": true,
+          "severity": "Serious"
+        }
+      ],
+      "abort": {
+        "var": "politics.approval@{country}",
+        "op": ">",
+        "value": 50
+      },
+      "maxRunning": 1
+    },
+    {
+      "id": "agenda.investigation",
+      "nameKey": "agenda.investigation.name",
+      "actors": [
+        "Bloc"
+      ],
+      "stance": "hostile",
+      "start": {
+        "party": "opposition",
+        "maxLoyalty": 0.45,
+        "when": {
+          "flag": "politics.{country}.hearings"
+        }
+      },
+      "steps": [
+        {
+          "id": "document_requests",
+          "textKey": "agenda.investigation.document_requests",
+          "delayDays": 7,
+          "cost": 0.1,
+          "consequences": [
+            {
+              "kind": "Hearing",
+              "amount": 2
+            }
+          ]
+        },
+        {
+          "id": "subpoenas",
+          "textKey": "agenda.investigation.subpoenas",
+          "delayDays": 21,
+          "cost": 0.25,
+          "consequences": [
+            {
+              "kind": "Hearing",
+              "amount": 3
+            },
+            {
+              "kind": "Pressure",
+              "amount": 1.5
+            }
+          ],
+          "cascade": true,
+          "severity": "Moderate"
+        },
+        {
+          "id": "contempt",
+          "textKey": "agenda.investigation.contempt",
+          "delayDays": 30,
+          "cost": 0.35,
+          "consequences": [
+            {
+              "kind": "Pressure",
+              "amount": 3
+            },
+            {
+              "kind": "Scandal",
+              "amount": 3
+            }
+          ],
+          "cascade": true,
+          "severity": "Serious"
+        },
+        {
+          "id": "final_report",
+          "textKey": "agenda.investigation.final_report",
+          "delayDays": 45,
+          "cost": 0.3,
+          "consequences": [
+            {
+              "kind": "Pressure",
+              "amount": 4
+            },
+            {
+              "kind": "Scandal",
+              "amount": 3
+            }
+          ],
+          "cascade": true,
+          "severity": "Serious"
+        }
+      ],
+      "maxRunning": 1
+    },
+    {
+      "id": "agenda.court_challenge",
+      "nameKey": "agenda.court_challenge.name",
+      "actors": [
+        "Media",
+        "Business",
+        "Civic",
+        "Regional"
+      ],
+      "stance": "hostile",
+      "start": {
+        "afterReaction": "reaction.file_lawsuit",
+        "weekly": false
+      },
+      "steps": [
+        {
+          "id": "injunction",
+          "textKey": "agenda.court_challenge.injunction",
+          "delayDays": 14,
+          "cost": 0.2,
+          "consequences": [
+            {
+              "kind": "Scandal",
+              "amount": 1
+            },
+            {
+              "kind": "Flag",
+              "id": "legal.{country}.injunction_hearing.{actor}"
+            }
+          ]
+        },
+        {
+          "id": "appeal",
+          "textKey": "agenda.court_challenge.appeal",
+          "delayDays": 45,
+          "cost": 0.25,
+          "consequences": [
+            {
+              "kind": "Flag",
+              "id": "legal.{country}.appeal.{actor}"
+            }
+          ]
+        },
+        {
+          "id": "supreme_court",
+          "textKey": "agenda.court_challenge.supreme_court",
+          "delayDays": 60,
+          "cost": 0.3,
+          "consequences": [
+            {
+              "kind": "Regime",
+              "amount": 1,
+              "id": "judicial_independence"
+            },
+            {
+              "kind": "Flag",
+              "id": "legal.{country}.supreme_court_petition.{actor}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agenda.quiet_resistance",
+      "nameKey": "agenda.quiet_resistance.name",
+      "actors": [
+        "Career"
+      ],
+      "stance": "hostile",
+      "start": {
+        "maxLoyalty": 0.3,
+        "minGrievance": 0.2
+      },
+      "steps": [
+        {
+          "id": "slow_walk",
+          "textKey": "agenda.quiet_resistance.slow_walk",
+          "delayDays": 7,
+          "cost": 0.2,
+          "consequences": [
+            {
+              "kind": "Flag",
+              "id": "behaviour.{country}.resistance.{actor}"
+            }
+          ]
+        },
+        {
+          "id": "leaks",
+          "textKey": "agenda.quiet_resistance.leaks",
+          "delayDays": 21,
+          "cost": 0.35,
+          "consequences": [
+            {
+              "kind": "Scandal",
+              "amount": 2
+            }
+          ],
+          "cascade": true,
+          "severity": "Minor"
+        },
+        {
+          "id": "resigns",
+          "textKey": "agenda.quiet_resistance.resigns",
+          "delayDays": 30,
+          "cost": 0.6,
+          "consequences": [
+            {
+              "kind": "Resign"
+            },
+            {
+              "kind": "Scandal",
+              "amount": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agenda.challenger_campaign",
+      "nameKey": "agenda.challenger_campaign.name",
+      "actors": [
+        "Challenger"
+      ],
+      "stance": "hostile",
+      "start": {
+        "when": {
+          "flag": "politics.{country}.primary_challenger"
+        }
+      },
+      "steps": [
+        {
+          "id": "tour",
+          "textKey": "agenda.challenger_campaign.tour",
+          "delayDays": 7,
+          "cost": 0.2,
+          "consequences": [
+            {
+              "kind": "PartyRift",
+              "amount": -3
+            }
+          ],
+          "cascade": true,
+          "severity": "Minor"
+        },
+        {
+          "id": "debates",
+          "textKey": "agenda.challenger_campaign.debates",
+          "delayDays": 30,
+          "cost": 0.3,
+          "consequences": [
+            {
+              "kind": "Approval",
+              "amount": -0.8
+            },
+            {
+              "kind": "PartyRift",
+              "amount": -2
+            }
+          ],
+          "cascade": true,
+          "severity": "Moderate"
+        },
+        {
+          "id": "money",
+          "textKey": "agenda.challenger_campaign.money",
+          "delayDays": 30,
+          "cost": 0.3,
+          "consequences": [
+            {
+              "kind": "PartyRift",
+              "amount": -4
+            }
+          ]
+        }
+      ],
+      "cooldownDays": 730
+    },
+    {
+      "id": "agenda.military_guardrails",
+      "nameKey": "agenda.military_guardrails.name",
+      "actors": [
+        "Security",
+        "Military"
+      ],
+      "stance": "hostile",
+      "start": {
+        "afterReaction": "reaction.warn_privately",
+        "weekly": false
+      },
+      "steps": [
+        {
+          "id": "legal_review",
+          "textKey": "agenda.military_guardrails.legal_review",
+          "delayDays": 3,
+          "cost": 0.1,
+          "consequences": [
+            {
+              "kind": "Flag",
+              "id": "security.{country}.orders_review"
+            }
+          ]
+        },
+        {
+          "id": "commanders_memo",
+          "textKey": "agenda.military_guardrails.commanders_memo",
+          "delayDays": 14,
+          "cost": 0.3,
+          "consequences": [
+            {
+              "kind": "Flag",
+              "id": "security.{country}.unlawful_orders_memo"
+            },
+            {
+              "kind": "Regime",
+              "amount": 1,
+              "id": "civilian_control_of_military"
+            }
+          ]
+        },
+        {
+          "id": "public_reassurance",
+          "textKey": "agenda.military_guardrails.public_reassurance",
+          "delayDays": 21,
+          "cost": 0.4,
+          "consequences": [
+            {
+              "kind": "Approval",
+              "amount": -0.5
+            }
+          ],
+          "cascade": true,
+          "severity": "Minor"
+        }
+      ]
+    },
+    {
+      "id": "agenda.fed_independence",
+      "nameKey": "agenda.fed_independence.name",
+      "actors": [
+        "CentralBank"
+      ],
+      "stance": "hostile",
+      "start": {
+        "afterReaction": "reaction.defend_independence",
+        "weekly": false
+      },
+      "steps": [
+        {
+          "id": "testimony",
+          "textKey": "agenda.fed_independence.testimony",
+          "delayDays": 14,
+          "cost": 0.2,
+          "consequences": [
+            {
+              "kind": "MarketStress",
+              "amount": -0.5
+            },
+            {
+              "kind": "Flag",
+              "id": "economy.{country}.fed_testimony"
+            }
+          ]
+        },
+        {
+          "id": "defiant_decision",
+          "textKey": "agenda.fed_independence.defiant_decision",
+          "delayDays": 30,
+          "cost": 0.3,
+          "consequences": [
+            {
+              "kind": "Flag",
+              "id": "economy.{country}.fed_defiant"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agenda.deal_broker",
+      "nameKey": "agenda.deal_broker.name",
+      "actors": [
+        "Legislator",
+        "Bloc"
+      ],
+      "stance": "supportive",
+      "start": {
+        "minLoyalty": 0.45,
+        "when": {
+          "any": [
+            {
+              "var": "politics.urgency@{country}",
+              "op": ">=",
+              "value": 15
+            },
+            {
+              "var": "econ.xdate_days@{country}",
+              "op": "<=",
+              "value": 50
+            }
+          ]
+        }
+      },
+      "steps": [
+        {
+          "id": "gang_talks",
+          "textKey": "agenda.deal_broker.gang_talks",
+          "delayDays": 5,
+          "cost": 0.15,
+          "consequences": [
+            {
+              "kind": "Capital",
+              "amount": 1
+            }
+          ]
+        },
+        {
+          "id": "framework",
+          "textKey": "agenda.deal_broker.framework",
+          "delayDays": 10,
+          "cost": 0.25,
+          "consequences": [
+            {
+              "kind": "Capital",
+              "amount": 2
+            },
+            {
+              "kind": "Flag",
+              "id": "politics.{country}.bipartisan_framework"
+            }
+          ],
+          "cascade": true,
+          "severity": "Minor"
+        },
+        {
+          "id": "whip",
+          "textKey": "agenda.deal_broker.whip",
+          "delayDays": 7,
+          "cost": 0.3,
+          "consequences": [
+            {
+              "kind": "Loyalty",
+              "amount": 3
+            },
+            {
+              "kind": "Flag",
+              "id": "politics.{country}.deal_whipped"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agenda.loyal_defence",
+      "nameKey": "agenda.loyal_defence.name",
+      "actors": [
+        "Official",
+        "Legislator",
+        "Bloc",
+        "Media",
+        "Party"
+      ],
+      "stance": "supportive",
+      "start": {
+        "party": "same",
+        "minLoyalty": 0.65,
+        "when": {
+          "var": "politics.scandal@{country}",
+          "op": ">=",
+          "value": 20
+        }
+      },
+      "steps": [
+        {
+          "id": "talking_points",
+          "textKey": "agenda.loyal_defence.talking_points",
+          "delayDays": 3,
+          "cost": 0.1,
+          "consequences": [
+            {
+              "kind": "Scandal",
+              "amount": -2
+            },
+            {
+              "kind": "Approval",
+              "amount": 0.4
+            }
+          ]
+        },
+        {
+          "id": "counterattack",
+          "textKey": "agenda.loyal_defence.counterattack",
+          "delayDays": 10,
+          "cost": 0.2,
+          "consequences": [
+            {
+              "kind": "Scandal",
+              "amount": -2
+            },
+            {
+              "kind": "Approval",
+              "amount": 0.4
+            }
+          ],
+          "cascade": true,
+          "severity": "Minor"
+        },
+        {
+          "id": "rally_base",
+          "textKey": "agenda.loyal_defence.rally_base",
+          "delayDays": 14,
+          "cost": 0.2,
+          "consequences": [
+            {
+              "kind": "Approval",
+              "amount": 0.8
+            }
+          ]
+        }
+      ],
+      "abort": {
+        "var": "politics.scandal@{country}",
+        "op": "<",
+        "value": 5
+      },
+      "cooldownDays": 90
+    },
+    {
+      "id": "agenda.policy_push",
+      "nameKey": "agenda.policy_push.name",
+      "actors": [
+        "Business",
+        "Civic"
+      ],
+      "stance": "neutral",
+      "start": {
+        "when": {
+          "any": [
+            {
+              "var": "politics.urgency@{country}",
+              "op": ">=",
+              "value": 50
+            },
+            {
+              "var": "econ.xdate_days@{country}",
+              "op": "<=",
+              "value": 45
+            }
+          ]
+        }
+      },
+      "steps": [
+        {
+          "id": "public_letter",
+          "textKey": "agenda.policy_push.public_letter",
+          "delayDays": 3,
+          "cost": 0.1,
+          "consequences": [
+            {
+              "kind": "MarketStress",
+              "amount": 0.3
+            }
+          ]
+        },
+        {
+          "id": "blitz",
+          "textKey": "agenda.policy_push.blitz",
+          "delayDays": 10,
+          "cost": 0.15,
+          "consequences": [
+            {
+              "kind": "Flag",
+              "id": "business.{country}.lobbying_blitz.{actor}"
+            }
+          ]
+        },
+        {
+          "id": "deadline_warning",
+          "textKey": "agenda.policy_push.deadline_warning",
+          "delayDays": 10,
+          "cost": 0.2,
+          "consequences": [
+            {
+              "kind": "MarketStress",
+              "amount": 1
+            },
+            {
+              "kind": "Approval",
+              "amount": -0.3
+            }
+          ],
+          "cascade": true,
+          "severity": "Minor"
+        }
+      ],
+      "abort": {
+        "all": [
+          {
+            "var": "politics.urgency@{country}",
+            "op": "<",
+            "value": 20
+          },
+          {
+            "var": "econ.xdate_days@{country}",
+            "op": ">",
+            "value": 90
+          }
+        ]
+      },
+      "cooldownDays": 120,
+      "maxRunning": 3
+    }
+  ]
+}

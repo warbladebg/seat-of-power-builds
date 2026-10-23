@@ -1,0 +1,23 @@
+{
+  "$schema": "../../schemas/diplomacy_profile.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "oilBreakeven: fiscal breakeven oil price, IMF Regional Economic Outlook estimates for 2025-26 (about $90-96)."
+  },
+  "redLines": [
+    {
+      "term": "term.aid_package",
+      "side": "receive",
+      "reasonKey": "redline.sau.aid_package"
+    }
+  ],
+  "params": {
+    "holdingsControl": 0.9,
+    "oilProducer": 1,
+    "oilShare": 0.11,
+    "oilBreakeven": 91,
+    "militaryPower": 0.1
+  }
+}

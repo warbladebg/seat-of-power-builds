@@ -1,0 +1,20 @@
+{
+  "$schema": "../../schemas/diplomacy_profile.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "holdingsControl: about half of Japan's TIC holdings sit in the Ministry of Finance's reserves."
+  },
+  "redLines": [
+    {
+      "term": "term.security_guarantee",
+      "side": "give",
+      "reasonKey": "redline.jpn.security_guarantee"
+    }
+  ],
+  "params": {
+    "holdingsControl": 0.5,
+    "militaryPower": 0.2
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "cue": "order.refused",
+  "round": "p",
+  "option": 1,
+  "family": "Placeholder",
+  "label": "plain placeholder until a round picks this cue",
+  "seed": 1,
+  "tail": 0.03,
+  "loudness": -24,
+  "layers": [
+    {
+      "type": "tone",
+      "wave": "square",
+      "freq": 300,
+      "at": 0.0,
+      "env": {
+        "a": 0.002,
+        "d": 0.18
+      },
+      "gain": 0.0,
+      "freqEnd": 240,
+      "glide": 0.1,
+      "filter": {
+        "type": "lowpass",
+        "freq": 1200
+      }
+    }
+  ]
+}

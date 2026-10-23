@@ -1,0 +1,30 @@
+{
+  "cue": "ui.panel_close",
+  "round": "p",
+  "option": 1,
+  "family": "Placeholder",
+  "label": "plain placeholder until a round picks this cue",
+  "seed": 1,
+  "tail": 0.03,
+  "loudness": -29,
+  "layers": [
+    {
+      "type": "tone",
+      "wave": "sine",
+      "freq": 900,
+      "at": 0.0,
+      "env": {
+        "a": 0.002,
+        "d": 0.07
+      },
+      "gain": 0.0,
+      "freqEnd": 650,
+      "glide": 0.04
+    }
+  ],
+  "room": {
+    "size": 0.3,
+    "mix": 0.12,
+    "damp": 5000
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "../../schemas/relations.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Starting opinion and trust are design estimates."
+  },
+  "relations": [
+    {
+      "target": "country.jpn",
+      "opinion": 55,
+      "trust": 70
+    },
+    {
+      "target": "country.chn",
+      "opinion": -30,
+      "trust": 20
+    },
+    {
+      "target": "country.eu",
+      "opinion": 35,
+      "trust": 55
+    },
+    {
+      "target": "country.sau",
+      "opinion": 20,
+      "trust": 40
+    },
+    {
+      "target": "country.gbr",
+      "opinion": 60,
+      "trust": 75
+    },
+    {
+      "target": "country.can",
+      "opinion": 40,
+      "trust": 65
+    },
+    {
+      "target": "country.mex",
+      "opinion": 15,
+      "trust": 45
+    }
+  ]
+}

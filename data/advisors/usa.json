@@ -1,0 +1,116 @@
+{
+  "$schema": "../schemas/cabinet.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "All advisors are fictional (D-009)."
+  },
+  "country": "country.usa",
+  "posts": [
+    {
+      "id": "post.usa.chief_of_staff",
+      "titleKey": "post.usa.chief_of_staff.title",
+      "incumbent": "char.usa.chief_of_staff",
+      "candidates": [
+        "char.usa.cos_benedict_ashcombe",
+        "char.usa.cos_cordelia_tremaine"
+      ],
+      "domains": [
+        "politics",
+        "legislation",
+        "media",
+        "economy",
+        "orders"
+      ],
+      "factionByParty": {
+        "party.usa.democratic": "pc.usa.house_dem_mainstream",
+        "party.usa.republican": "pc.usa.house_rep_mainstream"
+      },
+      "speaks": 0.2
+    },
+    {
+      "id": "post.usa.treasury",
+      "titleKey": "post.usa.treasury.title",
+      "incumbent": "char.usa.treasury_secretary",
+      "candidates": [
+        "char.usa.treasury_lucian_pellegrew",
+        "char.usa.treasury_odessa_marchbank"
+      ],
+      "domains": [
+        "economy",
+        "debt"
+      ],
+      "faction": "pc.usa.wall_street",
+      "speaks": 0.15,
+      "estimatesXDate": true
+    },
+    {
+      "id": "post.usa.legislative_affairs",
+      "titleKey": "post.usa.legislative_affairs.title",
+      "incumbent": "char.usa.legislative_affairs_director",
+      "candidates": [
+        "char.usa.leg_affairs_grady_holcombe",
+        "char.usa.leg_affairs_sabine_okonta"
+      ],
+      "domains": [
+        "legislation",
+        "politics",
+        "debt"
+      ],
+      "factionByParty": {
+        "party.usa.democratic": "pc.usa.house_dem_moderate",
+        "party.usa.republican": "pc.usa.house_rep_moderate"
+      },
+      "speaks": 0.2,
+      "countsVotes": true
+    },
+    {
+      "id": "post.usa.press_secretary",
+      "titleKey": "post.usa.press_secretary.title",
+      "incumbent": "char.usa.press_secretary",
+      "candidates": [
+        "char.usa.press_maren_ellsworth",
+        "char.usa.press_everett_dunstable"
+      ],
+      "domains": [
+        "media",
+        "politics"
+      ],
+      "faction": "pc.usa.media_mainstream",
+      "speaks": 0.8
+    },
+    {
+      "id": "post.usa.nec",
+      "titleKey": "post.usa.nec.title",
+      "incumbent": "char.usa.nec_director",
+      "candidates": [
+        "char.usa.nec_mireille_fontanet",
+        "char.usa.nec_rajan_velloor"
+      ],
+      "domains": [
+        "economy",
+        "debt"
+      ],
+      "faction": "pc.usa.business_lobby",
+      "speaks": 0.25,
+      "forecasts": true
+    },
+    {
+      "id": "post.usa.national_security",
+      "titleKey": "post.usa.national_security.title",
+      "incumbent": "char.usa.national_security_advisor",
+      "candidates": [
+        "char.usa.nsa_hartley_brennock",
+        "char.usa.nsa_imogen_selwyn"
+      ],
+      "domains": [
+        "foreign",
+        "security",
+        "orders"
+      ],
+      "faction": "pc.usa.military",
+      "speaks": 0.2
+    }
+  ]
+}

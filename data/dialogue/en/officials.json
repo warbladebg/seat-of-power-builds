@@ -1,0 +1,1264 @@
+{
+  "$schema": "../../schemas/dialogue.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "templates": [
+    {
+      "id": "dlg.order.response",
+      "surface": "order",
+      "point": "dp.execute_order",
+      "variables": [
+        "order"
+      ],
+      "optional": [
+        "target"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "comply",
+            "ask_confirmation"
+          ]
+        },
+        {
+          "tones": [
+            "Evasive"
+          ],
+          "decisions": [
+            "comply_slowly"
+          ]
+        },
+        {
+          "tones": [
+            "Cold"
+          ],
+          "decisions": [
+            "refuse",
+            "resign"
+          ]
+        }
+      ],
+      "silent": [
+        "leak",
+        "alert_others"
+      ],
+      "notes": "An official at a link of an order's chain answering it. Kind: the order's legality (lawful, contested, unlawful, manifestly_unlawful); role: the official's 07 role; hint 'insisted' once the player insisted in writing.",
+      "lines": [
+        {
+          "id": "comply.neutral.1",
+          "text": "Understood. It will be done.",
+          "when": {
+            "decision": "comply"
+          }
+        },
+        {
+          "id": "comply.neutral.2",
+          "text": "Understood. We'll carry it out.",
+          "when": {
+            "decision": "comply"
+          }
+        },
+        {
+          "id": "comply.neutral.blunt.1",
+          "text": "Consider it done.",
+          "when": {
+            "decision": "comply"
+          },
+          "voice": [
+            "Blunt",
+            "Folksy"
+          ]
+        },
+        {
+          "id": "comply.neutral.3",
+          "text": "Order received and acknowledged. Executing.",
+          "when": {
+            "all": [
+              {
+                "decision": "comply"
+              },
+              {
+                "role": [
+                  "role.military_officer",
+                  "role.missile_crew"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "comply.neutral.4",
+          "text": "Acknowledged. Units are moving.",
+          "when": {
+            "all": [
+              {
+                "decision": "comply"
+              },
+              {
+                "role": [
+                  "role.military_officer",
+                  "role.missile_crew"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "comply.neutral.5",
+          "text": "We'll process it according to procedure.",
+          "when": {
+            "all": [
+              {
+                "decision": "comply"
+              },
+              {
+                "role": [
+                  "role.career_official",
+                  "role.career_prosecutor",
+                  "role.intelligence_officer",
+                  "role.law_enforcement"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "contested.comply.neutral.1",
+          "text": "It's done, though the lawyers will have views on it.",
+          "when": {
+            "all": [
+              {
+                "decision": "comply"
+              },
+              {
+                "kind": "contested"
+              }
+            ]
+          }
+        },
+        {
+          "id": "comply.neutral.6",
+          "text": "You put it in writing, so I'll carry it out. My objection is on the record.",
+          "when": {
+            "all": [
+              {
+                "decision": "comply"
+              },
+              {
+                "hint": "insisted"
+              }
+            ]
+          }
+        },
+        {
+          "id": "comply_slowly.evasive.1",
+          "text": "We're working on it. These things take time.",
+          "when": {
+            "decision": "comply_slowly"
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "comply_slowly.evasive.2",
+          "text": "There are procedures to follow. We'll get there.",
+          "when": {
+            "decision": "comply_slowly"
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "comply_slowly.evasive.technocrat.1",
+          "text": "My team is reviewing the implementation details.",
+          "when": {
+            "decision": "comply_slowly"
+          },
+          "voice": [
+            "Technocrat"
+          ],
+          "tone": "Evasive"
+        },
+        {
+          "id": "comply_slowly.evasive.3",
+          "text": "We'll need to coordinate with three other offices first.",
+          "when": {
+            "all": [
+              {
+                "decision": "comply_slowly"
+              },
+              {
+                "role": [
+                  "role.career_official",
+                  "role.career_prosecutor",
+                  "role.intelligence_officer",
+                  "role.law_enforcement"
+                ]
+              }
+            ]
+          },
+          "tone": "Evasive"
+        },
+        {
+          "id": "ask_confirmation.neutral.1",
+          "text": "Before we proceed, I need this order in writing, with its legal basis.",
+          "when": {
+            "decision": "ask_confirmation"
+          }
+        },
+        {
+          "id": "ask_confirmation.neutral.2",
+          "text": "I'll need written confirmation, {counterpart_title}.",
+          "when": {
+            "decision": "ask_confirmation"
+          }
+        },
+        {
+          "id": "ask_confirmation.neutral.formal.1",
+          "text": "Given what's at stake, I must ask you to confirm this in writing.",
+          "when": {
+            "decision": "ask_confirmation"
+          },
+          "voice": [
+            "Formal"
+          ]
+        },
+        {
+          "id": "ask_confirmation.neutral.3",
+          "text": "Request written, authenticated confirmation of the order before execution.",
+          "when": {
+            "all": [
+              {
+                "decision": "ask_confirmation"
+              },
+              {
+                "role": [
+                  "role.military_officer",
+                  "role.missile_crew"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "unlawful_manifestly_unlawful.ask_confirmation.neutral.1",
+          "text": "Counsel advises this may be unlawful. I need it in writing before I act.",
+          "when": {
+            "all": [
+              {
+                "decision": "ask_confirmation"
+              },
+              {
+                "kind": [
+                  "unlawful",
+                  "manifestly_unlawful"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "refuse.cold.1",
+          "text": "I'm sorry, {counterpart_title}. I will not do this.",
+          "when": {
+            "decision": "refuse"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "refuse.cold.2",
+          "text": "I won't be part of this.",
+          "when": {
+            "decision": "refuse"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "refuse.cold.blunt.1",
+          "text": "No. Find someone else to do it.",
+          "when": {
+            "decision": "refuse"
+          },
+          "voice": [
+            "Blunt"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "unlawful_manifestly_unlawful.refuse.cold.1",
+          "text": "I can't carry out this order. It's unlawful, and I took an oath.",
+          "when": {
+            "all": [
+              {
+                "decision": "refuse"
+              },
+              {
+                "kind": [
+                  "unlawful",
+                  "manifestly_unlawful"
+                ]
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "unlawful_manifestly_unlawful.refuse.cold.2",
+          "text": "This order is against the law. I'm refusing it, and I'm documenting why.",
+          "when": {
+            "all": [
+              {
+                "decision": "refuse"
+              },
+              {
+                "kind": [
+                  "unlawful",
+                  "manifestly_unlawful"
+                ]
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "manifestly_unlawful.refuse.cold.1",
+          "text": "This order is manifestly unlawful. I will not execute it, and I will not ask others to.",
+          "when": {
+            "all": [
+              {
+                "decision": "refuse"
+              },
+              {
+                "kind": "manifestly_unlawful"
+              },
+              {
+                "role": [
+                  "role.military_officer",
+                  "role.missile_crew"
+                ]
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "refuse.cold.3",
+          "text": "I cannot lawfully process this request. I've informed the general counsel.",
+          "when": {
+            "all": [
+              {
+                "decision": "refuse"
+              },
+              {
+                "role": [
+                  "role.career_official",
+                  "role.career_prosecutor",
+                  "role.intelligence_officer",
+                  "role.law_enforcement"
+                ]
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "refuse.cold.4",
+          "text": "You can insist all you like. My answer is still no.",
+          "when": {
+            "all": [
+              {
+                "decision": "refuse"
+              },
+              {
+                "hint": "insisted"
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "resign.cold.1",
+          "text": "I cannot carry out this order, and I cannot stay. You'll have my resignation within the hour.",
+          "when": {
+            "decision": "resign"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "resign.cold.2",
+          "text": "I've served this administration faithfully. Not on this. I resign.",
+          "when": {
+            "decision": "resign"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "resign.cold.blunt.1",
+          "text": "My letter of resignation is on your desk.",
+          "when": {
+            "decision": "resign"
+          },
+          "voice": [
+            "Blunt",
+            "Folksy"
+          ],
+          "tone": "Cold"
+        }
+      ]
+    },
+    {
+      "id": "dlg.staff.resignation",
+      "surface": "staff",
+      "expects": [
+        {
+          "tones": [
+            "Cold"
+          ],
+          "kinds": [
+            "overruled",
+            "protest"
+          ]
+        }
+      ],
+      "notes": "A resignation letter. Kind: overruled (an advisor who lost the argument) or protest (a resignation in protest during a crisis).",
+      "lines": [
+        {
+          "id": "overruled.cold.1",
+          "text": "I have given you my best advice, and it has been set aside too often. I resign, effective today.",
+          "when": {
+            "kind": "overruled"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "overruled.cold.2",
+          "text": "It is time for me to step down. I wish you well, {counterpart_title}.",
+          "when": {
+            "kind": "overruled"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "overruled.cold.formal.1",
+          "text": "Please accept my resignation. We no longer see eye to eye on what this country needs.",
+          "when": {
+            "kind": "overruled"
+          },
+          "voice": [
+            "Formal"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "protest.cold.1",
+          "text": "I cannot in good conscience remain in this government. I resign.",
+          "when": {
+            "kind": "protest"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "protest.cold.2",
+          "text": "What has happened leaves me no choice. I am resigning, effective immediately.",
+          "when": {
+            "kind": "protest"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "protest.cold.3",
+          "text": "My oath is to the Constitution. Today, honouring it means resigning.",
+          "when": {
+            "kind": "protest"
+          },
+          "tone": "Cold"
+        }
+      ]
+    },
+    {
+      "id": "dlg.staff.fired",
+      "surface": "staff",
+      "expects": [
+        {
+          "tones": [
+            "Cold"
+          ]
+        }
+      ],
+      "notes": "A dismissed advisor's parting words.",
+      "lines": [
+        {
+          "id": "any.cold.1",
+          "text": "It was an honour to serve the country. I'll say no more, for now.",
+          "tone": "Cold"
+        },
+        {
+          "id": "any.cold.2",
+          "text": "I was let go. History will judge who was right.",
+          "tone": "Cold"
+        },
+        {
+          "id": "any.cold.3",
+          "text": "So be it. I gave honest advice; I hope my successor does too.",
+          "tone": "Cold"
+        }
+      ]
+    },
+    {
+      "id": "dlg.staff.hired",
+      "surface": "staff",
+      "expects": [
+        {
+          "tones": [
+            "Warm"
+          ],
+          "kinds": [
+            "hired"
+          ]
+        }
+      ],
+      "notes": "A newly hired advisor.",
+      "lines": [
+        {
+          "id": "hired.warm.1",
+          "text": "Thank you for your trust, {counterpart_title}. I'll start today.",
+          "when": {
+            "kind": "hired"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "hired.warm.2",
+          "text": "I'm honoured. Let's get to work.",
+          "when": {
+            "kind": "hired"
+          },
+          "tone": "Warm"
+        },
+        {
+          "id": "hired.warm.blunt.1",
+          "text": "You'll get honest advice from me, always.",
+          "when": {
+            "kind": "hired"
+          },
+          "voice": [
+            "Blunt",
+            "Folksy"
+          ],
+          "tone": "Warm"
+        }
+      ]
+    },
+    {
+      "id": "dlg.briefing.recommendation",
+      "surface": "briefing",
+      "variables": [
+        "subject",
+        "option"
+      ],
+      "optional": [
+        "cause",
+        "cause_variable"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral",
+            "Cold"
+          ]
+        }
+      ],
+      "notes": "An advisor's recommendation. Strength: lean, recommend, insist. Alarm: calm, concerned, alarmed. Decision: act or hold. Kind: event, crisis, bill. {cause} is the ledger cause they cite for {cause_variable}.",
+      "lines": [
+        {
+          "id": "any.neutral.1",
+          "text": "On {subject}, my advice is: {option}."
+        },
+        {
+          "id": "any.neutral.2",
+          "text": "My recommendation on {subject}: {option}."
+        },
+        {
+          "id": "any.neutral.academic.1",
+          "text": "On balance, and having weighed the evidence, I advise this: {option}.",
+          "voice": [
+            "Academic",
+            "Formal"
+          ]
+        },
+        {
+          "id": "any.neutral.3",
+          "text": "If you're asking me, {option}. But it's a close call.",
+          "when": {
+            "strength": "lean"
+          }
+        },
+        {
+          "id": "any.neutral.4",
+          "text": "My instinct on {subject} is to go with this: {option}. It's not a strong view.",
+          "when": {
+            "strength": "lean"
+          }
+        },
+        {
+          "id": "any.neutral.5",
+          "text": "I have to be firm on {subject}: {option}. Anything else is a mistake.",
+          "when": {
+            "strength": "insist"
+          }
+        },
+        {
+          "id": "any.neutral.6",
+          "text": "Please hear me on this one: {option}.",
+          "when": {
+            "strength": "insist"
+          }
+        },
+        {
+          "id": "any.neutral.7",
+          "text": "I'm worried about {subject}. My advice: {option}.",
+          "when": {
+            "alarm": "concerned"
+          }
+        },
+        {
+          "id": "any.neutral.8",
+          "text": "We should take {subject} seriously. I'd go with this: {option}.",
+          "when": {
+            "alarm": "concerned"
+          }
+        },
+        {
+          "id": "any.neutral.9",
+          "text": "{cause_variable} is heading the wrong way because of {cause}. That's why I say: {option}.",
+          "when": {
+            "all": [
+              {
+                "has": "cause"
+              },
+              {
+                "has": "cause_variable"
+              }
+            ]
+          }
+        },
+        {
+          "id": "any.neutral.10",
+          "text": "Look at {cause_variable}, and at what's driving it: {cause}. My answer: {option}.",
+          "when": {
+            "all": [
+              {
+                "has": "cause"
+              },
+              {
+                "has": "cause_variable"
+              }
+            ]
+          }
+        },
+        {
+          "id": "any.neutral.technocrat.1",
+          "text": "The numbers favour this: {option}.",
+          "voice": [
+            "Technocrat"
+          ]
+        },
+        {
+          "id": "any.neutral.market.1",
+          "text": "Markets would welcome this: {option}.",
+          "voice": [
+            "Market"
+          ]
+        },
+        {
+          "id": "any.neutral.folksy.1",
+          "text": "Here's my two cents on {subject}: {option}.",
+          "voice": [
+            "Folksy"
+          ]
+        },
+        {
+          "id": "any.neutral.blunt.1",
+          "text": "{option}. Next question.",
+          "voice": [
+            "Blunt"
+          ]
+        },
+        {
+          "id": "any.neutral.combative.1",
+          "text": "We should play offense on {subject}: {option}.",
+          "voice": [
+            "Combative"
+          ]
+        },
+        {
+          "id": "any.cold.1",
+          "text": "This is serious. On {subject}, my advice is: {option}, and quickly.",
+          "tone": "Cold"
+        },
+        {
+          "id": "any.cold.2",
+          "text": "I'll be blunt: if we get {subject} wrong, it will cost us. {option}.",
+          "tone": "Cold"
+        },
+        {
+          "id": "any.cold.technocrat.1",
+          "text": "The risk is measurable, and it is growing. My advice: {option}.",
+          "voice": [
+            "Technocrat",
+            "Market"
+          ],
+          "tone": "Cold"
+        },
+        {
+          "id": "any.cold.3",
+          "text": "{cause_variable} is taking a beating from {cause}. We need to act: {option}.",
+          "when": {
+            "all": [
+              {
+                "has": "cause"
+              },
+              {
+                "has": "cause_variable"
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "any.cold.4",
+          "text": "I'm not going to dress this up. On {subject}: {option}. Now.",
+          "when": {
+            "strength": "insist"
+          },
+          "tone": "Cold"
+        }
+      ]
+    },
+    {
+      "id": "dlg.intel.xdate",
+      "surface": "intel",
+      "optional": [
+        "early",
+        "late",
+        "days"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral",
+            "Cold"
+          ],
+          "decisions": [
+            "range"
+          ]
+        },
+        {
+          "tones": [
+            "Cold"
+          ],
+          "decisions": [
+            "passed"
+          ]
+        },
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "none"
+          ]
+        }
+      ],
+      "notes": "The Treasury Secretary on the Treasury's X-date estimate. Decision: range, passed, none. Alarm by days left.",
+      "lines": [
+        {
+          "id": "range.neutral.1",
+          "text": "Our current estimate: we run out of room between {early} and {late}.",
+          "when": {
+            "all": [
+              {
+                "decision": "range"
+              },
+              {
+                "has": "early"
+              },
+              {
+                "has": "late"
+              },
+              {
+                "not": {
+                  "strength": "exact"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "range.neutral.2",
+          "text": "The X-date looks like {early} to {late}. There is still time, but not much to waste.",
+          "when": {
+            "all": [
+              {
+                "decision": "range"
+              },
+              {
+                "has": "early"
+              },
+              {
+                "has": "late"
+              },
+              {
+                "not": {
+                  "strength": "exact"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "range.neutral.3",
+          "text": "Cash projections put the X-date between {early} and {late}.",
+          "when": {
+            "all": [
+              {
+                "decision": "range"
+              },
+              {
+                "has": "early"
+              },
+              {
+                "has": "late"
+              },
+              {
+                "not": {
+                  "strength": "exact"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "range.neutral.4",
+          "text": "We're now looking at {early} to {late}. We need Congress to move.",
+          "when": {
+            "all": [
+              {
+                "decision": "range"
+              },
+              {
+                "alarm": "concerned"
+              },
+              {
+                "has": "early"
+              },
+              {
+                "has": "late"
+              },
+              {
+                "not": {
+                  "strength": "exact"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "range.neutral.5",
+          "text": "The window is closing: {early} at the earliest, {late} at the latest.",
+          "when": {
+            "all": [
+              {
+                "decision": "range"
+              },
+              {
+                "alarm": "concerned"
+              },
+              {
+                "has": "early"
+              },
+              {
+                "has": "late"
+              },
+              {
+                "not": {
+                  "strength": "exact"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "range.neutral.6",
+          "text": "Our estimate has narrowed to one day: {early}.",
+          "when": {
+            "all": [
+              {
+                "decision": "range"
+              },
+              {
+                "strength": "exact"
+              },
+              {
+                "has": "early"
+              }
+            ]
+          }
+        },
+        {
+          "id": "range.neutral.7",
+          "text": "The X-date is {early}, as best we can tell.",
+          "when": {
+            "all": [
+              {
+                "decision": "range"
+              },
+              {
+                "strength": "exact"
+              },
+              {
+                "has": "early"
+              }
+            ]
+          }
+        },
+        {
+          "id": "range.neutral.8",
+          "text": "We are still some way from the X-date. Our books are in order for now.",
+          "when": {
+            "all": [
+              {
+                "decision": "range"
+              },
+              {
+                "alarm": "calm"
+              }
+            ]
+          }
+        },
+        {
+          "id": "range.neutral.9",
+          "text": "We have updated the X-date estimate. I'll keep you posted as the numbers move.",
+          "when": {
+            "decision": "range"
+          }
+        },
+        {
+          "id": "range.cold.1",
+          "text": "We could run out of money as early as {early}. That's {days} days from now.",
+          "when": {
+            "all": [
+              {
+                "decision": "range"
+              },
+              {
+                "has": "early"
+              },
+              {
+                "has": "days"
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "range.cold.2",
+          "text": "This is getting dangerous. The X-date could be {early}.",
+          "when": {
+            "all": [
+              {
+                "decision": "range"
+              },
+              {
+                "has": "early"
+              },
+              {
+                "has": "days"
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "range.cold.3",
+          "text": "On current numbers we hit the wall between {early} and {late}.",
+          "when": {
+            "all": [
+              {
+                "decision": "range"
+              },
+              {
+                "has": "early"
+              },
+              {
+                "has": "late"
+              },
+              {
+                "not": {
+                  "strength": "exact"
+                }
+              }
+            ]
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "range.cold.4",
+          "text": "Every day counts now. We need a deal on the debt limit.",
+          "when": {
+            "decision": "range"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "passed.cold.1",
+          "text": "We are past the X-date. The Treasury is missing payments.",
+          "when": {
+            "decision": "passed"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "passed.cold.2",
+          "text": "We've run out of room. Bills are going unpaid.",
+          "when": {
+            "decision": "passed"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "passed.cold.3",
+          "text": "The money has run out. We are prioritising what we can.",
+          "when": {
+            "decision": "passed"
+          },
+          "tone": "Cold"
+        },
+        {
+          "id": "none.neutral.1",
+          "text": "With the limit dealt with, there is no X-date in sight.",
+          "when": {
+            "decision": "none"
+          }
+        },
+        {
+          "id": "none.neutral.2",
+          "text": "No X-date on the horizon. The Treasury can pay its bills.",
+          "when": {
+            "decision": "none"
+          }
+        },
+        {
+          "id": "none.neutral.3",
+          "text": "We have room under the limit for the foreseeable future.",
+          "when": {
+            "decision": "none"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dlg.intel.whip",
+      "surface": "intel",
+      "variables": [
+        "bill",
+        "chamber",
+        "yes",
+        "needed",
+        "gap"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "enough",
+            "close",
+            "short"
+          ]
+        }
+      ],
+      "notes": "The legislative affairs director on a whip count. Decision: enough, close, short.",
+      "lines": [
+        {
+          "id": "enough.neutral.1",
+          "text": "We have the votes on {bill}: about {yes}, and we need {needed}.",
+          "when": {
+            "decision": "enough"
+          }
+        },
+        {
+          "id": "enough.neutral.2",
+          "text": "Good news: {bill} looks like it passes the {chamber}.",
+          "when": {
+            "decision": "enough"
+          }
+        },
+        {
+          "id": "enough.neutral.3",
+          "text": "By my count we're over the line on {bill}.",
+          "when": {
+            "decision": "enough"
+          }
+        },
+        {
+          "id": "close.neutral.1",
+          "text": "It's tight on {bill}. We're about {gap} short in the {chamber}.",
+          "when": {
+            "decision": "close"
+          }
+        },
+        {
+          "id": "close.neutral.2",
+          "text": "We're close: {yes} of the {needed} we need. A few calls could do it.",
+          "when": {
+            "decision": "close"
+          }
+        },
+        {
+          "id": "close.neutral.folksy.1",
+          "text": "Too close to call. Let me work the undecideds.",
+          "when": {
+            "decision": "close"
+          },
+          "voice": [
+            "Folksy"
+          ]
+        },
+        {
+          "id": "short.neutral.1",
+          "text": "We don't have the votes on {bill}. We're about {gap} short.",
+          "when": {
+            "decision": "short"
+          }
+        },
+        {
+          "id": "short.neutral.2",
+          "text": "{bill} would fail today: {yes} yes, {needed} needed.",
+          "when": {
+            "decision": "short"
+          }
+        },
+        {
+          "id": "short.neutral.folksy.1",
+          "text": "We're short on {bill}, plain and simple. Something has to give.",
+          "when": {
+            "decision": "short"
+          },
+          "voice": [
+            "Folksy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlg.intel.report",
+      "surface": "intel",
+      "variables": [
+        "country",
+        "topic"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ]
+        }
+      ],
+      "notes": "The intelligence chief presenting a report. Strength: confidence high, moderate, low. Kind: the topic.",
+      "lines": [
+        {
+          "id": "any.neutral.1",
+          "text": "Our latest assessment of {country}'s {topic} is in your folder."
+        },
+        {
+          "id": "any.neutral.2",
+          "text": "We have a new read on {country}'s {topic}."
+        },
+        {
+          "id": "any.neutral.evasive.1",
+          "text": "Some of what we know about {country}'s {topic} I can share. Here it is.",
+          "voice": [
+            "Evasive"
+          ]
+        },
+        {
+          "id": "any.neutral.3",
+          "text": "We have good sourcing on {country}'s {topic}. You can rely on this one.",
+          "when": {
+            "strength": "high"
+          }
+        },
+        {
+          "id": "any.neutral.4",
+          "text": "High confidence on this: {country}'s {topic}.",
+          "when": {
+            "strength": "high"
+          }
+        },
+        {
+          "id": "any.neutral.5",
+          "text": "Our read on {country}'s {topic} is fair, not certain.",
+          "when": {
+            "strength": "moderate"
+          }
+        },
+        {
+          "id": "any.neutral.6",
+          "text": "Moderate confidence on {country}'s {topic}. Treat it as a working view.",
+          "when": {
+            "strength": "moderate"
+          }
+        },
+        {
+          "id": "any.neutral.7",
+          "text": "Treat this one with caution: our view of {country}'s {topic} is thin.",
+          "when": {
+            "strength": "low"
+          }
+        },
+        {
+          "id": "any.neutral.8",
+          "text": "Low confidence on {country}'s {topic}. We're still digging.",
+          "when": {
+            "strength": "low"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dlg.intel.discovery",
+      "surface": "intel",
+      "variables": [
+        "country"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ]
+        }
+      ],
+      "notes": "The intelligence chief reporting a breakthrough.",
+      "lines": [
+        {
+          "id": "any.neutral.1",
+          "text": "We've learned something new about {country}. It could matter at the table."
+        },
+        {
+          "id": "any.neutral.2",
+          "text": "A breakthrough on {country}: read this before your next call."
+        },
+        {
+          "id": "any.neutral.3",
+          "text": "New intelligence on {country}. We now know more about where they won't bend."
+        }
+      ]
+    }
+  ]
+}

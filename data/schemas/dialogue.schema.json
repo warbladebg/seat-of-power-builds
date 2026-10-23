@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dialogue.schema.json",
+  "title": "DialogueFile",
+  "type": "object",
+  "properties": {
+    "templates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^dlg\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "lines": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "when": {
+                  "default": null
+                },
+                "tone": {
+                  "enum": [
+                    "Warm",
+                    "Neutral",
+                    "Cold",
+                    "Hostile",
+                    "Evasive"
+                  ],
+                  "default": "Neutral"
+                },
+                "weight": {
+                  "type": "number",
+                  "default": 1,
+                  "minimum": 0,
+                  "maximum": 1000
+                },
+                "voice": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "enum": [
+                      "Formal",
+                      "Blunt",
+                      "Folksy",
+                      "Technocrat",
+                      "Nationalist",
+                      "Diplomatic",
+                      "Combative",
+                      "Evasive",
+                      "Academic",
+                      "Market",
+                      "Generic"
+                    ]
+                  },
+                  "default": null
+                }
+              },
+              "required": [
+                "id",
+                "text"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "surface": {
+            "type": "string",
+            "default": "generic"
+          },
+          "point": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "pattern": "^dp\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          },
+          "silent": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "default": null
+          },
+          "variables": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "default": null
+          },
+          "optional": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "default": null
+          },
+          "expects": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "tones": {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "Warm",
+                      "Neutral",
+                      "Cold",
+                      "Hostile",
+                      "Evasive"
+                    ]
+                  }
+                },
+                "decisions": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "string"
+                  },
+                  "default": null
+                },
+                "kinds": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "string"
+                  },
+                  "default": null
+                }
+              },
+              "required": [
+                "tones"
+              ],
+              "additionalProperties": false
+            },
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "lines"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "templates"
+  ],
+  "additionalProperties": false
+}

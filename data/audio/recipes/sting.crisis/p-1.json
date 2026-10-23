@@ -1,0 +1,65 @@
+{
+  "cue": "sting.crisis",
+  "round": "p",
+  "option": 1,
+  "family": "Placeholder",
+  "label": "plain placeholder until a round picks this cue",
+  "seed": 1,
+  "tail": 0.03,
+  "loudness": -20,
+  "layers": [
+    {
+      "type": "tone",
+      "wave": "saw",
+      "freq": 110,
+      "at": 0.0,
+      "env": {
+        "a": 0.02,
+        "d": 1.2
+      },
+      "gain": 0.0,
+      "filter": {
+        "type": "lowpass",
+        "freq": 900,
+        "freqEnd": 350,
+        "sweep": 1.0
+      }
+    },
+    {
+      "type": "tone",
+      "wave": "saw",
+      "freq": 116.5,
+      "at": 0.0,
+      "env": {
+        "a": 0.02,
+        "d": 1.2
+      },
+      "gain": 0.0,
+      "filter": {
+        "type": "lowpass",
+        "freq": 900,
+        "freqEnd": 350,
+        "sweep": 1.0
+      }
+    },
+    {
+      "type": "noise",
+      "at": 0.0,
+      "env": {
+        "a": 0.3,
+        "d": 0.5
+      },
+      "gain": -10,
+      "color": "pink",
+      "filter": {
+        "type": "lowpass",
+        "freq": 800
+      }
+    }
+  ],
+  "room": {
+    "size": 1.2,
+    "mix": 0.22,
+    "damp": 2500
+  }
+}

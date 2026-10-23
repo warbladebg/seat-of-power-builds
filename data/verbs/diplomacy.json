@@ -1,0 +1,217 @@
+{
+  "$schema": "../schemas/verbs.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "verbs": [
+    {
+      "id": "verb.praise",
+      "nameKey": "verb.praise.name",
+      "category": "diplomacy",
+      "methods": [
+        {
+          "id": "general",
+          "nameKey": "verb.praise.method.general"
+        },
+        {
+          "id": "debt",
+          "nameKey": "verb.praise.method.debt"
+        },
+        {
+          "id": "trade",
+          "nameKey": "verb.praise.method.trade"
+        },
+        {
+          "id": "energy",
+          "nameKey": "verb.praise.method.energy"
+        },
+        {
+          "id": "security",
+          "nameKey": "verb.praise.method.security"
+        }
+      ],
+      "impact": {
+        "severity": "Minor",
+        "visibility": "Medium",
+        "targetEffect": 1,
+        "relation": {
+          "opinion": 4,
+          "trust": 1
+        }
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 1,
+      "cooldownDays": 7
+    },
+    {
+      "id": "verb.reassure",
+      "nameKey": "verb.reassure.name",
+      "category": "diplomacy",
+      "methods": [
+        {
+          "id": "general",
+          "nameKey": "verb.reassure.method.general"
+        },
+        {
+          "id": "debt",
+          "nameKey": "verb.reassure.method.debt"
+        },
+        {
+          "id": "trade",
+          "nameKey": "verb.reassure.method.trade"
+        },
+        {
+          "id": "energy",
+          "nameKey": "verb.reassure.method.energy"
+        },
+        {
+          "id": "security",
+          "nameKey": "verb.reassure.method.security"
+        }
+      ],
+      "impact": {
+        "severity": "Minor",
+        "visibility": "Medium",
+        "targetEffect": 0.5,
+        "relation": {
+          "opinion": 2,
+          "trust": 3
+        }
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 1,
+      "cooldownDays": 7
+    },
+    {
+      "id": "verb.warn",
+      "nameKey": "verb.warn.name",
+      "category": "diplomacy",
+      "methods": [
+        {
+          "id": "general",
+          "nameKey": "verb.warn.method.general"
+        },
+        {
+          "id": "debt",
+          "nameKey": "verb.warn.method.debt"
+        },
+        {
+          "id": "trade",
+          "nameKey": "verb.warn.method.trade"
+        },
+        {
+          "id": "energy",
+          "nameKey": "verb.warn.method.energy"
+        },
+        {
+          "id": "security",
+          "nameKey": "verb.warn.method.security"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "visibility": "Medium",
+        "norms": 5,
+        "targetEffect": -0.5,
+        "relation": {
+          "opinion": -3,
+          "threat": 4
+        }
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 2,
+      "cooldownDays": 14
+    },
+    {
+      "id": "verb.demand",
+      "nameKey": "verb.demand.name",
+      "category": "diplomacy",
+      "methods": [
+        {
+          "id": "general",
+          "nameKey": "verb.demand.method.general"
+        },
+        {
+          "id": "debt",
+          "nameKey": "verb.demand.method.debt"
+        },
+        {
+          "id": "trade",
+          "nameKey": "verb.demand.method.trade"
+        },
+        {
+          "id": "energy",
+          "nameKey": "verb.demand.method.energy"
+        },
+        {
+          "id": "security",
+          "nameKey": "verb.demand.method.security"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "visibility": "Medium",
+        "norms": 10,
+        "targetEffect": -0.4,
+        "relation": {
+          "opinion": -4,
+          "threat": 2
+        }
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 2,
+      "cooldownDays": 14
+    },
+    {
+      "id": "verb.condemn",
+      "nameKey": "verb.condemn.name",
+      "category": "diplomacy",
+      "methods": [
+        {
+          "id": "general",
+          "nameKey": "verb.condemn.method.general"
+        },
+        {
+          "id": "debt",
+          "nameKey": "verb.condemn.method.debt"
+        },
+        {
+          "id": "trade",
+          "nameKey": "verb.condemn.method.trade"
+        },
+        {
+          "id": "energy",
+          "nameKey": "verb.condemn.method.energy"
+        },
+        {
+          "id": "security",
+          "nameKey": "verb.condemn.method.security"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "visibility": "Medium",
+        "targetEffect": -1,
+        "relation": {
+          "opinion": -8,
+          "trust": -1
+        }
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 2,
+      "cooldownDays": 14
+    }
+  ]
+}

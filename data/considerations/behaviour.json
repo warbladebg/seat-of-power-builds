@@ -1,0 +1,400 @@
+{
+  "$schema": "../schemas/considerations.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "considerations": [
+    {
+      "id": "consideration.react.fits_stance",
+      "input": "react.stance_fit",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.7,
+        "steepness": 10
+      },
+      "weight": 3
+    },
+    {
+      "id": "consideration.react.fits_scale",
+      "input": "react.scale_fit",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.react.affordable",
+      "input": "react.cost",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.15,
+        "max": 1
+      },
+      "weight": 1.2
+    },
+    {
+      "id": "consideration.react.fits_voice",
+      "input": "react.voice_fit",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 0.8
+    },
+    {
+      "id": "consideration.react.peers_agree",
+      "input": "peers.agree",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.25,
+        "max": 1
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.react.fresh",
+      "input": "react.novelty",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.react.capable",
+      "input": "react.capacity",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.react.leader_exposed",
+      "input": "react.leader_weak",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.6
+    },
+    {
+      "id": "consideration.react.not_too_deep",
+      "input": "react.depth",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.6,
+        "max": 1
+      },
+      "weight": 0.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.react.grave_enough",
+      "input": "react.gravity",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.45,
+        "steepness": 8
+      },
+      "weight": 2,
+      "scaleByTrait": "lawfulness"
+    },
+    {
+      "id": "consideration.react.defensible",
+      "input": "react.gravity",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.6,
+        "steepness": 8
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.react.has_standing",
+      "input": "react.direct",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.15,
+        "max": 1
+      },
+      "weight": 2,
+      "default": 0
+    },
+    {
+      "id": "consideration.react.barely_touched",
+      "input": "react.intensity",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.1,
+        "max": 1
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.react.lawful_channel",
+      "input": "trait.lawfulness",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.react.irregular_channel",
+      "input": "trait.lawfulness",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.35,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.react.proud",
+      "input": "trait.pride",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.6
+    },
+    {
+      "id": "consideration.react.loyal",
+      "input": "trait.loyalty",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.react.disloyal",
+      "input": "trait.loyalty",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.4,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.react.honest",
+      "input": "trait.honesty",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.8
+    },
+    {
+      "id": "consideration.react.pragmatic",
+      "input": "trait.pragmatism",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.8
+    },
+    {
+      "id": "consideration.react.bandwagon",
+      "input": "politics.impeachment_pressure",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.react.breaks_ranks",
+      "input": "react.own_side_brake",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.3,
+        "steepness": 10
+      },
+      "weight": 2,
+      "default": 0
+    },
+    {
+      "id": "consideration.strength.fits",
+      "input": "strength.fit",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.7,
+        "steepness": 10
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.strength.affordable",
+      "input": "strength.cost",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.strength.proud",
+      "input": "trait.pride",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.6,
+        "max": 1
+      },
+      "weight": 0.5
+    },
+    {
+      "id": "consideration.strength.grave",
+      "input": "react.gravity",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.5
+    },
+    {
+      "id": "consideration.agenda.motivated",
+      "input": "agenda.motive",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.1,
+        "max": 1
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.agenda.unmotivated",
+      "input": "agenda.motive",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.1,
+        "max": 1
+      },
+      "weight": 2
+    },
+    {
+      "id": "consideration.agenda.good_odds",
+      "input": "agenda.odds",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1.2
+    },
+    {
+      "id": "consideration.agenda.poor_odds",
+      "input": "agenda.odds",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 0.8
+    },
+    {
+      "id": "consideration.agenda.cheap",
+      "input": "agenda.cost",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1.2
+    },
+    {
+      "id": "consideration.agenda.costly",
+      "input": "agenda.cost",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 0.6
+    },
+    {
+      "id": "consideration.agenda.momentum",
+      "input": "agenda.momentum",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.6,
+      "default": 0
+    },
+    {
+      "id": "consideration.agenda.no_momentum",
+      "input": "agenda.momentum",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.6,
+      "default": 0
+    },
+    {
+      "id": "consideration.agenda.peers_with",
+      "input": "agenda.peers",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.5,
+        "max": 1
+      },
+      "weight": 0.8,
+      "default": 0
+    },
+    {
+      "id": "consideration.agenda.patient",
+      "input": "trait.patience",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3,
+        "max": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "consideration.agenda.waited_long",
+      "input": "agenda.waits",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.agenda.fresh_wait",
+      "input": "agenda.waits",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.2,
+        "max": 1
+      },
+      "weight": 1,
+      "default": 0
+    }
+  ]
+}

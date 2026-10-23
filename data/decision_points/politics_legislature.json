@@ -1,0 +1,458 @@
+{
+  "$schema": "../schemas/decision_points.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "decisionPoints": [
+    {
+      "id": "dp.bloc_stance_on_bill",
+      "actor": "legislative_bloc",
+      "kind": "Choice",
+      "options": [
+        {
+          "id": "support",
+          "description": "Back the bill and whip members to vote yes."
+        },
+        {
+          "id": "oppose",
+          "description": "Oppose the bill and whip members to vote no."
+        },
+        {
+          "id": "split",
+          "description": "Let members vote their conscience.",
+          "weight": 0.4
+        },
+        {
+          "id": "abstain",
+          "description": "Stay out of it.",
+          "weight": 0.1
+        },
+        {
+          "id": "demand_changes",
+          "description": "Withhold support until a provision changes.",
+          "weight": 0.4
+        }
+      ],
+      "deliberationDays": 3,
+      "considerations": [
+        {
+          "use": "consideration.politics.bill.aligned",
+          "option": "support"
+        },
+        {
+          "use": "consideration.politics.bill.no_poison_pill",
+          "option": "support"
+        },
+        {
+          "use": "consideration.politics.party.same",
+          "option": "support"
+        },
+        {
+          "use": "consideration.politics.leader.loyal",
+          "option": "support"
+        },
+        {
+          "use": "consideration.politics.bill.must_pass",
+          "option": "support"
+        },
+        {
+          "use": "consideration.politics.bill.sweetened",
+          "option": "support"
+        },
+        {
+          "use": "consideration.politics.actor.not_obstructing",
+          "option": "support"
+        },
+        {
+          "use": "consideration.politics.leader.popular",
+          "option": "support"
+        },
+        {
+          "use": "consideration.politics.bill.misaligned",
+          "option": "oppose"
+        },
+        {
+          "use": "consideration.politics.party.other",
+          "option": "oppose"
+        },
+        {
+          "use": "consideration.politics.leader.disloyal",
+          "option": "oppose"
+        },
+        {
+          "use": "consideration.politics.bill.not_urgent",
+          "option": "oppose"
+        },
+        {
+          "use": "consideration.politics.bill.poison_pill",
+          "option": "oppose"
+        },
+        {
+          "use": "consideration.politics.actor.obstructing",
+          "option": "oppose"
+        },
+        {
+          "use": "consideration.politics.deadline.calm",
+          "option": "oppose"
+        },
+        {
+          "use": "consideration.politics.markets.calm",
+          "option": "oppose"
+        },
+        {
+          "use": "consideration.politics.deadline.not_imminent",
+          "option": "oppose"
+        },
+        {
+          "use": "consideration.politics.leadership.not_own_bill",
+          "option": "oppose"
+        },
+        {
+          "use": "consideration.politics.bill.not_hated",
+          "option": "split",
+          "weight": 1.5
+        },
+        {
+          "use": "consideration.politics.bill.not_loved",
+          "option": "split",
+          "weight": 1.5
+        },
+        {
+          "use": "consideration.politics.trait.flexible",
+          "option": "split"
+        },
+        {
+          "use": "consideration.politics.deadline.not_imminent",
+          "option": "split"
+        },
+        {
+          "use": "consideration.politics.deadline.calm",
+          "option": "split"
+        },
+        {
+          "use": "consideration.politics.bill.not_hated",
+          "option": "abstain"
+        },
+        {
+          "use": "consideration.politics.bill.not_loved",
+          "option": "abstain"
+        },
+        {
+          "use": "consideration.politics.trait.cautious",
+          "option": "abstain"
+        },
+        {
+          "use": "consideration.politics.deadline.not_imminent",
+          "option": "abstain"
+        },
+        {
+          "use": "consideration.politics.deadline.calm",
+          "option": "abstain"
+        },
+        {
+          "use": "consideration.politics.bill.fixable",
+          "option": "demand_changes"
+        },
+        {
+          "use": "consideration.politics.trait.pragmatic",
+          "option": "demand_changes"
+        },
+        {
+          "use": "consideration.politics.bill.not_hated",
+          "option": "demand_changes"
+        },
+        {
+          "use": "consideration.politics.deadline.not_imminent",
+          "option": "demand_changes"
+        },
+        {
+          "use": "consideration.politics.deadline.calm",
+          "option": "demand_changes"
+        },
+        {
+          "use": "consideration.politics.party.same",
+          "option": "demand_changes",
+          "weight": 1
+        }
+      ],
+      "temperature": 0.3
+    },
+    {
+      "id": "dp.swing_member_vote",
+      "actor": "character",
+      "kind": "Choice",
+      "options": [
+        {
+          "id": "yes",
+          "description": "Vote yes."
+        },
+        {
+          "id": "no",
+          "description": "Vote no."
+        },
+        {
+          "id": "abstain",
+          "description": "Miss the vote.",
+          "weight": 0.1
+        },
+        {
+          "id": "hold_out_for",
+          "description": "Hold out for a favour before committing.",
+          "weight": 0.3
+        }
+      ],
+      "deliberationDays": 2,
+      "considerations": [
+        {
+          "use": "consideration.politics.bill.aligned",
+          "option": "yes",
+          "weight": 3
+        },
+        {
+          "use": "consideration.politics.whip.with",
+          "option": "yes"
+        },
+        {
+          "use": "consideration.politics.party.same",
+          "option": "yes",
+          "weight": 1
+        },
+        {
+          "use": "consideration.politics.leader.loyal",
+          "option": "yes",
+          "weight": 1
+        },
+        {
+          "use": "consideration.politics.member.favoured",
+          "option": "yes"
+        },
+        {
+          "use": "consideration.politics.bill.sweetened",
+          "option": "yes"
+        },
+        {
+          "use": "consideration.politics.bill.must_pass",
+          "option": "yes",
+          "weight": 1
+        },
+        {
+          "use": "consideration.politics.actor.not_obstructing",
+          "option": "yes"
+        },
+        {
+          "use": "consideration.politics.bill.misaligned",
+          "option": "no",
+          "weight": 3
+        },
+        {
+          "use": "consideration.politics.whip.against",
+          "option": "no"
+        },
+        {
+          "use": "consideration.politics.party.other",
+          "option": "no",
+          "weight": 1
+        },
+        {
+          "use": "consideration.politics.leader.disloyal",
+          "option": "no",
+          "weight": 1
+        },
+        {
+          "use": "consideration.politics.deadline.calm",
+          "option": "no"
+        },
+        {
+          "use": "consideration.politics.markets.calm",
+          "option": "no"
+        },
+        {
+          "use": "consideration.politics.deadline.not_imminent",
+          "option": "no"
+        },
+        {
+          "use": "consideration.politics.leadership.not_own_bill",
+          "option": "no"
+        },
+        {
+          "use": "consideration.politics.bill.not_hated",
+          "option": "abstain"
+        },
+        {
+          "use": "consideration.politics.bill.not_loved",
+          "option": "abstain"
+        },
+        {
+          "use": "consideration.politics.trait.cautious",
+          "option": "abstain"
+        },
+        {
+          "use": "consideration.politics.deadline.not_imminent",
+          "option": "abstain"
+        },
+        {
+          "use": "consideration.politics.deadline.calm",
+          "option": "abstain"
+        },
+        {
+          "use": "consideration.politics.bill.not_hated",
+          "option": "hold_out_for"
+        },
+        {
+          "use": "consideration.politics.bill.not_loved",
+          "option": "hold_out_for"
+        },
+        {
+          "use": "consideration.politics.bill.not_sweetened",
+          "option": "hold_out_for"
+        },
+        {
+          "use": "consideration.politics.member.not_favoured",
+          "option": "hold_out_for"
+        },
+        {
+          "use": "consideration.politics.deadline.not_imminent",
+          "option": "hold_out_for"
+        },
+        {
+          "use": "consideration.politics.deadline.calm",
+          "option": "hold_out_for"
+        },
+        {
+          "use": "consideration.politics.trait.pragmatic",
+          "option": "hold_out_for"
+        },
+        {
+          "use": "consideration.politics.trait.bold",
+          "option": "hold_out_for"
+        }
+      ],
+      "temperature": 0.45
+    },
+    {
+      "id": "dp.schedule_bill",
+      "actor": "character",
+      "kind": "Choice",
+      "options": [
+        {
+          "id": "schedule_now",
+          "description": "Bring the bill to the floor."
+        },
+        {
+          "id": "delay",
+          "description": "Let it sit for a few weeks.",
+          "weight": 0.5
+        },
+        {
+          "id": "refuse",
+          "description": "Refuse to bring it up.",
+          "weight": 0.6
+        },
+        {
+          "id": "demand_changes",
+          "description": "Bring it up only if a provision changes.",
+          "weight": 0.5
+        }
+      ],
+      "deliberationDays": 2,
+      "considerations": [
+        {
+          "use": "consideration.politics.bill.majority_supports",
+          "option": "schedule_now"
+        },
+        {
+          "use": "consideration.politics.bill.leader_likes",
+          "option": "schedule_now"
+        },
+        {
+          "use": "consideration.politics.bill.must_pass",
+          "option": "schedule_now"
+        },
+        {
+          "use": "consideration.politics.party.same",
+          "option": "schedule_now",
+          "weight": 1.5
+        },
+        {
+          "use": "consideration.politics.leader.loyal",
+          "option": "schedule_now",
+          "weight": 1
+        },
+        {
+          "use": "consideration.politics.bill.majority_lukewarm",
+          "option": "delay"
+        },
+        {
+          "use": "consideration.politics.bill.not_urgent",
+          "option": "delay"
+        },
+        {
+          "use": "consideration.politics.trait.patient",
+          "option": "delay"
+        },
+        {
+          "use": "consideration.politics.bill.majority_opposes",
+          "option": "refuse"
+        },
+        {
+          "use": "consideration.politics.party.other",
+          "option": "refuse",
+          "weight": 1.5
+        },
+        {
+          "use": "consideration.politics.bill.not_urgent",
+          "option": "refuse"
+        },
+        {
+          "use": "consideration.politics.deadline.calm",
+          "option": "refuse"
+        },
+        {
+          "use": "consideration.politics.markets.calm",
+          "option": "refuse"
+        },
+        {
+          "use": "consideration.politics.deadline.calm",
+          "option": "delay"
+        },
+        {
+          "use": "consideration.politics.leadership.not_own_bill",
+          "option": "refuse"
+        },
+        {
+          "use": "consideration.politics.leadership.not_own_bill",
+          "option": "delay"
+        },
+        {
+          "use": "consideration.politics.leadership.not_own_bill",
+          "option": "demand_changes"
+        },
+        {
+          "use": "consideration.politics.leader.disloyal",
+          "option": "refuse",
+          "weight": 1
+        },
+        {
+          "use": "consideration.politics.bill.asked_often",
+          "option": "refuse"
+        },
+        {
+          "use": "consideration.politics.bill.majority_lukewarm",
+          "option": "demand_changes"
+        },
+        {
+          "use": "consideration.politics.trait.pragmatic",
+          "option": "demand_changes"
+        },
+        {
+          "use": "consideration.politics.party.other",
+          "option": "demand_changes",
+          "weight": 1
+        }
+      ],
+      "temperature": 0.45
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "../schemas/rating_agencies.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Fictional credit ratings agencies (D-009). Any resemblance to real firms is unintended. reviewEveryDays: scheduled reviews; lagDays: how long a review takes after a trigger (the agency-specific lag of 07 §9); strictness shifts the agency's view of the fair rating (notches, positive = harsher)."
+  },
+  "agencies": [
+    {
+      "id": "agency.kestrel",
+      "nameKey": "agency.kestrel.name",
+      "reviewEveryDays": 180,
+      "lagDays": 5,
+      "strictness": 0.4,
+      "personality": {
+        "riskTolerance": 30,
+        "pride": 50,
+        "pragmatism": 40,
+        "patience": 35,
+        "hawkishness": 60,
+        "honesty": 80,
+        "loyalty": 30,
+        "ideologicalRigidity": 55,
+        "grudgeHolding": 50,
+        "publicOrientation": 40,
+        "lawfulness": 70
+      }
+    },
+    {
+      "id": "agency.harrow_finch",
+      "nameKey": "agency.harrow_finch.name",
+      "reviewEveryDays": 240,
+      "lagDays": 14,
+      "strictness": 0,
+      "personality": {
+        "riskTolerance": 40,
+        "pride": 40,
+        "pragmatism": 60,
+        "patience": 70,
+        "hawkishness": 45,
+        "honesty": 80,
+        "loyalty": 40,
+        "ideologicalRigidity": 60,
+        "grudgeHolding": 40,
+        "publicOrientation": 25,
+        "lawfulness": 75
+      }
+    },
+    {
+      "id": "agency.ostrander",
+      "nameKey": "agency.ostrander.name",
+      "reviewEveryDays": 365,
+      "lagDays": 30,
+      "strictness": -0.3,
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 55,
+        "pragmatism": 55,
+        "patience": 85,
+        "hawkishness": 40,
+        "honesty": 85,
+        "loyalty": 45,
+        "ideologicalRigidity": 70,
+        "grudgeHolding": 35,
+        "publicOrientation": 20,
+        "lawfulness": 80
+      }
+    }
+  ]
+}

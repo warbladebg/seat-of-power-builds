@@ -1,0 +1,176 @@
+{
+  "$schema": "../schemas/considerations.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Library considerations for the economy's decision points (04): dp.central_bank_rate and dp.rating_action. Their inputs are computed in code (Systems/Economy) and passed per option."
+  },
+  "considerations": [
+    {
+      "id": "consideration.cb.toward_taylor",
+      "input": "cb.taylor_fit",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.5,
+        "steepness": 10
+      },
+      "weight": 4
+    },
+    {
+      "id": "consideration.cb.gradual",
+      "input": "cb.step_size",
+      "curve": {
+        "kind": "InverseQuadratic",
+        "min": 0.15
+      },
+      "weight": 1,
+      "scaleByTrait": "patience"
+    },
+    {
+      "id": "consideration.cb.inflation_hawk",
+      "input": "cb.inflation_fit",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2
+      },
+      "weight": 1,
+      "scaleByTrait": "hawkishness"
+    },
+    {
+      "id": "consideration.cb.financial_stability",
+      "input": "cb.stress_fit",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2
+      },
+      "weight": 1.5
+    },
+    {
+      "id": "consideration.cb.political_pressure",
+      "input": "cb.pressure_fit",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.3
+      },
+      "weight": 1,
+      "scaleByTrait": "pragmatism"
+    },
+    {
+      "id": "consideration.cb.no_reversal",
+      "input": "cb.consistency",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.2
+      },
+      "weight": 1.5,
+      "scaleByTrait": "patience",
+      "default": 1
+    },
+    {
+      "id": "consideration.rating.fairly_rated",
+      "input": "rating.overrated",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.3,
+        "steepness": 12
+      },
+      "weight": 2,
+      "default": 0
+    },
+    {
+      "id": "consideration.rating.not_underrated",
+      "input": "rating.underrated",
+      "curve": {
+        "kind": "InverseLogistic",
+        "midpoint": 0.45,
+        "steepness": 12
+      },
+      "weight": 1,
+      "default": 0
+    },
+    {
+      "id": "consideration.rating.no_default",
+      "input": "rating.default",
+      "curve": {
+        "kind": "Inverse"
+      },
+      "weight": 3,
+      "default": 0
+    },
+    {
+      "id": "consideration.rating.somewhat_overrated",
+      "input": "rating.overrated",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.12,
+        "steepness": 15
+      },
+      "weight": 2,
+      "default": 0
+    },
+    {
+      "id": "consideration.rating.not_on_watch",
+      "input": "rating.on_watch",
+      "curve": {
+        "kind": "Inverse",
+        "min": 0.1
+      },
+      "weight": 1.5,
+      "default": 0
+    },
+    {
+      "id": "consideration.rating.overrated",
+      "input": "rating.overrated",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.3,
+        "steepness": 12
+      },
+      "weight": 3,
+      "default": 0
+    },
+    {
+      "id": "consideration.rating.watched",
+      "input": "rating.on_watch",
+      "curve": {
+        "kind": "Linear",
+        "min": 0.35
+      },
+      "weight": 1,
+      "scaleByTrait": "patience",
+      "default": 0
+    },
+    {
+      "id": "consideration.rating.in_default",
+      "input": "rating.default",
+      "curve": {
+        "kind": "Step",
+        "midpoint": 0.5
+      },
+      "weight": 3,
+      "default": 0
+    },
+    {
+      "id": "consideration.rating.underrated",
+      "input": "rating.underrated",
+      "curve": {
+        "kind": "Logistic",
+        "midpoint": 0.4,
+        "steepness": 12
+      },
+      "weight": 3,
+      "scaleByTrait": "patience",
+      "default": 0
+    },
+    {
+      "id": "consideration.rating.below_top",
+      "input": "rating.at_top",
+      "curve": {
+        "kind": "Inverse"
+      },
+      "weight": 3,
+      "default": 0
+    }
+  ]
+}

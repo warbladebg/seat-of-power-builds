@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/country.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "id": "country.gbr",
+  "depth": "Light",
+  "nameKey": "country.gbr.name",
+  "iso3": "GBR",
+  "entityType": "Country",
+  "regimeType": "LiberalDemocracy",
+  "currency": "GBP",
+  "capitalKey": "country.gbr.capital",
+  "mapColor": "#1F3A68",
+  "leaderCharacterId": "char.gbr.leader"
+}

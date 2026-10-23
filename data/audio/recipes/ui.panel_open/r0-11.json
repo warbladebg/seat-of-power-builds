@@ -1,0 +1,39 @@
+{
+  "cue": "ui.panel_open",
+  "round": "r0",
+  "option": 11,
+  "family": "F. Soft synth",
+  "label": "soft chime, a little bell",
+  "seed": 11,
+  "loudness": -23,
+  "tail": 0.03,
+  "layers": [
+    {
+      "type": "tone",
+      "freq": 1046.5,
+      "fm": {
+        "ratio": 3.5,
+        "index": 1.4,
+        "decay": 0.25
+      },
+      "env": {
+        "a": 0.004,
+        "d": 0.9
+      }
+    },
+    {
+      "type": "tone",
+      "freq": 2093,
+      "env": {
+        "a": 0.004,
+        "d": 0.35
+      },
+      "gain": -16
+    }
+  ],
+  "room": {
+    "size": 0.9,
+    "mix": 0.22,
+    "damp": 4500
+  }
+}

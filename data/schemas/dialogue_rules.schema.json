@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dialogue_rules.schema.json",
+  "title": "DialogueRulesFile",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    },
+    "tones": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "surface": {
+            "type": "string"
+          },
+          "tone": {
+            "enum": [
+              "Warm",
+              "Neutral",
+              "Cold",
+              "Hostile",
+              "Evasive"
+            ]
+          },
+          "when": {
+            "default": null
+          },
+          "note": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "surface",
+          "tone"
+        ],
+        "additionalProperties": false
+      },
+      "default": null
+    },
+    "buckets": {
+      "type": [
+        "array",
+        "null"
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "variable": {
+            "type": "string"
+          },
+          "thresholds": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "keys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "variable",
+          "thresholds",
+          "keys"
+        ],
+        "additionalProperties": false
+      },
+      "default": null
+    }
+  },
+  "additionalProperties": false
+}

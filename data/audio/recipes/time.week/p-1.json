@@ -1,0 +1,23 @@
+{
+  "cue": "time.week",
+  "round": "p",
+  "option": 1,
+  "family": "Placeholder",
+  "label": "plain placeholder until a round picks this cue",
+  "seed": 1,
+  "tail": 0.03,
+  "loudness": -37,
+  "layers": [
+    {
+      "type": "tone",
+      "wave": "sine",
+      "freq": 2000,
+      "at": 0.0,
+      "env": {
+        "a": 0.0005,
+        "d": 0.02
+      },
+      "gain": 0.0
+    }
+  ]
+}

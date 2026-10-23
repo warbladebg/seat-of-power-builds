@@ -1,0 +1,238 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "voter_blocs.schema.json",
+  "title": "VoterBlocsFile",
+  "type": "object",
+  "properties": {
+    "voterBlocs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^bloc\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "populationShare": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "turnout": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "preferences": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "economic": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "fiscal": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "social": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "security": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "globalism": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "norms": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "environment": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              }
+            },
+            "additionalProperties": false,
+            "default": null
+          },
+          "salience": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "economic": {
+                "type": "number",
+                "default": 0,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "fiscal": {
+                "type": "number",
+                "default": 0,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "social": {
+                "type": "number",
+                "default": 0,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "security": {
+                "type": "number",
+                "default": 0,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "globalism": {
+                "type": "number",
+                "default": 0,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "norms": {
+                "type": "number",
+                "default": 0,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "environment": {
+                "type": "number",
+                "default": 0,
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "additionalProperties": false,
+            "default": null
+          },
+          "partyLean": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "propertyNames": {
+              "pattern": "^party\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+            }
+          },
+          "issueWeights": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "propertyNames": {
+              "enum": [
+                "inflation",
+                "jobs",
+                "energy_prices",
+                "taxes",
+                "spending",
+                "debt",
+                "security",
+                "norms",
+                "healthcare",
+                "immigration",
+                "environment",
+                "social_security",
+                "wages",
+                "stocks"
+              ]
+            }
+          },
+          "mediaDiet": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "default": null,
+            "propertyNames": {
+              "pattern": "^pc\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "nameKey",
+          "populationShare",
+          "turnout",
+          "partyLean",
+          "issueWeights"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "voterBlocs"
+  ],
+  "additionalProperties": false
+}

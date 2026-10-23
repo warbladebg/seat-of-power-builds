@@ -1,0 +1,239 @@
+{
+  "$schema": "../schemas/intel.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Visibility rules (first match wins; unmatched = observable), intelligence targets' opacity, intel tunables (defaults in Systems/Intel/IntelParams.cs)."
+  },
+  "visibility": [
+    {
+      "pattern": "econ.unemployment@*",
+      "visibility": "perceived",
+      "via": "stat.usa.unemployment"
+    },
+    {
+      "pattern": "econ.inflation@*",
+      "visibility": "perceived",
+      "via": "stat.usa.cpi"
+    },
+    {
+      "pattern": "econ.core_inflation@*",
+      "visibility": "perceived",
+      "via": "stat.usa.core_cpi"
+    },
+    {
+      "pattern": "econ.real_growth@*",
+      "visibility": "perceived",
+      "via": "stat.usa.gdp"
+    },
+    {
+      "pattern": "econ.treasury_cash@*",
+      "visibility": "perceived",
+      "via": "stat.usa.dts_cash"
+    },
+    {
+      "pattern": "econ.debt_subject_to_limit@*",
+      "visibility": "perceived",
+      "via": "stat.usa.dts_debt"
+    },
+    {
+      "pattern": "econ.extraordinary_measures@*",
+      "visibility": "perceived",
+      "via": "stat.usa.measures"
+    },
+    {
+      "pattern": "econ.xdate_days@*",
+      "visibility": "perceived",
+      "via": "xdate"
+    },
+    {
+      "pattern": "politics.approval@*",
+      "visibility": "perceived",
+      "via": "polls"
+    },
+    {
+      "pattern": "econ.output_gap@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.gap_shock@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.potential_growth@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.potential_gdp@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.real_gdp@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.real_growth_yoy@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.nairu@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.neutral_rate@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.taylor_rate@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.real_rate_gap@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.cb_credibility@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.treasury_receipts_factor@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.default_severity@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.inflation_expectations@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.price_level@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.energy_inflation_contrib@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.fiscal_impulse@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.external_demand@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.foreign_demand_shift@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.risk_premium_shock@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "econ.inequality@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "world.output_gap",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "politics.base_approval@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "politics.leader_security@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "politics.loyalty@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "politics.satisfaction@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "politics.support@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "politics.bloc_shock@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "politics.party_approval@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "politics.coup_risk@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "politics.projected_seat_change@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "politics.projected_vote_share@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "politics.honeymoon@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "politics.rally@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "politics.scandal@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "politics.blame@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "politics.impeachment_pressure@*",
+      "visibility": "hidden"
+    },
+    {
+      "pattern": "politics.urgency@*",
+      "visibility": "hidden"
+    }
+  ],
+  "targets": [
+    {
+      "country": "country.chn",
+      "opacity": 0.75
+    },
+    {
+      "country": "country.sau",
+      "opacity": 0.6
+    },
+    {
+      "country": "country.mex",
+      "opacity": 0.35
+    },
+    {
+      "country": "country.jpn",
+      "opacity": 0.25
+    },
+    {
+      "country": "country.eu",
+      "opacity": 0.2
+    },
+    {
+      "country": "country.gbr",
+      "opacity": 0.15
+    },
+    {
+      "country": "country.can",
+      "opacity": 0.15
+    }
+  ],
+  "params": {}
+}

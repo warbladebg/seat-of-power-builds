@@ -1,0 +1,9 @@
+{
+  "meta": {
+    "language": "bg",
+    "generatedBy": "tools/pipeline/i18n/build.py"
+  },
+  "strings": {
+    "verb.prioritize_payments.purpose_gone": "Конгресът реши въпроса с тавана на дълга, така че вече няма X-дата, заради която да се приоритизират плащанията."
+  }
+}

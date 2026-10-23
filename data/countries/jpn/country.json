@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/country.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "id": "country.jpn",
+  "depth": "Light",
+  "nameKey": "country.jpn.name",
+  "iso3": "JPN",
+  "entityType": "Country",
+  "regimeType": "LiberalDemocracy",
+  "currency": "JPY",
+  "capitalKey": "country.jpn.capital",
+  "mapColor": "#B5384A",
+  "leaderCharacterId": "char.jpn.leader"
+}

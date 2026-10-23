@@ -1,0 +1,34 @@
+{
+  "cue": "ui.toggle",
+  "round": "p",
+  "option": 1,
+  "family": "Placeholder",
+  "label": "plain placeholder until a round picks this cue",
+  "seed": 1,
+  "tail": 0.03,
+  "loudness": -28,
+  "layers": [
+    {
+      "type": "tone",
+      "wave": "sine",
+      "freq": 1100,
+      "at": 0.0,
+      "env": {
+        "a": 0.002,
+        "d": 0.03
+      },
+      "gain": 0.0
+    },
+    {
+      "type": "tone",
+      "wave": "sine",
+      "freq": 1500,
+      "at": 0.025,
+      "env": {
+        "a": 0.002,
+        "d": 0.03
+      },
+      "gain": 0.0
+    }
+  ]
+}

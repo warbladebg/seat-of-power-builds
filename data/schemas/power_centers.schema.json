@@ -1,0 +1,250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "power_centers.schema.json",
+  "title": "PowerCentersFile",
+  "type": "object",
+  "properties": {
+    "powerCenters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^pc\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "type": {
+            "enum": [
+              "LegislativeBloc",
+              "Court",
+              "CentralBank",
+              "Military",
+              "SecurityServices",
+              "BusinessLobby",
+              "MediaCluster",
+              "PartyFaction",
+              "RegionalElite",
+              "Oligarchs",
+              "Public"
+            ]
+          },
+          "weight": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "preferences": {
+            "type": "object",
+            "properties": {
+              "economic": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "fiscal": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "social": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "security": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "globalism": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "norms": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "environment": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              }
+            },
+            "additionalProperties": false
+          },
+          "salience": {
+            "type": "object",
+            "properties": {
+              "economic": {
+                "type": "number",
+                "default": 0,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "fiscal": {
+                "type": "number",
+                "default": 0,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "social": {
+                "type": "number",
+                "default": 0,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "security": {
+                "type": "number",
+                "default": 0,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "globalism": {
+                "type": "number",
+                "default": 0,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "norms": {
+                "type": "number",
+                "default": 0,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "environment": {
+                "type": "number",
+                "default": 0,
+                "minimum": 0,
+                "maximum": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "baseLoyalty": {
+            "type": "number",
+            "default": 50,
+            "minimum": 0,
+            "maximum": 100
+          },
+          "leaderCharacterId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "pattern": "^char\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "party": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "pattern": "^party\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "stakes": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "default": null,
+            "propertyNames": {
+              "pattern": "^stake\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+            }
+          },
+          "leverageActions": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string",
+              "enum": [
+                "fund_rival",
+                "obstruct_bill",
+                "public_criticism",
+                "leak",
+                "slow_walk_implementation",
+                "refuse_orders",
+                "coup_plot",
+                "capital_flight",
+                "court_challenge",
+                "primary_challenge",
+                "media_campaign",
+                "rate_pressure",
+                "strike"
+              ]
+            },
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "nameKey",
+          "type",
+          "weight",
+          "preferences",
+          "salience"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "powerCenters"
+  ],
+  "additionalProperties": false
+}

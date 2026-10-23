@@ -1,0 +1,26 @@
+{
+  "$schema": "../../schemas/diplomacy_profile.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "election_soon: Mexico's federal midterm election is on 6 June 2027."
+  },
+  "redLines": [
+    {
+      "term": "term.security_guarantee",
+      "side": "receive",
+      "reasonKey": "redline.mex.security_guarantee"
+    }
+  ],
+  "pressures": [
+    {
+      "tag": "election_soon",
+      "from": "2027-03-01",
+      "until": "2027-06-06"
+    }
+  ],
+  "params": {
+    "militaryPower": 0.05
+  }
+}

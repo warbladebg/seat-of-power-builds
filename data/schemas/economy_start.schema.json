@@ -1,0 +1,342 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "economy_start.schema.json",
+  "title": "EconomyStartDef",
+  "type": "object",
+  "properties": {
+    "gdp": {
+      "type": "number",
+      "minimum": 0
+    },
+    "realGrowth": {
+      "type": "number",
+      "minimum": -30,
+      "maximum": 30
+    },
+    "inflation": {
+      "type": "number",
+      "minimum": -10,
+      "maximum": 100
+    },
+    "policyRate": {
+      "type": "number",
+      "minimum": -5,
+      "maximum": 100
+    },
+    "unemployment": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "default": null,
+      "minimum": 0,
+      "maximum": 60
+    },
+    "potentialGrowth": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "default": null,
+      "minimum": -5,
+      "maximum": 15
+    },
+    "coreInflation": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "default": null,
+      "minimum": -10,
+      "maximum": 100
+    },
+    "nairu": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "default": null,
+      "minimum": 0,
+      "maximum": 60
+    },
+    "neutralRate": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "default": null,
+      "minimum": -5,
+      "maximum": 10
+    },
+    "inflationTarget": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "default": null,
+      "minimum": 0,
+      "maximum": 20
+    },
+    "yield10y": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "default": null,
+      "minimum": -5,
+      "maximum": 100
+    },
+    "debt": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "default": null,
+      "minimum": 0
+    },
+    "revenuePctGdp": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "default": null,
+      "minimum": 0,
+      "maximum": 100
+    },
+    "spendingPctGdp": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "mandatory": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "discretionaryDefense": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "discretionaryNondefense": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "interest": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      },
+      "required": [
+        "mandatory",
+        "discretionaryDefense",
+        "discretionaryNondefense",
+        "interest"
+      ],
+      "additionalProperties": false,
+      "default": null
+    },
+    "energyIntensity": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "default": null,
+      "minimum": 0,
+      "maximum": 10
+    },
+    "energyImportShare": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "default": null,
+      "minimum": 0,
+      "maximum": 1
+    },
+    "exportsPctGdp": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "default": null,
+      "minimum": 0,
+      "maximum": 300
+    },
+    "fxIndex": {
+      "type": "number",
+      "default": 100,
+      "minimum": 1,
+      "maximum": 1000
+    },
+    "gini": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "default": null,
+      "minimum": 0,
+      "maximum": 100
+    },
+    "creditRating": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "treasury": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "debtSubjectToLimitBn": {
+          "type": "number",
+          "minimum": 0
+        },
+        "statutoryLimitBn": {
+          "type": "number",
+          "minimum": 0
+        },
+        "cashBalanceBn": {
+          "type": "number",
+          "minimum": 0
+        },
+        "extraordinaryMeasuresBn": {
+          "type": "number",
+          "minimum": 0
+        },
+        "dailyProfile": {
+          "type": "object",
+          "properties": {
+            "receipts": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "outlays": {
+              "type": "array",
+              "items": {
+                "$ref": "#/properties/treasury/properties/dailyProfile/properties/receipts/items"
+              }
+            },
+            "yearsAveraged": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          },
+          "required": [
+            "receipts",
+            "outlays",
+            "yearsAveraged"
+          ],
+          "additionalProperties": false
+        },
+        "foreignHolders": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "object",
+            "properties": {
+              "country": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+              },
+              "amountBn": {
+                "type": "number",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "country",
+              "amountBn"
+            ],
+            "additionalProperties": false
+          },
+          "default": null
+        }
+      },
+      "required": [
+        "debtSubjectToLimitBn",
+        "statutoryLimitBn",
+        "cashBalanceBn",
+        "extraordinaryMeasuresBn",
+        "dailyProfile"
+      ],
+      "additionalProperties": false,
+      "default": null
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    },
+    "tradePartners": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "default": null,
+      "propertyNames": {
+        "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+      }
+    }
+  },
+  "required": [
+    "gdp",
+    "realGrowth",
+    "inflation",
+    "policyRate"
+  ],
+  "additionalProperties": false
+}

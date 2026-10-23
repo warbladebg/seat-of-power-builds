@@ -1,0 +1,377 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "verbs.schema.json",
+  "title": "VerbsFile",
+  "type": "object",
+  "properties": {
+    "verbs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^verb\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "justice",
+              "government",
+              "military",
+              "economy",
+              "information",
+              "elections",
+              "diplomacy"
+            ]
+          },
+          "methods": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "nameKey": {
+                  "type": "string",
+                  "description": "Localisation key (data/localization/en)."
+                },
+                "executor": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "default": null,
+                  "pattern": "^executor\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+                },
+                "void": {
+                  "type": "boolean",
+                  "default": false
+                }
+              },
+              "required": [
+                "id",
+                "nameKey"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "impact": {
+            "type": "object",
+            "properties": {
+              "severity": {
+                "enum": [
+                  "Minor",
+                  "Moderate",
+                  "Serious",
+                  "Severe",
+                  "Catastrophic"
+                ]
+              },
+              "irreversible": {
+                "type": "boolean",
+                "default": false
+              },
+              "visibility": {
+                "enum": [
+                  "Low",
+                  "Medium",
+                  "High"
+                ],
+                "default": "Medium"
+              },
+              "norms": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "targetEffect": {
+                "type": "number",
+                "default": -1,
+                "minimum": -1,
+                "maximum": 1
+              },
+              "relation": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "properties": {
+                  "opinion": {
+                    "type": "number",
+                    "default": 0,
+                    "minimum": -100,
+                    "maximum": 100
+                  },
+                  "trust": {
+                    "type": "number",
+                    "default": 0,
+                    "minimum": -100,
+                    "maximum": 100
+                  },
+                  "threat": {
+                    "type": "number",
+                    "default": 0,
+                    "minimum": -100,
+                    "maximum": 100
+                  }
+                },
+                "additionalProperties": false,
+                "default": null
+              }
+            },
+            "required": [
+              "severity"
+            ],
+            "additionalProperties": false
+          },
+          "defaultLegality": {
+            "enum": [
+              "Lawful",
+              "Contested",
+              "Unlawful",
+              "ManifestlyUnlawful"
+            ],
+            "default": "Lawful"
+          },
+          "capitalCost": {
+            "type": "number",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 100
+          },
+          "cooldownDays": {
+            "type": "integer",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 3650
+          },
+          "requires": {
+            "default": null
+          },
+          "extreme": {
+            "type": "boolean",
+            "default": false
+          },
+          "purpose": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "holds": {
+                "enum": [
+                  "XDateInSight"
+                ]
+              },
+              "goneKey": {
+                "type": "string",
+                "description": "Localisation key (data/localization/en)."
+              }
+            },
+            "required": [
+              "holds",
+              "goneKey"
+            ],
+            "additionalProperties": false,
+            "default": null
+          },
+          "targets": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "enum": [
+                "None",
+                "PowerCenter",
+                "VoterBloc",
+                "Character",
+                "Country"
+              ]
+            },
+            "default": null
+          },
+          "targetTypes": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "enum": [
+                "LegislativeBloc",
+                "Court",
+                "CentralBank",
+                "Military",
+                "SecurityServices",
+                "BusinessLobby",
+                "MediaCluster",
+                "PartyFaction",
+                "RegionalElite",
+                "Oligarchs",
+                "Public"
+              ]
+            },
+            "default": null
+          },
+          "targetRoles": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "default": null
+          },
+          "scales": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "enum": [
+                "Token",
+                "Limited",
+                "Major",
+                "Total"
+              ]
+            },
+            "default": null
+          },
+          "executed": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "default": null
+          },
+          "stopped": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "default": null
+          },
+          "specialisations": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "when": {
+                  "type": "object",
+                  "properties": {
+                    "role": {
+                      "type": [
+                        "string",
+                        "null"
+                      ],
+                      "default": null
+                    },
+                    "powerCenterType": {
+                      "enum": [
+                        "LegislativeBloc",
+                        "Court",
+                        "CentralBank",
+                        "Military",
+                        "SecurityServices",
+                        "BusinessLobby",
+                        "MediaCluster",
+                        "PartyFaction",
+                        "RegionalElite",
+                        "Oligarchs",
+                        "Public",
+                        null
+                      ],
+                      "default": null
+                    }
+                  },
+                  "additionalProperties": false
+                },
+                "severity": {
+                  "enum": [
+                    "Minor",
+                    "Moderate",
+                    "Serious",
+                    "Severe",
+                    "Catastrophic",
+                    null
+                  ],
+                  "default": null
+                },
+                "executed": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "default": null
+                }
+              },
+              "required": [
+                "when"
+              ],
+              "additionalProperties": false
+            },
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "nameKey",
+          "category",
+          "methods",
+          "impact"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "verbs"
+  ],
+  "additionalProperties": false
+}

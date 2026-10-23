@@ -1,0 +1,32 @@
+Copyright (c) 2026 Boyan Petrov. All rights reserved.
+
+Seat of Power, including its source code, game content, data, text, artwork and documentation, is the property of
+Boyan Petrov. No licence is granted to use, copy, modify, distribute, sell or create derivative works from any part of
+it, except with the prior written permission of the copyright holder.
+
+Being given access to this repository or to a copy of the game lets you view it and play it for your own
+non-commercial use. It does not grant any other right.
+
+CONTRIBUTIONS
+
+Any contribution submitted to Seat of Power (code, content, data, text, artwork, audio, documentation, ideas or any other
+material, through a pull request, patch, issue, message or any other means) is made gratuitously: it is appreciated, but
+the contributor receives no payment, royalty or other compensation for it, now or in the future.
+
+By submitting a contribution, the contributor confirms that it is their own work, or that they have the right to submit
+it, and grants Boyan Petrov a perpetual, worldwide, irrevocable, royalty-free, non-exclusive, transferable and
+sublicensable licence to use, copy, modify, adapt, publish, distribute, sell and otherwise exploit the contribution, in
+whole or in part, in Seat of Power or any other work, in any form and for any purpose, commercial or not, as Boyan Petrov
+sees fit. This includes the right to relicense it under any terms. To the extent permitted by law, the contributor waives
+any moral rights in the contribution, or agrees not to assert them, against Boyan Petrov and Boyan Petrov's licensees.
+Boyan Petrov is not obliged to use any contribution or to credit it, but may choose to.
+
+Third-party material included in Seat of Power (map and economic data, fonts, the Godot Engine) remains under its own
+licence and is listed with its source and terms in ATTRIBUTION.md. Those licences apply to that material only.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT
+HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
+ITS USE.
+
+For permission requests, contact the copyright holder through https://github.com/warbladebg.

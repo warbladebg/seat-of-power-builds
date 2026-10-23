@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/country.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "id": "country.chn",
+  "depth": "Light",
+  "nameKey": "country.chn.name",
+  "iso3": "CHN",
+  "entityType": "Country",
+  "regimeType": "ClosedAutocracy",
+  "currency": "CNY",
+  "capitalKey": "country.chn.capital",
+  "mapColor": "#C9342A",
+  "leaderCharacterId": "char.chn.leader"
+}

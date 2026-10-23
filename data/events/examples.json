@@ -1,0 +1,203 @@
+{
+  "$schema": "../schemas/events.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Framework examples from package 06; the X-Date event set is written in package 12."
+  },
+  "events": [
+    {
+      "id": "event.usa.bank_wobble",
+      "titleKey": "event.usa.bank_wobble.title",
+      "textKey": "event.usa.bank_wobble.text",
+      "scope": "country.usa",
+      "category": "economy",
+      "trigger": {
+        "all": [
+          {
+            "var": "econ.market_stress@country.usa",
+            "op": ">",
+            "value": 40
+          },
+          {
+            "chance": 0.05
+          }
+        ]
+      },
+      "fireOnce": true,
+      "autoPause": true,
+      "severity": "Major",
+      "options": [
+        {
+          "id": "backstop",
+          "textKey": "event.usa.bank_wobble.option.backstop",
+          "effects": [
+            {
+              "type": "add_modifier",
+              "id": "mod.usa.backstop_calm",
+              "var": "econ.market_stress@{country}",
+              "amount": -15,
+              "curve": {
+                "ramp": 3,
+                "hold": 30,
+                "decay": 30
+              }
+            },
+            {
+              "type": "set_flag",
+              "flag": "crisis.usa.regional_bank.backstop_used"
+            }
+          ]
+        },
+        {
+          "id": "let_market_handle",
+          "textKey": "event.usa.bank_wobble.option.let_market_handle",
+          "effects": [
+            {
+              "type": "start_crisis",
+              "crisis": "crisis.usa.regional_bank"
+            }
+          ]
+        },
+        {
+          "id": "blame_congress",
+          "textKey": "event.usa.bank_wobble.option.blame_congress",
+          "effects": [
+            {
+              "type": "modify_var",
+              "var": "econ.consumer_confidence@{country}",
+              "amount": -2,
+              "curve": {
+                "hold": 30,
+                "decay": 30
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "event.usa.ratings_watch",
+      "titleKey": "event.usa.ratings_watch.title",
+      "textKey": "event.usa.ratings_watch.text",
+      "scope": "country.usa",
+      "category": "economy",
+      "trigger": {
+        "var": "econ.market_stress@country.usa",
+        "op": ">",
+        "value": 50
+      },
+      "mtthDays": 30,
+      "cooldownDays": 90,
+      "severity": "Major",
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 5,
+          "curve": {
+            "ramp": 2,
+            "hold": 20,
+            "decay": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "event.world.gulf_tension",
+      "titleKey": "event.world.gulf_tension.title",
+      "textKey": "event.world.gulf_tension.text",
+      "category": "rare",
+      "trigger": {
+        "chance": 0.08
+      },
+      "cooldownDays": 180,
+      "severity": "Major",
+      "autoPause": true,
+      "effects": [
+        {
+          "type": "add_modifier",
+          "id": "mod.world.gulf_tension",
+          "var": "world.oil_price",
+          "amount": 12,
+          "curve": {
+            "ramp": 5,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "release_reserve",
+          "textKey": "event.usa.ratings_watch.option.release_reserve",
+          "effects": [
+            {
+              "type": "trigger_event",
+              "event": "event.usa.spr_release_ordered"
+            }
+          ],
+          "requires": {
+            "not": {
+              "policy_active": "policy.usa.spr_release",
+              "country": "country.usa"
+            }
+          }
+        },
+        {
+          "id": "wait",
+          "textKey": "event.usa.ratings_watch.option.wait"
+        }
+      ]
+    },
+    {
+      "id": "event.usa.spr_release_ordered",
+      "titleKey": "event.usa.spr_release_ordered.title",
+      "textKey": "event.usa.spr_release_ordered.text",
+      "scope": "country.usa",
+      "category": "economy",
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.gas_price@{country}",
+          "amount": -0.15,
+          "curve": {
+            "ramp": 14,
+            "hold": 45,
+            "decay": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "event.usa.strong_jobs_report",
+      "titleKey": "event.usa.strong_jobs_report.title",
+      "textKey": "event.usa.strong_jobs_report.text",
+      "scope": "country.usa",
+      "category": "economy",
+      "trigger": {
+        "all": [
+          {
+            "date_after": "2027-03-01"
+          },
+          {
+            "chance": 0.1
+          }
+        ]
+      },
+      "cooldownDays": 60,
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.consumer_confidence@{country}",
+          "amount": 2,
+          "curve": {
+            "hold": 30,
+            "decay": 30
+          }
+        }
+      ]
+    }
+  ]
+}

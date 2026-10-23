@@ -1,0 +1,87 @@
+{
+  "$schema": "../../schemas/economy_start.schema.json",
+  "meta": {
+    "sources": [
+      "src.worldbank_wdi",
+      "src.us_bls",
+      "src.us_fed_h15",
+      "src.fomc",
+      "src.us_treasury_fiscaldata",
+      "src.us_treasury_tic",
+      "src.us_cbo",
+      "src.us_census_trade",
+      "src.seatofpower_authored"
+    ],
+    "notes": "policyRate: midpoint of the FOMC target range (3.75-4.00) at the snapshot. potentialGrowth, nairu and spendingPctGdp: rounded CBO-style estimates; spending shares sum to FY2025 MTS outlays / GDP (about 22.8%). revenuePctGdp: FY2025 MTS receipts / 2025 GDP. neutralRate: design estimate within published r* ranges. energyImportShare is 0 because the US is a net energy exporter. tradePartners: approximate shares of US goods exports (Census, 2025). extraordinaryMeasuresBn: design estimate in line with Treasury/CBO statements. creditRating: consensus of the three large agencies (the game's agencies are fictional)."
+  },
+  "gdp": {
+    "$ref": "generated:wdi.usa.gdp_lcu_bn"
+  },
+  "realGrowth": {
+    "$ref": "generated:wdi.usa.real_growth"
+  },
+  "inflation": {
+    "$ref": "generated:us.bls.cpi_yoy"
+  },
+  "policyRate": 3.875,
+  "unemployment": {
+    "$ref": "generated:us.bls.unemployment"
+  },
+  "potentialGrowth": 1.9,
+  "coreInflation": {
+    "$ref": "generated:us.bls.core_cpi_yoy"
+  },
+  "nairu": 4.3,
+  "neutralRate": 0.9,
+  "inflationTarget": 2.0,
+  "yield10y": {
+    "$ref": "generated:us.h15.yield_10y"
+  },
+  "debt": {
+    "$ref": "generated:us.treasury.debt_held_by_public_bn"
+  },
+  "revenuePctGdp": 17.0,
+  "spendingPctGdp": {
+    "mandatory": 13.9,
+    "discretionaryDefense": 2.8,
+    "discretionaryNondefense": 3.0,
+    "interest": 3.1
+  },
+  "energyIntensity": 1.0,
+  "energyImportShare": 0,
+  "exportsPctGdp": {
+    "$ref": "generated:wdi.usa.exports_pct_gdp"
+  },
+  "tradePartners": {
+    "country.can": 0.17,
+    "country.mex": 0.16,
+    "country.eu": 0.18,
+    "country.chn": 0.06,
+    "country.jpn": 0.04,
+    "country.gbr": 0.04,
+    "country.sau": 0.01
+  },
+  "fxIndex": 100,
+  "gini": {
+    "$ref": "generated:wdi.usa.gini"
+  },
+  "creditRating": "AA+",
+  "treasury": {
+    "debtSubjectToLimitBn": {
+      "$ref": "generated:us.treasury.debt_subject_to_limit_bn"
+    },
+    "statutoryLimitBn": {
+      "$ref": "generated:us.treasury.statutory_limit_bn"
+    },
+    "cashBalanceBn": {
+      "$ref": "generated:us.treasury.cash_balance_bn"
+    },
+    "extraordinaryMeasuresBn": 330,
+    "dailyProfile": {
+      "$ref": "generated:us.treasury.daily_profile"
+    },
+    "foreignHolders": {
+      "$ref": "generated:us.tic.major_holders"
+    }
+  }
+}

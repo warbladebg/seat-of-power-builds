@@ -1,0 +1,66 @@
+{
+  "$schema": "../schemas/actions.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Framework examples from package 06. Actions that touch power centers or voter blocs (lobbying, speeches to a bloc) are added once their systems exist (05)."
+  },
+  "actions": [
+    {
+      "id": "action.address_nation",
+      "nameKey": "action.address_nation.name",
+      "category": "domestic",
+      "capitalCost": 15,
+      "cooldownDays": 60,
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.consumer_confidence@{country}",
+          "amount": 2,
+          "curve": {
+            "ramp": 3,
+            "hold": 14,
+            "decay": 30
+          }
+        }
+      ]
+    },
+    {
+      "id": "action.fed_pressure_statement",
+      "nameKey": "action.fed_pressure_statement.name",
+      "category": "economic",
+      "capitalCost": 8,
+      "cooldownDays": 30,
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 3,
+          "curve": {
+            "hold": 10,
+            "decay": 20
+          }
+        },
+        {
+          "type": "set_flag",
+          "flag": "politics.{country}.fed_pressured"
+        }
+      ]
+    },
+    {
+      "id": "action.foreign_reassurance_call",
+      "nameKey": "action.foreign_reassurance_call.name",
+      "category": "diplomatic",
+      "target": "Country",
+      "capitalCost": 3,
+      "cooldownDays": 30,
+      "effects": [
+        {
+          "type": "set_flag",
+          "flag": "diplomacy.called.{target}"
+        }
+      ]
+    }
+  ]
+}

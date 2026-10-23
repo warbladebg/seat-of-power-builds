@@ -1,0 +1,280 @@
+{
+  "$schema": "../schemas/procedures.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "procedures": [
+    {
+      "id": "procedure.usa.amendment25",
+      "country": "country.usa",
+      "nameKey": "procedure.usa.amendment25.name",
+      "trigger": {
+        "incident": {
+          "minSeverity": "Severe",
+          "minLegality": "Unlawful",
+          "known": "government",
+          "withinDays": 30
+        }
+      },
+      "cooldownDays": 365,
+      "stages": [
+        {
+          "id": "a25_cabinet",
+          "textKey": "procedure.stage.a25_cabinet",
+          "delayDays": 2,
+          "vote": {
+            "point": "dp.invoke_25th",
+            "characters": [
+              "char.usa.vice_president"
+            ],
+            "roles": [
+              "secretary_of_state",
+              "treasury_secretary",
+              "secretary_of_defense",
+              "attorney_general",
+              "secretary_of_interior",
+              "secretary_of_agriculture",
+              "secretary_of_commerce",
+              "secretary_of_labor",
+              "secretary_of_hhs",
+              "secretary_of_hud",
+              "secretary_of_transportation",
+              "secretary_of_energy",
+              "secretary_of_education",
+              "secretary_of_veterans_affairs",
+              "secretary_of_homeland_security"
+            ],
+            "required": [
+              "char.usa.vice_president"
+            ],
+            "threshold": 0.51
+          },
+          "onEnter": [
+            {
+              "type": "set_flag",
+              "flag": "politics.{country}.amendment25_under_way"
+            }
+          ],
+          "onPass": "a25_acting",
+          "onFail": "a25_not_invoked"
+        },
+        {
+          "id": "a25_acting",
+          "textKey": "procedure.stage.a25_acting",
+          "delayDays": 4,
+          "onEnter": [
+            {
+              "type": "set_flag",
+              "flag": "politics.{country}.acting_president"
+            }
+          ],
+          "next": "a25_house"
+        },
+        {
+          "id": "a25_house",
+          "textKey": "procedure.stage.a25_house",
+          "delayDays": 10,
+          "vote": {
+            "point": "dp.vote_25th",
+            "chamber": "chamber.usa.house",
+            "threshold": 0.6667
+          },
+          "onPass": "a25_senate",
+          "onFail": "a25_restored"
+        },
+        {
+          "id": "a25_senate",
+          "textKey": "procedure.stage.a25_senate",
+          "delayDays": 2,
+          "vote": {
+            "point": "dp.vote_25th",
+            "chamber": "chamber.usa.senate",
+            "threshold": 0.6667
+          },
+          "onPass": "a25_removed",
+          "onFail": "a25_restored"
+        },
+        {
+          "id": "a25_not_invoked",
+          "textKey": "procedure.stage.a25_not_invoked",
+          "terminal": true,
+          "autoPause": false,
+          "onEnter": [
+            {
+              "type": "clear_flag",
+              "flag": "politics.{country}.amendment25_under_way"
+            }
+          ]
+        },
+        {
+          "id": "a25_restored",
+          "textKey": "procedure.stage.a25_restored",
+          "terminal": true,
+          "onEnter": [
+            {
+              "type": "clear_flag",
+              "flag": "politics.{country}.acting_president"
+            },
+            {
+              "type": "clear_flag",
+              "flag": "politics.{country}.amendment25_under_way"
+            }
+          ]
+        },
+        {
+          "id": "a25_removed",
+          "textKey": "procedure.stage.a25_removed",
+          "terminal": true,
+          "ending": "removed",
+          "onEnter": [
+            {
+              "type": "set_flag",
+              "flag": "politics.{country}.president_removed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "procedure.usa.mass_resignations",
+      "country": "country.usa",
+      "nameKey": "procedure.usa.mass_resignations.name",
+      "trigger": {
+        "all": [
+          {
+            "incident": {
+              "kind": "resignation",
+              "minSeverity": "Serious",
+              "known": "public",
+              "withinDays": 7
+            }
+          },
+          {
+            "not": {
+              "flag": "politics.{country}.amendment25_under_way"
+            }
+          }
+        ]
+      },
+      "cooldownDays": 60,
+      "stages": [
+        {
+          "id": "resign_wave",
+          "textKey": "procedure.stage.resign_wave",
+          "delayDays": 1,
+          "vote": {
+            "point": "dp.resign_in_protest",
+            "yesOption": "resign",
+            "roles": [
+              "secretary_of_state",
+              "treasury_secretary",
+              "secretary_of_defense",
+              "attorney_general",
+              "secretary_of_interior",
+              "secretary_of_agriculture",
+              "secretary_of_commerce",
+              "secretary_of_labor",
+              "secretary_of_hhs",
+              "secretary_of_hud",
+              "secretary_of_transportation",
+              "secretary_of_energy",
+              "secretary_of_education",
+              "secretary_of_veterans_affairs",
+              "secretary_of_homeland_security"
+            ],
+            "threshold": 0.3
+          },
+          "onPass": "resign_mass",
+          "onFail": "resign_contained"
+        },
+        {
+          "id": "resign_mass",
+          "textKey": "procedure.stage.resign_mass",
+          "terminal": true,
+          "onEnter": [
+            {
+              "type": "set_flag",
+              "flag": "politics.{country}.mass_resignation"
+            },
+            {
+              "type": "modify_var",
+              "var": "econ.market_stress@{country}",
+              "amount": 4,
+              "curve": {
+                "ramp": 2,
+                "hold": 30,
+                "decay": 60
+              }
+            }
+          ]
+        },
+        {
+          "id": "resign_contained",
+          "textKey": "procedure.stage.resign_contained",
+          "terminal": true,
+          "autoPause": false
+        }
+      ]
+    },
+    {
+      "id": "procedure.usa.military_statement",
+      "country": "country.usa",
+      "nameKey": "procedure.usa.military_statement.name",
+      "trigger": {
+        "incident": {
+          "verbs": [
+            "verb.launch_nuclear_strike",
+            "verb.fire_on_protesters",
+            "verb.deploy_troops_domestic",
+            "verb.purge_military_leadership",
+            "verb.postpone_election",
+            "verb.dissolve_legislature",
+            "verb.refuse_to_leave_office",
+            "verb.arrest_bloc"
+          ],
+          "minSeverity": "Severe",
+          "minLegality": "Unlawful",
+          "known": "government",
+          "withinDays": 14
+        }
+      },
+      "cooldownDays": 180,
+      "stages": [
+        {
+          "id": "military_consider",
+          "textKey": "procedure.stage.military_consider",
+          "delayDays": 1,
+          "vote": {
+            "point": "dp.public_statement",
+            "yesOption": "issue_statement",
+            "characters": [
+              "char.usa.joint_chiefs_chair"
+            ],
+            "threshold": 0.5
+          },
+          "onPass": "military_statement",
+          "onFail": "military_silent"
+        },
+        {
+          "id": "military_statement",
+          "textKey": "procedure.stage.military_statement",
+          "terminal": true,
+          "onEnter": [
+            {
+              "type": "set_flag",
+              "flag": "politics.{country}.military_reaffirmed_oath"
+            }
+          ]
+        },
+        {
+          "id": "military_silent",
+          "textKey": "procedure.stage.military_silent",
+          "terminal": true,
+          "autoPause": false
+        }
+      ]
+    }
+  ]
+}

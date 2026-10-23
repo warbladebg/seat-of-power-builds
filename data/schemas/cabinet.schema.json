@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "cabinet.schema.json",
+  "title": "CabinetDef",
+  "type": "object",
+  "properties": {
+    "country": {
+      "type": "string",
+      "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+    },
+    "posts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^post\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "titleKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "incumbent": {
+            "type": "string",
+            "pattern": "^char\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "candidates": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^char\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+            }
+          },
+          "domains": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "economy",
+                "debt",
+                "legislation",
+                "media",
+                "politics",
+                "foreign",
+                "security",
+                "orders"
+              ]
+            }
+          },
+          "faction": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "pattern": "^pc\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "speaks": {
+            "type": "number",
+            "default": 0.2,
+            "minimum": 0,
+            "maximum": 1
+          },
+          "forecasts": {
+            "type": "boolean",
+            "default": false
+          },
+          "countsVotes": {
+            "type": "boolean",
+            "default": false
+          },
+          "estimatesXDate": {
+            "type": "boolean",
+            "default": false
+          },
+          "factionByParty": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "string"
+            },
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "titleKey",
+          "incumbent",
+          "candidates",
+          "domains"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "country",
+    "posts"
+  ],
+  "additionalProperties": false
+}

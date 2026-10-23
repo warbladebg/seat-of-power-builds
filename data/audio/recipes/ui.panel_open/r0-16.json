@@ -1,0 +1,11 @@
+{
+  "cue": "ui.panel_open",
+  "round": "r0",
+  "option": 16,
+  "family": "H. Almost nothing",
+  "label": "silence: no sound for opening a panel",
+  "seed": 16,
+  "loudness": -23,
+  "tail": 0.03,
+  "layers": []
+}

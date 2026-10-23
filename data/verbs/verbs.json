@@ -1,0 +1,1994 @@
+{
+  "$schema": "../schemas/verbs.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "verbs": [
+    {
+      "id": "verb.investigate",
+      "nameKey": "verb.investigate.name",
+      "category": "justice",
+      "methods": [
+        {
+          "id": "standard",
+          "nameKey": "verb.investigate.method.standard",
+          "executor": "executor.doj_investigation"
+        },
+        {
+          "id": "covert",
+          "nameKey": "verb.investigate.method.covert",
+          "executor": "executor.surveillance"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "norms": 10
+      },
+      "targets": [
+        "Character",
+        "PowerCenter"
+      ],
+      "capitalCost": 5,
+      "cooldownDays": 90,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "justice.{country}.investigation.{target}"
+        }
+      ]
+    },
+    {
+      "id": "verb.arrest",
+      "nameKey": "verb.arrest.name",
+      "category": "justice",
+      "methods": [
+        {
+          "id": "federal",
+          "nameKey": "verb.arrest.method.federal",
+          "executor": "executor.federal_arrest"
+        }
+      ],
+      "impact": {
+        "severity": "Serious",
+        "norms": 30
+      },
+      "targets": [
+        "Character"
+      ],
+      "capitalCost": 10,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "justice.{country}.arrested.{target}"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 3,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ],
+      "specialisations": [
+        {
+          "when": {
+            "role": "party_leader_house"
+          },
+          "severity": "Severe"
+        },
+        {
+          "when": {
+            "role": "party_leader_senate"
+          },
+          "severity": "Severe"
+        },
+        {
+          "when": {
+            "role": "bloc_leader"
+          },
+          "severity": "Severe"
+        },
+        {
+          "when": {
+            "role": "chief_justice"
+          },
+          "severity": "Catastrophic"
+        }
+      ]
+    },
+    {
+      "id": "verb.arrest_bloc",
+      "nameKey": "verb.arrest_bloc.name",
+      "category": "justice",
+      "methods": [
+        {
+          "id": "federal",
+          "nameKey": "verb.arrest_bloc.method.federal",
+          "executor": "executor.federal_arrest"
+        }
+      ],
+      "impact": {
+        "severity": "Severe",
+        "norms": 90
+      },
+      "targets": [
+        "PowerCenter"
+      ],
+      "targetTypes": [
+        "LegislativeBloc"
+      ],
+      "capitalCost": 20,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "justice.{country}.legislators_arrested.{target}"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 25,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ],
+      "extreme": true
+    },
+    {
+      "id": "verb.prosecute",
+      "nameKey": "verb.prosecute.name",
+      "category": "justice",
+      "methods": [
+        {
+          "id": "doj",
+          "nameKey": "verb.prosecute.method.doj",
+          "executor": "executor.doj_prosecution"
+        }
+      ],
+      "impact": {
+        "severity": "Serious",
+        "norms": 20
+      },
+      "targets": [
+        "Character"
+      ],
+      "capitalCost": 10,
+      "cooldownDays": 180,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "justice.{country}.indicted.{target}"
+        }
+      ]
+    },
+    {
+      "id": "verb.drop_charges",
+      "nameKey": "verb.drop_charges.name",
+      "category": "justice",
+      "methods": [
+        {
+          "id": "doj",
+          "nameKey": "verb.drop_charges.method.doj",
+          "executor": "executor.doj_prosecution"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "norms": 15,
+        "targetEffect": 1
+      },
+      "targets": [
+        "Character"
+      ],
+      "capitalCost": 5,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "justice.{country}.charges_dropped.{target}"
+        }
+      ]
+    },
+    {
+      "id": "verb.pardon",
+      "nameKey": "verb.pardon.name",
+      "category": "justice",
+      "methods": [
+        {
+          "id": "personal",
+          "nameKey": "verb.pardon.method.personal"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "norms": 15,
+        "targetEffect": 1
+      },
+      "targets": [
+        "Character"
+      ],
+      "capitalCost": 5,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "justice.{country}.pardoned.{target}"
+        }
+      ],
+      "specialisations": [
+        {
+          "when": {
+            "role": "head_of_government"
+          },
+          "severity": "Severe"
+        }
+      ]
+    },
+    {
+      "id": "verb.surveil",
+      "nameKey": "verb.surveil.name",
+      "category": "justice",
+      "methods": [
+        {
+          "id": "warrant",
+          "nameKey": "verb.surveil.method.warrant",
+          "executor": "executor.surveillance"
+        },
+        {
+          "id": "warrantless",
+          "nameKey": "verb.surveil.method.warrantless",
+          "executor": "executor.surveillance"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "norms": 25
+      },
+      "targets": [
+        "Character",
+        "PowerCenter"
+      ],
+      "capitalCost": 5,
+      "cooldownDays": 60,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "intel.{country}.surveilled.{target}"
+        }
+      ]
+    },
+    {
+      "id": "verb.raid",
+      "nameKey": "verb.raid.name",
+      "category": "justice",
+      "methods": [
+        {
+          "id": "fbi",
+          "nameKey": "verb.raid.method.fbi",
+          "executor": "executor.federal_arrest"
+        }
+      ],
+      "impact": {
+        "severity": "Serious",
+        "norms": 40
+      },
+      "targets": [
+        "PowerCenter",
+        "Character"
+      ],
+      "capitalCost": 10,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "justice.{country}.raided.{target}"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 2,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.detain_protesters",
+      "nameKey": "verb.detain_protesters.name",
+      "category": "justice",
+      "methods": [
+        {
+          "id": "federal",
+          "nameKey": "verb.detain_protesters.method.federal",
+          "executor": "executor.homeland"
+        }
+      ],
+      "impact": {
+        "severity": "Serious",
+        "norms": 50
+      },
+      "capitalCost": 10,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "security.{country}.protesters_detained"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.consumer_confidence@{country}",
+          "amount": -3,
+          "curve": {
+            "ramp": 7,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.audit_opponent",
+      "nameKey": "verb.audit_opponent.name",
+      "category": "justice",
+      "methods": [
+        {
+          "id": "irs",
+          "nameKey": "verb.audit_opponent.method.irs",
+          "executor": "executor.irs_audit"
+        }
+      ],
+      "impact": {
+        "severity": "Serious",
+        "norms": 60
+      },
+      "targets": [
+        "Character"
+      ],
+      "capitalCost": 10,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "justice.{country}.audited.{target}"
+        }
+      ]
+    },
+    {
+      "id": "verb.fire_special_counsel",
+      "nameKey": "verb.fire_special_counsel.name",
+      "category": "justice",
+      "methods": [
+        {
+          "id": "doj",
+          "nameKey": "verb.fire_special_counsel.method.doj",
+          "executor": "executor.special_counsel_removal"
+        }
+      ],
+      "impact": {
+        "severity": "Severe",
+        "norms": 70
+      },
+      "targets": [
+        "Character"
+      ],
+      "targetRoles": [
+        "special_counsel"
+      ],
+      "capitalCost": 15,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "justice.{country}.special_counsel_fired"
+        },
+        {
+          "type": "set_flag",
+          "flag": "politics.{country}.fired.{target}"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 2,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.fire_official",
+      "nameKey": "verb.fire_official.name",
+      "category": "government",
+      "methods": [
+        {
+          "id": "personal",
+          "nameKey": "verb.fire_official.method.personal"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "norms": 10
+      },
+      "targets": [
+        "Character"
+      ],
+      "targetRoles": [
+        "secretary_of_state",
+        "treasury_secretary",
+        "secretary_of_defense",
+        "attorney_general",
+        "secretary_of_interior",
+        "secretary_of_agriculture",
+        "secretary_of_commerce",
+        "secretary_of_labor",
+        "secretary_of_hhs",
+        "secretary_of_hud",
+        "secretary_of_transportation",
+        "secretary_of_energy",
+        "secretary_of_education",
+        "secretary_of_veterans_affairs",
+        "secretary_of_homeland_security",
+        "fbi_director",
+        "cia_director",
+        "irs_commissioner",
+        "central_bank_chair",
+        "intelligence_chief",
+        "chief_of_staff",
+        "fcc_chair",
+        "opm_director",
+        "secret_service_director",
+        "military_chief"
+      ],
+      "capitalCost": 5,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "politics.{country}.fired.{target}"
+        }
+      ],
+      "specialisations": [
+        {
+          "when": {
+            "role": "central_bank_chair"
+          },
+          "severity": "Severe",
+          "executed": [
+            {
+              "type": "set_flag",
+              "flag": "politics.{country}.fired.{target}"
+            },
+            {
+              "type": "modify_var",
+              "var": "econ.market_stress@{country}",
+              "amount": 15,
+              "curve": {
+                "ramp": 2,
+                "hold": 60,
+                "decay": 120
+              }
+            }
+          ]
+        },
+        {
+          "when": {
+            "role": "fbi_director"
+          },
+          "severity": "Serious"
+        },
+        {
+          "when": {
+            "role": "military_chief"
+          },
+          "severity": "Serious"
+        }
+      ]
+    },
+    {
+      "id": "verb.purge_military_leadership",
+      "nameKey": "verb.purge_military_leadership.name",
+      "category": "government",
+      "methods": [
+        {
+          "id": "secdef",
+          "nameKey": "verb.purge_military_leadership.method.secdef",
+          "executor": "executor.military_personnel"
+        }
+      ],
+      "impact": {
+        "severity": "Severe",
+        "norms": 60
+      },
+      "targets": [
+        "PowerCenter"
+      ],
+      "targetTypes": [
+        "Military"
+      ],
+      "capitalCost": 20,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "politics.{country}.military_purged"
+        }
+      ],
+      "extreme": true
+    },
+    {
+      "id": "verb.freeze_spending",
+      "nameKey": "verb.freeze_spending.name",
+      "category": "government",
+      "methods": [
+        {
+          "id": "omb",
+          "nameKey": "verb.freeze_spending.method.omb",
+          "executor": "executor.treasury_payments"
+        }
+      ],
+      "impact": {
+        "severity": "Serious",
+        "norms": 30
+      },
+      "capitalCost": 10,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "econ.{country}.spending_frozen"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.consumer_confidence@{country}",
+          "amount": -2,
+          "curve": {
+            "ramp": 7,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.prioritize_payments",
+      "nameKey": "verb.prioritize_payments.name",
+      "category": "government",
+      "methods": [
+        {
+          "id": "treasury",
+          "nameKey": "verb.prioritize_payments.method.treasury",
+          "executor": "executor.treasury_payments"
+        }
+      ],
+      "impact": {
+        "severity": "Serious",
+        "norms": 25
+      },
+      "capitalCost": 10,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "econ.{country}.payments_prioritized"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 5,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ],
+      "purpose": {
+        "holds": "XDateInSight",
+        "goneKey": "verb.prioritize_payments.purpose_gone"
+      }
+    },
+    {
+      "id": "verb.ignore_court_ruling",
+      "nameKey": "verb.ignore_court_ruling.name",
+      "category": "government",
+      "methods": [
+        {
+          "id": "agencies",
+          "nameKey": "verb.ignore_court_ruling.method.agencies",
+          "executor": "executor.federal_workforce"
+        }
+      ],
+      "impact": {
+        "severity": "Severe",
+        "norms": 80
+      },
+      "targets": [
+        "PowerCenter"
+      ],
+      "targetTypes": [
+        "Court"
+      ],
+      "capitalCost": 15,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "politics.{country}.court_defied"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 10,
+          "curve": {
+            "ramp": 2,
+            "hold": 60,
+            "decay": 120
+          }
+        }
+      ],
+      "extreme": true
+    },
+    {
+      "id": "verb.declare_emergency",
+      "nameKey": "verb.declare_emergency.name",
+      "category": "government",
+      "methods": [
+        {
+          "id": "personal",
+          "nameKey": "verb.declare_emergency.method.personal"
+        }
+      ],
+      "impact": {
+        "severity": "Serious",
+        "norms": 25
+      },
+      "capitalCost": 10,
+      "cooldownDays": 90,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "politics.{country}.national_emergency"
+        }
+      ]
+    },
+    {
+      "id": "verb.reorganize_agency",
+      "nameKey": "verb.reorganize_agency.name",
+      "category": "government",
+      "methods": [
+        {
+          "id": "opm",
+          "nameKey": "verb.reorganize_agency.method.opm",
+          "executor": "executor.federal_workforce"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "norms": 10
+      },
+      "capitalCost": 5,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "politics.{country}.agencies_reorganized"
+        }
+      ]
+    },
+    {
+      "id": "verb.mass_firing",
+      "nameKey": "verb.mass_firing.name",
+      "category": "government",
+      "methods": [
+        {
+          "id": "opm",
+          "nameKey": "verb.mass_firing.method.opm",
+          "executor": "executor.federal_workforce"
+        }
+      ],
+      "impact": {
+        "severity": "Serious",
+        "norms": 50
+      },
+      "capitalCost": 15,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "politics.{country}.civil_service_purged"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.consumer_confidence@{country}",
+          "amount": -2,
+          "curve": {
+            "ramp": 7,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.classify",
+      "nameKey": "verb.classify.name",
+      "category": "government",
+      "methods": [
+        {
+          "id": "personal",
+          "nameKey": "verb.classify.method.personal"
+        }
+      ],
+      "impact": {
+        "severity": "Minor",
+        "norms": 5
+      },
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "intel.{country}.classified_more"
+        }
+      ]
+    },
+    {
+      "id": "verb.declassify",
+      "nameKey": "verb.declassify.name",
+      "category": "government",
+      "methods": [
+        {
+          "id": "personal",
+          "nameKey": "verb.declassify.method.personal"
+        }
+      ],
+      "impact": {
+        "severity": "Minor"
+      },
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "intel.{country}.declassified"
+        }
+      ]
+    },
+    {
+      "id": "verb.launch_nuclear_strike",
+      "nameKey": "verb.launch_nuclear_strike.name",
+      "category": "military",
+      "methods": [
+        {
+          "id": "launch",
+          "nameKey": "verb.launch_nuclear_strike.method.launch",
+          "executor": "executor.nuclear_launch"
+        }
+      ],
+      "impact": {
+        "severity": "Catastrophic",
+        "irreversible": true,
+        "visibility": "High",
+        "norms": 100
+      },
+      "targets": [
+        "Country"
+      ],
+      "scales": [
+        "Limited",
+        "Major",
+        "Total"
+      ],
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "security.{country}.nuclear_strike.{target}"
+        },
+        {
+          "type": "end_game",
+          "ending": "nuclear_war"
+        }
+      ],
+      "extreme": true
+    },
+    {
+      "id": "verb.conventional_strike",
+      "nameKey": "verb.conventional_strike.name",
+      "category": "military",
+      "methods": [
+        {
+          "id": "strike",
+          "nameKey": "verb.conventional_strike.method.strike",
+          "executor": "executor.military_strike"
+        }
+      ],
+      "impact": {
+        "severity": "Serious",
+        "irreversible": true,
+        "visibility": "High",
+        "norms": 30
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 10,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "security.{country}.struck.{target}"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 8,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        },
+        {
+          "type": "modify_var",
+          "var": "world.oil_price",
+          "amount": 4,
+          "curve": {
+            "ramp": 2,
+            "hold": 20,
+            "decay": 40
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.deploy_troops_abroad",
+      "nameKey": "verb.deploy_troops_abroad.name",
+      "category": "military",
+      "methods": [
+        {
+          "id": "deploy",
+          "nameKey": "verb.deploy_troops_abroad.method.deploy",
+          "executor": "executor.military_deploy"
+        }
+      ],
+      "impact": {
+        "severity": "Serious",
+        "norms": 10
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 10,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "security.{country}.deployed.{target}"
+        }
+      ]
+    },
+    {
+      "id": "verb.withdraw_troops",
+      "nameKey": "verb.withdraw_troops.name",
+      "category": "military",
+      "methods": [
+        {
+          "id": "deploy",
+          "nameKey": "verb.withdraw_troops.method.deploy",
+          "executor": "executor.military_deploy"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "norms": 5,
+        "targetEffect": 0.5
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 5,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "security.{country}.withdrew.{target}"
+        }
+      ]
+    },
+    {
+      "id": "verb.blockade",
+      "nameKey": "verb.blockade.name",
+      "category": "military",
+      "methods": [
+        {
+          "id": "navy",
+          "nameKey": "verb.blockade.method.navy",
+          "executor": "executor.military_deploy"
+        }
+      ],
+      "impact": {
+        "severity": "Severe",
+        "visibility": "High",
+        "norms": 50
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 15,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "security.{country}.blockade.{target}"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 12,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        },
+        {
+          "type": "modify_var",
+          "var": "world.oil_price",
+          "amount": 8,
+          "curve": {
+            "ramp": 5,
+            "hold": 60,
+            "decay": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.mobilize_reserves",
+      "nameKey": "verb.mobilize_reserves.name",
+      "category": "military",
+      "methods": [
+        {
+          "id": "deploy",
+          "nameKey": "verb.mobilize_reserves.method.deploy",
+          "executor": "executor.military_deploy"
+        }
+      ],
+      "impact": {
+        "severity": "Serious",
+        "norms": 10
+      },
+      "capitalCost": 10,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "security.{country}.mobilized"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.consumer_confidence@{country}",
+          "amount": -3,
+          "curve": {
+            "ramp": 7,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.raise_alert",
+      "nameKey": "verb.raise_alert.name",
+      "category": "military",
+      "methods": [
+        {
+          "id": "deploy",
+          "nameKey": "verb.raise_alert.method.deploy",
+          "executor": "executor.military_deploy"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "norms": 5
+      },
+      "capitalCost": 3,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "security.{country}.alert_raised"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 3,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.stand_down",
+      "nameKey": "verb.stand_down.name",
+      "category": "military",
+      "methods": [
+        {
+          "id": "deploy",
+          "nameKey": "verb.stand_down.method.deploy",
+          "executor": "executor.military_deploy"
+        }
+      ],
+      "impact": {
+        "severity": "Minor"
+      },
+      "executed": [
+        {
+          "type": "clear_flag",
+          "flag": "security.{country}.alert_raised"
+        }
+      ]
+    },
+    {
+      "id": "verb.deploy_troops_domestic",
+      "nameKey": "verb.deploy_troops_domestic.name",
+      "category": "military",
+      "methods": [
+        {
+          "id": "insurrection_act",
+          "nameKey": "verb.deploy_troops_domestic.method.insurrection_act",
+          "executor": "executor.domestic_troops"
+        },
+        {
+          "id": "direct",
+          "nameKey": "verb.deploy_troops_domestic.method.direct",
+          "executor": "executor.domestic_troops"
+        }
+      ],
+      "impact": {
+        "severity": "Severe",
+        "visibility": "High",
+        "norms": 70
+      },
+      "capitalCost": 15,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "security.{country}.troops_in_streets"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.consumer_confidence@{country}",
+          "amount": -5,
+          "curve": {
+            "ramp": 7,
+            "hold": 30,
+            "decay": 60
+          }
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 6,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ],
+      "extreme": true
+    },
+    {
+      "id": "verb.fire_on_protesters",
+      "nameKey": "verb.fire_on_protesters.name",
+      "category": "military",
+      "methods": [
+        {
+          "id": "troops",
+          "nameKey": "verb.fire_on_protesters.method.troops",
+          "executor": "executor.domestic_troops"
+        }
+      ],
+      "impact": {
+        "severity": "Catastrophic",
+        "irreversible": true,
+        "visibility": "High",
+        "norms": 100
+      },
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "security.{country}.massacre"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.consumer_confidence@{country}",
+          "amount": -15,
+          "curve": {
+            "ramp": 7,
+            "hold": 30,
+            "decay": 60
+          }
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 20,
+          "curve": {
+            "ramp": 2,
+            "hold": 90,
+            "decay": 180
+          }
+        }
+      ],
+      "extreme": true
+    },
+    {
+      "id": "verb.impose_tariffs",
+      "nameKey": "verb.impose_tariffs.name",
+      "category": "economy",
+      "methods": [
+        {
+          "id": "commerce",
+          "nameKey": "verb.impose_tariffs.method.commerce",
+          "executor": "executor.trade"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "norms": 5
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 5,
+      "cooldownDays": 30,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "econ.{country}.tariffs.{target}"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.inflation@{country}",
+          "amount": 0.1,
+          "curve": {
+            "ramp": 60,
+            "hold": 180,
+            "decay": 180
+          }
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 2,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.sanction",
+      "nameKey": "verb.sanction.name",
+      "category": "economy",
+      "methods": [
+        {
+          "id": "treasury",
+          "nameKey": "verb.sanction.method.treasury",
+          "executor": "executor.trade"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "norms": 5
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 5,
+      "cooldownDays": 30,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "econ.{country}.sanctions.{target}"
+        }
+      ]
+    },
+    {
+      "id": "verb.ban_exports",
+      "nameKey": "verb.ban_exports.name",
+      "category": "economy",
+      "methods": [
+        {
+          "id": "commerce",
+          "nameKey": "verb.ban_exports.method.commerce",
+          "executor": "executor.trade"
+        }
+      ],
+      "impact": {
+        "severity": "Serious",
+        "norms": 10
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 10,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "econ.{country}.export_ban.{target}"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 3,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.nationalize",
+      "nameKey": "verb.nationalize.name",
+      "category": "economy",
+      "methods": [
+        {
+          "id": "commerce",
+          "nameKey": "verb.nationalize.method.commerce",
+          "executor": "executor.trade"
+        }
+      ],
+      "impact": {
+        "severity": "Severe",
+        "norms": 70
+      },
+      "targets": [
+        "PowerCenter"
+      ],
+      "targetTypes": [
+        "BusinessLobby"
+      ],
+      "capitalCost": 20,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "econ.{country}.nationalized.{target}"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 20,
+          "curve": {
+            "ramp": 2,
+            "hold": 90,
+            "decay": 180
+          }
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.potential_growth@{country}",
+          "amount": -0.2,
+          "curve": {
+            "delay": 30,
+            "ramp": 180
+          }
+        }
+      ],
+      "extreme": true
+    },
+    {
+      "id": "verb.seize_assets",
+      "nameKey": "verb.seize_assets.name",
+      "category": "economy",
+      "methods": [
+        {
+          "id": "treasury",
+          "nameKey": "verb.seize_assets.method.treasury",
+          "executor": "executor.treasury_payments"
+        }
+      ],
+      "impact": {
+        "severity": "Serious",
+        "norms": 40
+      },
+      "targets": [
+        "PowerCenter",
+        "Country"
+      ],
+      "capitalCost": 10,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "econ.{country}.assets_seized.{target}"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 6,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.release_oil_reserve",
+      "nameKey": "verb.release_oil_reserve.name",
+      "category": "economy",
+      "methods": [
+        {
+          "id": "energy",
+          "nameKey": "verb.release_oil_reserve.method.energy",
+          "executor": "executor.energy"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate"
+      },
+      "capitalCost": 5,
+      "cooldownDays": 90,
+      "executed": [
+        {
+          "type": "modify_var",
+          "var": "econ.gas_price@{country}",
+          "amount": -0.15,
+          "curve": {
+            "ramp": 14,
+            "hold": 60,
+            "decay": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.price_controls",
+      "nameKey": "verb.price_controls.name",
+      "category": "economy",
+      "methods": [
+        {
+          "id": "commerce",
+          "nameKey": "verb.price_controls.method.commerce",
+          "executor": "executor.trade"
+        }
+      ],
+      "impact": {
+        "severity": "Serious",
+        "norms": 30
+      },
+      "capitalCost": 10,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "econ.{country}.price_controls"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.inflation@{country}",
+          "amount": -0.4,
+          "curve": {
+            "ramp": 30,
+            "hold": 90,
+            "decay": 30
+          }
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 5,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.bail_out",
+      "nameKey": "verb.bail_out.name",
+      "category": "economy",
+      "methods": [
+        {
+          "id": "treasury",
+          "nameKey": "verb.bail_out.method.treasury",
+          "executor": "executor.treasury_payments"
+        }
+      ],
+      "impact": {
+        "severity": "Serious",
+        "norms": 20,
+        "targetEffect": 1
+      },
+      "targets": [
+        "PowerCenter"
+      ],
+      "targetTypes": [
+        "BusinessLobby"
+      ],
+      "capitalCost": 10,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "econ.{country}.bailout.{target}"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": -6,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.repudiate_debt",
+      "nameKey": "verb.repudiate_debt.name",
+      "category": "economy",
+      "methods": [
+        {
+          "id": "treasury",
+          "nameKey": "verb.repudiate_debt.method.treasury",
+          "executor": "executor.treasury_payments"
+        }
+      ],
+      "impact": {
+        "severity": "Severe",
+        "irreversible": true,
+        "visibility": "High",
+        "norms": 90
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 15,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "econ.{country}.debt_repudiated.{target}"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 45,
+          "curve": {
+            "ramp": 2,
+            "hold": 180,
+            "decay": 365
+          }
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.consumer_confidence@{country}",
+          "amount": -10,
+          "curve": {
+            "ramp": 7,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ],
+      "extreme": true
+    },
+    {
+      "id": "verb.shut_down_outlet",
+      "nameKey": "verb.shut_down_outlet.name",
+      "category": "information",
+      "methods": [
+        {
+          "id": "fcc",
+          "nameKey": "verb.shut_down_outlet.method.fcc",
+          "executor": "executor.media_regulator"
+        }
+      ],
+      "impact": {
+        "severity": "Severe",
+        "visibility": "High",
+        "norms": 90
+      },
+      "targets": [
+        "PowerCenter"
+      ],
+      "targetTypes": [
+        "MediaCluster"
+      ],
+      "capitalCost": 20,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "info.{country}.shut_down.{target}"
+        }
+      ],
+      "extreme": true
+    },
+    {
+      "id": "verb.pressure_outlet",
+      "nameKey": "verb.pressure_outlet.name",
+      "category": "information",
+      "methods": [
+        {
+          "id": "fcc",
+          "nameKey": "verb.pressure_outlet.method.fcc",
+          "executor": "executor.media_regulator"
+        },
+        {
+          "id": "personal",
+          "nameKey": "verb.pressure_outlet.method.personal"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "norms": 30
+      },
+      "targets": [
+        "PowerCenter"
+      ],
+      "targetTypes": [
+        "MediaCluster"
+      ],
+      "capitalCost": 5,
+      "cooldownDays": 30,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "info.{country}.pressured.{target}"
+        }
+      ]
+    },
+    {
+      "id": "verb.censor_internet",
+      "nameKey": "verb.censor_internet.name",
+      "category": "information",
+      "methods": [
+        {
+          "id": "dhs",
+          "nameKey": "verb.censor_internet.method.dhs",
+          "executor": "executor.homeland"
+        }
+      ],
+      "impact": {
+        "severity": "Severe",
+        "norms": 80
+      },
+      "capitalCost": 15,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "info.{country}.censorship"
+        }
+      ],
+      "extreme": true
+    },
+    {
+      "id": "verb.leak",
+      "nameKey": "verb.leak.name",
+      "category": "information",
+      "methods": [
+        {
+          "id": "personal",
+          "nameKey": "verb.leak.method.personal"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "norms": 20
+      },
+      "targets": [
+        "Character",
+        "PowerCenter"
+      ],
+      "capitalCost": 5,
+      "cooldownDays": 30,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "info.{country}.leaked_about.{target}"
+        }
+      ]
+    },
+    {
+      "id": "verb.propaganda_campaign",
+      "nameKey": "verb.propaganda_campaign.name",
+      "category": "information",
+      "methods": [
+        {
+          "id": "personal",
+          "nameKey": "verb.propaganda_campaign.method.personal"
+        }
+      ],
+      "impact": {
+        "severity": "Minor",
+        "norms": 5
+      },
+      "capitalCost": 5,
+      "cooldownDays": 30,
+      "executed": [
+        {
+          "type": "modify_var",
+          "var": "econ.consumer_confidence@{country}",
+          "amount": 1,
+          "curve": {
+            "ramp": 7,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.postpone_election",
+      "nameKey": "verb.postpone_election.name",
+      "category": "elections",
+      "methods": [
+        {
+          "id": "decree",
+          "nameKey": "verb.postpone_election.method.decree",
+          "void": true
+        }
+      ],
+      "impact": {
+        "severity": "Catastrophic",
+        "visibility": "High",
+        "norms": 100
+      },
+      "capitalCost": 20,
+      "stopped": [
+        {
+          "type": "set_flag",
+          "flag": "politics.{country}.election_postponement_attempted"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 15,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ],
+      "extreme": true
+    },
+    {
+      "id": "verb.dissolve_legislature",
+      "nameKey": "verb.dissolve_legislature.name",
+      "category": "elections",
+      "methods": [
+        {
+          "id": "decree",
+          "nameKey": "verb.dissolve_legislature.method.decree",
+          "void": true
+        }
+      ],
+      "impact": {
+        "severity": "Catastrophic",
+        "visibility": "High",
+        "norms": 100
+      },
+      "capitalCost": 20,
+      "stopped": [
+        {
+          "type": "set_flag",
+          "flag": "politics.{country}.dissolution_attempted"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 20,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ],
+      "extreme": true
+    },
+    {
+      "id": "verb.pack_court",
+      "nameKey": "verb.pack_court.name",
+      "category": "elections",
+      "methods": [
+        {
+          "id": "decree",
+          "nameKey": "verb.pack_court.method.decree",
+          "void": true
+        }
+      ],
+      "impact": {
+        "severity": "Severe",
+        "norms": 70
+      },
+      "capitalCost": 15,
+      "stopped": [
+        {
+          "type": "set_flag",
+          "flag": "politics.{country}.court_packing_attempted"
+        }
+      ]
+    },
+    {
+      "id": "verb.refuse_to_leave_office",
+      "nameKey": "verb.refuse_to_leave_office.name",
+      "category": "elections",
+      "methods": [
+        {
+          "id": "secret_service",
+          "nameKey": "verb.refuse_to_leave_office.method.secret_service",
+          "executor": "executor.protective_detail"
+        }
+      ],
+      "impact": {
+        "severity": "Catastrophic",
+        "visibility": "High",
+        "norms": 100
+      },
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "politics.{country}.self_coup"
+        }
+      ],
+      "stopped": [
+        {
+          "type": "set_flag",
+          "flag": "politics.{country}.self_coup_attempted"
+        }
+      ],
+      "extreme": true
+    },
+    {
+      "id": "verb.call_referendum",
+      "nameKey": "verb.call_referendum.name",
+      "category": "elections",
+      "methods": [
+        {
+          "id": "decree",
+          "nameKey": "verb.call_referendum.method.decree",
+          "void": true
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "norms": 30
+      },
+      "capitalCost": 5,
+      "stopped": [
+        {
+          "type": "set_flag",
+          "flag": "politics.{country}.referendum_attempted"
+        }
+      ]
+    },
+    {
+      "id": "verb.withdraw_from_nato",
+      "nameKey": "verb.withdraw_from_nato.name",
+      "category": "diplomacy",
+      "methods": [
+        {
+          "id": "state",
+          "nameKey": "verb.withdraw_from_nato.method.state",
+          "executor": "executor.diplomacy"
+        }
+      ],
+      "impact": {
+        "severity": "Severe",
+        "visibility": "High",
+        "norms": 60
+      },
+      "capitalCost": 20,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "world.{country}.left_nato"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 10,
+          "curve": {
+            "ramp": 2,
+            "hold": 60,
+            "decay": 120
+          }
+        }
+      ],
+      "extreme": true
+    },
+    {
+      "id": "verb.expel_diplomats",
+      "nameKey": "verb.expel_diplomats.name",
+      "category": "diplomacy",
+      "methods": [
+        {
+          "id": "state",
+          "nameKey": "verb.expel_diplomats.method.state",
+          "executor": "executor.diplomacy"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "norms": 5
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 5,
+      "cooldownDays": 60,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "world.{country}.expelled.{target}"
+        }
+      ]
+    },
+    {
+      "id": "verb.recall_ambassador",
+      "nameKey": "verb.recall_ambassador.name",
+      "category": "diplomacy",
+      "methods": [
+        {
+          "id": "state",
+          "nameKey": "verb.recall_ambassador.method.state",
+          "executor": "executor.diplomacy"
+        }
+      ],
+      "impact": {
+        "severity": "Minor"
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 3,
+      "cooldownDays": 60,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "world.{country}.ambassador_recalled.{target}"
+        }
+      ]
+    },
+    {
+      "id": "verb.recognize_government",
+      "nameKey": "verb.recognize_government.name",
+      "category": "diplomacy",
+      "methods": [
+        {
+          "id": "state",
+          "nameKey": "verb.recognize_government.method.state",
+          "executor": "executor.diplomacy"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "targetEffect": 1
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 5,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "world.{country}.recognized.{target}"
+        }
+      ]
+    },
+    {
+      "id": "verb.threaten",
+      "nameKey": "verb.threaten.name",
+      "category": "diplomacy",
+      "methods": [
+        {
+          "id": "personal",
+          "nameKey": "verb.threaten.method.personal"
+        }
+      ],
+      "impact": {
+        "severity": "Moderate",
+        "norms": 15
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 3,
+      "cooldownDays": 30,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "world.{country}.threatened.{target}"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 2,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ]
+    },
+    {
+      "id": "verb.assassinate_leader",
+      "nameKey": "verb.assassinate_leader.name",
+      "category": "diplomacy",
+      "methods": [
+        {
+          "id": "cia",
+          "nameKey": "verb.assassinate_leader.method.cia",
+          "executor": "executor.covert_ops"
+        }
+      ],
+      "impact": {
+        "severity": "Catastrophic",
+        "irreversible": true,
+        "norms": 100
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 20,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "world.{country}.assassinated_leader_of.{target}"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 25,
+          "curve": {
+            "ramp": 2,
+            "hold": 90,
+            "decay": 180
+          }
+        }
+      ],
+      "extreme": true
+    },
+    {
+      "id": "verb.covert_regime_change",
+      "nameKey": "verb.covert_regime_change.name",
+      "category": "diplomacy",
+      "methods": [
+        {
+          "id": "cia",
+          "nameKey": "verb.covert_regime_change.method.cia",
+          "executor": "executor.covert_ops"
+        }
+      ],
+      "impact": {
+        "severity": "Severe",
+        "irreversible": true,
+        "norms": 70
+      },
+      "targets": [
+        "Country"
+      ],
+      "capitalCost": 20,
+      "executed": [
+        {
+          "type": "set_flag",
+          "flag": "world.{country}.coup_backed.{target}"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": 8,
+          "curve": {
+            "ramp": 2,
+            "hold": 30,
+            "decay": 60
+          }
+        }
+      ],
+      "extreme": true
+    }
+  ]
+}

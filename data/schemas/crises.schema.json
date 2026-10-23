@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "crises.schema.json",
+  "title": "CrisesFile",
+  "type": "object",
+  "properties": {
+    "crises": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^crisis\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "titleKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "stages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "textKey": {
+                  "type": "string",
+                  "description": "Localisation key (data/localization/en)."
+                },
+                "durationDays": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "integer"
+                  },
+                  "default": null
+                },
+                "escalateIf": {
+                  "default": null
+                },
+                "escalateTo": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "resolveIf": {
+                  "default": null
+                },
+                "resolveTo": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "next": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "terminal": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "autoPause": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "onEnter": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "responses": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "textKey": {
+                        "type": "string",
+                        "description": "Localisation key (data/localization/en)."
+                      },
+                      "requires": {
+                        "default": null
+                      },
+                      "capitalCost": {
+                        "type": "number",
+                        "default": 0,
+                        "minimum": 0,
+                        "maximum": 100
+                      },
+                      "effects": {
+                        "type": [
+                          "array",
+                          "null"
+                        ],
+                        "default": null
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "textKey"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "default": null
+                }
+              },
+              "required": [
+                "id",
+                "textKey"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "scope": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          }
+        },
+        "required": [
+          "id",
+          "titleKey",
+          "stages"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "crises"
+  ],
+  "additionalProperties": false
+}

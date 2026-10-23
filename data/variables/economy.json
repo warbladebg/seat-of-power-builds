@@ -1,0 +1,746 @@
+{
+  "$schema": "../schemas/variables.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Economy variables (04 §3). The ids of the first six are used by 06 examples and 23 verbs; never rename them. Units: pp = percentage points, bn_lcu = billions of local currency (flows per year), pct_gdp = % of GDP, index_0_100 = 0-100 index."
+  },
+  "variables": [
+    {
+      "idPattern": "econ.consumer_confidence@{country}",
+      "unit": "index_0_100",
+      "default": 60,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.society",
+      "nameKey": "var.econ.consumer_confidence.name"
+    },
+    {
+      "idPattern": "econ.market_stress@{country}",
+      "unit": "index_0_100",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.markets",
+      "nameKey": "var.econ.market_stress.name"
+    },
+    {
+      "idPattern": "econ.potential_growth@{country}",
+      "unit": "pp",
+      "default": 1.9,
+      "min": -5,
+      "max": 15,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.activity",
+      "nameKey": "var.econ.potential_growth.name"
+    },
+    {
+      "idPattern": "econ.inflation@{country}",
+      "unit": "pp",
+      "default": 2.5,
+      "min": -10,
+      "max": 100,
+      "format": "0.0",
+      "category": "economy.prices",
+      "nameKey": "var.econ.inflation.name"
+    },
+    {
+      "idPattern": "econ.gas_price@{country}",
+      "unit": "usd_per_gallon",
+      "default": 3.5,
+      "min": 0,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.energy",
+      "nameKey": "var.econ.gas_price.name"
+    },
+    {
+      "idPattern": "world.oil_price",
+      "unit": "usd_per_bbl",
+      "default": 80,
+      "min": 0,
+      "format": "0",
+      "category": "economy.energy",
+      "nameKey": "var.world.oil_price.name"
+    },
+    {
+      "idPattern": "econ.output_gap@{country}",
+      "unit": "pp",
+      "default": 0,
+      "min": -25,
+      "max": 25,
+      "format": "0.0",
+      "category": "economy.activity",
+      "nameKey": "var.econ.output_gap.name"
+    },
+    {
+      "idPattern": "econ.gap_shock@{country}",
+      "unit": "pp",
+      "default": 0,
+      "min": -20,
+      "max": 20,
+      "format": "0.00",
+      "category": "economy.activity",
+      "playerVisible": false,
+      "nameKey": "var.econ.gap_shock.name"
+    },
+    {
+      "idPattern": "econ.real_growth@{country}",
+      "unit": "pp",
+      "default": 2,
+      "min": -40,
+      "max": 40,
+      "format": "0.0",
+      "category": "economy.activity",
+      "nameKey": "var.econ.real_growth.name"
+    },
+    {
+      "idPattern": "econ.real_growth_yoy@{country}",
+      "unit": "pp",
+      "default": 2,
+      "min": -40,
+      "max": 40,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "economy.activity",
+      "nameKey": "var.econ.real_growth_yoy.name"
+    },
+    {
+      "idPattern": "econ.real_gdp@{country}",
+      "unit": "bn_lcu",
+      "default": 1000,
+      "min": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.activity",
+      "nameKey": "var.econ.real_gdp.name"
+    },
+    {
+      "idPattern": "econ.potential_gdp@{country}",
+      "unit": "bn_lcu",
+      "default": 1000,
+      "min": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.activity",
+      "playerVisible": false,
+      "nameKey": "var.econ.potential_gdp.name"
+    },
+    {
+      "idPattern": "econ.nominal_gdp@{country}",
+      "unit": "bn_lcu",
+      "default": 1000,
+      "min": 0,
+      "format": "0",
+      "category": "economy.activity",
+      "nameKey": "var.econ.nominal_gdp.name"
+    },
+    {
+      "idPattern": "econ.core_inflation@{country}",
+      "unit": "pp",
+      "default": 2,
+      "min": -10,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "economy.prices",
+      "nameKey": "var.econ.core_inflation.name"
+    },
+    {
+      "idPattern": "econ.inflation_expectations@{country}",
+      "unit": "pp",
+      "default": 2,
+      "min": -10,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "economy.prices",
+      "nameKey": "var.econ.inflation_expectations.name"
+    },
+    {
+      "idPattern": "econ.inflation_target@{country}",
+      "unit": "pp",
+      "default": 2,
+      "min": 0,
+      "max": 20,
+      "format": "0.0",
+      "category": "economy.prices",
+      "nameKey": "var.econ.inflation_target.name"
+    },
+    {
+      "idPattern": "econ.import_price_inflation@{country}",
+      "unit": "pp",
+      "default": 0,
+      "min": -50,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "economy.prices",
+      "nameKey": "var.econ.import_price_inflation.name"
+    },
+    {
+      "idPattern": "econ.price_level@{country}",
+      "unit": "index",
+      "default": 100,
+      "min": 0,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "economy.prices",
+      "playerVisible": false,
+      "nameKey": "var.econ.price_level.name"
+    },
+    {
+      "idPattern": "econ.unemployment@{country}",
+      "unit": "pp",
+      "default": 4.5,
+      "min": 0,
+      "max": 60,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "economy.labour",
+      "nameKey": "var.econ.unemployment.name"
+    },
+    {
+      "idPattern": "econ.nairu@{country}",
+      "unit": "pp",
+      "default": 4.5,
+      "min": 0,
+      "max": 60,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "economy.labour",
+      "nameKey": "var.econ.nairu.name"
+    },
+    {
+      "idPattern": "econ.policy_rate@{country}",
+      "unit": "pp",
+      "default": 3,
+      "min": -1,
+      "max": 50,
+      "format": "0.00",
+      "category": "economy.monetary",
+      "nameKey": "var.econ.policy_rate.name"
+    },
+    {
+      "idPattern": "econ.neutral_rate@{country}",
+      "unit": "pp",
+      "default": 1,
+      "min": -5,
+      "max": 10,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.monetary",
+      "nameKey": "var.econ.neutral_rate.name"
+    },
+    {
+      "idPattern": "econ.taylor_rate@{country}",
+      "unit": "pp",
+      "default": 3,
+      "min": -20,
+      "max": 60,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.monetary",
+      "nameKey": "var.econ.taylor_rate.name"
+    },
+    {
+      "idPattern": "econ.real_rate_gap@{country}",
+      "unit": "pp",
+      "default": 0,
+      "min": -30,
+      "max": 60,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.monetary",
+      "playerVisible": false,
+      "nameKey": "var.econ.real_rate_gap.name"
+    },
+    {
+      "idPattern": "econ.cb_credibility@{country}",
+      "unit": "index_0_100",
+      "default": 75,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.monetary",
+      "nameKey": "var.econ.cb_credibility.name"
+    },
+    {
+      "idPattern": "econ.cb_independence@{country}",
+      "unit": "index_0_100",
+      "default": 80,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.monetary",
+      "nameKey": "var.econ.cb_independence.name"
+    },
+    {
+      "idPattern": "econ.revenue@{country}",
+      "unit": "bn_lcu_per_year",
+      "default": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.fiscal",
+      "nameKey": "var.econ.revenue.name"
+    },
+    {
+      "idPattern": "econ.revenue_share@{country}",
+      "unit": "pct_gdp",
+      "default": 18,
+      "min": 0,
+      "max": 80,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "economy.fiscal",
+      "nameKey": "var.econ.revenue_share.name"
+    },
+    {
+      "idPattern": "econ.spending@{country}",
+      "unit": "bn_lcu_per_year",
+      "default": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.fiscal",
+      "nameKey": "var.econ.spending.name"
+    },
+    {
+      "idPattern": "econ.spending_mandatory@{country}",
+      "unit": "bn_lcu_per_year",
+      "default": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.fiscal",
+      "nameKey": "var.econ.spending_mandatory.name"
+    },
+    {
+      "idPattern": "econ.spending_defense@{country}",
+      "unit": "bn_lcu_per_year",
+      "default": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.fiscal",
+      "nameKey": "var.econ.spending_defense.name"
+    },
+    {
+      "idPattern": "econ.spending_nondefense@{country}",
+      "unit": "bn_lcu_per_year",
+      "default": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.fiscal",
+      "nameKey": "var.econ.spending_nondefense.name"
+    },
+    {
+      "idPattern": "econ.spending_interest@{country}",
+      "unit": "bn_lcu_per_year",
+      "default": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.fiscal",
+      "nameKey": "var.econ.spending_interest.name"
+    },
+    {
+      "idPattern": "econ.primary_balance@{country}",
+      "unit": "bn_lcu_per_year",
+      "default": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.fiscal",
+      "nameKey": "var.econ.primary_balance.name"
+    },
+    {
+      "idPattern": "econ.deficit@{country}",
+      "unit": "bn_lcu_per_year",
+      "default": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.fiscal",
+      "nameKey": "var.econ.deficit.name"
+    },
+    {
+      "idPattern": "econ.deficit_to_gdp@{country}",
+      "unit": "pct_gdp",
+      "default": 0,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "economy.fiscal",
+      "nameKey": "var.econ.deficit_to_gdp.name"
+    },
+    {
+      "idPattern": "econ.debt@{country}",
+      "unit": "bn_lcu",
+      "default": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.fiscal",
+      "nameKey": "var.econ.debt.name"
+    },
+    {
+      "idPattern": "econ.debt_to_gdp@{country}",
+      "unit": "pct_gdp",
+      "default": 0,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "economy.fiscal",
+      "nameKey": "var.econ.debt_to_gdp.name"
+    },
+    {
+      "idPattern": "econ.effective_interest_rate@{country}",
+      "unit": "pp",
+      "default": 3,
+      "min": 0,
+      "max": 50,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.fiscal",
+      "nameKey": "var.econ.effective_interest_rate.name"
+    },
+    {
+      "idPattern": "econ.fiscal_impulse@{country}",
+      "unit": "pct_gdp",
+      "default": 0,
+      "min": -50,
+      "max": 50,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.fiscal",
+      "nameKey": "var.econ.fiscal_impulse.name"
+    },
+    {
+      "idPattern": "econ.yield_10y@{country}",
+      "unit": "pp",
+      "default": 4,
+      "min": -2,
+      "max": 60,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.markets",
+      "nameKey": "var.econ.yield_10y.name"
+    },
+    {
+      "idPattern": "econ.term_premium@{country}",
+      "unit": "pp",
+      "default": 0.5,
+      "min": -10,
+      "max": 30,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.markets",
+      "nameKey": "var.econ.term_premium.name"
+    },
+    {
+      "idPattern": "econ.risk_premium@{country}",
+      "unit": "pp",
+      "default": 0,
+      "min": -5,
+      "max": 30,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.markets",
+      "nameKey": "var.econ.risk_premium.name"
+    },
+    {
+      "idPattern": "econ.risk_premium_shock@{country}",
+      "unit": "pp",
+      "default": 0,
+      "min": -10,
+      "max": 30,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.markets",
+      "playerVisible": false,
+      "nameKey": "var.econ.risk_premium_shock.name"
+    },
+    {
+      "idPattern": "econ.foreign_demand_shift@{country}",
+      "unit": "pp",
+      "default": 0,
+      "min": -5,
+      "max": 10,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.markets",
+      "nameKey": "var.econ.foreign_demand_shift.name"
+    },
+    {
+      "idPattern": "econ.stock_index@{country}",
+      "unit": "index",
+      "default": 100,
+      "min": 0.1,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "economy.markets",
+      "nameKey": "var.econ.stock_index.name"
+    },
+    {
+      "idPattern": "econ.credit_rating@{country}",
+      "unit": "notch",
+      "default": 19,
+      "min": 0,
+      "max": 21,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "economy.markets",
+      "nameKey": "var.econ.credit_rating.name"
+    },
+    {
+      "idPattern": "econ.default_risk@{country}",
+      "unit": "share_0_1",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.markets",
+      "nameKey": "var.econ.default_risk.name"
+    },
+    {
+      "idPattern": "econ.default_severity@{country}",
+      "unit": "share_0_1",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.markets",
+      "playerVisible": false,
+      "nameKey": "var.econ.default_severity.name"
+    },
+    {
+      "idPattern": "econ.fx_index@{country}",
+      "unit": "index",
+      "default": 100,
+      "min": 1,
+      "max": 1000,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "economy.external",
+      "nameKey": "var.econ.fx_index.name"
+    },
+    {
+      "idPattern": "econ.exports@{country}",
+      "unit": "bn_lcu_per_year",
+      "default": 0,
+      "min": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.external",
+      "nameKey": "var.econ.exports.name"
+    },
+    {
+      "idPattern": "econ.imports@{country}",
+      "unit": "bn_lcu_per_year",
+      "default": 0,
+      "min": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.external",
+      "nameKey": "var.econ.imports.name"
+    },
+    {
+      "idPattern": "econ.trade_balance@{country}",
+      "unit": "bn_lcu_per_year",
+      "default": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.external",
+      "nameKey": "var.econ.trade_balance.name"
+    },
+    {
+      "idPattern": "econ.external_demand@{country}",
+      "unit": "pp",
+      "default": 0,
+      "min": -30,
+      "max": 30,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.external",
+      "nameKey": "var.econ.external_demand.name"
+    },
+    {
+      "idPattern": "econ.energy_price_index@{country}",
+      "unit": "index",
+      "default": 100,
+      "min": 1,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "economy.energy",
+      "nameKey": "var.econ.energy_price_index.name"
+    },
+    {
+      "idPattern": "econ.energy_inflation_contrib@{country}",
+      "unit": "pp",
+      "default": 0,
+      "min": -30,
+      "max": 60,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.energy",
+      "nameKey": "var.econ.energy_inflation_contrib.name"
+    },
+    {
+      "idPattern": "econ.business_confidence@{country}",
+      "unit": "index_0_100",
+      "default": 55,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.society",
+      "nameKey": "var.econ.business_confidence.name"
+    },
+    {
+      "idPattern": "econ.inequality@{country}",
+      "unit": "index_0_100",
+      "default": 35,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "economy.society",
+      "nameKey": "var.econ.inequality.name"
+    },
+    {
+      "idPattern": "econ.treasury_cash@{country}",
+      "unit": "bn_lcu",
+      "default": 0,
+      "min": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.treasury",
+      "nameKey": "var.econ.treasury_cash.name"
+    },
+    {
+      "idPattern": "econ.debt_subject_to_limit@{country}",
+      "unit": "bn_lcu",
+      "default": 0,
+      "min": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.treasury",
+      "nameKey": "var.econ.debt_subject_to_limit.name"
+    },
+    {
+      "idPattern": "econ.debt_limit@{country}",
+      "unit": "bn_lcu",
+      "default": 0,
+      "min": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.treasury",
+      "nameKey": "var.econ.debt_limit.name"
+    },
+    {
+      "idPattern": "econ.debt_limit_headroom@{country}",
+      "unit": "bn_lcu",
+      "default": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.treasury",
+      "nameKey": "var.econ.debt_limit_headroom.name"
+    },
+    {
+      "idPattern": "econ.extraordinary_measures@{country}",
+      "unit": "bn_lcu",
+      "default": 0,
+      "min": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.treasury",
+      "nameKey": "var.econ.extraordinary_measures.name"
+    },
+    {
+      "idPattern": "econ.xdate_days@{country}",
+      "unit": "days",
+      "default": 999,
+      "min": 0,
+      "max": 999,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.treasury",
+      "nameKey": "var.econ.xdate_days.name"
+    },
+    {
+      "idPattern": "econ.treasury_receipts_factor@{country}",
+      "unit": "ratio",
+      "default": 1,
+      "min": 0.2,
+      "max": 3,
+      "fullCountriesOnly": true,
+      "format": "0.00",
+      "category": "economy.treasury",
+      "playerVisible": false,
+      "nameKey": "var.econ.treasury_receipts_factor.name"
+    },
+    {
+      "idPattern": "econ.payment_arrears@{country}",
+      "unit": "bn_lcu",
+      "default": 0,
+      "min": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.treasury",
+      "nameKey": "var.econ.payment_arrears.name"
+    },
+    {
+      "idPattern": "econ.shutdown_days@{country}",
+      "unit": "days",
+      "default": 0,
+      "min": 0,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.treasury",
+      "nameKey": "var.econ.shutdown_days.name"
+    },
+    {
+      "idPattern": "econ.limit_override@{country}",
+      "unit": "share_0_1",
+      "default": 0,
+      "min": 0,
+      "max": 1,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "economy.treasury",
+      "nameKey": "var.econ.limit_override.name"
+    },
+    {
+      "idPattern": "world.output_gap",
+      "unit": "pp",
+      "default": 0,
+      "min": -25,
+      "max": 25,
+      "format": "0.0",
+      "category": "economy.world",
+      "nameKey": "var.world.output_gap.name"
+    },
+    {
+      "idPattern": "world.policy_rate",
+      "unit": "pp",
+      "default": 3,
+      "min": -1,
+      "max": 50,
+      "format": "0.00",
+      "category": "economy.world",
+      "nameKey": "var.world.policy_rate.name"
+    },
+    {
+      "idPattern": "world.inflation",
+      "unit": "pp",
+      "default": 3,
+      "min": -10,
+      "max": 100,
+      "format": "0.0",
+      "category": "economy.world",
+      "nameKey": "var.world.inflation.name"
+    }
+  ]
+}

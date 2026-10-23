@@ -1,0 +1,53 @@
+{
+  "$schema": "../../schemas/characters.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Fictional leader (D-009)."
+  },
+  "characters": [
+    {
+      "id": "char.mex.leader",
+      "name": "Ximena Olvera",
+      "role": "head_of_state",
+      "personality": {
+        "riskTolerance": 45,
+        "pride": 65,
+        "pragmatism": 65,
+        "patience": 55,
+        "hawkishness": 35,
+        "honesty": 60,
+        "loyalty": 65,
+        "ideologicalRigidity": 50,
+        "grudgeHolding": 55,
+        "publicOrientation": 80,
+        "lawfulness": 55
+      },
+      "voice": [
+        "Folksy",
+        "Nationalist"
+      ],
+      "titleKey": "title.head_of_state",
+      "competence": 70,
+      "goals": [
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        },
+        {
+          "goal": "goal.trade_access:country.usa",
+          "weight": 0.9
+        },
+        {
+          "goal": "goal.national_pride",
+          "weight": 0.6
+        },
+        {
+          "goal": "goal.protect_jobs",
+          "weight": 0.6
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "legality.schema.json",
+  "title": "LegalityRulesFile",
+  "type": "object",
+  "properties": {
+    "legalityRules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^legality\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "when": true,
+          "class": {
+            "enum": [
+              "Lawful",
+              "Contested",
+              "Unlawful",
+              "ManifestlyUnlawful"
+            ]
+          },
+          "reason": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          },
+          "country": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          }
+        },
+        "required": [
+          "id",
+          "when",
+          "class"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "legalityRules"
+  ],
+  "additionalProperties": false
+}

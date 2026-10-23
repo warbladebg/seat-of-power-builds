@@ -1,0 +1,293 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "policies.schema.json",
+  "title": "PoliciesFile",
+  "type": "object",
+  "properties": {
+    "policies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^policy\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "category": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "Law",
+              "Executive",
+              "Regulation",
+              "BudgetItem"
+            ]
+          },
+          "descriptionKey": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "description": "Localisation key (data/localization/en)."
+          },
+          "scope": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "position": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "economic": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "fiscal": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "social": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "security": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "globalism": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "norms": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              },
+              "environment": {
+                "type": "number",
+                "default": 0,
+                "minimum": -100,
+                "maximum": 100
+              }
+            },
+            "additionalProperties": false,
+            "default": null
+          },
+          "implementationDays": {
+            "type": "integer",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 3650
+          },
+          "requirements": {
+            "default": null
+          },
+          "legal": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "challengeable": {
+                "type": "boolean",
+                "default": false
+              },
+              "legalMerit": {
+                "type": "number",
+                "default": 50,
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "additionalProperties": false,
+            "default": null
+          },
+          "normsCost": {
+            "type": "number",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 100
+          },
+          "reversible": {
+            "type": "boolean",
+            "default": true
+          },
+          "aiHints": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "popularWith": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "string"
+                },
+                "default": null
+              },
+              "hatedBy": {
+                "type": [
+                  "array",
+                  "null"
+                ],
+                "items": {
+                  "type": "string"
+                },
+                "default": null
+              }
+            },
+            "additionalProperties": false,
+            "default": null
+          },
+          "budgetCategory": {
+            "enum": [
+              "Mandatory",
+              "DiscretionaryDefense",
+              "DiscretionaryNondefense",
+              "Revenue"
+            ],
+            "default": "DiscretionaryNondefense"
+          },
+          "levels": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "costBnPerYear": {
+                  "type": "number",
+                  "default": 0
+                },
+                "nameKey": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "default": null,
+                  "description": "Localisation key (data/localization/en)."
+                },
+                "scale": {
+                  "type": "number",
+                  "default": 1,
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              },
+              "required": [
+                "id"
+              ],
+              "additionalProperties": false
+            },
+            "default": null
+          },
+          "stakes": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": {
+              "type": "number",
+              "minimum": -100,
+              "maximum": 100
+            },
+            "default": null,
+            "propertyNames": {
+              "pattern": "^stake\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+            }
+          },
+          "effects": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "default": null
+          },
+          "sideEffects": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "nameKey",
+          "category",
+          "kind"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "policies"
+  ],
+  "additionalProperties": false
+}

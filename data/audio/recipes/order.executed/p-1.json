@@ -1,0 +1,39 @@
+{
+  "cue": "order.executed",
+  "round": "p",
+  "option": 1,
+  "family": "Placeholder",
+  "label": "plain placeholder until a round picks this cue",
+  "seed": 1,
+  "tail": 0.03,
+  "loudness": -24,
+  "layers": [
+    {
+      "type": "tone",
+      "wave": "triangle",
+      "freq": 784,
+      "at": 0.0,
+      "env": {
+        "a": 0.002,
+        "d": 0.2
+      },
+      "gain": 0.0
+    },
+    {
+      "type": "tone",
+      "wave": "triangle",
+      "freq": 1046.5,
+      "at": 0.07,
+      "env": {
+        "a": 0.002,
+        "d": 0.25
+      },
+      "gain": 0.0
+    }
+  ],
+  "room": {
+    "size": 0.3,
+    "mix": 0.12,
+    "damp": 5000
+  }
+}

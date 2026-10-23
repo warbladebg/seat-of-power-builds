@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/country.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "id": "country.mex",
+  "depth": "Light",
+  "nameKey": "country.mex.name",
+  "iso3": "MEX",
+  "entityType": "Country",
+  "regimeType": "ElectoralDemocracy",
+  "currency": "MXN",
+  "capitalKey": "country.mex.capital",
+  "mapColor": "#2F7D46",
+  "leaderCharacterId": "char.mex.leader"
+}

@@ -1,0 +1,449 @@
+{
+  "$schema": "../schemas/chains.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "chains": [
+    {
+      "id": "chain.usa.nuclear_launch",
+      "country": "country.usa",
+      "executor": "executor.nuclear_launch",
+      "links": [
+        {
+          "label": "nmcc",
+          "nameKey": "chain.link.nmcc",
+          "character": "char.usa.nmcc_director"
+        },
+        {
+          "label": "stratcom",
+          "nameKey": "chain.link.stratcom",
+          "character": "char.usa.stratcom_commander"
+        },
+        {
+          "label": "missile_crew",
+          "nameKey": "chain.link.missile_crew",
+          "role": "role.missile_crew",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": "chain.usa.military_strike",
+      "country": "country.usa",
+      "executor": "executor.military_strike",
+      "links": [
+        {
+          "label": "secdef",
+          "nameKey": "chain.link.secdef",
+          "character": "char.usa.secretary_of_defense"
+        },
+        {
+          "label": "cjcs",
+          "nameKey": "chain.link.cjcs",
+          "character": "char.usa.joint_chiefs_chair"
+        },
+        {
+          "label": "strike_commander",
+          "nameKey": "chain.link.strike_commander",
+          "role": "role.military_officer"
+        }
+      ]
+    },
+    {
+      "id": "chain.usa.military_deploy",
+      "country": "country.usa",
+      "executor": "executor.military_deploy",
+      "links": [
+        {
+          "label": "secdef",
+          "nameKey": "chain.link.secdef",
+          "character": "char.usa.secretary_of_defense"
+        },
+        {
+          "label": "cjcs",
+          "nameKey": "chain.link.cjcs",
+          "character": "char.usa.joint_chiefs_chair"
+        },
+        {
+          "label": "unit_commanders",
+          "nameKey": "chain.link.unit_commanders",
+          "role": "role.military_officer",
+          "count": 3,
+          "rule": "Majority"
+        }
+      ],
+      "daysPerLink": 1
+    },
+    {
+      "id": "chain.usa.domestic_troops",
+      "country": "country.usa",
+      "executor": "executor.domestic_troops",
+      "links": [
+        {
+          "label": "secdef",
+          "nameKey": "chain.link.secdef",
+          "character": "char.usa.secretary_of_defense"
+        },
+        {
+          "label": "cjcs",
+          "nameKey": "chain.link.cjcs",
+          "character": "char.usa.joint_chiefs_chair"
+        },
+        {
+          "label": "domestic_commanders",
+          "nameKey": "chain.link.domestic_commanders",
+          "role": "role.military_officer",
+          "count": 5,
+          "rule": "Majority"
+        }
+      ],
+      "daysPerLink": 1
+    },
+    {
+      "id": "chain.usa.military_personnel",
+      "country": "country.usa",
+      "executor": "executor.military_personnel",
+      "links": [
+        {
+          "label": "secdef",
+          "nameKey": "chain.link.secdef",
+          "character": "char.usa.secretary_of_defense"
+        },
+        {
+          "label": "cjcs",
+          "nameKey": "chain.link.cjcs",
+          "character": "char.usa.joint_chiefs_chair"
+        }
+      ],
+      "daysPerLink": 1
+    },
+    {
+      "id": "chain.usa.special_counsel_removal",
+      "country": "country.usa",
+      "executor": "executor.special_counsel_removal",
+      "links": [
+        {
+          "label": "ag",
+          "nameKey": "chain.link.ag",
+          "character": "char.usa.attorney_general",
+          "successors": [
+            "char.usa.deputy_attorney_general",
+            "char.usa.solicitor_general"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chain.usa.doj_investigation",
+      "country": "country.usa",
+      "executor": "executor.doj_investigation",
+      "links": [
+        {
+          "label": "ag",
+          "nameKey": "chain.link.ag",
+          "character": "char.usa.attorney_general"
+        },
+        {
+          "label": "fbi",
+          "nameKey": "chain.link.fbi",
+          "character": "char.usa.fbi_director"
+        },
+        {
+          "label": "agents",
+          "nameKey": "chain.link.agents",
+          "role": "role.law_enforcement",
+          "count": 3,
+          "rule": "Majority"
+        }
+      ],
+      "daysPerLink": 3
+    },
+    {
+      "id": "chain.usa.doj_prosecution",
+      "country": "country.usa",
+      "executor": "executor.doj_prosecution",
+      "links": [
+        {
+          "label": "ag",
+          "nameKey": "chain.link.ag",
+          "character": "char.usa.attorney_general"
+        },
+        {
+          "label": "prosecutors",
+          "nameKey": "chain.link.prosecutors",
+          "role": "role.career_prosecutor",
+          "count": 3,
+          "rule": "Majority"
+        },
+        {
+          "label": "grand_jury",
+          "nameKey": "chain.link.grand_jury",
+          "role": "role.grand_jury",
+          "count": 5,
+          "rule": "Majority"
+        }
+      ],
+      "daysPerLink": 7
+    },
+    {
+      "id": "chain.usa.federal_arrest",
+      "country": "country.usa",
+      "executor": "executor.federal_arrest",
+      "links": [
+        {
+          "label": "ag",
+          "nameKey": "chain.link.ag",
+          "character": "char.usa.attorney_general"
+        },
+        {
+          "label": "fbi",
+          "nameKey": "chain.link.fbi",
+          "character": "char.usa.fbi_director"
+        },
+        {
+          "label": "arrest_agents",
+          "nameKey": "chain.link.arrest_agents",
+          "role": "role.law_enforcement",
+          "count": 3,
+          "rule": "Majority"
+        }
+      ],
+      "daysPerLink": 1
+    },
+    {
+      "id": "chain.usa.surveillance",
+      "country": "country.usa",
+      "executor": "executor.surveillance",
+      "links": [
+        {
+          "label": "dni",
+          "nameKey": "chain.link.dni",
+          "character": "char.usa.intelligence_director"
+        },
+        {
+          "label": "analysts",
+          "nameKey": "chain.link.analysts",
+          "role": "role.intelligence_officer",
+          "count": 2,
+          "rule": "Majority"
+        }
+      ],
+      "daysPerLink": 2
+    },
+    {
+      "id": "chain.usa.irs_audit",
+      "country": "country.usa",
+      "executor": "executor.irs_audit",
+      "links": [
+        {
+          "label": "treasury",
+          "nameKey": "chain.link.treasury",
+          "character": "char.usa.treasury_secretary"
+        },
+        {
+          "label": "irs",
+          "nameKey": "chain.link.irs",
+          "character": "char.usa.irs_commissioner"
+        },
+        {
+          "label": "examiners",
+          "nameKey": "chain.link.examiners",
+          "role": "role.career_official",
+          "count": 3,
+          "rule": "Majority"
+        }
+      ],
+      "daysPerLink": 5
+    },
+    {
+      "id": "chain.usa.treasury_payments",
+      "country": "country.usa",
+      "executor": "executor.treasury_payments",
+      "links": [
+        {
+          "label": "treasury",
+          "nameKey": "chain.link.treasury",
+          "character": "char.usa.treasury_secretary"
+        },
+        {
+          "label": "fiscal",
+          "nameKey": "chain.link.fiscal",
+          "character": "char.usa.fiscal_assistant_secretary"
+        },
+        {
+          "label": "fiscal_service",
+          "nameKey": "chain.link.fiscal_service",
+          "role": "role.career_official",
+          "count": 3,
+          "rule": "Majority"
+        }
+      ],
+      "daysPerLink": 2
+    },
+    {
+      "id": "chain.usa.federal_workforce",
+      "country": "country.usa",
+      "executor": "executor.federal_workforce",
+      "links": [
+        {
+          "label": "opm",
+          "nameKey": "chain.link.opm",
+          "character": "char.usa.opm_director"
+        },
+        {
+          "label": "agency_staff",
+          "nameKey": "chain.link.agency_staff",
+          "role": "role.career_official",
+          "count": 3,
+          "rule": "Majority"
+        }
+      ],
+      "daysPerLink": 3
+    },
+    {
+      "id": "chain.usa.homeland",
+      "country": "country.usa",
+      "executor": "executor.homeland",
+      "links": [
+        {
+          "label": "dhs",
+          "nameKey": "chain.link.dhs",
+          "character": "char.usa.secretary_of_homeland_security"
+        },
+        {
+          "label": "dhs_agents",
+          "nameKey": "chain.link.dhs_agents",
+          "role": "role.law_enforcement",
+          "count": 3,
+          "rule": "Majority"
+        }
+      ],
+      "daysPerLink": 2
+    },
+    {
+      "id": "chain.usa.trade",
+      "country": "country.usa",
+      "executor": "executor.trade",
+      "links": [
+        {
+          "label": "commerce",
+          "nameKey": "chain.link.commerce",
+          "character": "char.usa.secretary_of_commerce"
+        },
+        {
+          "label": "trade_staff",
+          "nameKey": "chain.link.trade_staff",
+          "role": "role.career_official",
+          "count": 2,
+          "rule": "Majority"
+        }
+      ],
+      "daysPerLink": 3
+    },
+    {
+      "id": "chain.usa.energy",
+      "country": "country.usa",
+      "executor": "executor.energy",
+      "links": [
+        {
+          "label": "energy",
+          "nameKey": "chain.link.energy",
+          "character": "char.usa.secretary_of_energy"
+        },
+        {
+          "label": "energy_staff",
+          "nameKey": "chain.link.energy_staff",
+          "role": "role.career_official",
+          "count": 2,
+          "rule": "Majority"
+        }
+      ],
+      "daysPerLink": 3
+    },
+    {
+      "id": "chain.usa.media_regulator",
+      "country": "country.usa",
+      "executor": "executor.media_regulator",
+      "links": [
+        {
+          "label": "fcc",
+          "nameKey": "chain.link.fcc",
+          "character": "char.usa.fcc_chair"
+        },
+        {
+          "label": "fcc_staff",
+          "nameKey": "chain.link.fcc_staff",
+          "role": "role.career_official",
+          "count": 3,
+          "rule": "Majority"
+        }
+      ],
+      "daysPerLink": 5
+    },
+    {
+      "id": "chain.usa.diplomacy",
+      "country": "country.usa",
+      "executor": "executor.diplomacy",
+      "links": [
+        {
+          "label": "state",
+          "nameKey": "chain.link.state",
+          "character": "char.usa.secretary_of_state"
+        },
+        {
+          "label": "diplomats",
+          "nameKey": "chain.link.diplomats",
+          "role": "role.career_official",
+          "count": 2,
+          "rule": "Majority"
+        }
+      ],
+      "daysPerLink": 2
+    },
+    {
+      "id": "chain.usa.covert_ops",
+      "country": "country.usa",
+      "executor": "executor.covert_ops",
+      "links": [
+        {
+          "label": "cia",
+          "nameKey": "chain.link.cia",
+          "character": "char.usa.cia_director"
+        },
+        {
+          "label": "operatives",
+          "nameKey": "chain.link.operatives",
+          "role": "role.intelligence_officer",
+          "count": 2
+        }
+      ],
+      "daysPerLink": 3
+    },
+    {
+      "id": "chain.usa.protective_detail",
+      "country": "country.usa",
+      "executor": "executor.protective_detail",
+      "links": [
+        {
+          "label": "usss",
+          "nameKey": "chain.link.usss",
+          "character": "char.usa.secret_service_director"
+        },
+        {
+          "label": "detail",
+          "nameKey": "chain.link.detail",
+          "role": "role.law_enforcement",
+          "count": 3,
+          "rule": "Majority"
+        },
+        {
+          "label": "cjcs",
+          "nameKey": "chain.link.cjcs",
+          "character": "char.usa.joint_chiefs_chair"
+        }
+      ]
+    }
+  ]
+}

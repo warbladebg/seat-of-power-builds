@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "release_calendar.schema.json",
+  "title": "ReleaseCalendarDef",
+  "type": "object",
+  "properties": {
+    "country": {
+      "type": "string",
+      "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+    },
+    "releases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^stat\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "schedule": {
+            "type": "object",
+            "properties": {
+              "rule": {
+                "type": "string",
+                "enum": [
+                  "weekday_of_month",
+                  "day_of_month",
+                  "business_day_of_month",
+                  "days_after_period",
+                  "every_business_day"
+                ]
+              },
+              "n": {
+                "type": "integer",
+                "default": 1,
+                "minimum": 0,
+                "maximum": 120
+              },
+              "weekday": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "default": null,
+                "enum": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday"
+                ]
+              }
+            },
+            "required": [
+              "rule"
+            ],
+            "additionalProperties": false
+          },
+          "measure": {
+            "type": "string",
+            "default": "variable",
+            "enum": [
+              "variable",
+              "treasury_receipts",
+              "treasury_outlays",
+              "treasury_deficit"
+            ]
+          },
+          "variable": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          },
+          "period": {
+            "type": "string",
+            "default": "month",
+            "enum": [
+              "day",
+              "month",
+              "quarter"
+            ]
+          },
+          "aggregate": {
+            "type": "string",
+            "default": "average",
+            "enum": [
+              "last",
+              "average",
+              "annualized_growth"
+            ]
+          },
+          "noiseSd": {
+            "type": "number",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 100
+          },
+          "reliability": {
+            "type": "string",
+            "default": "High",
+            "enum": [
+              "Verified",
+              "High",
+              "Medium",
+              "Low",
+              "Rumor"
+            ]
+          },
+          "perceives": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          },
+          "revisions": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "afterReleases": {
+                  "type": "integer",
+                  "default": 0,
+                  "minimum": 0,
+                  "maximum": 24
+                },
+                "afterDays": {
+                  "type": "integer",
+                  "default": 0,
+                  "minimum": 0,
+                  "maximum": 400
+                },
+                "noiseSd": {
+                  "type": "number",
+                  "default": 0,
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              },
+              "additionalProperties": false
+            },
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "nameKey",
+          "schedule"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "country",
+    "releases"
+  ],
+  "additionalProperties": false
+}

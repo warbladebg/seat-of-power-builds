@@ -1,0 +1,19 @@
+{
+  "$schema": "../../schemas/country.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "The EU acts as one light entity in the demo (D-016). Its economy is in USD because WDI publishes EU aggregates in USD only."
+  },
+  "id": "country.eu",
+  "depth": "Light",
+  "nameKey": "country.eu.name",
+  "iso3": "EUU",
+  "entityType": "Bloc",
+  "regimeType": "LiberalDemocracy",
+  "currency": "USD",
+  "capitalKey": "country.eu.capital",
+  "mapColor": "#2D4E9B",
+  "leaderCharacterId": "char.eu.leader"
+}

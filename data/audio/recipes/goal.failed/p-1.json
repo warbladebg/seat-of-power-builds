@@ -1,0 +1,47 @@
+{
+  "cue": "goal.failed",
+  "round": "p",
+  "option": 1,
+  "family": "Placeholder",
+  "label": "plain placeholder until a round picks this cue",
+  "seed": 1,
+  "tail": 0.03,
+  "loudness": -23,
+  "layers": [
+    {
+      "type": "tone",
+      "wave": "saw",
+      "freq": 196,
+      "at": 0.0,
+      "env": {
+        "a": 0.01,
+        "d": 0.7
+      },
+      "gain": 0.0,
+      "filter": {
+        "type": "lowpass",
+        "freq": 700
+      }
+    },
+    {
+      "type": "tone",
+      "wave": "saw",
+      "freq": 185,
+      "at": 0.0,
+      "env": {
+        "a": 0.01,
+        "d": 0.7
+      },
+      "gain": 0.0,
+      "filter": {
+        "type": "lowpass",
+        "freq": 700
+      }
+    }
+  ],
+  "room": {
+    "size": 0.8,
+    "mix": 0.18,
+    "damp": 3000
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "../../schemas/localization.schema.json",
+  "strings": {
+    "title.chair": "Chair",
+    "title.chief_justice": "Chief Justice",
+    "title.commission_president": "President of the Commission",
+    "title.crown_prince": "Your Royal Highness",
+    "title.director": "Director",
+    "title.general": "General",
+    "title.head_of_state": "President",
+    "title.leader": "Leader",
+    "title.premier": "Premier",
+    "title.president": "Madam/Mister President",
+    "title.prime_minister": "Prime Minister",
+    "title.representative": "Representative",
+    "title.secretary": "Secretary",
+    "title.senator": "Senator",
+    "title.speaker": "Speaker",
+    "title.vice_president": "Vice President"
+  }
+}

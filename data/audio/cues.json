@@ -1,0 +1,335 @@
+{
+  "meta": {
+    "generatedBy": "tools/pipeline/audio/author_audio.py",
+    "notes": "Cue table (26 \u00a74). Files are relative to data/audio/. Never edit by hand: change author_audio.py and re-run."
+  },
+  "cues": {
+    "ui.click": {
+      "bus": "ui",
+      "cooldown": 0.04,
+      "maxVoices": 3,
+      "pitchJitter": 0.4,
+      "volumeJitterDb": 1.0,
+      "files": [
+        "sounds/ui.click.wav"
+      ],
+      "source": "placeholder"
+    },
+    "ui.hover": {
+      "bus": "ui",
+      "cooldown": 0.04,
+      "maxVoices": 3,
+      "pitchJitter": 0.4,
+      "volumeJitterDb": 1.0,
+      "files": [],
+      "source": "none"
+    },
+    "ui.panel_open": {
+      "bus": "ui",
+      "cooldown": 0.04,
+      "maxVoices": 3,
+      "pitchJitter": 0.4,
+      "volumeJitterDb": 1.0,
+      "priority": 10,
+      "files": [
+        "sounds/ui.panel_open.wav"
+      ],
+      "source": "placeholder"
+    },
+    "ui.panel_close": {
+      "bus": "ui",
+      "cooldown": 0.04,
+      "maxVoices": 3,
+      "pitchJitter": 0.4,
+      "volumeJitterDb": 1.0,
+      "priority": 10,
+      "files": [
+        "sounds/ui.panel_close.wav"
+      ],
+      "source": "placeholder"
+    },
+    "ui.toggle": {
+      "bus": "ui",
+      "cooldown": 0.04,
+      "maxVoices": 3,
+      "pitchJitter": 0.4,
+      "volumeJitterDb": 1.0,
+      "priority": 5,
+      "files": [
+        "sounds/ui.toggle.wav"
+      ],
+      "source": "placeholder"
+    },
+    "ui.error": {
+      "bus": "ui",
+      "cooldown": 0.3,
+      "maxVoices": 3,
+      "pitchJitter": 0.0,
+      "volumeJitterDb": 1.0,
+      "priority": 20,
+      "files": [
+        "sounds/ui.error.wav"
+      ],
+      "source": "placeholder"
+    },
+    "map.select_region": {
+      "bus": "ui",
+      "cooldown": 0.04,
+      "maxVoices": 3,
+      "pitchJitter": 0.4,
+      "volumeJitterDb": 1.0,
+      "priority": 8,
+      "files": [
+        "sounds/map.select_region.wav"
+      ],
+      "source": "placeholder"
+    },
+    "map.mode_change": {
+      "bus": "ui",
+      "cooldown": 0.04,
+      "maxVoices": 3,
+      "pitchJitter": 0.4,
+      "volumeJitterDb": 1.0,
+      "priority": 8,
+      "files": [
+        "sounds/map.mode_change.wav"
+      ],
+      "source": "placeholder"
+    },
+    "tutorial.beacon": {
+      "bus": "ui",
+      "cooldown": 1.0,
+      "maxVoices": 3,
+      "pitchJitter": 0.0,
+      "volumeJitterDb": 1.0,
+      "priority": 15,
+      "files": [
+        "sounds/tutorial.beacon.wav"
+      ],
+      "source": "placeholder"
+    },
+    "news.teletype": {
+      "bus": "sfx",
+      "maxVoices": 2,
+      "priority": 10,
+      "cooldown": 1.5,
+      "pitchJitter": 0.6,
+      "volumeJitterDb": 1.5,
+      "files": [
+        "sounds/news.teletype.wav"
+      ],
+      "source": "placeholder"
+    },
+    "news.breaking": {
+      "bus": "sfx",
+      "maxVoices": 2,
+      "priority": 40,
+      "cooldown": 2.0,
+      "files": [
+        "sounds/news.breaking.wav"
+      ],
+      "source": "placeholder"
+    },
+    "time.week": {
+      "bus": "sfx",
+      "maxVoices": 2,
+      "priority": 5,
+      "cooldown": 1.0,
+      "volumeDb": -6.0,
+      "files": [
+        "sounds/time.week.wav"
+      ],
+      "source": "placeholder"
+    },
+    "time.pause": {
+      "bus": "sfx",
+      "maxVoices": 2,
+      "priority": 30,
+      "cooldown": 0.2,
+      "files": [
+        "sounds/time.pause.wav"
+      ],
+      "source": "placeholder"
+    },
+    "time.resume": {
+      "bus": "sfx",
+      "maxVoices": 2,
+      "priority": 30,
+      "cooldown": 0.2,
+      "files": [
+        "sounds/time.resume.wav"
+      ],
+      "source": "placeholder"
+    },
+    "order.sent": {
+      "bus": "sfx",
+      "maxVoices": 2,
+      "priority": 50,
+      "cooldown": 0.3,
+      "files": [
+        "sounds/order.sent.wav"
+      ],
+      "source": "placeholder"
+    },
+    "bill.submitted": {
+      "bus": "sfx",
+      "maxVoices": 2,
+      "priority": 50,
+      "cooldown": 0.3,
+      "files": [
+        "sounds/bill.submitted.wav"
+      ],
+      "source": "placeholder"
+    },
+    "order.executed": {
+      "bus": "sfx",
+      "maxVoices": 2,
+      "priority": 50,
+      "cooldown": 1.0,
+      "files": [
+        "sounds/order.executed.wav"
+      ],
+      "source": "placeholder"
+    },
+    "order.refused": {
+      "bus": "sfx",
+      "maxVoices": 2,
+      "priority": 55,
+      "cooldown": 1.0,
+      "files": [
+        "sounds/order.refused.wav"
+      ],
+      "source": "placeholder"
+    },
+    "vote.passed": {
+      "bus": "sfx",
+      "maxVoices": 2,
+      "priority": 60,
+      "cooldown": 1.0,
+      "files": [
+        "sounds/vote.passed.wav"
+      ],
+      "source": "placeholder"
+    },
+    "vote.failed": {
+      "bus": "sfx",
+      "maxVoices": 2,
+      "priority": 60,
+      "cooldown": 1.0,
+      "files": [
+        "sounds/vote.failed.wav"
+      ],
+      "source": "placeholder"
+    },
+    "alert.action_required": {
+      "bus": "sfx",
+      "maxVoices": 2,
+      "priority": 70,
+      "cooldown": 2.0,
+      "files": [
+        "sounds/alert.action_required.wav"
+      ],
+      "source": "placeholder"
+    },
+    "goal.met": {
+      "bus": "sfx",
+      "maxVoices": 2,
+      "priority": 75,
+      "cooldown": 2.0,
+      "files": [
+        "sounds/goal.met.wav"
+      ],
+      "source": "placeholder"
+    },
+    "goal.failed": {
+      "bus": "sfx",
+      "maxVoices": 2,
+      "priority": 80,
+      "cooldown": 2.0,
+      "files": [
+        "sounds/goal.failed.wav"
+      ],
+      "source": "placeholder"
+    },
+    "sting.xdate_near": {
+      "bus": "sfx",
+      "maxVoices": 2,
+      "priority": 85,
+      "cooldown": 5.0,
+      "files": [
+        "sounds/sting.xdate_near.wav"
+      ],
+      "source": "placeholder"
+    },
+    "sting.crisis": {
+      "bus": "sfx",
+      "maxVoices": 2,
+      "priority": 90,
+      "cooldown": 5.0,
+      "files": [
+        "sounds/sting.crisis.wav"
+      ],
+      "source": "placeholder"
+    },
+    "ending.win": {
+      "bus": "music",
+      "priority": 100,
+      "cooldown": 5.0,
+      "maxVoices": 1,
+      "files": [
+        "sounds/ending.win.wav"
+      ],
+      "source": "placeholder"
+    },
+    "ending.loss": {
+      "bus": "music",
+      "priority": 100,
+      "cooldown": 5.0,
+      "maxVoices": 1,
+      "files": [
+        "sounds/ending.loss.wav"
+      ],
+      "source": "placeholder"
+    },
+    "music.menu": {
+      "bus": "music",
+      "loop": true,
+      "cooldown": 0.0,
+      "maxVoices": 1,
+      "files": [
+        "sounds/music.menu.ogg"
+      ],
+      "source": "placeholder"
+    },
+    "music.calm": {
+      "bus": "music",
+      "loop": true,
+      "cooldown": 0.0,
+      "maxVoices": 1,
+      "files": [
+        "sounds/music.calm.ogg"
+      ],
+      "source": "placeholder"
+    },
+    "music.tension": {
+      "bus": "music",
+      "loop": true,
+      "cooldown": 0.0,
+      "maxVoices": 1,
+      "files": [
+        "sounds/music.tension.ogg"
+      ],
+      "source": "placeholder"
+    },
+    "music.crisis": {
+      "bus": "music",
+      "loop": true,
+      "cooldown": 0.0,
+      "maxVoices": 1,
+      "files": [
+        "sounds/music.crisis.ogg"
+      ],
+      "source": "placeholder"
+    }
+  }
+}

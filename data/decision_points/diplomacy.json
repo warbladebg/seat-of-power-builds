@@ -1,0 +1,814 @@
+{
+  "$schema": "../schemas/decision_points.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "decisionPoints": [
+    {
+      "id": "dp.respond_to_offer",
+      "actor": "country",
+      "kind": "Choice",
+      "deliberationDays": 3,
+      "temperature": 0.6,
+      "options": [
+        {
+          "id": "accept",
+          "description": "Accept the terms."
+        },
+        {
+          "id": "reject",
+          "description": "Reject them."
+        },
+        {
+          "id": "counter_A",
+          "description": "Ask for more.",
+          "weight": 0.8
+        },
+        {
+          "id": "counter_B",
+          "description": "Counter to save face: drop what we hate, add something to show at home.",
+          "weight": 0.7
+        },
+        {
+          "id": "stall",
+          "description": "Stall for time.",
+          "weight": 0.5
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.diplomacy.offer.good",
+          "option": "accept"
+        },
+        {
+          "use": "consideration.diplomacy.offer.trusted",
+          "option": "accept"
+        },
+        {
+          "use": "consideration.diplomacy.offer.friendly",
+          "option": "accept"
+        },
+        {
+          "use": "consideration.diplomacy.offer.not_insulting",
+          "option": "accept"
+        },
+        {
+          "use": "consideration.diplomacy.offer.face_ok",
+          "option": "accept"
+        },
+        {
+          "use": "consideration.diplomacy.offer.cheap_at_home",
+          "option": "accept"
+        },
+        {
+          "use": "consideration.diplomacy.offer.warm",
+          "option": "accept"
+        },
+        {
+          "use": "consideration.diplomacy.offer.pragmatic",
+          "option": "accept"
+        },
+        {
+          "use": "consideration.diplomacy.offer.bad",
+          "option": "reject"
+        },
+        {
+          "use": "consideration.diplomacy.offer.unfriendly",
+          "option": "reject"
+        },
+        {
+          "use": "consideration.diplomacy.offer.insulted",
+          "option": "reject"
+        },
+        {
+          "use": "consideration.diplomacy.offer.costly_at_home",
+          "option": "reject"
+        },
+        {
+          "use": "consideration.diplomacy.offer.face_lost",
+          "option": "reject"
+        },
+        {
+          "use": "consideration.diplomacy.offer.hawkish",
+          "option": "reject"
+        },
+        {
+          "use": "consideration.diplomacy.offer.proud",
+          "option": "reject"
+        },
+        {
+          "use": "consideration.diplomacy.offer.close_call",
+          "option": "counter_A"
+        },
+        {
+          "use": "consideration.diplomacy.offer.leverage",
+          "option": "counter_A"
+        },
+        {
+          "use": "consideration.diplomacy.offer.room_to_ask",
+          "option": "counter_A"
+        },
+        {
+          "use": "consideration.diplomacy.offer.rounds_left",
+          "option": "counter_A"
+        },
+        {
+          "use": "consideration.diplomacy.offer.hawkish",
+          "option": "counter_A"
+        },
+        {
+          "use": "consideration.diplomacy.offer.close_call",
+          "option": "counter_B"
+        },
+        {
+          "use": "consideration.diplomacy.offer.hated_term",
+          "option": "counter_B"
+        },
+        {
+          "use": "consideration.diplomacy.offer.face_lost",
+          "option": "counter_B"
+        },
+        {
+          "use": "consideration.diplomacy.offer.costly_at_home",
+          "option": "counter_B"
+        },
+        {
+          "use": "consideration.diplomacy.offer.rounds_left",
+          "option": "counter_B"
+        },
+        {
+          "use": "consideration.diplomacy.offer.pragmatic",
+          "option": "counter_B"
+        },
+        {
+          "use": "consideration.diplomacy.offer.proud",
+          "option": "counter_B"
+        },
+        {
+          "use": "consideration.diplomacy.offer.close_call",
+          "option": "stall"
+        },
+        {
+          "use": "consideration.diplomacy.offer.patient",
+          "option": "stall"
+        },
+        {
+          "use": "consideration.diplomacy.offer.rounds_left",
+          "option": "stall"
+        },
+        {
+          "use": "consideration.diplomacy.offer.leverage",
+          "option": "stall"
+        }
+      ]
+    },
+    {
+      "id": "dp.weekly_stance",
+      "actor": "country",
+      "kind": "Choice",
+      "deliberationDays": 1,
+      "temperature": 0.7,
+      "options": [
+        {
+          "id": "hold",
+          "description": "Hold steady."
+        },
+        {
+          "id": "warm_up",
+          "description": "Warm up to them.",
+          "weight": 0.6
+        },
+        {
+          "id": "cool",
+          "description": "Cool toward them.",
+          "weight": 0.6
+        },
+        {
+          "id": "pressure",
+          "description": "Put pressure on them: make a demand.",
+          "weight": 0.15
+        },
+        {
+          "id": "seek_deal",
+          "description": "Seek a deal with them.",
+          "weight": 0.2
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.diplomacy.stance.continuity",
+          "option": "*"
+        },
+        {
+          "use": "consideration.diplomacy.stance.patient",
+          "option": "hold"
+        },
+        {
+          "use": "consideration.diplomacy.stance.likes_them",
+          "option": "warm_up"
+        },
+        {
+          "use": "consideration.diplomacy.stance.warming",
+          "option": "warm_up"
+        },
+        {
+          "use": "consideration.diplomacy.stance.depends",
+          "option": "warm_up"
+        },
+        {
+          "use": "consideration.diplomacy.stance.fresh_deal",
+          "option": "warm_up"
+        },
+        {
+          "use": "consideration.diplomacy.stance.dislikes_them",
+          "option": "cool"
+        },
+        {
+          "use": "consideration.diplomacy.stance.souring",
+          "option": "cool"
+        },
+        {
+          "use": "consideration.diplomacy.stance.proud",
+          "option": "cool"
+        },
+        {
+          "use": "consideration.diplomacy.stance.threatened",
+          "option": "pressure"
+        },
+        {
+          "use": "consideration.diplomacy.stance.they_are_weak",
+          "option": "pressure"
+        },
+        {
+          "use": "consideration.diplomacy.stance.hawkish",
+          "option": "pressure"
+        },
+        {
+          "use": "consideration.diplomacy.stance.wants_something",
+          "option": "pressure"
+        },
+        {
+          "use": "consideration.diplomacy.stance.unfriendly",
+          "option": "pressure"
+        },
+        {
+          "use": "consideration.diplomacy.stance.independent",
+          "option": "pressure"
+        },
+        {
+          "use": "consideration.diplomacy.stance.wants_something",
+          "option": "seek_deal"
+        },
+        {
+          "use": "consideration.diplomacy.stance.pragmatic",
+          "option": "seek_deal"
+        },
+        {
+          "use": "consideration.diplomacy.stance.needs_growth",
+          "option": "seek_deal"
+        },
+        {
+          "use": "consideration.diplomacy.stance.open_to_deals",
+          "option": "seek_deal"
+        },
+        {
+          "use": "consideration.diplomacy.stance.pressured_at_home",
+          "option": "seek_deal"
+        }
+      ]
+    },
+    {
+      "id": "dp.treasury_holdings_action",
+      "actor": "country",
+      "kind": "Choice",
+      "deliberationDays": 1,
+      "temperature": 0.6,
+      "options": [
+        {
+          "id": "hold",
+          "description": "Hold our position."
+        },
+        {
+          "id": "quietly_reduce",
+          "description": "Quietly reduce our holdings.",
+          "weight": 0.35
+        },
+        {
+          "id": "publicly_reduce",
+          "description": "Reduce them publicly, as a signal.",
+          "weight": 0.15
+        },
+        {
+          "id": "buy_as_leverage",
+          "description": "Buy more, and use it as leverage.",
+          "weight": 0.1
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.diplomacy.holdings.safe",
+          "option": "hold"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.likes",
+          "option": "hold"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.ally",
+          "option": "hold"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.big_exposure",
+          "option": "hold"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.keeps_pledge",
+          "option": "hold"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.reassured",
+          "option": "hold"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.no_drama",
+          "option": "hold"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.risky",
+          "option": "quietly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.drama",
+          "option": "quietly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.distrust",
+          "option": "quietly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.needs_cash",
+          "option": "quietly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.no_pledge",
+          "option": "quietly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.too_big_to_sell",
+          "option": "quietly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.not_ally",
+          "option": "quietly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.dislikes",
+          "option": "quietly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.rival",
+          "option": "quietly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.provoked",
+          "option": "publicly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.rival_signal",
+          "option": "publicly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.hostile",
+          "option": "publicly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.public_signal",
+          "option": "publicly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.self_harm",
+          "option": "publicly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.no_pledge_public",
+          "option": "publicly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.hawkish",
+          "option": "publicly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.showy",
+          "option": "publicly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.risk_signal",
+          "option": "publicly_reduce"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.opportunity",
+          "option": "buy_as_leverage"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.not_into_default",
+          "option": "buy_as_leverage"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.pragmatic",
+          "option": "buy_as_leverage"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.not_provoked",
+          "option": "buy_as_leverage"
+        },
+        {
+          "use": "consideration.diplomacy.holdings.stressed_market",
+          "option": "buy_as_leverage"
+        }
+      ]
+    },
+    {
+      "id": "dp.oil_output",
+      "actor": "country",
+      "kind": "Choice",
+      "deliberationDays": 1,
+      "temperature": 0.6,
+      "options": [
+        {
+          "id": "hold",
+          "description": "Keep output where it is."
+        },
+        {
+          "id": "raise",
+          "description": "Raise output.",
+          "weight": 0.6
+        },
+        {
+          "id": "raise_sharply",
+          "description": "Raise output sharply.",
+          "weight": 0.15
+        },
+        {
+          "id": "cut",
+          "description": "Cut output.",
+          "weight": 0.4
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.diplomacy.oil.price_near_breakeven",
+          "option": "hold"
+        },
+        {
+          "use": "consideration.diplomacy.oil.patient",
+          "option": "hold"
+        },
+        {
+          "use": "consideration.diplomacy.oil.price_high",
+          "option": "raise"
+        },
+        {
+          "use": "consideration.diplomacy.oil.share_at_risk",
+          "option": "raise"
+        },
+        {
+          "use": "consideration.diplomacy.oil.committed",
+          "option": "raise"
+        },
+        {
+          "use": "consideration.diplomacy.oil.asked",
+          "option": "raise"
+        },
+        {
+          "use": "consideration.diplomacy.oil.not_pushed",
+          "option": "raise"
+        },
+        {
+          "use": "consideration.diplomacy.oil.no_fiscal_need",
+          "option": "raise"
+        },
+        {
+          "use": "consideration.diplomacy.oil.price_very_high",
+          "option": "raise_sharply"
+        },
+        {
+          "use": "consideration.diplomacy.oil.share_at_risk_sharp",
+          "option": "raise_sharply"
+        },
+        {
+          "use": "consideration.diplomacy.oil.committed_sharp",
+          "option": "raise_sharply"
+        },
+        {
+          "use": "consideration.diplomacy.oil.asked_sharp",
+          "option": "raise_sharply"
+        },
+        {
+          "use": "consideration.diplomacy.oil.not_pushed_sharp",
+          "option": "raise_sharply"
+        },
+        {
+          "use": "consideration.diplomacy.oil.no_fiscal_need_sharp",
+          "option": "raise_sharply"
+        },
+        {
+          "use": "consideration.diplomacy.oil.price_low",
+          "option": "cut"
+        },
+        {
+          "use": "consideration.diplomacy.oil.fiscal_need",
+          "option": "cut"
+        },
+        {
+          "use": "consideration.diplomacy.oil.keeps_commitment",
+          "option": "cut"
+        },
+        {
+          "use": "consideration.diplomacy.oil.defiant",
+          "option": "cut"
+        },
+        {
+          "use": "consideration.diplomacy.oil.share_safe",
+          "option": "cut"
+        }
+      ]
+    },
+    {
+      "id": "dp.trade_retaliation",
+      "actor": "country",
+      "kind": "Choice",
+      "deliberationDays": 1,
+      "temperature": 0.6,
+      "options": [
+        {
+          "id": "retaliate",
+          "description": "Answer with our own tariffs."
+        },
+        {
+          "id": "negotiate",
+          "description": "Propose talks: their tariffs lifted, something in return."
+        },
+        {
+          "id": "absorb",
+          "description": "Take the hit for now.",
+          "weight": 0.7
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.diplomacy.trade.proud",
+          "option": "retaliate"
+        },
+        {
+          "use": "consideration.diplomacy.trade.hawkish",
+          "option": "retaliate"
+        },
+        {
+          "use": "consideration.diplomacy.trade.pressured",
+          "option": "retaliate"
+        },
+        {
+          "use": "consideration.diplomacy.trade.talks_failed",
+          "option": "retaliate"
+        },
+        {
+          "use": "consideration.diplomacy.trade.hurts",
+          "option": "retaliate"
+        },
+        {
+          "use": "consideration.diplomacy.trade.unfriendly",
+          "option": "retaliate"
+        },
+        {
+          "use": "consideration.diplomacy.trade.has_leverage",
+          "option": "retaliate"
+        },
+        {
+          "use": "consideration.diplomacy.trade.secure_alone",
+          "option": "retaliate"
+        },
+        {
+          "use": "consideration.diplomacy.trade.pragmatic",
+          "option": "negotiate"
+        },
+        {
+          "use": "consideration.diplomacy.trade.much_at_stake",
+          "option": "negotiate"
+        },
+        {
+          "use": "consideration.diplomacy.trade.allies",
+          "option": "negotiate"
+        },
+        {
+          "use": "consideration.diplomacy.trade.weak_hand",
+          "option": "negotiate"
+        },
+        {
+          "use": "consideration.diplomacy.trade.talks_not_tried",
+          "option": "negotiate"
+        },
+        {
+          "use": "consideration.diplomacy.trade.friendly",
+          "option": "negotiate"
+        },
+        {
+          "use": "consideration.diplomacy.trade.little_harm",
+          "option": "absorb"
+        },
+        {
+          "use": "consideration.diplomacy.trade.needs_protector",
+          "option": "absorb"
+        },
+        {
+          "use": "consideration.diplomacy.trade.patient",
+          "option": "absorb"
+        },
+        {
+          "use": "consideration.diplomacy.trade.meek",
+          "option": "absorb"
+        },
+        {
+          "use": "consideration.diplomacy.trade.no_failed_talks",
+          "option": "absorb"
+        }
+      ]
+    },
+    {
+      "id": "dp.leak_negotiation",
+      "actor": "country",
+      "kind": "Choice",
+      "deliberationDays": 1,
+      "temperature": 0.7,
+      "options": [
+        {
+          "id": "keep_private",
+          "description": "Keep the talks private."
+        },
+        {
+          "id": "leak_favourably",
+          "description": "Leak our side of the story.",
+          "weight": 0.25
+        },
+        {
+          "id": "leak_to_embarrass",
+          "description": "Leak it to embarrass them.",
+          "weight": 0.12
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.diplomacy.leak.honest",
+          "option": "keep_private"
+        },
+        {
+          "use": "consideration.diplomacy.leak.not_hostile",
+          "option": "keep_private"
+        },
+        {
+          "use": "consideration.diplomacy.leak.not_insulted",
+          "option": "keep_private"
+        },
+        {
+          "use": "consideration.diplomacy.leak.public_minded",
+          "option": "leak_favourably"
+        },
+        {
+          "use": "consideration.diplomacy.leak.audience_at_home",
+          "option": "leak_favourably"
+        },
+        {
+          "use": "consideration.diplomacy.leak.has_a_win",
+          "option": "leak_favourably"
+        },
+        {
+          "use": "consideration.diplomacy.leak.hostile",
+          "option": "leak_to_embarrass"
+        },
+        {
+          "use": "consideration.diplomacy.leak.insulted",
+          "option": "leak_to_embarrass"
+        },
+        {
+          "use": "consideration.diplomacy.leak.dishonest",
+          "option": "leak_to_embarrass"
+        },
+        {
+          "use": "consideration.diplomacy.leak.embarrassing",
+          "option": "leak_to_embarrass"
+        },
+        {
+          "use": "consideration.diplomacy.leak.showy",
+          "option": "leak_to_embarrass"
+        }
+      ]
+    },
+    {
+      "id": "dp.honor_agreement",
+      "actor": "country",
+      "kind": "Choice",
+      "deliberationDays": 3,
+      "temperature": 0.6,
+      "options": [
+        {
+          "id": "honor",
+          "description": "Keep our word."
+        },
+        {
+          "id": "quietly_violate",
+          "description": "Quietly stop keeping it.",
+          "weight": 0.2
+        },
+        {
+          "id": "renegotiate",
+          "description": "Ask to renegotiate.",
+          "weight": 0.4
+        },
+        {
+          "id": "withdraw",
+          "description": "Withdraw openly.",
+          "weight": 0.15
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.diplomacy.honor.cheap",
+          "option": "honor"
+        },
+        {
+          "use": "consideration.diplomacy.honor.honest",
+          "option": "honor"
+        },
+        {
+          "use": "consideration.diplomacy.honor.lawful",
+          "option": "honor"
+        },
+        {
+          "use": "consideration.diplomacy.honor.partner_kept",
+          "option": "honor"
+        },
+        {
+          "use": "consideration.diplomacy.honor.trusts",
+          "option": "honor"
+        },
+        {
+          "use": "consideration.diplomacy.honor.depends",
+          "option": "honor"
+        },
+        {
+          "use": "consideration.diplomacy.honor.costly",
+          "option": "quietly_violate"
+        },
+        {
+          "use": "consideration.diplomacy.honor.dishonest",
+          "option": "quietly_violate"
+        },
+        {
+          "use": "consideration.diplomacy.honor.partner_broke",
+          "option": "quietly_violate"
+        },
+        {
+          "use": "consideration.diplomacy.honor.distrusts",
+          "option": "quietly_violate"
+        },
+        {
+          "use": "consideration.diplomacy.honor.costly_some",
+          "option": "renegotiate"
+        },
+        {
+          "use": "consideration.diplomacy.honor.pragmatic",
+          "option": "renegotiate"
+        },
+        {
+          "use": "consideration.diplomacy.honor.likes",
+          "option": "renegotiate"
+        },
+        {
+          "use": "consideration.diplomacy.honor.depends_some",
+          "option": "renegotiate"
+        },
+        {
+          "use": "consideration.diplomacy.honor.costly",
+          "option": "withdraw"
+        },
+        {
+          "use": "consideration.diplomacy.honor.partner_broke_exit",
+          "option": "withdraw"
+        },
+        {
+          "use": "consideration.diplomacy.honor.proud",
+          "option": "withdraw"
+        },
+        {
+          "use": "consideration.diplomacy.honor.dislikes",
+          "option": "withdraw"
+        },
+        {
+          "use": "consideration.diplomacy.honor.independent",
+          "option": "withdraw"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,891 @@
+{
+  "$schema": "../schemas/deal_terms.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "terms": [
+    {
+      "id": "term.tariff_cut",
+      "nameKey": "term.tariff_cut.name",
+      "category": "trade",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": -4
+        },
+        {
+          "input": "opinion",
+          "weight": 3
+        },
+        {
+          "input": "pressure:election_soon",
+          "weight": -4
+        },
+        {
+          "input": "pressure:nationalist_pressure",
+          "weight": -3
+        },
+        {
+          "input": "pressure:inflation_high",
+          "weight": 3
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 2
+        },
+        {
+          "input": "trade_dep",
+          "weight": 30
+        },
+        {
+          "input": "pressure:economy_weak",
+          "weight": 4
+        }
+      ],
+      "giverStakes": {
+        "stake.labor": -4
+      },
+      "receiverStakes": {
+        "stake.trade": 4
+      },
+      "requires": {
+        "flag": "econ.{country}.tariffs.{target}"
+      },
+      "effects": [
+        {
+          "type": "clear_flag",
+          "flag": "econ.{country}.tariffs.{target}"
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.gap_shock@{target}",
+          "amount": 0.15,
+          "curve": {
+            "ramp": 90,
+            "hold": 365,
+            "decay": 365
+          }
+        }
+      ],
+      "violatedIf": {
+        "flag": "econ.{country}.tariffs.{target}"
+      },
+      "cooldownDays": 180
+    },
+    {
+      "id": "term.tariff_exemption",
+      "nameKey": "term.tariff_exemption.name",
+      "category": "trade",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": -2
+        },
+        {
+          "input": "pressure:election_soon",
+          "weight": -2
+        },
+        {
+          "input": "pressure:inflation_high",
+          "weight": 1
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 1
+        },
+        {
+          "input": "trade_dep",
+          "weight": 12
+        },
+        {
+          "input": "tariffed",
+          "weight": 8
+        }
+      ],
+      "giverStakes": {
+        "stake.labor": -1.5
+      },
+      "receiverStakes": {
+        "stake.trade": 2
+      },
+      "requires": {
+        "flag": "econ.{country}.tariffs.{target}"
+      },
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.gap_shock@{target}",
+          "amount": 0.05,
+          "curve": {
+            "ramp": 60,
+            "hold": 365,
+            "decay": 180
+          }
+        }
+      ],
+      "cooldownDays": 90
+    },
+    {
+      "id": "term.no_new_tariffs",
+      "nameKey": "term.no_new_tariffs.name",
+      "category": "trade",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": -2
+        },
+        {
+          "input": "pressure:nationalist_pressure",
+          "weight": -2
+        },
+        {
+          "input": "trait:hawkishness",
+          "weight": -2
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 2
+        },
+        {
+          "input": "trade_dep",
+          "weight": 12
+        },
+        {
+          "input": "opinion",
+          "weight": -2
+        }
+      ],
+      "pledge": true,
+      "requires": {
+        "not": {
+          "flag": "econ.{country}.tariffs.{target}"
+        }
+      },
+      "violatedIf": {
+        "flag": "econ.{country}.tariffs.{target}"
+      },
+      "durationDays": 365,
+      "cooldownDays": 365
+    },
+    {
+      "id": "term.purchase_commitment",
+      "nameKey": "term.purchase_commitment.name",
+      "category": "trade",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": -6
+        },
+        {
+          "input": "pressure:economy_weak",
+          "weight": -3
+        },
+        {
+          "input": "opinion",
+          "weight": 2
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 6
+        },
+        {
+          "input": "pressure:economy_weak",
+          "weight": 3
+        },
+        {
+          "input": "approval_low",
+          "weight": 3
+        }
+      ],
+      "receiverStakes": {
+        "stake.trade": 5,
+        "stake.labor": 2
+      },
+      "pledge": true,
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.gap_shock@{target}",
+          "amount": 0.1,
+          "curve": {
+            "ramp": 60,
+            "hold": 300,
+            "decay": 180
+          }
+        }
+      ],
+      "costlyIf": {
+        "any": [
+          {
+            "var": "econ.real_growth@{country}",
+            "op": "<",
+            "value": 1
+          }
+        ]
+      },
+      "durationDays": 365,
+      "cooldownDays": 365
+    },
+    {
+      "id": "term.sanctions_relief",
+      "nameKey": "term.sanctions_relief.name",
+      "category": "trade",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": -5
+        },
+        {
+          "input": "trait:hawkishness",
+          "weight": -6
+        },
+        {
+          "input": "opinion",
+          "weight": 3
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 2
+        },
+        {
+          "input": "sanctioned",
+          "weight": 20
+        }
+      ],
+      "requires": {
+        "flag": "econ.{country}.sanctions.{target}"
+      },
+      "effects": [
+        {
+          "type": "clear_flag",
+          "flag": "econ.{country}.sanctions.{target}"
+        }
+      ],
+      "violatedIf": {
+        "flag": "econ.{country}.sanctions.{target}"
+      },
+      "cooldownDays": 180
+    },
+    {
+      "id": "term.export_controls_relief",
+      "nameKey": "term.export_controls_relief.name",
+      "category": "trade",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": -6
+        },
+        {
+          "input": "trait:hawkishness",
+          "weight": -6
+        },
+        {
+          "input": "opinion",
+          "weight": 3
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 2
+        },
+        {
+          "input": "export_banned",
+          "weight": 18
+        }
+      ],
+      "requires": {
+        "flag": "econ.{country}.export_ban.{target}"
+      },
+      "effects": [
+        {
+          "type": "clear_flag",
+          "flag": "econ.{country}.export_ban.{target}"
+        }
+      ],
+      "violatedIf": {
+        "flag": "econ.{country}.export_ban.{target}"
+      },
+      "cooldownDays": 180
+    },
+    {
+      "id": "term.no_new_sanctions",
+      "nameKey": "term.no_new_sanctions.name",
+      "category": "trade",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": -3
+        },
+        {
+          "input": "trait:hawkishness",
+          "weight": -4
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 4
+        },
+        {
+          "input": "trait:pride",
+          "weight": 2
+        }
+      ],
+      "pledge": true,
+      "requires": {
+        "not": {
+          "flag": "econ.{country}.sanctions.{target}"
+        }
+      },
+      "violatedIf": {
+        "flag": "econ.{country}.sanctions.{target}"
+      },
+      "durationDays": 365,
+      "cooldownDays": 365
+    },
+    {
+      "id": "term.statement_of_confidence",
+      "nameKey": "term.statement_of_confidence.name",
+      "category": "finance",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": -1
+        },
+        {
+          "input": "opinion",
+          "weight": 3
+        },
+        {
+          "input": "default_risk",
+          "weight": -4
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 1
+        },
+        {
+          "input": "default_risk",
+          "weight": 20
+        },
+        {
+          "input": "market_stress",
+          "weight": 15
+        }
+      ],
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.risk_premium_shock@{target}",
+          "amount": -0.03,
+          "curve": {
+            "ramp": 1,
+            "hold": 21,
+            "decay": 30
+          }
+        }
+      ],
+      "cooldownDays": 60
+    },
+    {
+      "id": "term.holding_pledge",
+      "nameKey": "term.holding_pledge.name",
+      "category": "finance",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": -2
+        },
+        {
+          "input": "default_risk",
+          "weight": -15
+        },
+        {
+          "input": "exposure",
+          "weight": 2
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 3
+        },
+        {
+          "input": "default_risk",
+          "weight": 25
+        },
+        {
+          "input": "market_stress",
+          "weight": 10
+        },
+        {
+          "input": "exposure",
+          "weight": 10
+        }
+      ],
+      "pledge": true,
+      "requires": {
+        "flag": "diplo.{country}.holds_debt.{target}"
+      },
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.foreign_demand_shift@{target}",
+          "amount": -0.03,
+          "curve": {
+            "ramp": 7,
+            "hold": 180,
+            "decay": 60
+          }
+        }
+      ],
+      "violatedIf": {
+        "flag": "diplo.{country}.reduced_holdings.{target}"
+      },
+      "costlyIf": {
+        "var": "econ.default_risk@{target}",
+        "op": ">",
+        "value": 0.35
+      },
+      "durationDays": 180,
+      "cooldownDays": 90
+    },
+    {
+      "id": "term.debt_purchase",
+      "nameKey": "term.debt_purchase.name",
+      "category": "finance",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": -4
+        },
+        {
+          "input": "default_risk",
+          "weight": -25
+        },
+        {
+          "input": "opinion",
+          "weight": 2
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 4
+        },
+        {
+          "input": "default_risk",
+          "weight": 20
+        },
+        {
+          "input": "market_stress",
+          "weight": 12
+        }
+      ],
+      "requires": {
+        "flag": "diplo.{country}.holds_debt.{target}"
+      },
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.foreign_demand_shift@{target}",
+          "amount": -0.06,
+          "curve": {
+            "ramp": 14,
+            "hold": 180,
+            "decay": 180
+          }
+        }
+      ],
+      "cooldownDays": 180
+    },
+    {
+      "id": "term.investment_pledge",
+      "nameKey": "term.investment_pledge.name",
+      "category": "finance",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": -3
+        },
+        {
+          "input": "trade_dep_giver",
+          "weight": 10
+        },
+        {
+          "input": "opinion",
+          "weight": 2
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 5
+        },
+        {
+          "input": "pressure:economy_weak",
+          "weight": 3
+        },
+        {
+          "input": "approval_low",
+          "weight": 2
+        }
+      ],
+      "receiverStakes": {
+        "stake.labor": 3,
+        "stake.trade": 1
+      },
+      "pledge": true,
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.gap_shock@{target}",
+          "amount": 0.08,
+          "curve": {
+            "ramp": 180,
+            "hold": 365,
+            "decay": 365
+          }
+        }
+      ],
+      "durationDays": 730,
+      "cooldownDays": 365
+    },
+    {
+      "id": "term.swap_line",
+      "nameKey": "term.swap_line.name",
+      "category": "finance",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": -1
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 3
+        },
+        {
+          "input": "market_stress",
+          "weight": 15
+        }
+      ],
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.risk_premium_shock@{target}",
+          "amount": -0.02,
+          "curve": {
+            "ramp": 1,
+            "hold": 60,
+            "decay": 60
+          }
+        }
+      ],
+      "durationDays": 365,
+      "cooldownDays": 180
+    },
+    {
+      "id": "term.aid_package",
+      "nameKey": "term.aid_package.name",
+      "category": "aid",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": -5
+        },
+        {
+          "input": "opinion",
+          "weight": 3
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 6
+        },
+        {
+          "input": "pressure:economy_weak",
+          "weight": 5
+        },
+        {
+          "input": "trait:pride",
+          "weight": -3
+        }
+      ],
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.gap_shock@{target}",
+          "amount": 0.05,
+          "curve": {
+            "ramp": 60,
+            "hold": 180,
+            "decay": 180
+          }
+        }
+      ],
+      "cooldownDays": 180
+    },
+    {
+      "id": "term.energy_contract",
+      "nameKey": "term.energy_contract.name",
+      "category": "energy",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": 3
+        },
+        {
+          "input": "energy_import",
+          "weight": -20
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 1
+        },
+        {
+          "input": "energy_import",
+          "weight": 12
+        },
+        {
+          "input": "gas_price_pain",
+          "weight": 6
+        }
+      ],
+      "pledge": true,
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.inflation@{target}",
+          "amount": -0.05,
+          "curve": {
+            "ramp": 90,
+            "hold": 365,
+            "decay": 180
+          }
+        }
+      ],
+      "durationDays": 730,
+      "cooldownDays": 365
+    },
+    {
+      "id": "term.oil_output_increase",
+      "nameKey": "term.oil_output_increase.name",
+      "category": "energy",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": -6
+        },
+        {
+          "input": "oil_above_breakeven",
+          "weight": 10
+        },
+        {
+          "input": "pressure:fiscal_needs_high_oil",
+          "weight": -10
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 2
+        },
+        {
+          "input": "gas_price_pain",
+          "weight": 14
+        },
+        {
+          "input": "energy_import",
+          "weight": 5
+        },
+        {
+          "input": "approval_low",
+          "weight": 3
+        }
+      ],
+      "pledge": true,
+      "requires": {
+        "flag": "diplo.{country}.oil_producer"
+      },
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "world.oil_price",
+          "amount": -6,
+          "curve": {
+            "ramp": 30,
+            "hold": 150,
+            "decay": 90
+          }
+        }
+      ],
+      "violatedIf": {
+        "flag": "diplo.{country}.oil_cut"
+      },
+      "costlyIf": {
+        "var": "world.oil_price",
+        "op": "<",
+        "value": 85
+      },
+      "durationDays": 180,
+      "cooldownDays": 120
+    },
+    {
+      "id": "term.coordinated_reserve_release",
+      "nameKey": "term.coordinated_reserve_release.name",
+      "category": "energy",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": -2
+        },
+        {
+          "input": "energy_import",
+          "weight": -2
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 1
+        },
+        {
+          "input": "gas_price_pain",
+          "weight": 8
+        }
+      ],
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "world.oil_price",
+          "amount": -3,
+          "curve": {
+            "ramp": 14,
+            "hold": 60,
+            "decay": 60
+          }
+        }
+      ],
+      "cooldownDays": 180
+    },
+    {
+      "id": "term.security_guarantee",
+      "nameKey": "term.security_guarantee.name",
+      "category": "security",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": -6
+        },
+        {
+          "input": "opinion",
+          "weight": 4
+        },
+        {
+          "input": "trait:hawkishness",
+          "weight": 2
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 2
+        },
+        {
+          "input": "threat",
+          "weight": 25
+        }
+      ],
+      "pledge": true,
+      "effects": [
+        {
+          "type": "set_flag",
+          "flag": "diplo.{country}.guarantees.{target}"
+        }
+      ],
+      "cooldownDays": 365
+    },
+    {
+      "id": "term.joint_statement",
+      "nameKey": "term.joint_statement.name",
+      "category": "political",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": 0.5
+        },
+        {
+          "input": "opinion",
+          "weight": 2
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 2
+        },
+        {
+          "input": "trait:pride",
+          "weight": 3
+        },
+        {
+          "input": "opinion",
+          "weight": 2
+        }
+      ],
+      "symbolic": true,
+      "cooldownDays": 60
+    },
+    {
+      "id": "term.summit",
+      "nameKey": "term.summit.name",
+      "category": "political",
+      "valueToGiver": [
+        {
+          "input": "const",
+          "weight": 1
+        },
+        {
+          "input": "opinion",
+          "weight": 2
+        }
+      ],
+      "valueToReceiver": [
+        {
+          "input": "const",
+          "weight": 4
+        },
+        {
+          "input": "trait:pride",
+          "weight": 4
+        },
+        {
+          "input": "approval_low",
+          "weight": 2
+        }
+      ],
+      "symbolic": true,
+      "cooldownDays": 365
+    }
+  ]
+}

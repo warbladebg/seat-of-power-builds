@@ -1,0 +1,264 @@
+{
+  "$schema": "../schemas/variables.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Package 05. Per-power-center (politics.loyalty|satisfaction|support@pc.*), per-voter-bloc (politics.approval|bloc_shock@bloc.*) and per-party (politics.party_approval@party.*) variables are registered at run time by the politics system."
+  },
+  "variables": [
+    {
+      "idPattern": "politics.political_capital@{country}",
+      "unit": "index_0_100",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "politics.resources",
+      "nameKey": "var.politics.political_capital.name"
+    },
+    {
+      "idPattern": "politics.approval@{country}",
+      "unit": "index_0_100",
+      "default": 44,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "politics.opinion",
+      "nameKey": "var.politics.approval.name"
+    },
+    {
+      "idPattern": "politics.base_approval@{country}",
+      "unit": "index_0_100",
+      "default": 60,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "politics.opinion",
+      "nameKey": "var.politics.base_approval.name"
+    },
+    {
+      "idPattern": "politics.leader_security@{country}",
+      "unit": "index_0_100",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "politics.power",
+      "nameKey": "var.politics.leader_security.name"
+    },
+    {
+      "idPattern": "politics.rally@{country}",
+      "unit": "index_0_100",
+      "default": 0,
+      "min": -20,
+      "max": 40,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "politics.opinion",
+      "nameKey": "var.politics.rally.name"
+    },
+    {
+      "idPattern": "politics.scandal@{country}",
+      "unit": "index_0_100",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "politics.opinion",
+      "nameKey": "var.politics.scandal.name"
+    },
+    {
+      "idPattern": "politics.blame@{country}",
+      "unit": "index_0_100",
+      "default": 0,
+      "min": -100,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "politics.opinion",
+      "nameKey": "var.politics.blame.name"
+    },
+    {
+      "idPattern": "politics.honeymoon@{country}",
+      "unit": "index_0_100",
+      "default": 0,
+      "min": 0,
+      "max": 30,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "politics.opinion",
+      "nameKey": "var.politics.honeymoon.name"
+    },
+    {
+      "idPattern": "politics.impeachment_pressure@{country}",
+      "unit": "index_0_100",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "politics.threats",
+      "nameKey": "var.politics.impeachment_pressure.name"
+    },
+    {
+      "idPattern": "politics.government_margin@{country}",
+      "unit": "seats",
+      "default": 0,
+      "min": -1000,
+      "max": 1000,
+      "fullCountriesOnly": true,
+      "format": "+0;-0;0",
+      "category": "politics.threats",
+      "nameKey": "var.politics.government_margin.name"
+    },
+    {
+      "idPattern": "politics.no_confidence_pressure@{country}",
+      "unit": "index_0_100",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "politics.threats",
+      "nameKey": "var.politics.no_confidence_pressure.name"
+    },
+    {
+      "idPattern": "politics.urgency@{country}",
+      "unit": "index_0_100",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "politics.legislature",
+      "nameKey": "var.politics.urgency.name"
+    },
+    {
+      "idPattern": "politics.unrest@{country}",
+      "unit": "percent",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "politics.threats",
+      "nameKey": "var.politics.unrest.name"
+    },
+    {
+      "idPattern": "politics.projected_seat_change@{country}",
+      "unit": "seats",
+      "default": 0,
+      "min": -1000,
+      "max": 1000,
+      "fullCountriesOnly": true,
+      "format": "+0;-0;0",
+      "category": "politics.elections",
+      "nameKey": "var.politics.projected_seat_change.name"
+    },
+    {
+      "idPattern": "politics.projected_vote_share@{country}",
+      "unit": "percent",
+      "default": 50,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "politics.elections",
+      "nameKey": "var.politics.projected_vote_share.name"
+    },
+    {
+      "idPattern": "politics.cb_independence@{country}",
+      "unit": "index_0_100",
+      "default": 85,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "politics.institutions",
+      "nameKey": "var.politics.cb_independence.name"
+    },
+    {
+      "idPattern": "politics.coup_risk@{country}",
+      "unit": "index_0_100",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0",
+      "category": "politics.threats",
+      "nameKey": "var.politics.coup_risk.name"
+    },
+    {
+      "idPattern": "politics.regime.judicial_independence@{country}",
+      "unit": "index_0_100",
+      "default": 70,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "politics.regime",
+      "nameKey": "var.politics.regime.judicial_independence.name"
+    },
+    {
+      "idPattern": "politics.regime.media_freedom@{country}",
+      "unit": "index_0_100",
+      "default": 70,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "politics.regime",
+      "nameKey": "var.politics.regime.media_freedom.name"
+    },
+    {
+      "idPattern": "politics.regime.electoral_integrity@{country}",
+      "unit": "index_0_100",
+      "default": 70,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "politics.regime",
+      "nameKey": "var.politics.regime.electoral_integrity.name"
+    },
+    {
+      "idPattern": "politics.regime.civil_liberties@{country}",
+      "unit": "index_0_100",
+      "default": 70,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "politics.regime",
+      "nameKey": "var.politics.regime.civil_liberties.name"
+    },
+    {
+      "idPattern": "politics.regime.legislative_constraint@{country}",
+      "unit": "index_0_100",
+      "default": 70,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "politics.regime",
+      "nameKey": "var.politics.regime.legislative_constraint.name"
+    },
+    {
+      "idPattern": "politics.regime.civilian_control_of_military@{country}",
+      "unit": "index_0_100",
+      "default": 70,
+      "min": 0,
+      "max": 100,
+      "fullCountriesOnly": true,
+      "format": "0.0",
+      "category": "politics.regime",
+      "nameKey": "var.politics.regime.civilian_control_of_military.name"
+    }
+  ]
+}

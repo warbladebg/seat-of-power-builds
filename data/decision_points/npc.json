@@ -1,0 +1,325 @@
+{
+  "$schema": "../schemas/decision_points.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "decisionPoints": [
+    {
+      "id": "dp.execute_order",
+      "actor": "character",
+      "kind": "Choice",
+      "deliberationDays": 1,
+      "temperature": 0.7,
+      "options": [
+        {
+          "id": "comply",
+          "description": "Carry out the order."
+        },
+        {
+          "id": "comply_slowly",
+          "description": "Carry it out, but slowly and by the book.",
+          "weight": 0.15
+        },
+        {
+          "id": "ask_confirmation",
+          "description": "Ask for the order in writing, or for a legal opinion, before acting.",
+          "weight": 0.12
+        },
+        {
+          "id": "refuse",
+          "description": "Refuse to carry it out."
+        },
+        {
+          "id": "resign",
+          "description": "Resign rather than carry it out.",
+          "weight": 0.35
+        },
+        {
+          "id": "leak",
+          "description": "Refuse, and tell the press.",
+          "weight": 0.2
+        },
+        {
+          "id": "alert_others",
+          "description": "Refuse, and warn the vice president, cabinet or Congress.",
+          "weight": 0.3
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.order.legal_enough",
+          "option": "comply"
+        },
+        {
+          "use": "consideration.order.warranted",
+          "option": "comply"
+        },
+        {
+          "use": "consideration.order.loyal",
+          "option": "comply"
+        },
+        {
+          "use": "consideration.order.afraid",
+          "option": "comply"
+        },
+        {
+          "use": "consideration.order.peers_complied",
+          "option": "comply"
+        },
+        {
+          "use": "consideration.order.legal_enough",
+          "option": "comply_slowly",
+          "weight": 1
+        },
+        {
+          "use": "consideration.order.lukewarm",
+          "option": "comply_slowly"
+        },
+        {
+          "use": "consideration.order.grave",
+          "option": "ask_confirmation"
+        },
+        {
+          "use": "consideration.order.doubtful",
+          "option": "ask_confirmation"
+        },
+        {
+          "use": "consideration.order.not_insisted",
+          "option": "ask_confirmation"
+        },
+        {
+          "use": "consideration.order.illegal",
+          "option": "refuse"
+        },
+        {
+          "use": "consideration.order.unwarranted",
+          "option": "refuse"
+        },
+        {
+          "use": "consideration.order.unafraid",
+          "option": "refuse"
+        },
+        {
+          "use": "consideration.order.disloyal",
+          "option": "refuse"
+        },
+        {
+          "use": "consideration.order.illegal",
+          "option": "resign",
+          "weight": 2
+        },
+        {
+          "use": "consideration.order.unwarranted",
+          "option": "resign",
+          "weight": 2
+        },
+        {
+          "use": "consideration.order.honest",
+          "option": "resign"
+        },
+        {
+          "use": "consideration.order.unafraid",
+          "option": "resign"
+        },
+        {
+          "use": "consideration.order.illegal",
+          "option": "leak",
+          "weight": 2
+        },
+        {
+          "use": "consideration.order.unwarranted",
+          "option": "leak",
+          "weight": 2
+        },
+        {
+          "use": "consideration.order.covert",
+          "option": "leak"
+        },
+        {
+          "use": "consideration.order.honest",
+          "option": "leak"
+        },
+        {
+          "use": "consideration.order.unafraid",
+          "option": "leak"
+        },
+        {
+          "use": "consideration.order.illegal",
+          "option": "alert_others",
+          "weight": 2
+        },
+        {
+          "use": "consideration.order.unwarranted",
+          "option": "alert_others",
+          "weight": 2
+        },
+        {
+          "use": "consideration.order.very_grave",
+          "option": "alert_others"
+        }
+      ]
+    },
+    {
+      "id": "dp.invoke_25th",
+      "actor": "character",
+      "kind": "YesNo",
+      "deliberationDays": 1,
+      "options": [
+        {
+          "id": "no",
+          "description": "Stand by the president."
+        },
+        {
+          "id": "yes",
+          "description": "Sign the declaration that the president is unable to serve.",
+          "weight": 0.7
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.incident.not_grave",
+          "option": "no"
+        },
+        {
+          "use": "consideration.vote.loyal",
+          "option": "no"
+        },
+        {
+          "use": "consideration.vote.peers_no",
+          "option": "no"
+        },
+        {
+          "use": "consideration.incident.grave",
+          "option": "yes"
+        },
+        {
+          "use": "consideration.vote.disloyal",
+          "option": "yes"
+        },
+        {
+          "use": "consideration.vote.peers_yes",
+          "option": "yes"
+        },
+        {
+          "use": "consideration.incident.public",
+          "option": "yes"
+        }
+      ]
+    },
+    {
+      "id": "dp.vote_25th",
+      "actor": "character",
+      "kind": "YesNo",
+      "deliberationDays": 1,
+      "options": [
+        {
+          "id": "no",
+          "description": "Vote to restore the president."
+        },
+        {
+          "id": "yes",
+          "description": "Vote to keep the vice president as acting president.",
+          "weight": 0.35
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.incident.not_grave",
+          "option": "no"
+        },
+        {
+          "use": "consideration.vote.same_party",
+          "option": "no"
+        },
+        {
+          "use": "consideration.vote.peers_no",
+          "option": "no"
+        },
+        {
+          "use": "consideration.incident.grave",
+          "option": "yes"
+        },
+        {
+          "use": "consideration.vote.other_party",
+          "option": "yes"
+        },
+        {
+          "use": "consideration.vote.peers_yes",
+          "option": "yes"
+        }
+      ]
+    },
+    {
+      "id": "dp.resign_in_protest",
+      "actor": "character",
+      "kind": "YesNo",
+      "deliberationDays": 1,
+      "options": [
+        {
+          "id": "stay",
+          "description": "Stay in post."
+        },
+        {
+          "id": "resign",
+          "description": "Resign in protest.",
+          "weight": 0.6
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.incident.not_grave",
+          "option": "stay"
+        },
+        {
+          "use": "consideration.vote.loyal",
+          "option": "stay"
+        },
+        {
+          "use": "consideration.incident.grave",
+          "option": "resign"
+        },
+        {
+          "use": "consideration.vote.disloyal",
+          "option": "resign"
+        },
+        {
+          "use": "consideration.vote.peers_yes",
+          "option": "resign"
+        }
+      ]
+    },
+    {
+      "id": "dp.public_statement",
+      "actor": "character",
+      "kind": "YesNo",
+      "deliberationDays": 1,
+      "options": [
+        {
+          "id": "stay_silent",
+          "description": "Stay silent."
+        },
+        {
+          "id": "issue_statement",
+          "description": "Publicly reaffirm the oath to the constitution.",
+          "weight": 1
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.incident.not_grave",
+          "option": "stay_silent"
+        },
+        {
+          "use": "consideration.incident.grave",
+          "option": "issue_statement"
+        },
+        {
+          "use": "consideration.incident.public",
+          "option": "issue_statement"
+        }
+      ]
+    }
+  ]
+}

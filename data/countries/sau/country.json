@@ -1,0 +1,18 @@
+{
+  "$schema": "../../schemas/country.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "id": "country.sau",
+  "depth": "Light",
+  "nameKey": "country.sau.name",
+  "iso3": "SAU",
+  "entityType": "Country",
+  "regimeType": "ClosedAutocracy",
+  "currency": "SAR",
+  "capitalKey": "country.sau.capital",
+  "mapColor": "#2E7D4F",
+  "leaderCharacterId": "char.sau.leader"
+}

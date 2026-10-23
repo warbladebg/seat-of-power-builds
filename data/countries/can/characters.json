@@ -1,0 +1,49 @@
+{
+  "$schema": "../../schemas/characters.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Fictional leader (D-009)."
+  },
+  "characters": [
+    {
+      "id": "char.can.leader",
+      "name": "Étienne Labrecque",
+      "role": "head_of_government",
+      "personality": {
+        "riskTolerance": 30,
+        "pride": 50,
+        "pragmatism": 70,
+        "patience": 65,
+        "hawkishness": 30,
+        "honesty": 70,
+        "loyalty": 65,
+        "ideologicalRigidity": 40,
+        "grudgeHolding": 50,
+        "publicOrientation": 60,
+        "lawfulness": 70
+      },
+      "voice": [
+        "Diplomatic",
+        "Folksy"
+      ],
+      "titleKey": "title.prime_minister",
+      "competence": 70,
+      "goals": [
+        {
+          "goal": "goal.keep_power",
+          "weight": 0.8
+        },
+        {
+          "goal": "goal.protect_jobs",
+          "weight": 0.7
+        },
+        {
+          "goal": "goal.trade_access:country.usa",
+          "weight": 0.8
+        }
+      ]
+    }
+  ]
+}

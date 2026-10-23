@@ -1,0 +1,771 @@
+{
+  "$schema": "../../schemas/dialogue.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "templates": [
+    {
+      "id": "dlg.explain.ledger",
+      "surface": "explain",
+      "variables": [
+        "variable",
+        "value",
+        "change"
+      ],
+      "optional": [
+        "cause_1",
+        "amount_1",
+        "cause_2",
+        "amount_2",
+        "cause_3",
+        "amount_3"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "rose",
+            "fell",
+            "steady",
+            "level"
+          ]
+        }
+      ],
+      "notes": "Why a variable moved (11's CauseTooltip). Decision: rose, fell, steady, level. Kind: how many causes (none, one, two, three). Hint: mixed when the top two causes pull opposite ways.",
+      "lines": [
+        {
+          "id": "rose.neutral.1",
+          "text": "{variable} rose ({change}).",
+          "when": {
+            "decision": "rose"
+          },
+          "weight": 0.05
+        },
+        {
+          "id": "one.rose.neutral.1",
+          "text": "{variable} rose mainly because of {cause_1} ({amount_1}).",
+          "when": {
+            "all": [
+              {
+                "decision": "rose"
+              },
+              {
+                "kind": "one"
+              },
+              {
+                "has": "cause_1"
+              },
+              {
+                "has": "amount_1"
+              }
+            ]
+          }
+        },
+        {
+          "id": "two_three.rose.neutral.1",
+          "text": "{variable} rose mainly because of {cause_1} ({amount_1}) and {cause_2} ({amount_2}).",
+          "when": {
+            "all": [
+              {
+                "decision": "rose"
+              },
+              {
+                "kind": [
+                  "two",
+                  "three"
+                ]
+              },
+              {
+                "has": "cause_1"
+              },
+              {
+                "has": "amount_1"
+              },
+              {
+                "has": "cause_2"
+              },
+              {
+                "has": "amount_2"
+              },
+              {
+                "not": {
+                  "hint": "mixed"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "two_three.rose.neutral.2",
+          "text": "{variable} rose: {cause_1} ({amount_1}) outweighed {cause_2} ({amount_2}).",
+          "when": {
+            "all": [
+              {
+                "decision": "rose"
+              },
+              {
+                "kind": [
+                  "two",
+                  "three"
+                ]
+              },
+              {
+                "hint": "mixed"
+              },
+              {
+                "has": "cause_1"
+              },
+              {
+                "has": "amount_1"
+              },
+              {
+                "has": "cause_2"
+              },
+              {
+                "has": "amount_2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "three.rose.neutral.1",
+          "text": "{variable} rose, driven by {cause_1} ({amount_1}), {cause_2} ({amount_2}) and {cause_3} ({amount_3}).",
+          "when": {
+            "all": [
+              {
+                "decision": "rose"
+              },
+              {
+                "kind": "three"
+              },
+              {
+                "has": "cause_1"
+              },
+              {
+                "has": "amount_1"
+              },
+              {
+                "has": "cause_2"
+              },
+              {
+                "has": "amount_2"
+              },
+              {
+                "has": "cause_3"
+              },
+              {
+                "has": "amount_3"
+              },
+              {
+                "not": {
+                  "hint": "mixed"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "fell.neutral.1",
+          "text": "{variable} fell ({change}).",
+          "when": {
+            "decision": "fell"
+          },
+          "weight": 0.05
+        },
+        {
+          "id": "one.fell.neutral.1",
+          "text": "{variable} fell mainly because of {cause_1} ({amount_1}).",
+          "when": {
+            "all": [
+              {
+                "decision": "fell"
+              },
+              {
+                "kind": "one"
+              },
+              {
+                "has": "cause_1"
+              },
+              {
+                "has": "amount_1"
+              }
+            ]
+          }
+        },
+        {
+          "id": "two_three.fell.neutral.1",
+          "text": "{variable} fell mainly because of {cause_1} ({amount_1}) and {cause_2} ({amount_2}).",
+          "when": {
+            "all": [
+              {
+                "decision": "fell"
+              },
+              {
+                "kind": [
+                  "two",
+                  "three"
+                ]
+              },
+              {
+                "has": "cause_1"
+              },
+              {
+                "has": "amount_1"
+              },
+              {
+                "has": "cause_2"
+              },
+              {
+                "has": "amount_2"
+              },
+              {
+                "not": {
+                  "hint": "mixed"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "two_three.fell.neutral.2",
+          "text": "{variable} fell: {cause_1} ({amount_1}) outweighed {cause_2} ({amount_2}).",
+          "when": {
+            "all": [
+              {
+                "decision": "fell"
+              },
+              {
+                "kind": [
+                  "two",
+                  "three"
+                ]
+              },
+              {
+                "hint": "mixed"
+              },
+              {
+                "has": "cause_1"
+              },
+              {
+                "has": "amount_1"
+              },
+              {
+                "has": "cause_2"
+              },
+              {
+                "has": "amount_2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "three.fell.neutral.1",
+          "text": "{variable} fell, driven by {cause_1} ({amount_1}), {cause_2} ({amount_2}) and {cause_3} ({amount_3}).",
+          "when": {
+            "all": [
+              {
+                "decision": "fell"
+              },
+              {
+                "kind": "three"
+              },
+              {
+                "has": "cause_1"
+              },
+              {
+                "has": "amount_1"
+              },
+              {
+                "has": "cause_2"
+              },
+              {
+                "has": "amount_2"
+              },
+              {
+                "has": "cause_3"
+              },
+              {
+                "has": "amount_3"
+              },
+              {
+                "not": {
+                  "hint": "mixed"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "steady.neutral.1",
+          "text": "{variable} held steady at {value}.",
+          "when": {
+            "decision": "steady"
+          },
+          "weight": 0.05
+        },
+        {
+          "id": "two_three.steady.neutral.1",
+          "text": "{variable} held steady: {cause_1} ({amount_1}) and {cause_2} ({amount_2}) cancelled out.",
+          "when": {
+            "all": [
+              {
+                "decision": "steady"
+              },
+              {
+                "kind": [
+                  "two",
+                  "three"
+                ]
+              },
+              {
+                "has": "cause_1"
+              },
+              {
+                "has": "amount_1"
+              },
+              {
+                "has": "cause_2"
+              },
+              {
+                "has": "amount_2"
+              }
+            ]
+          }
+        },
+        {
+          "id": "level.neutral.1",
+          "text": "{variable} is {value}.",
+          "when": {
+            "decision": "level"
+          },
+          "weight": 0.05
+        },
+        {
+          "id": "one.level.neutral.1",
+          "text": "{variable} is {value}, mostly from {cause_1} ({amount_1}).",
+          "when": {
+            "all": [
+              {
+                "decision": "level"
+              },
+              {
+                "kind": "one"
+              },
+              {
+                "has": "cause_1"
+              },
+              {
+                "has": "amount_1"
+              }
+            ]
+          }
+        },
+        {
+          "id": "two_three.level.neutral.1",
+          "text": "{variable} is {value}, mostly from {cause_1} ({amount_1}) and {cause_2} ({amount_2}).",
+          "when": {
+            "all": [
+              {
+                "decision": "level"
+              },
+              {
+                "kind": [
+                  "two",
+                  "three"
+                ]
+              },
+              {
+                "has": "cause_1"
+              },
+              {
+                "has": "amount_1"
+              },
+              {
+                "has": "cause_2"
+              },
+              {
+                "has": "amount_2"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dlg.explain.decision",
+      "surface": "explain",
+      "variables": [
+        "actor",
+        "choice"
+      ],
+      "optional": [
+        "rival",
+        "reason_1",
+        "weight_1",
+        "reason_2",
+        "weight_2",
+        "reason_3",
+        "weight_3",
+        "doubt"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ],
+          "decisions": [
+            "chose",
+            "only_option",
+            "reacted"
+          ]
+        }
+      ],
+      "notes": "Why someone decided as they did (decision log, order tracker). {rival} is the likeliest option not taken; the reasons are what held it back; {doubt} is what weighed against the choice itself.",
+      "lines": [
+        {
+          "id": "chose.neutral.1",
+          "text": "{actor} {choice}.",
+          "when": {
+            "decision": "chose"
+          },
+          "weight": 0.05
+        },
+        {
+          "id": "reacted.neutral.1",
+          "text": "{actor}'s response: {choice}.",
+          "when": {
+            "decision": "reacted"
+          },
+          "weight": 0.05
+        },
+        {
+          "id": "only_option.neutral.1",
+          "text": "{actor} {choice}; there was no real alternative.",
+          "when": {
+            "decision": "only_option"
+          }
+        },
+        {
+          "id": "one.chose.neutral.1",
+          "text": "{actor} {choice}. {rival} was ruled out: {reason_1} ({weight_1}).",
+          "when": {
+            "all": [
+              {
+                "decision": "chose"
+              },
+              {
+                "kind": "one"
+              },
+              {
+                "has": "rival"
+              },
+              {
+                "has": "reason_1"
+              },
+              {
+                "has": "weight_1"
+              },
+              {
+                "not": {
+                  "hint": "doubt"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "two.chose.neutral.1",
+          "text": "{actor} {choice}. {rival} was ruled out: {reason_1} ({weight_1}), and {reason_2} ({weight_2}).",
+          "when": {
+            "all": [
+              {
+                "decision": "chose"
+              },
+              {
+                "kind": "two"
+              },
+              {
+                "has": "rival"
+              },
+              {
+                "has": "reason_1"
+              },
+              {
+                "has": "weight_1"
+              },
+              {
+                "has": "reason_2"
+              },
+              {
+                "has": "weight_2"
+              },
+              {
+                "not": {
+                  "hint": "doubt"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "three.chose.neutral.1",
+          "text": "{actor} {choice}. {rival} was ruled out: {reason_1} ({weight_1}), {reason_2} ({weight_2}), and {reason_3} ({weight_3}).",
+          "when": {
+            "all": [
+              {
+                "decision": "chose"
+              },
+              {
+                "kind": "three"
+              },
+              {
+                "has": "rival"
+              },
+              {
+                "has": "reason_1"
+              },
+              {
+                "has": "weight_1"
+              },
+              {
+                "has": "reason_2"
+              },
+              {
+                "has": "weight_2"
+              },
+              {
+                "has": "reason_3"
+              },
+              {
+                "has": "weight_3"
+              },
+              {
+                "not": {
+                  "hint": "doubt"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "one.chose.neutral.2",
+          "text": "{actor} {choice}, even though {doubt}. {rival} was ruled out: {reason_1} ({weight_1}).",
+          "when": {
+            "all": [
+              {
+                "decision": "chose"
+              },
+              {
+                "kind": "one"
+              },
+              {
+                "hint": "doubt"
+              },
+              {
+                "has": "rival"
+              },
+              {
+                "has": "reason_1"
+              },
+              {
+                "has": "weight_1"
+              },
+              {
+                "has": "doubt"
+              }
+            ]
+          }
+        },
+        {
+          "id": "two_three.chose.neutral.1",
+          "text": "{actor} {choice}, even though {doubt}. {rival} was ruled out: {reason_1} ({weight_1}), and {reason_2} ({weight_2}).",
+          "when": {
+            "all": [
+              {
+                "decision": "chose"
+              },
+              {
+                "kind": [
+                  "two",
+                  "three"
+                ]
+              },
+              {
+                "hint": "doubt"
+              },
+              {
+                "has": "rival"
+              },
+              {
+                "has": "reason_1"
+              },
+              {
+                "has": "weight_1"
+              },
+              {
+                "has": "reason_2"
+              },
+              {
+                "has": "weight_2"
+              },
+              {
+                "has": "doubt"
+              }
+            ]
+          }
+        },
+        {
+          "id": "one_etc.reacted.neutral.1",
+          "text": "{actor}'s response: {choice}. The alternative, {rival}, was ruled out: {reason_1} ({weight_1}).",
+          "when": {
+            "all": [
+              {
+                "decision": "reacted"
+              },
+              {
+                "kind": [
+                  "one",
+                  "two",
+                  "three"
+                ]
+              },
+              {
+                "has": "rival"
+              },
+              {
+                "has": "reason_1"
+              },
+              {
+                "has": "weight_1"
+              }
+            ]
+          }
+        },
+        {
+          "id": "none.chose.neutral.1",
+          "text": "{actor} {choice}, even though {doubt}.",
+          "when": {
+            "all": [
+              {
+                "decision": "chose"
+              },
+              {
+                "kind": "none"
+              },
+              {
+                "hint": "doubt"
+              },
+              {
+                "has": "doubt"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dlg.summary.opening",
+      "surface": "summary",
+      "variables": [
+        "days"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ]
+        }
+      ],
+      "notes": "The recap's first line. Decision: the ending id (removed, or 12's endings); kind: default, missed_payments, paid.",
+      "lines": [
+        {
+          "id": "any.neutral.1",
+          "text": "{days} days of decisions, deals and drama are over."
+        },
+        {
+          "id": "any.neutral.2",
+          "text": "The final chapter, after {days} days."
+        },
+        {
+          "id": "removed.neutral.1",
+          "text": "After {days} days, the presidency of {leader_name} ended in removal from office.",
+          "when": {
+            "decision": "removed"
+          }
+        },
+        {
+          "id": "default.neutral.1",
+          "text": "{days} days that will be remembered for the day {player_country} defaulted.",
+          "when": {
+            "kind": "default"
+          }
+        },
+        {
+          "id": "missed_payments.neutral.1",
+          "text": "{days} days on the edge, and {player_country} missed payments it owed.",
+          "when": {
+            "kind": "missed_payments"
+          }
+        },
+        {
+          "id": "paid.neutral.1",
+          "text": "{days} days, and {player_country} paid every bill it owed.",
+          "when": {
+            "kind": "paid"
+          }
+        }
+      ]
+    },
+    {
+      "id": "dlg.summary.closing",
+      "surface": "summary",
+      "variables": [
+        "approval",
+        "days"
+      ],
+      "expects": [
+        {
+          "tones": [
+            "Neutral"
+          ]
+        }
+      ],
+      "notes": "The recap's last line.",
+      "lines": [
+        {
+          "id": "any.neutral.1",
+          "text": "{leader_name} ends with approval at {approval}%."
+        },
+        {
+          "id": "any.neutral.2",
+          "text": "The verdict of the public: {approval}% approval."
+        },
+        {
+          "id": "default.neutral.1",
+          "text": "Markets will remember the default for years. Approval stands at {approval}%.",
+          "when": {
+            "kind": "default"
+          }
+        },
+        {
+          "id": "paid.neutral.1",
+          "text": "The Treasury never missed a payment. Approval stands at {approval}%.",
+          "when": {
+            "kind": "paid"
+          }
+        },
+        {
+          "id": "removed.neutral.1",
+          "text": "{leader_name} leaves office with approval at {approval}%.",
+          "when": {
+            "decision": "removed"
+          }
+        }
+      ]
+    }
+  ]
+}

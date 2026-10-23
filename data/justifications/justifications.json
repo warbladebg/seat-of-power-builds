@@ -1,0 +1,117 @@
+{
+  "$schema": "../schemas/justifications.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "justifications": [
+    {
+      "id": "justification.none",
+      "nameKey": "justification.none.name",
+      "strength": 0
+    },
+    {
+      "id": "justification.self_defense",
+      "nameKey": "justification.self_defense.name",
+      "realIf": {
+        "flag": "security.{country}.under_attack"
+      }
+    },
+    {
+      "id": "justification.imminent_threat",
+      "nameKey": "justification.imminent_threat.name",
+      "realIf": {
+        "flag": "security.{country}.imminent_threat_confirmed"
+      },
+      "strength": 0.9
+    },
+    {
+      "id": "justification.retaliation",
+      "nameKey": "justification.retaliation.name",
+      "realIf": {
+        "flag": "security.{country}.attacked_by.{target}"
+      },
+      "strength": 0.9
+    },
+    {
+      "id": "justification.national_security",
+      "nameKey": "justification.national_security.name",
+      "realIf": {
+        "any": [
+          {
+            "flag": "security.{country}.under_attack"
+          },
+          {
+            "flag": "security.{country}.imminent_threat_confirmed"
+          }
+        ]
+      },
+      "strength": 0.8
+    },
+    {
+      "id": "justification.law_and_order",
+      "nameKey": "justification.law_and_order.name",
+      "realIf": {
+        "flag": "security.{country}.insurrection"
+      },
+      "strength": 0.7
+    },
+    {
+      "id": "justification.criminal_evidence",
+      "nameKey": "justification.criminal_evidence.name",
+      "realIf": {
+        "flag": "justice.{country}.evidence.{target}"
+      },
+      "strength": 0.8
+    },
+    {
+      "id": "justification.court_order",
+      "nameKey": "justification.court_order.name",
+      "realIf": {
+        "flag": "justice.{country}.court_order.{target}"
+      }
+    },
+    {
+      "id": "justification.economic_emergency",
+      "nameKey": "justification.economic_emergency.name",
+      "realIf": {
+        "any": [
+          {
+            "flag": "econ.{country}.emergency"
+          },
+          {
+            "var": "econ.market_stress@{country}",
+            "op": ">=",
+            "value": 70
+          }
+        ]
+      },
+      "strength": 0.6
+    },
+    {
+      "id": "justification.public_health",
+      "nameKey": "justification.public_health.name",
+      "realIf": {
+        "flag": "health.{country}.emergency"
+      },
+      "strength": 0.7
+    },
+    {
+      "id": "justification.humanitarian",
+      "nameKey": "justification.humanitarian.name",
+      "realIf": {
+        "flag": "world.humanitarian_crisis.{target}"
+      },
+      "strength": 0.6
+    },
+    {
+      "id": "justification.good_cause",
+      "nameKey": "justification.good_cause.name",
+      "realIf": {
+        "flag": "justice.{country}.misconduct.{target}"
+      },
+      "strength": 0.9
+    }
+  ]
+}

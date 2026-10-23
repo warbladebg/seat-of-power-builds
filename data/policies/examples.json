@@ -1,0 +1,221 @@
+{
+  "$schema": "../schemas/policies.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Framework examples from package 06; the X-Date policy set is written in package 12. Debt prioritisation is an order through the Treasury chain (23: verb.prioritize_payments), not a policy (12)."
+  },
+  "policies": [
+    {
+      "id": "policy.infrastructure_package",
+      "nameKey": "policy.infrastructure_package.name",
+      "descriptionKey": "policy.infrastructure_package.description",
+      "category": "economy.investment",
+      "kind": "Law",
+      "levels": [
+        {
+          "id": "small",
+          "costBnPerYear": 60,
+          "scale": 1,
+          "nameKey": "policy.level.small"
+        },
+        {
+          "id": "large",
+          "costBnPerYear": 150,
+          "scale": 2.5,
+          "nameKey": "policy.level.large"
+        }
+      ],
+      "position": {
+        "economic": -30,
+        "fiscal": -40,
+        "environment": -10
+      },
+      "stakes": {
+        "stake.district_projects": 20,
+        "stake.construction_industry": 30
+      },
+      "implementationDays": 120,
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.potential_growth@{country}",
+          "amount": 0.08,
+          "curve": {
+            "delay": 365,
+            "ramp": 1095
+          }
+        }
+      ],
+      "sideEffects": [
+        {
+          "type": "modify_var",
+          "var": "econ.inflation@{country}",
+          "amount": 0.1,
+          "curve": {
+            "delay": 120,
+            "ramp": 180,
+            "hold": 365,
+            "decay": 365
+          }
+        }
+      ],
+      "requirements": {
+        "all": [
+          {
+            "regime_type_not": "closed_autocracy"
+          }
+        ]
+      },
+      "aiHints": {
+        "popularWith": [
+          "bloc.usa.working_swing"
+        ],
+        "hatedBy": [
+          "pc.usa.house_rep_hardline"
+        ]
+      },
+      "budgetCategory": "DiscretionaryNondefense"
+    },
+    {
+      "id": "policy.usa.spr_release",
+      "nameKey": "policy.usa.spr_release.name",
+      "descriptionKey": "policy.usa.spr_release.description",
+      "category": "economy.energy",
+      "kind": "Executive",
+      "scope": "country.usa",
+      "implementationDays": 7,
+      "position": {
+        "environment": 10
+      },
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.gas_price@{country}",
+          "amount": -0.25,
+          "curve": {
+            "ramp": 14,
+            "hold": 60,
+            "decay": 30
+          }
+        },
+        {
+          "type": "modify_var",
+          "var": "world.oil_price",
+          "amount": -3,
+          "curve": {
+            "ramp": 7,
+            "hold": 45,
+            "decay": 30
+          }
+        }
+      ],
+      "reversible": true,
+      "budgetCategory": "Revenue",
+      "levels": [
+        {
+          "id": "standard",
+          "costBnPerYear": -8
+        }
+      ]
+    },
+    {
+      "id": "policy.usa.gas_tax_holiday",
+      "nameKey": "policy.usa.gas_tax_holiday.name",
+      "descriptionKey": "policy.usa.gas_tax_holiday.description",
+      "category": "economy.energy",
+      "kind": "Law",
+      "scope": "country.usa",
+      "position": {
+        "fiscal": -20,
+        "environment": 20
+      },
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.gas_price@{country}",
+          "amount": -0.18
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.consumer_confidence@{country}",
+          "amount": 2,
+          "curve": {
+            "ramp": 14
+          }
+        }
+      ],
+      "budgetCategory": "Revenue",
+      "levels": [
+        {
+          "id": "standard",
+          "costBnPerYear": 20
+        }
+      ],
+      "aiHints": {
+        "popularWith": [
+          "bloc.usa.working_swing",
+          "bloc.usa.rural_conservatives"
+        ]
+      }
+    },
+    {
+      "id": "policy.usa.spending_caps",
+      "nameKey": "policy.usa.spending_caps.name",
+      "descriptionKey": "policy.usa.spending_caps.description",
+      "category": "fiscal.spending",
+      "kind": "Law",
+      "scope": "country.usa",
+      "levels": [
+        {
+          "id": "mild",
+          "costBnPerYear": -50,
+          "scale": 1,
+          "nameKey": "policy.level.mild"
+        },
+        {
+          "id": "strict",
+          "costBnPerYear": -120,
+          "scale": 2,
+          "nameKey": "policy.level.strict"
+        }
+      ],
+      "position": {
+        "economic": 30,
+        "fiscal": 60
+      },
+      "stakes": {
+        "stake.spending_cuts": 60,
+        "stake.social_programs": -40,
+        "stake.district_projects": -20
+      },
+      "implementationDays": 30,
+      "effects": [
+        {
+          "type": "modify_var",
+          "var": "econ.market_stress@{country}",
+          "amount": -2
+        },
+        {
+          "type": "modify_var",
+          "var": "econ.consumer_confidence@{country}",
+          "amount": -1,
+          "curve": {
+            "delay": 90,
+            "ramp": 180
+          }
+        }
+      ],
+      "budgetCategory": "DiscretionaryNondefense",
+      "aiHints": {
+        "popularWith": [
+          "pc.usa.house_rep_hardline"
+        ],
+        "hatedBy": [
+          "pc.usa.house_dem_progressive"
+        ]
+      }
+    }
+  ]
+}

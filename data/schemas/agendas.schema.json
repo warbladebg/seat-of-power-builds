@@ -1,0 +1,297 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "agendas.schema.json",
+  "title": "AgendasFile",
+  "type": "object",
+  "properties": {
+    "agendas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^agenda\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "actors": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "Leader",
+                "Official",
+                "Security",
+                "Career",
+                "Military",
+                "Legislator",
+                "Bloc",
+                "Judge",
+                "CentralBank",
+                "Media",
+                "Business",
+                "Civic",
+                "Party",
+                "Regional",
+                "Challenger",
+                "Foreign"
+              ]
+            }
+          },
+          "steps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "textKey": {
+                  "type": "string",
+                  "description": "Localisation key (data/localization/en)."
+                },
+                "delayDays": {
+                  "type": "integer",
+                  "default": 7,
+                  "minimum": 0,
+                  "maximum": 365
+                },
+                "cost": {
+                  "type": "number",
+                  "default": 0.2,
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "cascade": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "severity": {
+                  "enum": [
+                    "Minor",
+                    "Moderate",
+                    "Serious",
+                    "Severe",
+                    "Catastrophic"
+                  ],
+                  "default": "Minor"
+                },
+                "consequences": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "enum": [
+                          "Approval",
+                          "Scandal",
+                          "Pressure",
+                          "Loyalty",
+                          "Capital",
+                          "Publicize",
+                          "Court",
+                          "Obstruct",
+                          "Hearing",
+                          "Unrest",
+                          "MarketStress",
+                          "Media",
+                          "Resign",
+                          "Agenda",
+                          "Flag",
+                          "Regime",
+                          "PartyRift",
+                          "Relation"
+                        ]
+                      },
+                      "amount": {
+                        "type": "number",
+                        "default": 0,
+                        "minimum": -100,
+                        "maximum": 100
+                      },
+                      "days": {
+                        "type": "integer",
+                        "default": 0,
+                        "minimum": 0,
+                        "maximum": 3650
+                      },
+                      "id": {
+                        "type": [
+                          "string",
+                          "null"
+                        ],
+                        "default": null
+                      }
+                    },
+                    "required": [
+                      "kind"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "default": null
+                },
+                "effects": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "default": null
+                }
+              },
+              "required": [
+                "id",
+                "textKey"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "start": {
+            "type": "object",
+            "properties": {
+              "minGrievance": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "default": null,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "maxLoyalty": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "default": null,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "minLoyalty": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "default": null,
+                "minimum": 0,
+                "maximum": 1
+              },
+              "afterReaction": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "default": null,
+                "pattern": "^reaction\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+              },
+              "party": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "default": null,
+                "enum": [
+                  "same",
+                  "opposition"
+                ]
+              },
+              "when": {
+                "default": null
+              },
+              "weekly": {
+                "type": "boolean",
+                "default": true
+              }
+            },
+            "additionalProperties": false
+          },
+          "stance": {
+            "type": "string",
+            "default": "hostile",
+            "enum": [
+              "hostile",
+              "supportive",
+              "neutral"
+            ]
+          },
+          "abort": {
+            "default": null
+          },
+          "cooldownDays": {
+            "type": "integer",
+            "default": 180,
+            "minimum": 0,
+            "maximum": 3650
+          },
+          "maxRunning": {
+            "type": "integer",
+            "default": 2,
+            "minimum": 1,
+            "maximum": 20
+          },
+          "roles": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "nameKey",
+          "actors",
+          "steps",
+          "start"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "agendas"
+  ],
+  "additionalProperties": false
+}

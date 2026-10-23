@@ -1,0 +1,300 @@
+{
+  "$schema": "../schemas/decision_points.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "decisionPoints": [
+    {
+      "id": "dp.court_ruling",
+      "actor": "court",
+      "kind": "Choice",
+      "options": [
+        {
+          "id": "uphold",
+          "description": "Let the act stand."
+        },
+        {
+          "id": "strike",
+          "description": "Strike it down."
+        },
+        {
+          "id": "partial",
+          "description": "Narrow it.",
+          "weight": 0.5
+        },
+        {
+          "id": "delay",
+          "description": "Take more time.",
+          "weight": 0.3
+        }
+      ],
+      "deliberationDays": 7,
+      "considerations": [
+        {
+          "use": "consideration.politics.case.sound",
+          "option": "uphold"
+        },
+        {
+          "use": "consideration.politics.case.friendly",
+          "option": "uphold"
+        },
+        {
+          "use": "consideration.politics.court.deferent",
+          "option": "uphold"
+        },
+        {
+          "use": "consideration.politics.case.mild",
+          "option": "uphold"
+        },
+        {
+          "use": "consideration.politics.case.unsound",
+          "option": "strike"
+        },
+        {
+          "use": "consideration.politics.case.hostile",
+          "option": "strike"
+        },
+        {
+          "use": "consideration.politics.court.independent",
+          "option": "strike"
+        },
+        {
+          "use": "consideration.politics.case.norm_breaking",
+          "option": "strike"
+        },
+        {
+          "use": "consideration.politics.case.middling_low",
+          "option": "partial"
+        },
+        {
+          "use": "consideration.politics.case.middling_high",
+          "option": "partial"
+        },
+        {
+          "use": "consideration.politics.trait.pragmatic",
+          "option": "partial"
+        },
+        {
+          "use": "consideration.politics.trait.cautious",
+          "option": "delay"
+        },
+        {
+          "use": "consideration.politics.trait.patient",
+          "option": "delay"
+        },
+        {
+          "use": "consideration.politics.case.not_delayed",
+          "option": "delay"
+        }
+      ],
+      "temperature": 0.6
+    },
+    {
+      "id": "dp.media_framing",
+      "actor": "media_cluster",
+      "kind": "Choice",
+      "options": [
+        {
+          "id": "supportive",
+          "description": "Frame it in the leader's favour."
+        },
+        {
+          "id": "neutral",
+          "description": "Report it straight.",
+          "weight": 0.8
+        },
+        {
+          "id": "critical",
+          "description": "Frame it critically."
+        },
+        {
+          "id": "scandalize",
+          "description": "Make it a scandal.",
+          "weight": 0.5
+        }
+      ],
+      "deliberationDays": 1,
+      "considerations": [
+        {
+          "use": "consideration.politics.media.friendly",
+          "option": "supportive"
+        },
+        {
+          "use": "consideration.politics.story.minor",
+          "option": "supportive"
+        },
+        {
+          "use": "consideration.politics.media.centrist_low",
+          "option": "neutral"
+        },
+        {
+          "use": "consideration.politics.media.centrist_high",
+          "option": "neutral"
+        },
+        {
+          "use": "consideration.politics.trait.honest",
+          "option": "neutral"
+        },
+        {
+          "use": "consideration.politics.media.hostile",
+          "option": "critical"
+        },
+        {
+          "use": "consideration.politics.story.grave",
+          "option": "critical"
+        },
+        {
+          "use": "consideration.politics.trait.honest",
+          "option": "critical",
+          "weight": 0.5
+        },
+        {
+          "use": "consideration.politics.media.hostile",
+          "option": "scandalize"
+        },
+        {
+          "use": "consideration.politics.story.very_grave",
+          "option": "scandalize"
+        },
+        {
+          "use": "consideration.politics.trait.public",
+          "option": "scandalize"
+        },
+        {
+          "use": "consideration.politics.trait.dishonest",
+          "option": "scandalize",
+          "weight": 0.5
+        }
+      ],
+      "temperature": 0.7
+    },
+    {
+      "id": "dp.vote_impeach",
+      "actor": "character",
+      "kind": "Choice",
+      "options": [
+        {
+          "id": "no",
+          "description": "Vote against impeachment."
+        },
+        {
+          "id": "yes",
+          "description": "Vote to impeach."
+        }
+      ],
+      "deliberationDays": 1,
+      "considerations": [
+        {
+          "use": "consideration.politics.impeach.little_pressure",
+          "option": "no"
+        },
+        {
+          "use": "consideration.incident.not_grave",
+          "option": "no",
+          "weight": 2
+        },
+        {
+          "use": "consideration.politics.party.same",
+          "option": "no"
+        },
+        {
+          "use": "consideration.vote.peers_no",
+          "option": "no"
+        },
+        {
+          "use": "consideration.politics.leader.loyal",
+          "option": "no",
+          "weight": 1
+        },
+        {
+          "use": "consideration.politics.impeach.pressure",
+          "option": "yes"
+        },
+        {
+          "use": "consideration.incident.grave",
+          "option": "yes",
+          "weight": 2
+        },
+        {
+          "use": "consideration.politics.party.other",
+          "option": "yes"
+        },
+        {
+          "use": "consideration.vote.peers_yes",
+          "option": "yes"
+        },
+        {
+          "use": "consideration.politics.leader.disloyal",
+          "option": "yes",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "id": "dp.vote_convict",
+      "actor": "character",
+      "kind": "Choice",
+      "options": [
+        {
+          "id": "no",
+          "description": "Vote to acquit."
+        },
+        {
+          "id": "yes",
+          "description": "Vote to convict and remove."
+        }
+      ],
+      "deliberationDays": 1,
+      "considerations": [
+        {
+          "use": "consideration.politics.convict.little_pressure",
+          "option": "no"
+        },
+        {
+          "use": "consideration.incident.not_grave",
+          "option": "no",
+          "weight": 3
+        },
+        {
+          "use": "consideration.politics.party.same",
+          "option": "no",
+          "weight": 2.5
+        },
+        {
+          "use": "consideration.vote.peers_no",
+          "option": "no"
+        },
+        {
+          "use": "consideration.politics.leader.loyal",
+          "option": "no",
+          "weight": 1
+        },
+        {
+          "use": "consideration.politics.convict.pressure",
+          "option": "yes"
+        },
+        {
+          "use": "consideration.incident.grave",
+          "option": "yes",
+          "weight": 3
+        },
+        {
+          "use": "consideration.politics.party.other",
+          "option": "yes",
+          "weight": 2.5
+        },
+        {
+          "use": "consideration.vote.peers_yes",
+          "option": "yes"
+        },
+        {
+          "use": "consideration.politics.leader.disloyal",
+          "option": "yes",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

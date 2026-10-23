@@ -1,0 +1,57 @@
+{
+  "$schema": "../schemas/roles.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "roles": [
+    {
+      "id": "role.rank_and_file_legislator",
+      "appliesTo": [
+        "representative",
+        "senator"
+      ],
+      "optionBias": {
+        "hold_out_for": 1.2
+      },
+      "typicalLawfulness": 60,
+      "typicalLoyalty": 55
+    },
+    {
+      "id": "role.justice",
+      "appliesTo": [
+        "associate_justice"
+      ],
+      "typicalLawfulness": 85,
+      "typicalLoyalty": 40,
+      "optionBias": {
+        "judicial_rebuke": 0.3,
+        "express_concern": 0.05,
+        "criticize": 0.02
+      }
+    },
+    {
+      "id": "role.journalist_editor",
+      "appliesTo": [
+        "media_editor"
+      ],
+      "optionBias": {
+        "scandalize": 1.2,
+        "neutral": 1.1,
+        "investigate_story": 1.4,
+        "publish_expose": 1.3
+      },
+      "typicalLawfulness": 60,
+      "typicalLoyalty": 40
+    },
+    {
+      "id": "role.party_insurgent",
+      "appliesTo": [
+        "primary_challenger"
+      ],
+      "typicalLawfulness": 55,
+      "typicalLoyalty": 30
+    }
+  ]
+}

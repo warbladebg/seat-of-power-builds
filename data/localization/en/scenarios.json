@@ -1,0 +1,7 @@
+{
+  "$schema": "../../schemas/localization.schema.json",
+  "strings": {
+    "scenario.xdate.description": "You've been President for 13 months. The United States has hit its legal borrowing limit, and nobody knows exactly when the money runs out. Avoid default, avoid a shutdown, and come out stronger.",
+    "scenario.xdate.name": "X-Date"
+  }
+}

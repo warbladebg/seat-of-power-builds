@@ -1,0 +1,2012 @@
+{
+  "$schema": "../schemas/reactions.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "reactions": [
+    {
+      "id": "reaction.ignore",
+      "nameKey": "reaction.ignore.name",
+      "group": "voice",
+      "actors": [
+        "Official",
+        "Security",
+        "Career",
+        "Military",
+        "Legislator",
+        "Bloc",
+        "Judge",
+        "CentralBank",
+        "Media",
+        "Business",
+        "Civic",
+        "Party",
+        "Regional",
+        "Challenger",
+        "Foreign"
+      ],
+      "hostility": 0,
+      "publicity": 0,
+      "escalation": 0,
+      "minAffected": 0
+    },
+    {
+      "id": "reaction.praise",
+      "nameKey": "reaction.praise.name",
+      "group": "voice",
+      "actors": [
+        "Official",
+        "Security",
+        "Legislator",
+        "Bloc",
+        "Media",
+        "Business",
+        "Civic",
+        "Party",
+        "Regional"
+      ],
+      "hostility": -0.6,
+      "publicity": 0.7,
+      "escalation": 0.3,
+      "consequences": [
+        {
+          "kind": "Approval",
+          "amount": 0.6
+        },
+        {
+          "kind": "Loyalty",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "reaction.defend_publicly",
+      "nameKey": "reaction.defend_publicly.name",
+      "group": "voice",
+      "actors": [
+        "Official",
+        "Legislator",
+        "Bloc",
+        "Media",
+        "Civic",
+        "Party"
+      ],
+      "hostility": -0.85,
+      "cost": 0.15,
+      "publicity": 0.9,
+      "escalation": 0.5,
+      "requiresPublic": true,
+      "consequences": [
+        {
+          "kind": "Approval",
+          "amount": 1.0
+        },
+        {
+          "kind": "Scandal",
+          "amount": -2
+        },
+        {
+          "kind": "Loyalty",
+          "amount": 3
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Minor"
+    },
+    {
+      "id": "reaction.support_publicly",
+      "nameKey": "reaction.support_publicly.name",
+      "group": "voice",
+      "actors": [
+        "Legislator",
+        "Bloc",
+        "Media",
+        "Business",
+        "Civic",
+        "Party",
+        "Regional"
+      ],
+      "hostility": -0.5,
+      "cost": 0.05,
+      "publicity": 0.8,
+      "escalation": 0.4,
+      "consequences": [
+        {
+          "kind": "Approval",
+          "amount": 0.8
+        },
+        {
+          "kind": "Capital",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "reaction.express_concern",
+      "nameKey": "reaction.express_concern.name",
+      "group": "voice",
+      "actors": [
+        "Official",
+        "Security",
+        "Legislator",
+        "Bloc",
+        "CentralBank",
+        "Media",
+        "Business",
+        "Civic",
+        "Party",
+        "Regional",
+        "Challenger",
+        "Foreign"
+      ],
+      "hostility": 0.3,
+      "cost": 0.05,
+      "publicity": 0.6,
+      "escalation": 0.2,
+      "consequences": [
+        {
+          "kind": "Approval",
+          "amount": -0.3
+        },
+        {
+          "kind": "Loyalty",
+          "amount": -1
+        }
+      ]
+    },
+    {
+      "id": "reaction.criticize",
+      "nameKey": "reaction.criticize.name",
+      "group": "voice",
+      "actors": [
+        "Official",
+        "Security",
+        "Legislator",
+        "Bloc",
+        "CentralBank",
+        "Media",
+        "Business",
+        "Civic",
+        "Party",
+        "Regional",
+        "Challenger"
+      ],
+      "hostility": 0.6,
+      "cost": 0.1,
+      "publicity": 0.8,
+      "escalation": 0.4,
+      "consequences": [
+        {
+          "kind": "Approval",
+          "amount": -0.8
+        },
+        {
+          "kind": "Scandal",
+          "amount": 1
+        },
+        {
+          "kind": "Loyalty",
+          "amount": -2
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Minor"
+    },
+    {
+      "id": "reaction.condemn",
+      "nameKey": "reaction.condemn.name",
+      "group": "voice",
+      "actors": [
+        "Legislator",
+        "Bloc",
+        "Media",
+        "Business",
+        "Civic",
+        "Party",
+        "Regional",
+        "Challenger"
+      ],
+      "hostility": 0.9,
+      "cost": 0.25,
+      "publicity": 1,
+      "escalation": 0.7,
+      "minAffected": 0.3,
+      "requiresPublic": true,
+      "consequences": [
+        {
+          "kind": "Approval",
+          "amount": -1.5
+        },
+        {
+          "kind": "Scandal",
+          "amount": 3
+        },
+        {
+          "kind": "Loyalty",
+          "amount": -4
+        },
+        {
+          "kind": "Pressure",
+          "amount": 1
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Moderate"
+    },
+    {
+      "id": "reaction.demand_concession",
+      "nameKey": "reaction.demand_concession.name",
+      "group": "voice",
+      "actors": [
+        "Legislator",
+        "Bloc",
+        "Business",
+        "Civic",
+        "Party",
+        "Regional",
+        "Foreign"
+      ],
+      "hostility": 0.4,
+      "cost": 0.1,
+      "publicity": 0.5,
+      "escalation": 0.5,
+      "consequences": [
+        {
+          "kind": "Loyalty",
+          "amount": -3
+        },
+        {
+          "kind": "Obstruct",
+          "days": 14
+        },
+        {
+          "kind": "Flag",
+          "id": "behaviour.{country}.demand.{actor}"
+        }
+      ]
+    },
+    {
+      "id": "reaction.rebuke_publicly",
+      "nameKey": "reaction.rebuke_publicly.name",
+      "group": "diplomacy",
+      "actors": [
+        "Foreign"
+      ],
+      "hostility": 0.6,
+      "cost": 0.1,
+      "publicity": 0.8,
+      "escalation": 0.4,
+      "consequences": [
+        {
+          "kind": "Approval",
+          "amount": -0.3
+        },
+        {
+          "kind": "Relation",
+          "amount": -2
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Minor"
+    },
+    {
+      "id": "reaction.condemn_internationally",
+      "nameKey": "reaction.condemn_internationally.name",
+      "group": "diplomacy",
+      "actors": [
+        "Foreign"
+      ],
+      "hostility": 0.9,
+      "cost": 0.25,
+      "publicity": 1,
+      "escalation": 0.7,
+      "minAffected": 0.3,
+      "requiresPublic": true,
+      "consequences": [
+        {
+          "kind": "Approval",
+          "amount": -0.6
+        },
+        {
+          "kind": "Scandal",
+          "amount": 1
+        },
+        {
+          "kind": "Relation",
+          "amount": -4
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Moderate"
+    },
+    {
+      "id": "reaction.statement_of_support",
+      "nameKey": "reaction.statement_of_support.name",
+      "group": "diplomacy",
+      "actors": [
+        "Foreign"
+      ],
+      "hostility": -0.6,
+      "cost": 0.05,
+      "publicity": 0.9,
+      "escalation": 0.3,
+      "consequences": [
+        {
+          "kind": "Approval",
+          "amount": 0.3
+        },
+        {
+          "kind": "Relation",
+          "amount": 2
+        }
+      ],
+      "toward": "partner"
+    },
+    {
+      "id": "reaction.statement_of_confidence",
+      "nameKey": "reaction.statement_of_confidence.name",
+      "group": "diplomacy",
+      "actors": [
+        "Foreign"
+      ],
+      "hostility": -0.5,
+      "cost": 0.05,
+      "publicity": 0.9,
+      "escalation": 0.3,
+      "requiresPublic": true,
+      "actKinds": [
+        "world_event"
+      ],
+      "consequences": [
+        {
+          "kind": "MarketStress",
+          "amount": -2
+        },
+        {
+          "kind": "Relation",
+          "amount": 1,
+          "id": "trust"
+        }
+      ],
+      "toward": "partner"
+    },
+    {
+      "id": "reaction.offer_assistance",
+      "nameKey": "reaction.offer_assistance.name",
+      "group": "diplomacy",
+      "actors": [
+        "Foreign"
+      ],
+      "hostility": -0.75,
+      "cost": 0.15,
+      "publicity": 0.8,
+      "escalation": 0.5,
+      "minAffected": 0.3,
+      "consequences": [
+        {
+          "kind": "Relation",
+          "amount": 3
+        },
+        {
+          "kind": "Relation",
+          "amount": 2,
+          "id": "trust"
+        },
+        {
+          "kind": "Flag",
+          "id": "diplo.{actor}.offered_help.{country}"
+        }
+      ],
+      "toward": "partner"
+    },
+    {
+      "id": "reaction.private_demarche",
+      "nameKey": "reaction.private_demarche.name",
+      "group": "diplomacy",
+      "actors": [
+        "Foreign"
+      ],
+      "hostility": 0.25,
+      "publicity": 0.1,
+      "escalation": 0.2,
+      "consequences": [
+        {
+          "kind": "Relation",
+          "amount": -1
+        }
+      ]
+    },
+    {
+      "id": "reaction.summon_ambassador",
+      "nameKey": "reaction.summon_ambassador.name",
+      "group": "diplomacy",
+      "actors": [
+        "Foreign"
+      ],
+      "hostility": 0.55,
+      "cost": 0.1,
+      "publicity": 0.8,
+      "escalation": 0.45,
+      "targetOnly": true,
+      "consequences": [
+        {
+          "kind": "Relation",
+          "amount": -3
+        },
+        {
+          "kind": "Flag",
+          "id": "diplo.{actor}.summoned_ambassador.{country}"
+        }
+      ]
+    },
+    {
+      "id": "reaction.recall_ambassador",
+      "nameKey": "reaction.recall_ambassador.name",
+      "group": "diplomacy",
+      "actors": [
+        "Foreign"
+      ],
+      "hostility": 0.8,
+      "cost": 0.5,
+      "publicity": 0.9,
+      "escalation": 0.75,
+      "minAffected": 0.5,
+      "targetOnly": true,
+      "consequences": [
+        {
+          "kind": "Relation",
+          "amount": -6
+        },
+        {
+          "kind": "Relation",
+          "amount": -3,
+          "id": "trust"
+        },
+        {
+          "kind": "Flag",
+          "id": "world.{actor}.recalled_ambassador.{country}"
+        },
+        {
+          "kind": "MarketStress",
+          "amount": 1
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Moderate"
+    },
+    {
+      "id": "reaction.retaliate_in_kind",
+      "nameKey": "reaction.retaliate_in_kind.name",
+      "group": "market",
+      "actors": [
+        "Foreign"
+      ],
+      "hostility": 0.85,
+      "cost": 0.35,
+      "publicity": 0.9,
+      "escalation": 0.85,
+      "minAffected": 0.4,
+      "targetOnly": true,
+      "requiresHarm": true,
+      "consequences": [
+        {
+          "kind": "Relation",
+          "amount": -4
+        },
+        {
+          "kind": "Relation",
+          "amount": 3,
+          "id": "threat"
+        },
+        {
+          "kind": "Flag",
+          "id": "diplo.{actor}.retaliated.{country}"
+        },
+        {
+          "kind": "MarketStress",
+          "amount": 2
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Serious"
+    },
+    {
+      "id": "reaction.downgrade_cooperation",
+      "nameKey": "reaction.downgrade_cooperation.name",
+      "group": "diplomacy",
+      "actors": [
+        "Foreign"
+      ],
+      "hostility": 0.6,
+      "cost": 0.2,
+      "publicity": 0.6,
+      "escalation": 0.6,
+      "minAffected": 0.45,
+      "requiresHarm": true,
+      "consequences": [
+        {
+          "kind": "Relation",
+          "amount": -5,
+          "id": "trust"
+        },
+        {
+          "kind": "Flag",
+          "id": "diplo.{actor}.cooperation_cut.{country}"
+        }
+      ]
+    },
+    {
+      "id": "reaction.exploit_opening",
+      "nameKey": "reaction.exploit_opening.name",
+      "group": "diplomacy",
+      "actors": [
+        "Foreign"
+      ],
+      "hostility": 0.5,
+      "cost": 0.1,
+      "publicity": 0.7,
+      "escalation": 0.4,
+      "requiresPublic": true,
+      "consequences": [
+        {
+          "kind": "Approval",
+          "amount": -0.2
+        },
+        {
+          "kind": "Flag",
+          "id": "diplo.{actor}.exploiting.{country}"
+        }
+      ],
+      "toward": "rival"
+    },
+    {
+      "id": "reaction.raise_concerns_privately",
+      "nameKey": "reaction.raise_concerns_privately.name",
+      "group": "insider",
+      "actors": [
+        "Official",
+        "Security",
+        "Career",
+        "Military",
+        "Legislator",
+        "Bloc",
+        "CentralBank"
+      ],
+      "hostility": 0.25,
+      "cost": 0.05,
+      "publicity": 0,
+      "escalation": 0.2,
+      "requiresOffice": true,
+      "consequences": [
+        {
+          "kind": "Loyalty",
+          "amount": -1
+        }
+      ]
+    },
+    {
+      "id": "reaction.call_for_resignation",
+      "nameKey": "reaction.call_for_resignation.name",
+      "group": "voice",
+      "actors": [
+        "Legislator",
+        "Bloc",
+        "Media",
+        "Civic",
+        "Party",
+        "Challenger"
+      ],
+      "hostility": 1.0,
+      "cost": 0.3,
+      "publicity": 1,
+      "escalation": 0.9,
+      "minAffected": 0.4,
+      "requiresPublic": true,
+      "minLegality": "Contested",
+      "consequences": [
+        {
+          "kind": "Approval",
+          "amount": -2
+        },
+        {
+          "kind": "Scandal",
+          "amount": 4
+        },
+        {
+          "kind": "Pressure",
+          "amount": 3
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Serious"
+    },
+    {
+      "id": "reaction.leak_to_press",
+      "nameKey": "reaction.leak_to_press.name",
+      "group": "insider",
+      "actors": [
+        "Official",
+        "Security",
+        "Career",
+        "Military",
+        "Legislator"
+      ],
+      "hostility": 0.7,
+      "cost": 0.4,
+      "publicity": 0.3,
+      "escalation": 0.6,
+      "requiresSecret": true,
+      "requiresInLoop": true,
+      "consequences": [
+        {
+          "kind": "Publicize"
+        },
+        {
+          "kind": "Media",
+          "amount": 0.5
+        },
+        {
+          "kind": "Scandal",
+          "amount": 1
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Moderate"
+    },
+    {
+      "id": "reaction.anonymous_op_ed",
+      "nameKey": "reaction.anonymous_op_ed.name",
+      "group": "insider",
+      "actors": [
+        "Official",
+        "Security"
+      ],
+      "hostility": 0.7,
+      "cost": 0.5,
+      "publicity": 0.9,
+      "escalation": 0.6,
+      "minAffected": 0.3,
+      "minLegality": "Contested",
+      "consequences": [
+        {
+          "kind": "Scandal",
+          "amount": 3
+        },
+        {
+          "kind": "Approval",
+          "amount": -0.5
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Moderate"
+    },
+    {
+      "id": "reaction.comply_quietly",
+      "nameKey": "reaction.comply_quietly.name",
+      "group": "insider",
+      "actors": [
+        "Official",
+        "Security",
+        "Career",
+        "Military"
+      ],
+      "hostility": -0.2,
+      "publicity": 0,
+      "escalation": 0.1,
+      "requiresOffice": true,
+      "requiresInLoop": true,
+      "consequences": [
+        {
+          "kind": "Loyalty",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "reaction.slow_walk",
+      "nameKey": "reaction.slow_walk.name",
+      "group": "insider",
+      "actors": [
+        "Official",
+        "Security",
+        "Career"
+      ],
+      "hostility": 0.4,
+      "cost": 0.25,
+      "publicity": 0.1,
+      "escalation": 0.3,
+      "requiresOrder": true,
+      "requiresOffice": true,
+      "requiresInLoop": true,
+      "consequences": [
+        {
+          "kind": "Flag",
+          "id": "behaviour.{country}.slow_walk.{actor}"
+        },
+        {
+          "kind": "Loyalty",
+          "amount": -1
+        }
+      ]
+    },
+    {
+      "id": "reaction.request_legal_opinion",
+      "nameKey": "reaction.request_legal_opinion.name",
+      "group": "insider",
+      "actors": [
+        "Official",
+        "Security",
+        "Career",
+        "Military"
+      ],
+      "hostility": 0.2,
+      "cost": 0.05,
+      "publicity": 0.1,
+      "escalation": 0.2,
+      "requiresOrder": true,
+      "requiresOffice": true,
+      "requiresInLoop": true,
+      "consequences": [
+        {
+          "kind": "Flag",
+          "id": "behaviour.{country}.legal_review.{target}"
+        }
+      ]
+    },
+    {
+      "id": "reaction.memo_for_the_record",
+      "nameKey": "reaction.memo_for_the_record.name",
+      "group": "insider",
+      "actors": [
+        "Official",
+        "Security",
+        "Career",
+        "Military"
+      ],
+      "hostility": 0.3,
+      "cost": 0.1,
+      "publicity": 0,
+      "escalation": 0.3,
+      "requiresInLoop": true,
+      "consequences": [
+        {
+          "kind": "Flag",
+          "id": "behaviour.{country}.memo.{actor}"
+        },
+        {
+          "kind": "Agenda",
+          "id": "agenda.leak_campaign"
+        }
+      ]
+    },
+    {
+      "id": "reaction.blow_the_whistle",
+      "nameKey": "reaction.blow_the_whistle.name",
+      "group": "insider",
+      "actors": [
+        "Official",
+        "Security",
+        "Career",
+        "Military"
+      ],
+      "hostility": 0.8,
+      "cost": 0.55,
+      "publicity": 0.9,
+      "escalation": 0.8,
+      "minAffected": 0.3,
+      "requiresInLoop": true,
+      "minLegality": "Contested",
+      "delayDays": 7,
+      "delaySpread": 14,
+      "consequences": [
+        {
+          "kind": "Publicize"
+        },
+        {
+          "kind": "Pressure",
+          "amount": 2
+        },
+        {
+          "kind": "Scandal",
+          "amount": 3
+        },
+        {
+          "kind": "Media",
+          "amount": 0.7
+        },
+        {
+          "kind": "Agenda",
+          "id": "agenda.whistleblower"
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Serious"
+    },
+    {
+      "id": "reaction.resign_in_protest",
+      "nameKey": "reaction.resign_in_protest.name",
+      "group": "insider",
+      "actors": [
+        "Official",
+        "Security",
+        "Career",
+        "Military"
+      ],
+      "hostility": 0.8,
+      "cost": 0.6,
+      "publicity": 0.9,
+      "escalation": 0.9,
+      "minAffected": 0.35,
+      "requiresOffice": true,
+      "delaySpread": 2,
+      "consequences": [
+        {
+          "kind": "Resign"
+        },
+        {
+          "kind": "Approval",
+          "amount": -1
+        },
+        {
+          "kind": "Scandal",
+          "amount": 3
+        },
+        {
+          "kind": "Pressure",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "reaction.resign_quietly",
+      "nameKey": "reaction.resign_quietly.name",
+      "group": "insider",
+      "actors": [
+        "Official",
+        "Security",
+        "Career",
+        "Military"
+      ],
+      "hostility": 0.4,
+      "cost": 0.4,
+      "publicity": 0.3,
+      "escalation": 0.6,
+      "minAffected": 0.3,
+      "requiresOffice": true,
+      "delaySpread": 5,
+      "consequences": [
+        {
+          "kind": "Resign"
+        }
+      ]
+    },
+    {
+      "id": "reaction.cooperate_with_investigators",
+      "nameKey": "reaction.cooperate_with_investigators.name",
+      "group": "insider",
+      "actors": [
+        "Official",
+        "Security",
+        "Career",
+        "Military"
+      ],
+      "hostility": 0.6,
+      "cost": 0.4,
+      "publicity": 0.4,
+      "escalation": 0.6,
+      "minAffected": 0.3,
+      "requiresPublic": true,
+      "requiresInLoop": true,
+      "minLegality": "Contested",
+      "delayDays": 7,
+      "delaySpread": 21,
+      "consequences": [
+        {
+          "kind": "Pressure",
+          "amount": 1.5
+        },
+        {
+          "kind": "Flag",
+          "id": "justice.{country}.cooperating.{actor}"
+        }
+      ]
+    },
+    {
+      "id": "reaction.warn_privately",
+      "nameKey": "reaction.warn_privately.name",
+      "group": "insider",
+      "actors": [
+        "Security",
+        "Military",
+        "CentralBank"
+      ],
+      "hostility": 0.4,
+      "cost": 0.1,
+      "publicity": 0,
+      "escalation": 0.4,
+      "requiresOffice": true,
+      "requiresInLoop": true,
+      "consequences": [
+        {
+          "kind": "Flag",
+          "id": "security.{country}.private_warning.{actor}"
+        },
+        {
+          "kind": "Loyalty",
+          "amount": -1
+        },
+        {
+          "kind": "Agenda",
+          "id": "agenda.military_guardrails"
+        }
+      ]
+    },
+    {
+      "id": "reaction.reaffirm_oath",
+      "nameKey": "reaction.reaffirm_oath.name",
+      "group": "voice",
+      "actors": [
+        "Military"
+      ],
+      "hostility": 0.5,
+      "cost": 0.3,
+      "publicity": 1,
+      "escalation": 0.7,
+      "minAffected": 0.5,
+      "requiresPublic": true,
+      "minLegality": "Unlawful",
+      "consequences": [
+        {
+          "kind": "Approval",
+          "amount": -1.2
+        },
+        {
+          "kind": "Pressure",
+          "amount": 1
+        },
+        {
+          "kind": "Flag",
+          "id": "politics.{country}.military_reaffirmed_oath"
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Moderate"
+    },
+    {
+      "id": "reaction.withhold_votes",
+      "nameKey": "reaction.withhold_votes.name",
+      "group": "legislative",
+      "actors": [
+        "Legislator",
+        "Bloc"
+      ],
+      "hostility": 0.6,
+      "cost": 0.2,
+      "publicity": 0.5,
+      "escalation": 0.5,
+      "consequences": [
+        {
+          "kind": "Obstruct",
+          "days": 30
+        },
+        {
+          "kind": "Loyalty",
+          "amount": -2
+        }
+      ]
+    },
+    {
+      "id": "reaction.hold_nominees",
+      "nameKey": "reaction.hold_nominees.name",
+      "group": "legislative",
+      "actors": [
+        "Legislator",
+        "Bloc"
+      ],
+      "hostility": 0.5,
+      "cost": 0.15,
+      "publicity": 0.5,
+      "escalation": 0.5,
+      "consequences": [
+        {
+          "kind": "Obstruct",
+          "days": 21
+        },
+        {
+          "kind": "Flag",
+          "id": "politics.{country}.nominee_hold.{actor}"
+        }
+      ]
+    },
+    {
+      "id": "reaction.demand_hearings",
+      "nameKey": "reaction.demand_hearings.name",
+      "group": "legislative",
+      "actors": [
+        "Legislator",
+        "Bloc"
+      ],
+      "hostility": 0.7,
+      "cost": 0.1,
+      "publicity": 0.9,
+      "escalation": 0.6,
+      "requiresPublic": true,
+      "delayDays": 3,
+      "delaySpread": 7,
+      "consequences": [
+        {
+          "kind": "Hearing",
+          "amount": 3
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Moderate"
+    },
+    {
+      "id": "reaction.issue_subpoenas",
+      "nameKey": "reaction.issue_subpoenas.name",
+      "group": "legislative",
+      "actors": [
+        "Legislator",
+        "Bloc"
+      ],
+      "hostility": 0.8,
+      "cost": 0.2,
+      "publicity": 0.9,
+      "escalation": 0.75,
+      "minAffected": 0.35,
+      "requiresPublic": true,
+      "party": "opposition",
+      "delayDays": 7,
+      "delaySpread": 14,
+      "consequences": [
+        {
+          "kind": "Hearing",
+          "amount": 4
+        },
+        {
+          "kind": "Pressure",
+          "amount": 1.5
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Serious"
+    },
+    {
+      "id": "reaction.censure",
+      "nameKey": "reaction.censure.name",
+      "group": "legislative",
+      "actors": [
+        "Legislator",
+        "Bloc"
+      ],
+      "hostility": 0.8,
+      "cost": 0.2,
+      "publicity": 1,
+      "escalation": 0.7,
+      "requiresPublic": true,
+      "minLegality": "Contested",
+      "party": "opposition",
+      "delayDays": 7,
+      "delaySpread": 7,
+      "consequences": [
+        {
+          "kind": "Scandal",
+          "amount": 3
+        },
+        {
+          "kind": "Approval",
+          "amount": -0.8
+        },
+        {
+          "kind": "Pressure",
+          "amount": 1
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Moderate"
+    },
+    {
+      "id": "reaction.push_impeachment",
+      "nameKey": "reaction.push_impeachment.name",
+      "group": "legislative",
+      "actors": [
+        "Legislator",
+        "Bloc"
+      ],
+      "hostility": 1.0,
+      "cost": 0.4,
+      "publicity": 1,
+      "escalation": 1.0,
+      "minAffected": 0.4,
+      "requiresPublic": true,
+      "minLegality": "Contested",
+      "party": "opposition",
+      "delayDays": 7,
+      "delaySpread": 14,
+      "consequences": [
+        {
+          "kind": "Pressure",
+          "amount": 6
+        },
+        {
+          "kind": "Scandal",
+          "amount": 3
+        },
+        {
+          "kind": "Agenda",
+          "id": "agenda.impeachment_push"
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Serious"
+    },
+    {
+      "id": "reaction.introduce_blocking_bill",
+      "nameKey": "reaction.introduce_blocking_bill.name",
+      "group": "legislative",
+      "actors": [
+        "Legislator",
+        "Bloc"
+      ],
+      "hostility": 0.6,
+      "cost": 0.1,
+      "publicity": 0.8,
+      "escalation": 0.6,
+      "delayDays": 5,
+      "delaySpread": 9,
+      "consequences": [
+        {
+          "kind": "Flag",
+          "id": "politics.{country}.blocking_bill.{actor}"
+        },
+        {
+          "kind": "Obstruct",
+          "days": 14
+        },
+        {
+          "kind": "Pressure",
+          "amount": 0.5
+        }
+      ]
+    },
+    {
+      "id": "reaction.cut_funding",
+      "nameKey": "reaction.cut_funding.name",
+      "group": "legislative",
+      "actors": [
+        "Bloc"
+      ],
+      "hostility": 0.7,
+      "cost": 0.3,
+      "publicity": 0.8,
+      "escalation": 0.8,
+      "requiresOrder": true,
+      "requiresHarm": true,
+      "delayDays": 10,
+      "delaySpread": 20,
+      "consequences": [
+        {
+          "kind": "Flag",
+          "id": "politics.{country}.defund_rider.{actor}"
+        },
+        {
+          "kind": "Obstruct",
+          "days": 30
+        }
+      ]
+    },
+    {
+      "id": "reaction.break_with_party",
+      "nameKey": "reaction.break_with_party.name",
+      "group": "party",
+      "actors": [
+        "Legislator",
+        "Bloc"
+      ],
+      "hostility": 0.8,
+      "cost": 0.5,
+      "publicity": 1,
+      "escalation": 0.8,
+      "minAffected": 0.35,
+      "party": "same",
+      "consequences": [
+        {
+          "kind": "PartyRift",
+          "amount": -4
+        },
+        {
+          "kind": "Approval",
+          "amount": -1.2
+        },
+        {
+          "kind": "Obstruct",
+          "days": 30
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Serious"
+    },
+    {
+      "id": "reaction.back_a_challenger",
+      "nameKey": "reaction.back_a_challenger.name",
+      "group": "party",
+      "actors": [
+        "Legislator",
+        "Bloc",
+        "Party"
+      ],
+      "hostility": 0.9,
+      "cost": 0.6,
+      "publicity": 0.9,
+      "escalation": 0.9,
+      "minAffected": 0.4,
+      "party": "same",
+      "delayDays": 14,
+      "delaySpread": 21,
+      "consequences": [
+        {
+          "kind": "PartyRift",
+          "amount": -6
+        },
+        {
+          "kind": "Flag",
+          "id": "politics.{country}.challenger_backed.{actor}"
+        },
+        {
+          "kind": "Agenda",
+          "id": "agenda.party_revolt"
+        }
+      ]
+    },
+    {
+      "id": "reaction.rally_votes",
+      "nameKey": "reaction.rally_votes.name",
+      "group": "party",
+      "actors": [
+        "Legislator",
+        "Bloc",
+        "Party"
+      ],
+      "hostility": -0.7,
+      "cost": 0.1,
+      "publicity": 0.6,
+      "escalation": 0.5,
+      "party": "same",
+      "consequences": [
+        {
+          "kind": "Loyalty",
+          "amount": 3
+        },
+        {
+          "kind": "Capital",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "reaction.bipartisan_outreach",
+      "nameKey": "reaction.bipartisan_outreach.name",
+      "group": "legislative",
+      "actors": [
+        "Legislator",
+        "Bloc"
+      ],
+      "hostility": -0.2,
+      "cost": 0.1,
+      "publicity": 0.6,
+      "escalation": 0.4,
+      "actKinds": [
+        "policy",
+        "bill"
+      ],
+      "consequences": [
+        {
+          "kind": "Capital",
+          "amount": 1
+        },
+        {
+          "kind": "Agenda",
+          "id": "agenda.deal_broker"
+        }
+      ]
+    },
+    {
+      "id": "reaction.joint_letter",
+      "nameKey": "reaction.joint_letter.name",
+      "group": "legislative",
+      "actors": [
+        "Legislator",
+        "Bloc"
+      ],
+      "hostility": 0.5,
+      "cost": 0.05,
+      "publicity": 0.9,
+      "escalation": 0.5,
+      "consequences": [
+        {
+          "kind": "Scandal",
+          "amount": 1.5
+        },
+        {
+          "kind": "Approval",
+          "amount": -0.6
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Minor"
+    },
+    {
+      "id": "reaction.criminal_referral",
+      "nameKey": "reaction.criminal_referral.name",
+      "group": "legislative",
+      "actors": [
+        "Legislator",
+        "Bloc"
+      ],
+      "hostility": 0.9,
+      "cost": 0.3,
+      "publicity": 0.9,
+      "escalation": 0.9,
+      "minAffected": 0.5,
+      "requiresPublic": true,
+      "minLegality": "Unlawful",
+      "party": "opposition",
+      "delayDays": 14,
+      "delaySpread": 16,
+      "consequences": [
+        {
+          "kind": "Pressure",
+          "amount": 3
+        },
+        {
+          "kind": "Scandal",
+          "amount": 3
+        },
+        {
+          "kind": "Flag",
+          "id": "justice.{country}.criminal_referral"
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Serious"
+    },
+    {
+      "id": "reaction.demand_special_counsel",
+      "nameKey": "reaction.demand_special_counsel.name",
+      "group": "legislative",
+      "actors": [
+        "Legislator",
+        "Bloc",
+        "Media"
+      ],
+      "hostility": 0.8,
+      "cost": 0.1,
+      "publicity": 1,
+      "escalation": 0.8,
+      "minAffected": 0.2,
+      "requiresPublic": true,
+      "minLegality": "Contested",
+      "party": "opposition",
+      "consequences": [
+        {
+          "kind": "Pressure",
+          "amount": 2
+        },
+        {
+          "kind": "Scandal",
+          "amount": 2
+        },
+        {
+          "kind": "Flag",
+          "id": "justice.{country}.special_counsel_demanded"
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Moderate"
+    },
+    {
+      "id": "reaction.sue_over_dismissal",
+      "nameKey": "reaction.sue_over_dismissal.name",
+      "group": "legal",
+      "actors": [
+        "Official",
+        "Security",
+        "Career",
+        "Military"
+      ],
+      "hostility": 0.6,
+      "cost": 0.3,
+      "publicity": 0.8,
+      "escalation": 0.6,
+      "requiresOrder": true,
+      "targetOnly": true,
+      "requiresHarm": true,
+      "minLegality": "Contested",
+      "delayDays": 10,
+      "delaySpread": 20,
+      "consequences": [
+        {
+          "kind": "Court"
+        },
+        {
+          "kind": "Scandal",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "reaction.file_lawsuit",
+      "nameKey": "reaction.file_lawsuit.name",
+      "group": "legal",
+      "actors": [
+        "Media",
+        "Business",
+        "Civic",
+        "Regional"
+      ],
+      "hostility": 0.6,
+      "cost": 0.2,
+      "publicity": 0.8,
+      "escalation": 0.6,
+      "requiresOrder": true,
+      "requiresHarm": true,
+      "minLegality": "Contested",
+      "delayDays": 5,
+      "delaySpread": 9,
+      "consequences": [
+        {
+          "kind": "Court"
+        },
+        {
+          "kind": "Agenda",
+          "id": "agenda.court_challenge"
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Moderate"
+    },
+    {
+      "id": "reaction.seek_injunction",
+      "nameKey": "reaction.seek_injunction.name",
+      "group": "legal",
+      "actors": [
+        "Business",
+        "Civic",
+        "Regional"
+      ],
+      "hostility": 0.7,
+      "cost": 0.25,
+      "publicity": 0.8,
+      "escalation": 0.7,
+      "requiresOrder": true,
+      "requiresHarm": true,
+      "minLegality": "Contested",
+      "delayDays": 2,
+      "delaySpread": 5,
+      "consequences": [
+        {
+          "kind": "Court"
+        },
+        {
+          "kind": "Flag",
+          "id": "legal.{country}.injunction_sought.{actor}"
+        }
+      ]
+    },
+    {
+      "id": "reaction.file_amicus_brief",
+      "nameKey": "reaction.file_amicus_brief.name",
+      "group": "legal",
+      "actors": [
+        "Business",
+        "Civic",
+        "Regional"
+      ],
+      "hostility": 0.3,
+      "cost": 0.05,
+      "publicity": 0.5,
+      "escalation": 0.3,
+      "requiresOrder": true,
+      "requiresHarm": true,
+      "minLegality": "Contested",
+      "delayDays": 10,
+      "delaySpread": 20,
+      "consequences": [
+        {
+          "kind": "Flag",
+          "id": "legal.{country}.amicus.{actor}"
+        }
+      ]
+    },
+    {
+      "id": "reaction.judicial_rebuke",
+      "nameKey": "reaction.judicial_rebuke.name",
+      "group": "legal",
+      "actors": [
+        "Judge"
+      ],
+      "hostility": 0.5,
+      "cost": 0.3,
+      "publicity": 0.9,
+      "escalation": 0.6,
+      "minAffected": 0.6,
+      "requiresPublic": true,
+      "minLegality": "Unlawful",
+      "actKinds": [
+        "order_executed",
+        "order_void",
+        "firing"
+      ],
+      "consequences": [
+        {
+          "kind": "Approval",
+          "amount": -1
+        },
+        {
+          "kind": "Regime",
+          "amount": 1,
+          "id": "judicial_independence"
+        }
+      ]
+    },
+    {
+      "id": "reaction.state_lawsuit",
+      "nameKey": "reaction.state_lawsuit.name",
+      "group": "legal",
+      "actors": [
+        "Regional"
+      ],
+      "hostility": 0.7,
+      "cost": 0.2,
+      "publicity": 0.9,
+      "escalation": 0.7,
+      "requiresOrder": true,
+      "requiresHarm": true,
+      "minLegality": "Contested",
+      "delayDays": 4,
+      "delaySpread": 10,
+      "consequences": [
+        {
+          "kind": "Court"
+        }
+      ]
+    },
+    {
+      "id": "reaction.investigate_story",
+      "nameKey": "reaction.investigate_story.name",
+      "group": "media",
+      "actors": [
+        "Media"
+      ],
+      "hostility": 0.6,
+      "cost": 0.1,
+      "publicity": 0.7,
+      "escalation": 0.6,
+      "delayDays": 3,
+      "delaySpread": 11,
+      "consequences": [
+        {
+          "kind": "Scandal",
+          "amount": 2
+        },
+        {
+          "kind": "Media",
+          "amount": 0.5
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Moderate"
+    },
+    {
+      "id": "reaction.publish_expose",
+      "nameKey": "reaction.publish_expose.name",
+      "group": "media",
+      "actors": [
+        "Media"
+      ],
+      "hostility": 0.9,
+      "cost": 0.3,
+      "publicity": 1,
+      "escalation": 0.9,
+      "requiresSecret": true,
+      "delayDays": 5,
+      "delaySpread": 16,
+      "consequences": [
+        {
+          "kind": "Publicize"
+        },
+        {
+          "kind": "Scandal",
+          "amount": 4
+        },
+        {
+          "kind": "Media",
+          "amount": 0.8
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Serious"
+    },
+    {
+      "id": "reaction.editorial_against",
+      "nameKey": "reaction.editorial_against.name",
+      "group": "media",
+      "actors": [
+        "Media"
+      ],
+      "hostility": 0.6,
+      "cost": 0.05,
+      "publicity": 1,
+      "escalation": 0.4,
+      "requiresPublic": true,
+      "consequences": [
+        {
+          "kind": "Approval",
+          "amount": -0.5
+        },
+        {
+          "kind": "Scandal",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": "reaction.frame_favourably",
+      "nameKey": "reaction.frame_favourably.name",
+      "group": "media",
+      "actors": [
+        "Media"
+      ],
+      "hostility": -0.6,
+      "cost": 0.05,
+      "publicity": 1,
+      "escalation": 0.4,
+      "requiresPublic": true,
+      "consequences": [
+        {
+          "kind": "Approval",
+          "amount": 0.5
+        },
+        {
+          "kind": "Scandal",
+          "amount": -1.5
+        }
+      ]
+    },
+    {
+      "id": "reaction.call_for_investigation",
+      "nameKey": "reaction.call_for_investigation.name",
+      "group": "media",
+      "actors": [
+        "Media",
+        "Civic"
+      ],
+      "hostility": 0.8,
+      "cost": 0.1,
+      "publicity": 1,
+      "escalation": 0.7,
+      "requiresPublic": true,
+      "consequences": [
+        {
+          "kind": "Pressure",
+          "amount": 1
+        },
+        {
+          "kind": "Scandal",
+          "amount": 2
+        }
+      ]
+    },
+    {
+      "id": "reaction.lobby_against",
+      "nameKey": "reaction.lobby_against.name",
+      "group": "market",
+      "actors": [
+        "Business",
+        "Civic"
+      ],
+      "hostility": 0.4,
+      "cost": 0.05,
+      "publicity": 0.3,
+      "escalation": 0.4,
+      "consequences": [
+        {
+          "kind": "Loyalty",
+          "amount": -2
+        },
+        {
+          "kind": "Flag",
+          "id": "business.{country}.lobbying_against.{actor}"
+        }
+      ]
+    },
+    {
+      "id": "reaction.lobby_for",
+      "nameKey": "reaction.lobby_for.name",
+      "group": "market",
+      "actors": [
+        "Business",
+        "Civic"
+      ],
+      "hostility": -0.4,
+      "cost": 0.05,
+      "publicity": 0.3,
+      "escalation": 0.4,
+      "consequences": [
+        {
+          "kind": "Loyalty",
+          "amount": 2
+        },
+        {
+          "kind": "Flag",
+          "id": "business.{country}.lobbying_for.{actor}"
+        }
+      ]
+    },
+    {
+      "id": "reaction.withhold_donations",
+      "nameKey": "reaction.withhold_donations.name",
+      "group": "market",
+      "actors": [
+        "Business"
+      ],
+      "hostility": 0.6,
+      "cost": 0.2,
+      "publicity": 0.4,
+      "escalation": 0.6,
+      "consequences": [
+        {
+          "kind": "PartyRift",
+          "amount": -2
+        },
+        {
+          "kind": "Flag",
+          "id": "politics.{country}.donors_withholding.{actor}"
+        }
+      ]
+    },
+    {
+      "id": "reaction.move_money",
+      "nameKey": "reaction.move_money.name",
+      "group": "market",
+      "actors": [
+        "Business"
+      ],
+      "hostility": 0.5,
+      "cost": 0.1,
+      "publicity": 0.2,
+      "escalation": 0.6,
+      "consequences": [
+        {
+          "kind": "MarketStress",
+          "amount": 3
+        }
+      ]
+    },
+    {
+      "id": "reaction.warn_markets",
+      "nameKey": "reaction.warn_markets.name",
+      "group": "market",
+      "actors": [
+        "CentralBank",
+        "Business"
+      ],
+      "hostility": 0.5,
+      "cost": 0.1,
+      "publicity": 0.9,
+      "escalation": 0.5,
+      "consequences": [
+        {
+          "kind": "MarketStress",
+          "amount": 1.5
+        },
+        {
+          "kind": "Approval",
+          "amount": -0.5
+        }
+      ]
+    },
+    {
+      "id": "reaction.threaten_relocation",
+      "nameKey": "reaction.threaten_relocation.name",
+      "group": "market",
+      "actors": [
+        "Business"
+      ],
+      "hostility": 0.6,
+      "cost": 0.3,
+      "publicity": 0.8,
+      "escalation": 0.7,
+      "consequences": [
+        {
+          "kind": "MarketStress",
+          "amount": 1
+        },
+        {
+          "kind": "Flag",
+          "id": "business.{country}.relocation_threat.{actor}"
+        }
+      ]
+    },
+    {
+      "id": "reaction.defend_independence",
+      "nameKey": "reaction.defend_independence.name",
+      "group": "voice",
+      "actors": [
+        "CentralBank"
+      ],
+      "hostility": 0.4,
+      "cost": 0.2,
+      "publicity": 0.8,
+      "escalation": 0.6,
+      "minAffected": 0.3,
+      "targetOnly": true,
+      "consequences": [
+        {
+          "kind": "MarketStress",
+          "amount": -1
+        },
+        {
+          "kind": "Flag",
+          "id": "economy.{country}.independence_statement"
+        },
+        {
+          "kind": "Agenda",
+          "id": "agenda.fed_independence"
+        }
+      ]
+    },
+    {
+      "id": "reaction.organize_protests",
+      "nameKey": "reaction.organize_protests.name",
+      "group": "voice",
+      "actors": [
+        "Civic",
+        "Party"
+      ],
+      "hostility": 0.8,
+      "cost": 0.3,
+      "publicity": 1,
+      "escalation": 0.8,
+      "requiresPublic": true,
+      "consequences": [
+        {
+          "kind": "Unrest",
+          "amount": 5
+        },
+        {
+          "kind": "Approval",
+          "amount": -0.6
+        }
+      ],
+      "cascade": true,
+      "cascadeSeverity": "Moderate"
+    },
+    {
+      "id": "reaction.call_strike",
+      "nameKey": "reaction.call_strike.name",
+      "group": "market",
+      "actors": [
+        "Civic"
+      ],
+      "hostility": 0.8,
+      "cost": 0.5,
+      "publicity": 1,
+      "escalation": 0.9,
+      "minAffected": 0.5,
+      "requiresPublic": true,
+      "consequences": [
+        {
+          "kind": "Unrest",
+          "amount": 8
+        },
+        {
+          "kind": "MarketStress",
+          "amount": 1.5
+        }
+      ]
+    },
+    {
+      "id": "reaction.mobilize_voters",
+      "nameKey": "reaction.mobilize_voters.name",
+      "group": "voice",
+      "actors": [
+        "Civic",
+        "Party"
+      ],
+      "hostility": 0.5,
+      "cost": 0.1,
+      "publicity": 0.8,
+      "escalation": 0.5,
+      "consequences": [
+        {
+          "kind": "Approval",
+          "amount": -0.3
+        },
+        {
+          "kind": "Flag",
+          "id": "politics.{country}.mobilization.{actor}"
+        }
+      ]
+    },
+    {
+      "id": "reaction.distance_from_leader",
+      "nameKey": "reaction.distance_from_leader.name",
+      "group": "party",
+      "actors": [
+        "Legislator",
+        "Bloc",
+        "Party"
+      ],
+      "hostility": 0.4,
+      "cost": 0.15,
+      "publicity": 0.7,
+      "escalation": 0.4,
+      "party": "same",
+      "consequences": [
+        {
+          "kind": "PartyRift",
+          "amount": -2
+        },
+        {
+          "kind": "Approval",
+          "amount": -0.4
+        }
+      ]
+    },
+    {
+      "id": "reaction.close_ranks",
+      "nameKey": "reaction.close_ranks.name",
+      "group": "party",
+      "actors": [
+        "Legislator",
+        "Bloc",
+        "Party"
+      ],
+      "hostility": -0.8,
+      "cost": 0.1,
+      "publicity": 0.8,
+      "escalation": 0.5,
+      "party": "same",
+      "consequences": [
+        {
+          "kind": "Loyalty",
+          "amount": 3
+        },
+        {
+          "kind": "Approval",
+          "amount": 0.6
+        },
+        {
+          "kind": "Scandal",
+          "amount": -1
+        }
+      ]
+    },
+    {
+      "id": "reaction.fundraise_on_it",
+      "nameKey": "reaction.fundraise_on_it.name",
+      "group": "party",
+      "actors": [
+        "Legislator",
+        "Bloc",
+        "Party",
+        "Challenger"
+      ],
+      "hostility": 0.4,
+      "cost": 0.05,
+      "publicity": 0.6,
+      "escalation": 0.3,
+      "party": "opposition",
+      "consequences": [
+        {
+          "kind": "Flag",
+          "id": "politics.{country}.opposition_fundraising"
+        }
+      ]
+    }
+  ]
+}

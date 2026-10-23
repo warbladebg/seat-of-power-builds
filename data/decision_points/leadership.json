@@ -1,0 +1,184 @@
+{
+  "$schema": "../schemas/decision_points.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ]
+  },
+  "decisionPoints": [
+    {
+      "id": "dp.leadership_bill",
+      "actor": "character",
+      "kind": "Choice",
+      "options": [
+        {
+          "id": "wait",
+          "description": "Hold out: let the deadline press on the other side."
+        },
+        {
+          "id": "own_terms",
+          "description": "Pass our own bill: the fix with our conditions attached.",
+          "weight": 0.8
+        },
+        {
+          "id": "short_extension",
+          "description": "Buy time: a short, clean extension.",
+          "weight": 0.7
+        },
+        {
+          "id": "clean",
+          "description": "Pass a clean fix.",
+          "weight": 0.6
+        }
+      ],
+      "deliberationDays": 1,
+      "considerations": [
+        {
+          "use": "consideration.leadership.not_urgent",
+          "option": "wait"
+        },
+        {
+          "use": "consideration.politics.party.other",
+          "option": "wait"
+        },
+        {
+          "use": "consideration.politics.actor.obstructing",
+          "option": "wait"
+        },
+        {
+          "use": "consideration.politics.trait.patient",
+          "option": "wait"
+        },
+        {
+          "use": "consideration.politics.trait.rigid",
+          "option": "wait",
+          "weight": 0.5
+        },
+        {
+          "use": "consideration.leadership.cheap_to_wait",
+          "option": "wait"
+        },
+        {
+          "use": "consideration.leadership.not_imminent",
+          "option": "wait"
+        },
+        {
+          "use": "consideration.leadership.calm",
+          "option": "own_terms",
+          "weight": 0.75
+        },
+        {
+          "use": "consideration.politics.party.other",
+          "option": "own_terms",
+          "weight": 2
+        },
+        {
+          "use": "consideration.leadership.pressing",
+          "option": "own_terms"
+        },
+        {
+          "use": "consideration.leadership.player_pending",
+          "option": "own_terms"
+        },
+        {
+          "use": "consideration.politics.trait.hawkish",
+          "option": "own_terms",
+          "weight": 0.5
+        },
+        {
+          "use": "consideration.leadership.urgent",
+          "option": "short_extension"
+        },
+        {
+          "use": "consideration.leadership.missed",
+          "option": "short_extension"
+        },
+        {
+          "use": "consideration.leadership.markets_rattled",
+          "option": "short_extension"
+        },
+        {
+          "use": "consideration.leadership.deal_whipped",
+          "option": "short_extension"
+        },
+        {
+          "use": "consideration.leadership.blamed",
+          "option": "short_extension"
+        },
+        {
+          "use": "consideration.politics.trait.pragmatic",
+          "option": "short_extension"
+        },
+        {
+          "use": "consideration.politics.party.same",
+          "option": "clean",
+          "weight": 2
+        },
+        {
+          "use": "consideration.leadership.pressing",
+          "option": "clean"
+        },
+        {
+          "use": "consideration.leadership.missed",
+          "option": "clean"
+        }
+      ],
+      "temperature": 0.5
+    },
+    {
+      "id": "dp.leadership_endorse",
+      "actor": "character",
+      "kind": "Choice",
+      "options": [
+        {
+          "id": "endorse",
+          "description": "Back the President's bill and bring it to the floor."
+        },
+        {
+          "id": "decline",
+          "description": "Refuse: it doesn't give our side enough."
+        }
+      ],
+      "deliberationDays": 2,
+      "considerations": [
+        {
+          "use": "consideration.leadership.terms_good",
+          "option": "endorse"
+        },
+        {
+          "use": "consideration.leadership.talks_on",
+          "option": "endorse"
+        },
+        {
+          "use": "consideration.politics.trait.pragmatic",
+          "option": "endorse",
+          "weight": 0.5
+        },
+        {
+          "use": "consideration.leadership.terms_poor",
+          "option": "decline"
+        },
+        {
+          "use": "consideration.leadership.early",
+          "option": "decline"
+        },
+        {
+          "use": "consideration.leadership.calm",
+          "option": "decline",
+          "weight": 1.5
+        },
+        {
+          "use": "consideration.leadership.cheap_to_wait",
+          "option": "decline",
+          "weight": 1.5
+        },
+        {
+          "use": "consideration.politics.trait.rigid",
+          "option": "decline",
+          "weight": 0.5
+        }
+      ],
+      "temperature": 0.5
+    }
+  ]
+}

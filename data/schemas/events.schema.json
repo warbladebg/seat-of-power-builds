@@ -1,0 +1,238 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "events.schema.json",
+  "title": "EventsFile",
+  "type": "object",
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^event\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "titleKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "textKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "scope": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null,
+            "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "category": {
+            "type": "string",
+            "default": "general"
+          },
+          "trigger": {
+            "default": null
+          },
+          "mtthDays": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "default": null,
+            "minimum": 1,
+            "maximum": 36500
+          },
+          "fireOnce": {
+            "type": "boolean",
+            "default": false
+          },
+          "cooldownDays": {
+            "type": "integer",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 36500
+          },
+          "autoPause": {
+            "type": "boolean",
+            "default": false
+          },
+          "severity": {
+            "enum": [
+              "Minor",
+              "Major",
+              "Critical"
+            ],
+            "default": "Minor"
+          },
+          "aiChoice": {
+            "type": "string",
+            "default": "utility"
+          },
+          "checkEveryDays": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "default": null,
+            "minimum": 1,
+            "maximum": 365
+          },
+          "deadlineDays": {
+            "type": "integer",
+            "default": 14,
+            "minimum": 1,
+            "maximum": 365
+          },
+          "effects": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "default": null
+          },
+          "options": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "textKey": {
+                  "type": "string",
+                  "description": "Localisation key (data/localization/en)."
+                },
+                "requires": {
+                  "default": null
+                },
+                "aiWeight": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+                  "properties": {
+                    "weight": {
+                      "type": "number",
+                      "default": 1,
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "considerations": {
+                      "type": [
+                        "array",
+                        "null"
+                      ],
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "use": {
+                            "type": "string",
+                            "pattern": "^consideration\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+                          },
+                          "option": {
+                            "type": "string",
+                            "default": "*"
+                          },
+                          "weight": {
+                            "type": [
+                              "number",
+                              "null"
+                            ],
+                            "default": null,
+                            "minimum": 0,
+                            "maximum": 10
+                          }
+                        },
+                        "required": [
+                          "use"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "default": null
+                    }
+                  },
+                  "additionalProperties": false,
+                  "default": null
+                },
+                "effects": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "default": null
+                },
+                "advisorTags": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "string"
+                  },
+                  "default": null
+                }
+              },
+              "required": [
+                "id",
+                "textKey"
+              ],
+              "additionalProperties": false
+            },
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "titleKey",
+          "textKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "events"
+  ],
+  "additionalProperties": false
+}

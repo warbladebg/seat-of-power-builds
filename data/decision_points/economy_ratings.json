@@ -1,0 +1,99 @@
+{
+  "$schema": "../schemas/decision_points.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "A ratings agency's review of a sovereign (04 §5, 07 §9): thresholds on fiscal metrics plus political risk (the 'fair' rating, computed in code) with an agency-specific lag (the agency's lagDays). Inputs: rating.overrated / rating.underrated (gap to the fair rating / 3 notches), rating.on_watch, rating.default (payments being missed), rating.at_top (AAA)."
+  },
+  "decisionPoints": [
+    {
+      "id": "dp.rating_action",
+      "actor": "rating_agency",
+      "kind": "Choice",
+      "deliberationDays": 7,
+      "temperature": 0.5,
+      "options": [
+        {
+          "id": "affirm",
+          "description": "Affirm the rating (and lift a negative watch if the risk has passed)."
+        },
+        {
+          "id": "watch_negative",
+          "description": "Put the rating on watch for a downgrade."
+        },
+        {
+          "id": "downgrade",
+          "description": "Downgrade by a notch (two if far too high)."
+        },
+        {
+          "id": "downgrade_severe",
+          "description": "Cut sharply: selective default if payments are being missed."
+        },
+        {
+          "id": "upgrade",
+          "description": "Upgrade by a notch."
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.rating.fairly_rated",
+          "option": "affirm"
+        },
+        {
+          "use": "consideration.rating.not_underrated",
+          "option": "affirm"
+        },
+        {
+          "use": "consideration.rating.no_default",
+          "option": "affirm"
+        },
+        {
+          "use": "consideration.rating.somewhat_overrated",
+          "option": "watch_negative"
+        },
+        {
+          "use": "consideration.rating.not_on_watch",
+          "option": "watch_negative"
+        },
+        {
+          "use": "consideration.rating.no_default",
+          "option": "watch_negative"
+        },
+        {
+          "use": "consideration.rating.overrated",
+          "option": "downgrade"
+        },
+        {
+          "use": "consideration.rating.watched",
+          "option": "downgrade"
+        },
+        {
+          "use": "consideration.rating.no_default",
+          "option": "downgrade"
+        },
+        {
+          "use": "consideration.rating.in_default",
+          "option": "downgrade_severe"
+        },
+        {
+          "use": "consideration.rating.overrated",
+          "option": "downgrade_severe",
+          "weight": 1
+        },
+        {
+          "use": "consideration.rating.underrated",
+          "option": "upgrade"
+        },
+        {
+          "use": "consideration.rating.below_top",
+          "option": "upgrade"
+        },
+        {
+          "use": "consideration.rating.no_default",
+          "option": "upgrade"
+        }
+      ]
+    }
+  ]
+}

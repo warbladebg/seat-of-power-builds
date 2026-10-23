@@ -1,0 +1,60 @@
+{
+  "$schema": "../schemas/decision_points.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "The central bank's rate decision at scheduled meetings (04 §4, 07 §9). The Taylor-rule target is computed in code; the chair's personality sets gradualism (patience) and the weight on inflation (hawkishness). Deliberation days = how long before the meeting the decision is prepared."
+  },
+  "decisionPoints": [
+    {
+      "id": "dp.central_bank_rate",
+      "actor": "central_bank",
+      "kind": "Choice",
+      "deliberationDays": 2,
+      "temperature": 0.35,
+      "options": [
+        {
+          "id": "cut_50",
+          "description": "Cut the policy rate by half a point."
+        },
+        {
+          "id": "cut_25",
+          "description": "Cut the policy rate by a quarter point."
+        },
+        {
+          "id": "hold",
+          "description": "Leave the policy rate unchanged."
+        },
+        {
+          "id": "hike_25",
+          "description": "Raise the policy rate by a quarter point."
+        },
+        {
+          "id": "hike_50",
+          "description": "Raise the policy rate by half a point."
+        }
+      ],
+      "considerations": [
+        {
+          "use": "consideration.cb.toward_taylor"
+        },
+        {
+          "use": "consideration.cb.gradual"
+        },
+        {
+          "use": "consideration.cb.inflation_hawk"
+        },
+        {
+          "use": "consideration.cb.financial_stability"
+        },
+        {
+          "use": "consideration.cb.political_pressure"
+        },
+        {
+          "use": "consideration.cb.no_reversal"
+        }
+      ]
+    }
+  ]
+}

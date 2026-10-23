@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rating_agencies.schema.json",
+  "title": "RatingAgenciesFile",
+  "type": "object",
+  "properties": {
+    "agencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^agency\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "reviewEveryDays": {
+            "type": "integer",
+            "default": 180,
+            "minimum": 7,
+            "maximum": 730
+          },
+          "lagDays": {
+            "type": "integer",
+            "default": 7,
+            "minimum": 1,
+            "maximum": 60
+          },
+          "strictness": {
+            "type": "number",
+            "default": 0,
+            "minimum": -3,
+            "maximum": 3
+          },
+          "personality": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "riskTolerance": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "pride": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "pragmatism": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "patience": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "hawkishness": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "honesty": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "loyalty": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "ideologicalRigidity": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "grudgeHolding": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "publicOrientation": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "lawfulness": {
+                "type": "number",
+                "default": 50,
+                "minimum": 0,
+                "maximum": 100
+              }
+            },
+            "required": [
+              "riskTolerance",
+              "pride",
+              "pragmatism",
+              "patience",
+              "hawkishness",
+              "honesty",
+              "loyalty",
+              "ideologicalRigidity",
+              "grudgeHolding",
+              "publicOrientation"
+            ],
+            "additionalProperties": false,
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "nameKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "agencies"
+  ],
+  "additionalProperties": false
+}

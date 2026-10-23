@@ -1,0 +1,41 @@
+{
+  "cue": "ui.panel_open",
+  "round": "r0",
+  "option": 2,
+  "family": "A. Game click",
+  "label": "round pop, falling pitch",
+  "seed": 2,
+  "loudness": -23,
+  "tail": 0.03,
+  "layers": [
+    {
+      "type": "tone",
+      "at": 0.0,
+      "freq": 640,
+      "freqEnd": 190,
+      "glide": 0.045,
+      "env": {
+        "a": 0.001,
+        "d": 0.09
+      }
+    },
+    {
+      "type": "noise",
+      "at": 0.0,
+      "env": {
+        "a": 0.0002,
+        "d": 0.004
+      },
+      "filter": {
+        "type": "highpass",
+        "freq": 3000
+      },
+      "gain": -14
+    }
+  ],
+  "room": {
+    "size": 0.25,
+    "mix": 0.12,
+    "damp": 5000
+  }
+}

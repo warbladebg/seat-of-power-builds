@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "peer_groups.schema.json",
+  "title": "PeerGroupsFile",
+  "type": "object",
+  "properties": {
+    "peerGroups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^group\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "country": {
+            "type": "string",
+            "pattern": "^country\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "nameKey": {
+            "type": "string",
+            "description": "Localisation key (data/localization/en)."
+          },
+          "party": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          },
+          "chamber": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "default": null
+          },
+          "cohesion": {
+            "type": "number",
+            "default": 0.5,
+            "minimum": 0,
+            "maximum": 1
+          },
+          "formal": {
+            "type": "boolean",
+            "default": false
+          },
+          "members": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "default": null
+          },
+          "roles": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "type": "string"
+            },
+            "default": null
+          },
+          "powerCenterTypes": {
+            "type": [
+              "array",
+              "null"
+            ],
+            "items": {
+              "enum": [
+                "LegislativeBloc",
+                "Court",
+                "CentralBank",
+                "Military",
+                "SecurityServices",
+                "BusinessLobby",
+                "MediaCluster",
+                "PartyFaction",
+                "RegionalElite",
+                "Oligarchs",
+                "Public"
+              ]
+            },
+            "default": null
+          }
+        },
+        "required": [
+          "id",
+          "country",
+          "nameKey"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "$schema": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "default": null
+    },
+    "meta": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "sources": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "string",
+            "pattern": "^src\\.[a-z0-9_]+(\\.[a-z0-9_]+)*$"
+          },
+          "default": null
+        }
+      },
+      "additionalProperties": false,
+      "default": null
+    }
+  },
+  "required": [
+    "peerGroups"
+  ],
+  "additionalProperties": false
+}

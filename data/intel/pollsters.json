@@ -1,0 +1,85 @@
+{
+  "$schema": "../schemas/pollsters.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Fictional polling firms (D-009)."
+  },
+  "pollsters": [
+    {
+      "id": "pollster.keystone",
+      "nameKey": "pollster.keystone.name",
+      "country": "country.usa",
+      "method": "phone",
+      "sampleSize": 1000,
+      "everyDays": 14,
+      "offsetDays": 2,
+      "fieldDays": 4,
+      "partisanLean": 0.0,
+      "blocErrors": {},
+      "quality": 0.9
+    },
+    {
+      "id": "pollster.harbor_line",
+      "nameKey": "pollster.harbor_line.name",
+      "country": "country.usa",
+      "method": "panel",
+      "sampleSize": 1500,
+      "everyDays": 7,
+      "offsetDays": 4,
+      "fieldDays": 3,
+      "partisanLean": -1.5,
+      "blocErrors": {
+        "bloc.usa.rural_conservatives": -2
+      },
+      "quality": 0.7
+    },
+    {
+      "id": "pollster.northgate",
+      "nameKey": "pollster.northgate.name",
+      "country": "country.usa",
+      "method": "online",
+      "sampleSize": 1200,
+      "everyDays": 3,
+      "offsetDays": 1,
+      "fieldDays": 3,
+      "partisanLean": 2.5,
+      "blocErrors": {
+        "bloc.usa.young_adults": -4
+      },
+      "quality": 0.3
+    },
+    {
+      "id": "pollster.civic_pulse",
+      "nameKey": "pollster.civic_pulse.name",
+      "country": "country.usa",
+      "method": "phone",
+      "sampleSize": 1100,
+      "everyDays": 28,
+      "offsetDays": 10,
+      "fieldDays": 5,
+      "partisanLean": -1.0,
+      "blocErrors": {
+        "bloc.usa.rural_conservatives": -3
+      },
+      "quality": 0.8
+    },
+    {
+      "id": "pollster.lighthouse",
+      "nameKey": "pollster.lighthouse.name",
+      "country": "country.usa",
+      "method": "ivr",
+      "sampleSize": 900,
+      "everyDays": 21,
+      "offsetDays": 6,
+      "fieldDays": 2,
+      "partisanLean": 1.5,
+      "blocErrors": {
+        "bloc.usa.young_adults": -6,
+        "bloc.usa.seniors": 2
+      },
+      "quality": 0.4
+    }
+  ]
+}

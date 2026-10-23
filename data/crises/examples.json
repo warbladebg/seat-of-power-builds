@@ -1,0 +1,180 @@
+{
+  "$schema": "../schemas/crises.schema.json",
+  "meta": {
+    "sources": [
+      "src.seatofpower_authored"
+    ],
+    "notes": "Framework example from package 06."
+  },
+  "crises": [
+    {
+      "id": "crisis.usa.regional_bank",
+      "titleKey": "crisis.usa.regional_bank.title",
+      "scope": "country.usa",
+      "stages": [
+        {
+          "id": "rumors",
+          "textKey": "crisis.usa.regional_bank.rumors",
+          "durationDays": [
+            3,
+            10
+          ],
+          "onEnter": [
+            {
+              "type": "add_modifier",
+              "id": "mod.usa.bank_rumors",
+              "var": "econ.market_stress@{country}",
+              "amount": 10,
+              "curve": {
+                "ramp": 2,
+                "hold": 10,
+                "decay": 20
+              }
+            }
+          ],
+          "responses": [
+            {
+              "id": "reassure",
+              "textKey": "crisis.usa.regional_bank.response.reassure",
+              "capitalCost": 5,
+              "effects": [
+                {
+                  "type": "modify_var",
+                  "var": "econ.market_stress@{country}",
+                  "amount": -5,
+                  "curve": {
+                    "hold": 10,
+                    "decay": 10
+                  }
+                }
+              ]
+            },
+            {
+              "id": "backstop",
+              "textKey": "crisis.usa.regional_bank.response.backstop",
+              "capitalCost": 15,
+              "effects": [
+                {
+                  "type": "set_flag",
+                  "flag": "crisis.usa.regional_bank.backstop_used"
+                },
+                {
+                  "type": "modify_var",
+                  "var": "econ.market_stress@{country}",
+                  "amount": -15,
+                  "curve": {
+                    "hold": 20,
+                    "decay": 20
+                  }
+                }
+              ]
+            }
+          ],
+          "escalateIf": {
+            "all": [
+              {
+                "var": "econ.market_stress@{country}",
+                "op": ">",
+                "value": 60
+              },
+              {
+                "chance": 0.2
+              }
+            ]
+          },
+          "escalateTo": "run",
+          "resolveIf": {
+            "flag": "crisis.usa.regional_bank.backstop_used"
+          },
+          "resolveTo": "contained",
+          "next": "contained"
+        },
+        {
+          "id": "run",
+          "textKey": "crisis.usa.regional_bank.run",
+          "durationDays": [
+            5,
+            15
+          ],
+          "onEnter": [
+            {
+              "type": "add_modifier",
+              "id": "mod.usa.bank_run",
+              "var": "econ.market_stress@{country}",
+              "amount": 20,
+              "curve": {
+                "ramp": 3,
+                "hold": 15,
+                "decay": 30
+              }
+            },
+            {
+              "type": "modify_var",
+              "var": "econ.consumer_confidence@{country}",
+              "amount": -5,
+              "curve": {
+                "hold": 30,
+                "decay": 60
+              }
+            }
+          ],
+          "responses": [
+            {
+              "id": "backstop",
+              "textKey": "crisis.usa.regional_bank.response.backstop_late",
+              "capitalCost": 20,
+              "effects": [
+                {
+                  "type": "set_flag",
+                  "flag": "crisis.usa.regional_bank.backstop_used"
+                }
+              ]
+            }
+          ],
+          "escalateIf": {
+            "all": [
+              {
+                "var": "econ.market_stress@{country}",
+                "op": ">",
+                "value": 80
+              },
+              {
+                "chance": 0.3
+              }
+            ]
+          },
+          "escalateTo": "contagion",
+          "resolveIf": {
+            "flag": "crisis.usa.regional_bank.backstop_used"
+          },
+          "resolveTo": "contained",
+          "next": "contained"
+        },
+        {
+          "id": "contained",
+          "textKey": "crisis.usa.regional_bank.contained",
+          "terminal": true,
+          "autoPause": false
+        },
+        {
+          "id": "contagion",
+          "textKey": "crisis.usa.regional_bank.contagion",
+          "terminal": true,
+          "onEnter": [
+            {
+              "type": "add_modifier",
+              "id": "mod.usa.bank_contagion",
+              "var": "econ.market_stress@{country}",
+              "amount": 25,
+              "curve": {
+                "ramp": 5,
+                "hold": 60,
+                "decay": 90
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
